@@ -99,7 +99,7 @@ export default function AdvanceTaxPage({ searchParams }: Props) {
         <div>
           <h2 className="mb-1 text-xl font-semibold">Understanding Advance Tax</h2>
           <p className="mb-6 text-sm text-muted-foreground">
-            Advance tax is the government's mechanism to collect tax throughout the year rather than as a lump sum at filing time. Pay it in four instalments or face interest penalties.
+            Advance tax is the government&apos;s mechanism to collect tax throughout the year rather than as a lump sum at filing time. Pay it in four instalments or face interest penalties.
           </p>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
             {KEY_POINTS.map(({ label, desc }) => (

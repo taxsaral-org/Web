@@ -13,7 +13,6 @@ import { cn } from "@/lib/utils";
 const rule = getRuleForYear("TY-2026-27");
 const inrFmt = new Intl.NumberFormat("en-IN");
 const fmt = (n: number) => `₹${inrFmt.format(Math.round(Math.abs(n)))}`;
-const clamp = (v: number, min: number, max: number) => Math.min(Math.max(v, min), max);
 
 function parseNum(raw: string): number {
   const n = parseFloat(raw.replace(/[^0-9.]/g, ""));

@@ -324,7 +324,7 @@ function PropertyComputation({ r }: { r: HpPropertyResult }) {
 // ── Per-property card ─────────────────────────────────────────────────────────
 
 function PropertyCard({
-  form, index, result, properties, onUpdate, onRemove,
+  form, index, result, properties: _properties, onUpdate, onRemove,
 }: {
   form: PropertyForm;
   index: number;

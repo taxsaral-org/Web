@@ -122,7 +122,7 @@ export default function HraPage() {
               </li>
             </ol>
             <p className="text-muted-foreground pt-2 border-t">
-              The remaining HRA (total received minus exempt amount) is added to your taxable income under "Salaries".
+              The remaining HRA (total received minus exempt amount) is added to your taxable income under &ldquo;Salaries&rdquo;.
             </p>
           </div>
         </div>
