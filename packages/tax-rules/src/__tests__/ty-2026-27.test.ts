@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { getRuleForYear, RULES_TY_2026_27 } from "../ty-2026-27";
+import { getRuleForYear, RULES_TY_2026_27 } from "../index";
 
 // ─── helpers ─────────────────────────────────────────────────────────────────
 
