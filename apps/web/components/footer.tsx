@@ -15,7 +15,7 @@ export function Footer() {
     <footer className="mt-16 border-t bg-muted/30">
       <div className="container mx-auto max-w-6xl px-4 py-10">
         {/* Top row */}
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-3">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-4">
           {/* Brand */}
           <div className="space-y-3">
             <div className="flex items-center gap-2">
@@ -82,6 +82,27 @@ export function Footer() {
                   Ask a Question
                 </Link>
               </li>
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+              Company
+            </p>
+            <ul className="space-y-2">
+              {[
+                { href: "/about", label: "About Us" },
+                { href: "/privacy", label: "Privacy Policy" },
+                { href: "/terms", label: "Terms of Use" },
+                { href: "/ask", label: "Contact Us" },
+              ].map(({ href, label }) => (
+                <li key={href}>
+                  <Link href={href} className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                    {label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
