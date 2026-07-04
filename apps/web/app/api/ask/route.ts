@@ -21,19 +21,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Query exceeds maximum length." }, { status: 400 });
   }
 
-  const accessKey = process.env.WEB3FORMS_ACCESS_KEY;
-
-  if (!accessKey) {
-    if (process.env.NODE_ENV === "development") {
-      console.log("[ask] DEV mode — no WEB3FORMS_ACCESS_KEY set. Payload:");
-      console.log({ email, query });
-      return NextResponse.json({ ok: true });
-    }
-    return NextResponse.json(
-      { error: "Email service is not configured. Please try again later." },
-      { status: 503 }
-    );
-  }
+  const accessKey = process.env.WEB3FORMS_ACCESS_KEY ?? "f47e2743-1ca0-4f7d-8719-3606c38d0c82";
 
   try {
     const res = await fetch("https://api.web3forms.com/submit", {
