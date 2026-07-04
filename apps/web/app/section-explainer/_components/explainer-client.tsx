@@ -8,7 +8,6 @@ import { SECTIONS, CATEGORIES } from "./sections-data";
 import type { Category } from "./sections-data";
 
 const CATEGORY_COLORS: Record<Category, string> = {
-  "Residential Status": "bg-blue-100 text-blue-800",
   "Income Heads":       "bg-purple-100 text-purple-800",
   "House Property":     "bg-orange-100 text-orange-800",
   "Deductions":         "bg-green-100 text-green-800",
