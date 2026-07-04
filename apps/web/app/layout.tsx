@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   title: "TaxSaral — Income Tax Calculators & Guide (IT Act 2025)",
   description:
     "Free Indian income tax calculators for Tax Year 2026-27 built on the Income Tax Act 2025. Regime optimizer, HRA, house property, advance tax — no login, no data stored.",
+  verification: {
+    google: "TG2OfaxVEkco3BQJd7LcvLPlLYT8fXHqE2P1WO_ENz8",
+  },
 };
 
 export default function RootLayout({
