@@ -44,7 +44,7 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Calculators */}
+          {/* Calculators & Guide */}
           <div>
             <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
               Calculators
@@ -60,6 +60,19 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
+            </ul>
+            <p className="mt-5 mb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+              Learn
+            </p>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/guide"
+                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  IT Act 2025 Guide
+                </Link>
+              </li>
             </ul>
           </div>
 

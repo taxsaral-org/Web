@@ -7,6 +7,7 @@ import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
+  { href: "/guide", label: "Guide" },
   { href: "/calculators/regime-optimizer", label: "Regime Optimizer" },
   { href: "/calculators/hra", label: "HRA" },
   { href: "/calculators/house-property-income", label: "House Property" },
