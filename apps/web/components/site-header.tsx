@@ -41,13 +41,13 @@ export function SiteHeader() {
   const isCalculatorActive = CALCULATORS.some(c => pathname === c.href);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b border-primary/10 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm">
       <div className="container mx-auto flex h-14 max-w-6xl items-center justify-between px-4">
 
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 shrink-0">
           <span className="text-lg font-bold tracking-tight">TaxSaral</span>
-          <span className="hidden rounded-full bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary sm:inline">
+          <span className="hidden rounded-full bg-blue-50 border border-blue-200 px-2 py-0.5 text-xs font-semibold text-blue-700 sm:inline">
             IT Act 2025
           </span>
         </Link>

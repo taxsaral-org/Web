@@ -20,7 +20,7 @@ export function Footer() {
           <div className="space-y-3">
             <div className="flex items-center gap-2">
               <span className="text-base font-bold tracking-tight">TaxSaral</span>
-              <span className="rounded-full bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary">
+              <span className="rounded-full bg-blue-50 border border-blue-200 px-2 py-0.5 text-xs font-semibold text-blue-700">
                 IT Act 2025
               </span>
             </div>
