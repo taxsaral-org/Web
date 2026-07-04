@@ -68,6 +68,19 @@ export function SiteHeader() {
             Guide
           </Link>
 
+          {/* Section Explainer link */}
+          <Link
+            href="/section-explainer"
+            className={cn(
+              "rounded-md px-3 py-1.5 text-sm transition-colors",
+              pathname === "/section-explainer"
+                ? "bg-primary/10 text-primary font-medium"
+                : "text-muted-foreground hover:bg-muted hover:text-foreground"
+            )}
+          >
+            Sections
+          </Link>
+
           {/* Calculators dropdown */}
           <div ref={dropdownRef} className="relative">
             <button
@@ -148,6 +161,18 @@ export function SiteHeader() {
               )}
             >
               Guide
+            </Link>
+            <Link
+              href="/section-explainer"
+              onClick={() => setMobileOpen(false)}
+              className={cn(
+                "rounded-md px-3 py-2.5 text-sm font-medium transition-colors",
+                pathname === "/section-explainer"
+                  ? "bg-primary/10 text-primary"
+                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
+              )}
+            >
+              Section Explainer
             </Link>
 
             {/* Calculators section */}
