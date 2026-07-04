@@ -18,6 +18,7 @@ const CATEGORY_COLORS: Record<Category, string> = {
   "Advance Tax":        "bg-amber-100 text-amber-800",
   "Interest & Penalties": "bg-red-100 text-red-800",
   "Special Income":     "bg-cyan-100 text-cyan-800",
+  "Agricultural Income": "bg-lime-100 text-lime-800",
 };
 
 export function ExplainerClient() {

@@ -8,7 +8,8 @@ export type Category =
   | "TDS"
   | "Advance Tax"
   | "Interest & Penalties"
-  | "Special Income";
+  | "Special Income"
+  | "Agricultural Income";
 
 export interface Example {
   title: string;
@@ -42,6 +43,7 @@ export const CATEGORIES: Category[] = [
   "Advance Tax",
   "Interest & Penalties",
   "Special Income",
+  "Agricultural Income",
 ];
 
 export const SECTIONS: SectionEntry[] = [
@@ -1663,6 +1665,216 @@ export const SECTIONS: SectionEntry[] = [
       "salaries-charging",
       "standard-deduction-salary",
       "investments-insurance-80c",
+    ],
+  },
+
+  // ── Agricultural Income ───────────────────────────────────────────────────
+  {
+    slug: "agricultural-income-definition",
+    section2025: "Section 2(5) + Section 11",
+    section1961: "Section 2(1A) + Section 10(1)",
+    title: "Agricultural Income — Definition & Full Exemption",
+    explanation:
+      "Agricultural income is completely exempt from income tax under Section 11 read with Schedule 2. To qualify, income must fall within one of the four categories defined in Section 2(5): agricultural produce, nursery income, agricultural land rent, or rural dwelling/warehouse rent used for agricultural purposes.",
+    category: "Agricultural Income",
+    keywords: [
+      "agricultural income",
+      "farm income",
+      "agri exempt",
+      "nursery",
+      "land rent",
+      "Section 2(5)",
+      "Section 11",
+      "10(1)",
+      "farmer",
+      "crop",
+    ],
+    whoItApplies:
+      "Farmers, landowners renting agricultural land, nursery operators, and any individual or HUF earning rural land-based income.",
+    keyPoints: [
+      "Nursery income — growing and selling plants — qualifies 100% as agricultural income with no bifurcation required.",
+      "Rent from agricultural land qualifies regardless of whether the land is in a rural or urban location.",
+      "Rent from a dwelling house or warehouse qualifies ONLY if the unit is in a Rural Area AND is used for agricultural purposes.",
+      "Agricultural produce sold directly (unprocessed) is fully exempt. If you process it in your own factory, Rule 270 bifurcation is required to separate the farming and manufacturing portions.",
+    ],
+    examples: [
+      {
+        title: "Nursery vs. processed produce — two different treatments",
+        scenario:
+          "Padma runs a plant nursery (sells seedlings and potted plants — ₹8L/year) and also grows sugarcane which she processes into jaggery in her own unit (total sale ₹20L).",
+        calculation:
+          "Nursery income: ₹8,00,000\n  → 100% agricultural income, fully exempt\n  → No bifurcation required\n\nSugarcane (processed into jaggery):\n  → Rule 270 bifurcation required\n  → FMV of raw sugarcane − cultivation cost = Agri income (exempt)\n  → Jaggery sale − FMV of cane − processing cost = Business income (taxable)\n  (see Rule 270 entry for detailed calculation)",
+        result:
+          "Padma's nursery income (₹8L) is entirely exempt — no rule needed. Her jaggery business requires Rule 270 bifurcation because she processes her own produce. The two activities are treated completely differently.",
+      },
+      {
+        title: "Agricultural land rent — urban vs. rural",
+        scenario:
+          "Rajan owns two parcels. Parcel A: farmland on the outskirts of Pune city limits, rented at ₹3L/year for cultivation. Parcel B: a godown in his village rented to a grocery store at ₹1.2L/year.",
+        calculation:
+          "Parcel A (agricultural land rent):\n  → Qualifies under Section 2(5) regardless of urban location\n  → ₹3,00,000 fully exempt\n\nParcel B (village godown, rented to grocery store):\n  → Dwelling/warehouse rent qualifies ONLY if used for agricultural purposes\n  → Grocery store is not agricultural use → does NOT qualify\n  → ₹1,20,000 taxable as House Property income",
+        result:
+          "Rajan's urban farmland rent (₹3L) is fully exempt. His village godown rent (₹1.2L) is taxable because the tenant uses it commercially, not agriculturally. The use of the building matters, not its rural location alone.",
+      },
+    ],
+    relatedSlugs: [
+      "rule-270-field-to-factory",
+      "rule-271-tea-coffee-rubber",
+      "partial-integration-agricultural",
+      "heads-of-income",
+    ],
+  },
+  {
+    slug: "rule-270-field-to-factory",
+    section2025: "Rule 270",
+    section1961: "Rules 7 / 7A / 7B / 8",
+    title: "Rule 270 — Separating Farm Income from Factory Profit",
+    explanation:
+      "When a farmer processes their own agricultural produce in their own business (e.g., sugarcane → sugar, groundnuts → oil), income must be split using Rule 270. The farming portion — Fair Market Value (FMV) of raw produce minus cultivation cost — remains exempt agricultural income. The processing profit — sale price minus FMV minus manufacturing cost — is taxable business income.",
+    category: "Agricultural Income",
+    keywords: [
+      "Rule 270",
+      "FMV",
+      "fair market value",
+      "agricultural produce",
+      "processing",
+      "bifurcation",
+      "sugarcane",
+      "agro-processing",
+      "cultivation cost",
+      "field to factory",
+    ],
+    whoItApplies:
+      "Farmers or agro-processors who grow produce and also manufacture it into a finished product in their own unit (sugarcane → sugar, groundnuts → oil, cotton → yarn, etc.).",
+    keyPoints: [
+      "The Fair Market Value (FMV) of raw produce at the farm gate is the dividing line between exempt agri income and taxable business income.",
+      "Exempt agri income = FMV of raw produce − cultivation cost.",
+      "Taxable business income = Sale price of processed product − FMV of raw produce − cost of processing.",
+      "If you sell produce raw (without processing), the full profit is agricultural income — Rule 270 only applies when you process in your own factory.",
+    ],
+    examples: [
+      {
+        title: "The Sugarcane Split — Mr. Amar's crop",
+        scenario:
+          "Mr. Amar grows sugarcane. 40% of his crop (worth ₹12L at market) is sold raw to traders. 60% is sent to his own sugar factory where cane (FMV ₹25L) is converted into sugar (sold for ₹30L). Cultivation costs: ₹6L for direct-sale portion, ₹15L for factory portion. Manufacturing expenses: ₹1.5L.",
+        calculation:
+          "── 40% DIRECT SALE (raw) ──────────────────────\nSale proceeds:          ₹12,00,000\nLess cultivation cost: – ₹6,00,000\nAgri income (exempt):   ₹6,00,000 ✓\n\n── 60% FACTORY PROCESSING ────────────────────\nStep A — Farming portion (Rule 270):\n  FMV of raw sugarcane:   ₹25,00,000\n  Less cultivation cost: – ₹15,00,000\n  Agri income (exempt):   ₹10,00,000 ✓\n\nStep B — Manufacturing portion:\n  Sugar sale proceeds:    ₹30,00,000\n  Less FMV of cane:      – ₹25,00,000\n  Less mfg expenses:     – ₹1,50,000\n  Business income (taxable): ₹3,50,000\n\n──────────────────────────────────────────────\nTotal Agri Income (exempt): ₹16,00,000\nTotal Business Income (taxable): ₹3,50,000",
+        result:
+          "Mr. Amar's ₹16L farming income is completely exempt. Only his ₹3.5L manufacturing profit is taxable as business income. Without Rule 270, the entire ₹42L receipts could be taxed — Rule 270 protects the genuine agricultural value at each stage.",
+      },
+    ],
+    relatedSlugs: [
+      "agricultural-income-definition",
+      "rule-271-tea-coffee-rubber",
+      "partial-integration-agricultural",
+    ],
+  },
+  {
+    slug: "rule-271-tea-coffee-rubber",
+    section2025: "Rule 271",
+    section1961: "Rules 7A / 7B / 8",
+    title: "Rule 271 — Fixed Splits for Tea, Coffee & Rubber",
+    explanation:
+      "For Tea, Coffee, and Rubber — crops where growing and manufacturing are inseparably intertwined — the law prescribes fixed statutory percentage splits instead of requiring individual FMV calculations. This removes the need to determine a 'farm gate price' for these complex crops.",
+    category: "Agricultural Income",
+    keywords: [
+      "Rule 271",
+      "tea",
+      "coffee",
+      "rubber",
+      "statutory split",
+      "percentage",
+      "bifurcation",
+      "plantation",
+      "agri percentage",
+    ],
+    whoItApplies:
+      "Tea, coffee, and rubber plantation owners and manufacturers who grow and process their own crop.",
+    keyPoints: [
+      "Tea (grown and manufactured): 60% of income is agricultural (exempt), 40% is business income (taxable).",
+      "Coffee (grown and cured only): 75% agricultural, 25% business.",
+      "Coffee (grown, cured, roasted AND grounded): 60% agricultural, 40% business — the extra processing shifts 15% from exempt to taxable.",
+      "Rubber (growing and manufacturing): 65% agricultural, 35% business.",
+    ],
+    examples: [
+      {
+        title: "Tea estate — 60/40 split",
+        scenario:
+          "A tea estate in Assam earns ₹1,00,00,000 (₹1 crore) in total income from growing and manufacturing tea bags. What portion is taxable?",
+        calculation:
+          "Total income: ₹1,00,00,000\n\nRule 271 split for Tea (grown & manufactured):\n  Agricultural income (60%): ₹60,00,000 → Exempt\n  Business income (40%):     ₹40,00,000 → Taxable PGBP\n\nTax on ₹40L business income (default regime):\n  ₹0–4L:    Nil\n  ₹4L–8L:   5%  = ₹20,000\n  ₹8L–12L:  10% = ₹40,000\n  ₹12L–16L: 15% = ₹60,000\n  ₹16L–20L: 20% = ₹80,000\n  ₹20L–24L: 25% = ₹1,00,000\n  ₹24L–40L: 30% = ₹4,80,000\n  Total tax: ₹7,80,000 + 4% cess = ₹8,11,200\n\n(Plus partial integration if there is other non-agri income)",
+        result:
+          "The estate pays tax on ₹40L (40% of revenue) — ₹60L is permanently exempt. No FMV calculations are needed; the 60/40 rule is applied mechanically to the total income.",
+      },
+      {
+        title: "Coffee — curing vs. roasting makes a difference",
+        scenario:
+          "A Karnataka coffee grower earns ₹50L. Compare: (A) selling cured coffee beans vs. (B) selling roasted and ground coffee.",
+        calculation:
+          "Option A — Grown and Cured only:\n  Agricultural (75%): ₹37,50,000 → Exempt\n  Business (25%):     ₹12,50,000 → Taxable\n\nOption B — Grown, Cured, Roasted & Grounded:\n  Agricultural (60%): ₹30,00,000 → Exempt\n  Business (40%):     ₹20,00,000 → Taxable\n\nExtra processing (roasting + grinding) shifts:\n  Additional taxable income: ₹20L – ₹12.5L = ₹7,50,000\n  Additional tax (approx.): ₹7.5L × 20% = ₹1,50,000",
+        result:
+          "Adding a roasting and grinding unit increases taxable business income by ₹7.5L — the extra processing reduces the agricultural exemption from 75% to 60%. The decision to add a roastery has a direct, quantifiable tax cost that must be weighed against the higher sale price of finished coffee.",
+      },
+    ],
+    relatedSlugs: [
+      "agricultural-income-definition",
+      "rule-270-field-to-factory",
+      "partial-integration-agricultural",
+    ],
+  },
+  {
+    slug: "partial-integration-agricultural",
+    section2025: "Schedule 2 + IT Rules (Partial Integration)",
+    section1961: "Section 2(1A) + Section 10(1) — Partial Integration Method",
+    title: "Partial Integration — How Agricultural Income Raises Your Tax Bracket",
+    explanation:
+      "Although agricultural income is fully exempt from tax, it is added to your non-agricultural income to determine the tax rate on that non-agricultural income. This '4-step staircase' method ensures exempt agri income pushes your taxable income into higher slabs — a silent rate hike even though the agri income itself is never taxed.",
+    category: "Agricultural Income",
+    keywords: [
+      "partial integration",
+      "agricultural income tax",
+      "rate uplift",
+      "agri slab",
+      "4-step method",
+      "HUF",
+      "AOP",
+      "agri threshold",
+      "5000",
+      "non-agri",
+    ],
+    whoItApplies:
+      "Individuals, HUFs, AOPs, BOIs, and AJPs who have both agricultural income exceeding ₹5,000 AND non-agricultural income exceeding the basic exemption limit.",
+    keyPoints: [
+      "Three conditions must ALL be met for partial integration to apply: (1) taxpayer is an Individual / HUF / AOP / BOI / AJP, (2) net agricultural income > ₹5,000, and (3) non-agricultural income exceeds the basic exemption limit.",
+      "The 4-step method: compute tax on (non-agri + agri), subtract tax on (basic exemption + agri), add surcharge and cess on the result.",
+      "Agricultural income itself is never directly taxed — but it occupies the lowest slabs, forcing your non-agri income to be taxed at the marginal (higher) rates.",
+      "Companies, LLPs, and firms are NOT subject to partial integration — only the entity types listed above.",
+    ],
+    examples: [
+      {
+        title: "Farmer with salary income — the bracket uplift",
+        scenario:
+          "Suresh is a farmer with net agricultural income of ₹6,00,000 and non-agricultural income (salary) of ₹9,00,000 in TY 2026-27. He uses the default regime. Basic exemption limit = ₹4,00,000.",
+        calculation:
+          "CONDITIONS CHECK:\n  Suresh is an Individual ✓\n  Agri income ₹6L > ₹5,000 ✓\n  Non-agri income ₹9L > ₹4L basic exemption ✓\n  → Partial integration applies\n\nSTEP 1 — Tax on total (non-agri + agri):\n  Total: ₹9L + ₹6L = ₹15,00,000\n  ₹0–4L:    Nil\n  ₹4L–8L:   5%  × ₹4L = ₹20,000\n  ₹8L–12L:  10% × ₹4L = ₹40,000\n  ₹12L–15L: 15% × ₹3L = ₹45,000\n  Step 1 tax:          ₹1,05,000\n\nSTEP 2 — Tax on (basic exemption + agri):\n  Total: ₹4L + ₹6L = ₹10,00,000\n  ₹0–4L:   Nil\n  ₹4L–8L:  5%  × ₹4L = ₹20,000\n  ₹8L–10L: 10% × ₹2L = ₹20,000\n  Step 2 tax:          ₹40,000\n\nSTEP 3 — Base liability:\n  ₹1,05,000 – ₹40,000 = ₹65,000\n\nSTEP 4 — Add 4% Health & Education Cess:\n  ₹65,000 × 1.04 = ₹67,600\n\n────────────────────────────────────\nFINAL TAX PAYABLE: ₹67,600",
+        result:
+          "Suresh pays ₹67,600 tax on his ₹9L salary. Without any agricultural income, his salary tax would be only ₹31,200 (tax on ₹9L alone at slab rates + cess). The ₹6L exempt agri income costs him an extra ₹36,400 in tax on his salary — because it fills the lower slabs and pushes his salary into the 15% bracket instead of 10%.",
+      },
+      {
+        title: "When partial integration does NOT apply",
+        scenario:
+          "Geeta has agricultural income of ₹3,000 (below ₹5,000 threshold) and salary of ₹8L. Does partial integration apply?",
+        calculation:
+          "CONDITIONS CHECK:\n  Geeta is an Individual ✓\n  Agri income ₹3,000 > ₹5,000? ✗ (FAILS)\n  → Partial integration does NOT apply\n\nTax is computed only on non-agri income ₹8L:\n  ₹0–4L:  Nil\n  ₹4L–8L: 5% × ₹4L = ₹20,000\n  + 4% cess: ₹20,800",
+        result:
+          "Geeta's small agri income (₹3,000) is simply exempt — no rate uplift, no 4-step calculation. The ₹5,000 threshold is a meaningful carve-out for subsistence farmers with minimal agri earnings.",
+      },
+    ],
+    relatedSlugs: [
+      "agricultural-income-definition",
+      "rule-270-field-to-factory",
+      "rule-271-tea-coffee-rubber",
+      "default-tax-regime-slabs",
     ],
   },
 ];
