@@ -357,7 +357,7 @@ export function ResidentialStatusClient() {
 
   // Clamp stepIndex if applicable steps shrink
   const safeIndex = Math.min(stepIndex, steps.length - 1);
-  const currentStepId = steps[safeIndex];
+  const currentStepId = steps[safeIndex] as StepId;
   const allDone = steps.every(id => isStepComplete(id, state));
 
   const advance = () => {
@@ -454,19 +454,19 @@ export function ResidentialStatusClient() {
 
 function CompletedStepSummary({ stepId, state, onEdit }: { stepId: StepId; state: WizardState; onEdit: () => void }) {
   const summaries: Record<StepId, string> = {
-    "citizenship": {
-      indian: "Indian citizen",
-      pio: "Person of Indian Origin (PIO)",
-      foreign: "Foreign national",
-    }[state.citizenship ?? ""] ?? "",
+    "citizenship": state.citizenship
+      ? ({ indian: "Indian citizen", pio: "Person of Indian Origin (PIO)", foreign: "Foreign national" } as const)[state.citizenship]
+      : "",
     "days-this-year": `${parseNum(state.daysThisYear, 366)} days in India, TY 2026-27`,
     "prior-4-years": `${parseNum(state.py1, 366) + parseNum(state.py2, 366) + parseNum(state.py3, 366) + parseNum(state.py4, 366)} days cumulative over prior 4 years`,
-    "left-india": {
-      crew: "Left as crew of Indian ship [Sec 6(3)(a)]",
-      employment: "Left for employment abroad [Sec 6(3)(b)]",
-      both: "Left as crew AND for employment [Sec 6(3)]",
-      neither: "Did not leave as crew or for employment",
-    }[state.leaveReason ?? ""] ?? "",
+    "left-india": state.leaveReason
+      ? ({
+          crew: "Left as crew of Indian ship [Sec 6(3)(a)]",
+          employment: "Left for employment abroad [Sec 6(3)(b)]",
+          both: "Left as crew AND for employment [Sec 6(3)]",
+          neither: "Did not leave as crew or for employment",
+        } as const)[state.leaveReason]
+      : "",
     "foreign-ship": state.isCrewForeignShip ? "Crew of a foreign-bound ship [Sec 6(6)]" : "Not crew of foreign-bound ship",
     "visitor": state.isVisitor ? "Came to India on a visit from abroad [Sec 6(4)]" : "Not a visitor from abroad",
     "income": `Income excl. foreign sources: ${fmtInr(parseNum(state.incomeRaw))}`,

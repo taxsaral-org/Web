@@ -227,7 +227,7 @@ export function AskClient() {
         const msg = data?.error ?? "Something went wrong. Please try again.";
         setSubmitError(msg);
         // Remove the optimistic user message on failure
-        setMessages(prev => prev.filter(m => m.ts !== prev[prev.length - 1].ts));
+        setMessages(prev => prev.slice(0, -1));
         setDraft(text);
       }
     } catch {
