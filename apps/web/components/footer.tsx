@@ -74,6 +74,14 @@ export function Footer() {
                   IT Act 2025 Guide
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/ask"
+                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  Ask a Question
+                </Link>
+              </li>
             </ul>
           </div>
 

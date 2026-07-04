@@ -53,6 +53,14 @@ export function SiteHeader() {
           ))}
         </nav>
 
+        {/* Ask CTA — desktop only */}
+        <Link
+          href="/ask"
+          className="hidden sm:inline-flex items-center gap-1.5 rounded-lg border border-primary/40 bg-primary/5 px-3 py-1.5 text-xs font-medium text-primary hover:bg-primary/10 transition-colors shrink-0"
+        >
+          Ask a Question
+        </Link>
+
         {/* Mobile hamburger */}
         <button
           type="button"
@@ -84,6 +92,18 @@ export function SiteHeader() {
                 {label}
               </Link>
             ))}
+            <Link
+              href="/ask"
+              onClick={() => setOpen(false)}
+              className={cn(
+                "mt-1 rounded-md px-3 py-2.5 text-sm font-medium transition-colors",
+                pathname === "/ask"
+                  ? "bg-primary/10 text-primary"
+                  : "text-primary hover:bg-primary/10"
+              )}
+            >
+              Ask a Question
+            </Link>
           </nav>
         </div>
       )}
