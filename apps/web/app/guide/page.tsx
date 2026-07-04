@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   BookOpen, ArrowRight, AlertTriangle, CheckCircle2,
-  FileText, Lightbulb, RefreshCw, IndianRupee, Users, Building2,
+  FileText, Lightbulb, RefreshCw, IndianRupee, Building2,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -510,7 +510,7 @@ export default function GuidePage() {
                   "Home loan interest certificate from your bank (for the period April 2026 – March 2027)",
                   "Property tax payment receipts (if you own let-out property)",
                   "Rent receipts and rent agreement (if claiming HRA under optional regime)",
-                  "Landlord&apos;s PAN (mandatory if annual rent exceeds ₹1 lakh)",
+                  "Landlord's PAN (mandatory if annual rent exceeds ₹1 lakh)",
                   "Investment proofs: PPF passbook, ELSS statements, LIC premium receipts, EPF statement",
                   "Health insurance premium payment receipts (for Section 130 deduction)",
                   "Capital gains statements from your broker or demat provider (if you sold equity/MF/property)",
@@ -554,7 +554,7 @@ export default function GuidePage() {
                   {items.map((item) => (
                     <li key={item} className="flex gap-2 items-start text-xs text-muted-foreground">
                       <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-500" />
-                      <span dangerouslySetInnerHTML={{ __html: item }} />
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
