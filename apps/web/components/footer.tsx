@@ -77,6 +77,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/section-mapping" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                  1961 → 2025 Mapping
+                </Link>
+              </li>
+              <li>
                 <Link href="/ask" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
                   Ask a Question
                 </Link>

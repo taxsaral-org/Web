@@ -73,12 +73,25 @@ export function SiteHeader() {
             href="/section-explainer"
             className={cn(
               "rounded-md px-3 py-1.5 text-sm transition-colors",
-              pathname === "/section-explainer"
+              pathname === "/section-explainer" || pathname?.startsWith("/section-explainer/")
                 ? "bg-primary/10 text-primary font-medium"
                 : "text-muted-foreground hover:bg-muted hover:text-foreground"
             )}
           >
             Sections
+          </Link>
+
+          {/* Section Mapping link */}
+          <Link
+            href="/section-mapping"
+            className={cn(
+              "rounded-md px-3 py-1.5 text-sm transition-colors",
+              pathname === "/section-mapping"
+                ? "bg-primary/10 text-primary font-medium"
+                : "text-muted-foreground hover:bg-muted hover:text-foreground"
+            )}
+          >
+            Mapping
           </Link>
 
           {/* Calculators dropdown */}
@@ -167,12 +180,24 @@ export function SiteHeader() {
               onClick={() => setMobileOpen(false)}
               className={cn(
                 "rounded-md px-3 py-2.5 text-sm font-medium transition-colors",
-                pathname === "/section-explainer"
+                pathname === "/section-explainer" || pathname?.startsWith("/section-explainer/")
                   ? "bg-primary/10 text-primary"
                   : "text-muted-foreground hover:bg-muted hover:text-foreground"
               )}
             >
               Section Explainer
+            </Link>
+            <Link
+              href="/section-mapping"
+              onClick={() => setMobileOpen(false)}
+              className={cn(
+                "rounded-md px-3 py-2.5 text-sm font-medium transition-colors",
+                pathname === "/section-mapping"
+                  ? "bg-primary/10 text-primary"
+                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
+              )}
+            >
+              1961 → 2025 Mapping
             </Link>
 
             {/* Calculators section */}
