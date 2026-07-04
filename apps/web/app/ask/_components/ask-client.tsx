@@ -201,15 +201,23 @@ export function AskClient() {
     setSubmitting(true);
 
     try {
-      const res = await fetch("/api/ask", {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: userEmail, query: text }),
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: "f47e2743-1ca0-4f7d-8719-3606c38d0c82",
+          subject: `Tax Query — TaxSaral (from ${userEmail})`,
+          from_name: "TaxSaral Visitor",
+          reply_to: userEmail,
+          email: userEmail,
+          message: `From: ${userEmail}\n\nQuery:\n${text}`,
+          botcheck: false,
+        }),
       });
 
       const data = await res.json().catch(() => ({}));
 
-      if (res.ok) {
+      if (data.success) {
         setTyping(true);
         setTimeout(() => {
           setTyping(false);
@@ -224,14 +232,13 @@ export function AskClient() {
           setPhase("success");
         }, 1200);
       } else {
-        const msg = data?.error ?? "Something went wrong. Please try again.";
+        const msg = data?.message ?? data?.error ?? "Something went wrong. Please try again.";
         setSubmitError(msg);
-        // Remove the optimistic user message on failure
         setMessages(prev => prev.slice(0, -1));
         setDraft(text);
       }
     } catch {
-      setSubmitError("Unable to submit. Please check your connection and try again.");
+      setSubmitError("Unable to reach email service. Please check your connection and try again.");
       setMessages(prev => prev.slice(0, -1));
       setDraft(text);
     } finally {
