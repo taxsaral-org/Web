@@ -123,7 +123,11 @@ export function ExplainerClient() {
       ) : (
         <div className="space-y-3">
           {filtered.map((s, i) => (
-            <div key={i} className="rounded-xl border bg-card p-5 hover:border-primary/30 transition-colors">
+            <Link
+              key={i}
+              href={`/section-explainer/${s.slug}`}
+              className="block rounded-xl border bg-card p-5 hover:border-primary/30 transition-colors group"
+            >
               <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="rounded-md bg-primary/10 px-2.5 py-1 text-sm font-mono font-semibold text-primary">
@@ -139,9 +143,12 @@ export function ExplainerClient() {
                   {s.category}
                 </span>
               </div>
-              <p className="font-semibold text-sm mb-1.5">{s.title}</p>
+              <p className="font-semibold text-sm mb-1.5 group-hover:text-primary transition-colors">{s.title}</p>
               <p className="text-sm text-muted-foreground leading-relaxed">{s.explanation}</p>
-            </div>
+              <p className="mt-3 text-xs text-primary font-medium flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                View examples & details <ArrowRight className="h-3 w-3" />
+              </p>
+            </Link>
           ))}
         </div>
       )}
