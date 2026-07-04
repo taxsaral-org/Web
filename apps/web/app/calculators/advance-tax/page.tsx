@@ -20,15 +20,15 @@ const AT_FAQS = [
   },
   {
     q: "What are the four advance tax instalment due dates?",
-    a: "Q1: 15% of annual liability by June 15, 2026. Q2: 45% (cumulative) by September 15, 2026. Q3: 75% (cumulative) by December 15, 2026. Q4: 100% by March 15, 2027. Missing these dates attracts interest under Section 234C at 1% per month on the shortfall.",
+    a: "Q1: 15% of annual liability by June 15, 2026. Q2: 45% (cumulative) by September 15, 2026. Q3: 75% (cumulative) by December 15, 2026. Q4: 100% by March 15, 2027. Missing these dates attracts interest under Section 425 at 1% per month on the shortfall.",
   },
   {
     q: "Are senior citizens exempt from advance tax?",
-    a: "Yes. Senior citizens (age 60 or above during the financial year) who do not have income from business or profession are exempt from paying advance tax under Section 425. They can pay the entire tax as self-assessment tax before filing, without any Section 234C interest penalty.",
+    a: "Yes. Senior citizens (age 60 or above during the financial year) who do not have income from business or profession are exempt from paying advance tax under Section 403. They can pay the entire tax as self-assessment tax before filing, without any Section 425 interest penalty.",
   },
   {
     q: "What if I underestimate my income?",
-    a: "If your advance tax payments fall short of 90% of your actual tax liability, interest under Section 234B applies at 1% per month from April 1 to the date of payment. Additionally, if any individual instalment was short, Section 234C interest applies on that instalment's shortfall for 3 months. This calculator helps you plan based on your best estimate for the full year.",
+    a: "If your advance tax payments fall short of 90% of your actual tax liability, interest under Section 424 applies at 1% per month from April 1 to the date of payment. Additionally, if any individual instalment was short, Section 425 interest applies on that instalment's shortfall for 3 months. This calculator helps you plan based on your best estimate for the full year.",
   },
   {
     q: "How do I pay advance tax?",
@@ -36,7 +36,7 @@ const AT_FAQS = [
   },
   {
     q: "I have capital gains during the year. How do I handle advance tax?",
-    a: "Capital gains are often unpredictable (you don't always know in advance when you'll sell an asset). The law provides some relief: for capital gains arising in the 3rd or 4th quarter, you can include them in your Q3 or Q4 instalment estimate respectively. If a gain arose late in the year and you couldn't reasonably estimate it earlier, Section 234C interest is generally not levied for the earlier installments — but Q4 must still catch up to 100%.",
+    a: "Capital gains are often unpredictable (you don't always know in advance when you'll sell an asset). The law provides some relief: for capital gains arising in the 3rd or 4th quarter, you can include them in your Q3 or Q4 instalment estimate respectively. If a gain arose late in the year and you couldn't reasonably estimate it earlier, Section 425 interest is generally not levied for the earlier installments — but Q4 must still catch up to 100%.",
   },
 ];
 
@@ -47,7 +47,7 @@ const KEY_POINTS = [
   },
   {
     label: "4 quarterly instalments",
-    desc: "Jun 15 (15%), Sep 15 (45%), Dec 15 (75%), Mar 15 (100%) — cumulative percentages. Missing any instalment attracts 1% per month interest under Section 234C.",
+    desc: "Jun 15 (15%), Sep 15 (45%), Dec 15 (75%), Mar 15 (100%) — cumulative percentages. Missing any instalment attracts 1% per month interest under Section 425.",
   },
   {
     label: "Salaried + other income",
@@ -131,7 +131,7 @@ export default function AdvanceTaxPage({ searchParams }: Props) {
                   <td className="px-4 py-3 font-medium">Q1</td>
                   <td className="px-4 py-3">Jun 15, 2026</td>
                   <td className="px-4 py-3">15% of annual liability</td>
-                  <td className="px-4 py-3 text-muted-foreground text-xs">1% per month interest (Sec. 234C) on shortfall for 3 months</td>
+                  <td className="px-4 py-3 text-muted-foreground text-xs">1% per month interest (Sec. 425) on shortfall for 3 months</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-medium">Q2</td>
@@ -149,7 +149,7 @@ export default function AdvanceTaxPage({ searchParams }: Props) {
                   <td className="px-4 py-3 font-medium">Q4 (final)</td>
                   <td className="px-4 py-3 font-medium">Mar 15, 2027</td>
                   <td className="px-4 py-3 font-medium">100% of annual liability</td>
-                  <td className="px-4 py-3 text-muted-foreground text-xs">Section 234B interest from Apr 1 if less than 90% paid by Mar 31</td>
+                  <td className="px-4 py-3 text-muted-foreground text-xs">Section 424 interest from Apr 1 if less than 90% paid by Mar 31</td>
                 </tr>
               </tbody>
             </table>
@@ -164,13 +164,13 @@ export default function AdvanceTaxPage({ searchParams }: Props) {
           <h2 className="mb-4 text-lg font-semibold">Interest on Short or Late Payment</h2>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div className="rounded-lg border bg-card p-4">
-              <p className="text-sm font-semibold mb-1">Section 234C — Instalment shortfall</p>
+              <p className="text-sm font-semibold mb-1">Section 425 — Instalment shortfall</p>
               <p className="text-xs text-muted-foreground leading-relaxed">
                 1% per month (simple interest) on the shortfall in each quarterly instalment. Applied for 3 months per instalment. Calculated on the difference between what you paid and what you should have paid cumulatively.
               </p>
             </div>
             <div className="rounded-lg border bg-card p-4">
-              <p className="text-sm font-semibold mb-1">Section 234B — Overall shortfall</p>
+              <p className="text-sm font-semibold mb-1">Section 424 — Overall shortfall</p>
               <p className="text-xs text-muted-foreground leading-relaxed">
                 1% per month if you pay less than 90% of your total tax liability by March 31. Interest runs from April 1 of the following year until the date of payment (self-assessment tax or demand date).
               </p>
@@ -219,7 +219,7 @@ export default function AdvanceTaxPage({ searchParams }: Props) {
 
         <div className="rounded-lg border bg-muted/30 p-4 text-xs text-muted-foreground">
           <span className="font-semibold text-foreground">Legal reference: </span>
-          Section 425 (advance tax instalments and due dates) · Section 234B (interest for default in payment) · Section 234C (interest for deferment of advance tax) — Income Tax Act 2025, Tax Year 2026-27 (AY 2027-28).
+          Sections 403–408 (advance tax obligation, computation &amp; instalment schedule) · Section 424 (interest for default in payment — old Sec. 234B) · Section 425 (interest for deferment of instalments — old Sec. 234C) — Income Tax Act 2025, Tax Year 2026-27 (AY 2027-28).
         </div>
       </div>
     </div>

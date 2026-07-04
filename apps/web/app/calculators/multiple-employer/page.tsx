@@ -19,7 +19,7 @@ const ME_FAQS = [
   },
   {
     q: "What if my previous employer didn't provide the details in time?",
-    a: "Even if you couldn't submit Form 12B, your overall tax liability is calculated on your total annual income — not per-employer. If TDS falls short, the shortfall must be paid as advance tax by March 15 or as self-assessment tax before filing. Interest under Section 234B and 234C applies on late or short payment.",
+    a: "Even if you couldn't submit Form 12B, your overall tax liability is calculated on your total annual income — not per-employer. If TDS falls short, the shortfall must be paid as advance tax by March 15 or as self-assessment tax before filing. Interest under Sections 424 and 425 of the IT Act 2025 applies on late or short payment.",
   },
   {
     q: "Do I get the standard deduction from each employer?",
@@ -46,7 +46,7 @@ const KEY_POINTS = [
   },
   {
     label: "Advance tax may apply",
-    desc: "If the TDS shortfall across employers exceeds ₹10,000, you are required to pay advance tax by March 15. Missing it attracts interest under Sections 234B and 234C.",
+    desc: "If the TDS shortfall across employers exceeds ₹10,000, you are required to pay advance tax by March 15. Missing it attracts interest under Sections 424 and 425 (IT Act 2025).",
   },
 ];
 
@@ -165,7 +165,7 @@ export default function MultipleEmployerPage() {
 
         <div className="rounded-lg border bg-muted/30 p-4 text-xs text-muted-foreground">
           <span className="font-semibold text-foreground">Legal reference: </span>
-          Section 392 (TDS on salary) · Section 192(2) (Form 12B obligation) · Sections 234B and 234C (interest on advance tax shortfall) — Income Tax Act 2025, Tax Year 2026-27.
+          Section 392 (TDS on salary) · Section 192(2) (Form 12B obligation) · Section 424 (interest for default in advance tax) · Section 425 (interest for deferment of instalments) — Income Tax Act 2025, Tax Year 2026-27.
         </div>
       </div>
     </div>

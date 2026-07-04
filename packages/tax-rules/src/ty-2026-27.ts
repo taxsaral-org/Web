@@ -126,7 +126,7 @@ export const RULES_TY_2026_27: TaxRule = {
     nonMetroRate: 0.40, // 40% of basic for non-metro cities
   },
 
-  // Advance Tax (Section 425): due when net liability exceeds threshold
+  // Advance Tax (Sections 403-408): obligation, computation and instalment schedule
   advanceTax: {
     threshold: 10_000, // ₹10,000
     installments: [
@@ -171,7 +171,9 @@ export const RULES_TY_2026_27: TaxRule = {
     capitalGainsLTCG: "197",
     capitalGainsLTCGEquity: "198",
     hra: "Schedule III",
-    advanceTax: "425",
+    advanceTax: "403",              // Secs 403-408: advance tax obligation & instalment schedule
+    advanceTaxInterestDefault: "424",    // Sec 424: interest for default in payment (old 234B)
+    advanceTaxInterestDeferment: "425",  // Sec 425: interest for deferment of instalments (old 234C)
     multipleEmployerTds: "392",
     hpCharging: "20",
     hpAnnualValue: "21",
