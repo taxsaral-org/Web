@@ -322,7 +322,6 @@ export const SECTIONS: SectionEntry[] = [
     relatedSlugs: [
       "salaries-charging",
       "house-property-charging",
-      "income-other-sources",
       "stcg-listed-equity-20",
     ],
   },
@@ -426,59 +425,6 @@ export const SECTIONS: SectionEntry[] = [
       "tax-rebate-12-lakh",
     ],
   },
-  {
-    slug: "income-other-sources",
-    section2025: "Section 56",
-    section1961: "Section 56",
-    title: "Income from Other Sources",
-    explanation:
-      "Catch-all head for income not taxable under any other head. Includes bank FD interest, savings account interest, dividends, gifts above ₹50,000 from non-relatives, lottery, and online gaming winnings.",
-    category: "Income Heads",
-    keywords: [
-      "other sources",
-      "interest",
-      "dividend",
-      "gift",
-      "lottery",
-      "FD interest",
-      "online gaming",
-    ],
-    whoItApplies:
-      "Anyone who earns interest, dividends, gifts, or miscellaneous income outside their main employment or business.",
-    keyPoints: [
-      "FD interest is fully taxable at slab rates — the 10% TDS deducted by the bank is a credit, not a final tax.",
-      "Gifts from relatives (spouse, parents, siblings, etc.) are fully exempt, regardless of amount.",
-      "Gifts from non-relatives are exempt up to ₹50,000 per year — beyond that, the entire amount (not just the excess) is taxable.",
-      "Dividends are taxable at slab rates since 2021 — the old 10% dividend distribution tax is gone.",
-    ],
-    examples: [
-      {
-        title: "FD interest and dividend income",
-        scenario:
-          "Ravi has FDs earning ₹80,000 interest and received ₹40,000 in dividends in TY 2026-27. He is in the 20% tax slab.",
-        calculation:
-          "Other Sources income:\n  FD interest:  ₹80,000\n  Dividends:    ₹40,000\n  Total:       ₹1,20,000\n\nTax at 20% slab: ₹1,20,000 × 20% = ₹24,000\n\nTDS already deducted:\n  Bank TDS (10%) on FD: ₹8,000\n  TDS on dividends (10%): ₹4,000\n  Total TDS credit: ₹12,000\n\nBalance tax payable: ₹24,000 – ₹12,000 = ₹12,000",
-        result:
-          "Ravi owes ₹12,000 more in tax. He must declare this income in his ITR and pay the balance via self-assessment. TDS certificates (Form 26AS / AIS) will show the ₹12,000 already deducted.",
-      },
-      {
-        title: "Gift from a friend — taxability",
-        scenario:
-          "Meena receives ₹70,000 in cash as a birthday gift from her close friend (not a relative).",
-        calculation:
-          "Gift from non-relative: ₹70,000\nThreshold: ₹50,000\nSince ₹70,000 > ₹50,000, the ENTIRE ₹70,000 is taxable\n(not just the excess ₹20,000)\n\nTax at her slab (say 10%): ₹7,000",
-        result:
-          "The full ₹70,000 is taxable as Other Sources income. If the gift had been from her mother or sibling (relative), it would be fully exempt. The 'relative' definition under tax law is specific — cousins and friends do not qualify.",
-      },
-    ],
-    relatedSlugs: [
-      "heads-of-income",
-      "savings-account-interest",
-      "senior-citizen-deposit-interest",
-      "virtual-digital-assets-crypto",
-    ],
-  },
-
   // ── House Property ────────────────────────────────────────────────────────
   {
     slug: "house-property-charging",
@@ -958,7 +904,6 @@ export const SECTIONS: SectionEntry[] = [
     ],
     relatedSlugs: [
       "senior-citizen-deposit-interest",
-      "income-other-sources",
       "investments-insurance-80c",
     ],
   },
@@ -1610,7 +1555,6 @@ export const SECTIONS: SectionEntry[] = [
       },
     ],
     relatedSlugs: [
-      "income-other-sources",
       "ltcg-listed-equity-12-5",
       "stcg-listed-equity-20",
     ],
