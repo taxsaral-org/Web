@@ -7,6 +7,7 @@ const CALCULATORS = [
   { href: "/calculators/house-property-income", label: "House Property Income" },
   { href: "/calculators/multiple-employer", label: "Multiple Employer" },
   { href: "/calculators/advance-tax", label: "Advance Tax" },
+  { href: "/calculators/residential-status", label: "Residential Status" },
 ];
 
 export function Footer() {

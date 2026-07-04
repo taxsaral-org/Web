@@ -188,4 +188,15 @@ export const RULES_TY_2026_27: TaxRule = {
     taxCreditStatement: "Form 168",
     taxAuditReport: "Form 26",
   },
+
+  // Section 6 — Residential Status (sub-sections 6(1)–6(14))
+  residentialStatus: {
+    deemedResidentIncomeThreshold: 1_500_000, // Rs 15,00,000 — Secs 6(5), 6(7), 6(13)(b)
+    daysThresholdResident: 182,               // Sec 6(2)(a): 182 days or more
+    daysThresholdStandard: 60,                // Sec 6(2)(b): 60 days (standard)
+    daysThresholdHighIncome: 120,             // Sec 6(5): 120 days (modified for high-income visitor)
+    prior4YearsMinDays: 365,                  // Sec 6(2)(b): 365 days over preceding 4 years
+    norMaxDaysIn7Years: 729,                  // Sec 6(13)(a)(ii): "729 days or less"
+    norMinNrYearsIn10Preceding: 9,            // Sec 6(13)(a)(i): NR in 9 of 10 preceding years
+  },
 };

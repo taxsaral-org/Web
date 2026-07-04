@@ -15,3 +15,11 @@ export type {
   HpPropertyResult,
   HpSummary,
 } from "./house-property";
+export { determineResidentialStatus } from "./residential-status";
+export type {
+  Citizenship,
+  ResidentialStatus,
+  ResidentialStatusInput,
+  ResidentialStatusTrailEntry,
+  ResidentialStatusResult,
+} from "./residential-status";

@@ -13,6 +13,7 @@ const NAV_LINKS = [
   { href: "/calculators/house-property-income", label: "House Property" },
   { href: "/calculators/multiple-employer", label: "Multiple Employer" },
   { href: "/calculators/advance-tax", label: "Advance Tax" },
+  { href: "/calculators/residential-status", label: "Residential Status" },
 ];
 
 export function SiteHeader() {

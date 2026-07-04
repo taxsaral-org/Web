@@ -49,6 +49,15 @@ export interface TaxRule {
   hraMetroCities: string[];
   sections: Record<string, string>;
   forms: Record<string, string>;
+  residentialStatus: {
+    deemedResidentIncomeThreshold: number; // Rs 15,00,000 — Secs 6(5), 6(7), 6(13)(b)
+    daysThresholdResident: number;         // 182 — Sec 6(2)(a)
+    daysThresholdStandard: number;         // 60  — Sec 6(2)(b) default
+    daysThresholdHighIncome: number;       // 120 — Sec 6(5) modified threshold
+    prior4YearsMinDays: number;            // 365 — Sec 6(2)(b) cumulative test
+    norMaxDaysIn7Years: number;            // 729 — Sec 6(13)(a)(ii) "729 or less"
+    norMinNrYearsIn10Preceding: number;    // 9   — Sec 6(13)(a)(i) "9 out of 10"
+  };
 }
 
 export interface TaxResult {
