@@ -42,6 +42,14 @@ const CALCULATORS = [
     badge: "Section 425",
     tip: null,
   },
+  {
+    href: "/calculators/residential-status",
+    title: "Residential Status",
+    description:
+      "Determine whether you are ROR, RNOR, or Non-Resident under Section 6. Step-by-step wizard covering all exceptions for Indian citizens, PIOs, and foreign nationals.",
+    badge: "Section 6",
+    tip: "Essential for NRIs and returning Indians",
+  },
 ];
 
 const TRUST_BADGES = [
