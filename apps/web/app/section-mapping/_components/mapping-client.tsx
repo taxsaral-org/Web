@@ -127,7 +127,7 @@ export function MappingClient() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b bg-muted/40">
-                  <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground w-36">
+                  <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground w-48 max-w-[12rem]">
                     1961 Act
                   </th>
                   <th className="px-2 py-3 text-center w-8" aria-hidden />
@@ -145,7 +145,7 @@ export function MappingClient() {
               <tbody className="divide-y">
                 {filtered.map((m, i) => (
                   <tr key={i} className="hover:bg-muted/20 transition-colors">
-                    <td className="px-4 py-3 font-mono text-xs text-muted-foreground whitespace-nowrap">
+                    <td className="px-4 py-3 font-mono text-xs text-muted-foreground w-48 max-w-[12rem] break-words">
                       Sec. {m.old}
                     </td>
                     <td className="px-2 py-3 text-center text-muted-foreground" aria-hidden>
