@@ -8,7 +8,8 @@ export type Category =
   | "Advance Tax"
   | "Interest & Penalties"
   | "Special Income"
-  | "Agricultural Income";
+  | "Agricultural Income"
+  | "Charitable Trusts & NPOs";
 
 export interface Example {
   title: string;
@@ -42,6 +43,7 @@ export const CATEGORIES: Category[] = [
   "Interest & Penalties",
   "Special Income",
   "Agricultural Income",
+  "Charitable Trusts & NPOs",
 ];
 
 export const SECTIONS: SectionEntry[] = [
@@ -1635,6 +1637,1276 @@ export const SECTIONS: SectionEntry[] = [
       "rule-270-field-to-factory",
       "rule-271-tea-coffee-rubber",
       "default-tax-regime-slabs",
+    ],
+  },
+
+  // ── Charitable Trusts & NPOs ─────────────────────────────────────────────
+
+  {
+    slug: "political-parties-electoral-trusts",
+    section2025: "Section 12",
+    section1961: "Sections 13A & 13B",
+    title: "Exemption for Political Parties and Electoral Trusts",
+    explanation:
+      "Income of registered political parties — from membership fees, voluntary contributions, and property — and approved electoral trusts distributing funds to political parties is fully exempt from income tax, subject to audit and return filing compliance.",
+    category: "Charitable Trusts & NPOs",
+    keywords: [
+      "political party",
+      "electoral trust",
+      "13A",
+      "13B",
+      "section 12",
+      "donation to political party",
+      "exempt income political",
+      "Representation of People Act",
+    ],
+    whoItApplies:
+      "Registered political parties under the Representation of the People Act, 1951, and approved electoral trusts receiving and distributing donations to political parties.",
+    keyPoints: [
+      "All income of a registered political party — membership fees, voluntary contributions, property income — is fully exempt from tax",
+      "Electoral trusts that distribute received funds to registered political parties also get full exemption",
+      "Books of accounts must be maintained and audited by a Chartered Accountant",
+      "Return of income must be filed even though total income is zero (exempt)",
+      "Cash donations of ₹2,000 or more are NOT eligible — must be by cheque, draft, or electoral bond",
+    ],
+    examples: [
+      {
+        title: "Regional Political Party Tax Computation",
+        scenario:
+          "A registered state-level political party receives ₹3 crore in voluntary contributions, ₹25 lakh membership fees, and ₹15 lakh rent from a party-owned building during TY 2026-27.",
+        calculation:
+          "Voluntary contributions:          ₹3,00,00,000\nMembership fees:                  ₹  25,00,000\nRental income:                    ₹  15,00,000\n──────────────────────────────────────────────\nTotal income:                     ₹3,40,00,000\nExemption under Section 12:       ₹3,40,00,000\n──────────────────────────────────────────────\nTaxable income:                   ₹          0\nTax payable:                      ₹          0",
+        result:
+          "Zero tax liability. The party must still file a return, maintain audited books, and ensure no single cash donation is ₹2,000 or more to preserve the exemption.",
+      },
+    ],
+    relatedSlugs: ["donations-80g", "npo-registration-12a-12ab"],
+  },
+
+  {
+    slug: "donations-80g",
+    section2025: "Section 133",
+    section1961: "Section 80G",
+    title: "Deduction for Donations to Charitable Institutions (80G)",
+    explanation:
+      "Donors can claim deductions of 50% or 100% of amounts donated to approved funds and charitable institutions under Section 133. Certain institutions qualify for 100% deduction without any cap, while donations to most others allow only 50% deduction, capped at 10% of adjusted Gross Total Income.",
+    category: "Charitable Trusts & NPOs",
+    keywords: [
+      "80G",
+      "donation deduction",
+      "section 133",
+      "charitable donation",
+      "PM relief fund",
+      "100 percent deduction",
+      "50 percent deduction",
+      "qualifying limit",
+      "PM CARES",
+    ],
+    whoItApplies:
+      "All taxpayers — individuals, HUFs, firms and companies — who donate to funds, trusts, or charitable institutions approved under Section 354 of the IT Act 2025.",
+    keyPoints: [
+      "100% deduction, no qualifying limit: PM National Relief Fund, PM CARES, National Defence Fund, National Children's Fund",
+      "50% deduction, no qualifying limit: Jawaharlal Nehru Memorial Fund, Prime Minister's Drought Relief Fund",
+      "100% deduction with qualifying limit (10% of adjusted GTI): government-approved research associations and institutions",
+      "50% deduction with qualifying limit (10% of adjusted GTI): most registered charitable trusts and institutions",
+      "Cash donations above ₹2,000 are NOT eligible — must be by cheque, draft, or electronic transfer",
+      "Obtain a stamped 80G receipt showing the institution's PAN and valid registration number",
+    ],
+    examples: [
+      {
+        title: "Individual Claiming Multiple 80G Deductions",
+        scenario:
+          "Ramesh has Gross Total Income of ₹12 lakh in TY 2026-27. He donates ₹60,000 to PM CARES Fund (100%, no limit) and ₹1,20,000 to a local orphanage trust (50%, with qualifying limit).",
+        calculation:
+          "Gross Total Income (GTI):              ₹12,00,000\n\nDonation 1 — PM CARES Fund:\n  Amount:                              ₹   60,000\n  Deduction (100%, no limit):          ₹   60,000\n\nDonation 2 — Orphanage Trust (50%, with limit):\n  Amount donated:                      ₹ 1,20,000\n  Qualifying limit (10% of GTI):       ₹ 1,20,000\n  Eligible (lower of two):             ₹ 1,20,000\n  Deduction at 50%:                    ₹   60,000\n\nTotal 80G deduction:                   ₹ 1,20,000\nAdjusted Gross Total Income:           ₹10,80,000",
+        result:
+          "Ramesh saves approximately ₹37,440 in tax (at 30% + 4% cess) by claiming ₹1.20 lakh in 80G deductions. The orphanage must have valid 80G approval under Section 354 for the deduction to be valid.",
+      },
+    ],
+    relatedSlugs: [
+      "npo-80g-approval",
+      "donations-80gga-scientific-rural",
+      "npo-registration-12a-12ab",
+    ],
+  },
+
+  {
+    slug: "donations-80gga-scientific-rural",
+    section2025: "Section 135",
+    section1961: "Section 80GGA",
+    title: "Deduction for Donations for Scientific Research and Rural Development (80GGA)",
+    explanation:
+      "Section 135 provides a 100% deduction — with no qualifying income ceiling — on donations made to approved scientific research associations, universities, rural development institutions, and national bodies for poverty eradication. This section is exclusively available to taxpayers who have no income from business or profession.",
+    category: "Charitable Trusts & NPOs",
+    keywords: [
+      "80GGA",
+      "section 135",
+      "scientific research donation",
+      "rural development",
+      "100 percent no limit",
+      "research institution",
+      "poverty fund",
+    ],
+    whoItApplies:
+      "Individuals, HUFs and other taxpayers whose total income does NOT include any income from business or profession (i.e., salaried employees, pensioners, investors).",
+    keyPoints: [
+      "100% deduction with no qualifying limit — the entire donated amount is deductible",
+      "Eligible recipients: approved scientific research associations, universities for scientific research, rural development institutions, National Urban Poverty Eradication Fund",
+      "NOT available to taxpayers with business or professional income — they must use Section 133 (80G) instead",
+      "Donation must be by cheque, draft or electronic transfer; cash above ₹2,000 is disqualified",
+      "The donor institution must have valid approval under the relevant research/rural development provisions",
+    ],
+    examples: [
+      {
+        title: "Salaried Professional Donating to Research Body",
+        scenario:
+          "Dr. Priya, a hospital-employed doctor (salary only, no business income), donates ₹2 lakh to an IIT-affiliated approved scientific research association in TY 2026-27. Her GTI is ₹20 lakh.",
+        calculation:
+          "Gross Total Income:                    ₹20,00,000\nDonation (via bank transfer):          ₹ 2,00,000\nDeduction rate (Section 135):          100%, no limit\nDeduction allowed:                     ₹ 2,00,000\n──────────────────────────────────────────────────\nAdjusted Total Income:                 ₹18,00,000\nTax saved (at 30% + 4% cess):          ₹   62,400",
+        result:
+          "Dr. Priya saves ₹62,400 in tax. If she had used Section 133 (80G) at 50% for the same institution, her deduction would be only ₹1 lakh — Section 135 is more beneficial for non-business taxpayers.",
+      },
+    ],
+    relatedSlugs: ["donations-80g", "npo-80g-approval", "npo-registration-12a-12ab"],
+  },
+
+  {
+    slug: "anonymous-donations-30-percent",
+    section2025: "Section 188",
+    section1961: "Section 115BBC",
+    title: "Tax on Anonymous Donations Received by Charitable Trusts — 30%",
+    explanation:
+      "Registered charitable trusts and NPOs must pay 30% tax on 'anonymous donations' — contributions where the donor's name and address are not recorded. A basic exemption applies: tax kicks in only beyond the higher of ₹1 lakh or 5% of total anonymous donations. Wholly religious trusts are fully exempt from this provision.",
+    category: "Charitable Trusts & NPOs",
+    keywords: [
+      "anonymous donation",
+      "section 188",
+      "115BBC",
+      "30 percent tax",
+      "charitable trust donation",
+      "unknown donor",
+      "religious trust",
+      "hundi",
+      "donation box",
+    ],
+    whoItApplies:
+      "Charitable trusts and NPOs registered under Section 332. Does NOT apply to purely religious trusts (temples, mosques, churches, gurudwaras serving exclusively religious purposes).",
+    keyPoints: [
+      "30% flat tax on anonymous donations exceeding the basic threshold — no slab benefit applies",
+      "Anonymous donation = any voluntary contribution where the donor's name AND address are not recorded",
+      "Threshold: tax applies only on amounts above the HIGHER of ₹1 lakh or 5% of total anonymous donations",
+      "Purely religious trusts (no charitable objects) are completely exempt from this section",
+      "Mixed trusts with both charitable and religious objects are subject to this provision",
+      "This prevents charitable trust structures from being used to launder unaccounted cash",
+    ],
+    examples: [
+      {
+        title: "Education Trust with Donation Boxes",
+        scenario:
+          "Gyan Charitable Trust (education) receives ₹40 lakh from donation boxes without recording donor details in TY 2026-27. It also receives ₹3 crore in identified donations.",
+        calculation:
+          "Total anonymous donations:             ₹40,00,000\n\nBasic exemption — higher of:\n  ₹1,00,000  OR  5% of ₹40L (= ₹2,00,000)\n  → Exemption:                         ₹ 2,00,000\n\nTaxable anonymous donations:           ₹38,00,000\nTax at 30%:                            ₹11,40,000\nAdd: 4% health & education cess:       ₹   45,600\nTotal tax on anonymous donations:      ₹11,85,600\n\nNamed ₹3 crore donations: Eligible for Section 335 exemption",
+        result:
+          "The trust pays ₹11.86 lakh on anonymous donations. Best practice: always record donor name, address, and PAN for donations above ₹50,000 to avoid this tax entirely.",
+      },
+    ],
+    relatedSlugs: [
+      "npo-registration-12a-12ab",
+      "npo-regular-income",
+      "npo-specified-violations",
+    ],
+  },
+
+  {
+    slug: "npo-registration-12a-12ab",
+    section2025: "Section 332",
+    section1961: "Sections 12A, 12AB, 80G",
+    title: "Registration of Charitable Trusts and NPOs",
+    explanation:
+      "All charitable trusts, religious institutions, educational societies, hospitals, and non-profit bodies must register under Section 332 to claim income tax exemption. Without registration, the trust's entire income is taxable at the Maximum Marginal Rate (MMR). New trusts get provisional registration valid for 3 years; thereafter, regular 5-year registration must be obtained.",
+    category: "Charitable Trusts & NPOs",
+    keywords: [
+      "12A",
+      "12AB",
+      "registration",
+      "section 332",
+      "charitable trust registration",
+      "NPO registration",
+      "form 10A",
+      "form 10AB",
+      "provisional registration",
+      "5 year registration",
+    ],
+    whoItApplies:
+      "All charitable trusts, religious organisations, educational institutions, hospitals, and non-profit bodies seeking income tax exemption under IT Act 2025.",
+    keyPoints: [
+      "New trusts: apply for provisional registration (Form 10A) BEFORE starting activities — valid for 3 years",
+      "After 3 years: apply for regular registration (Form 10AB) — valid for 5 years, renewable",
+      "Existing 12A/12AB registered trusts must re-register every 5 years under the new scheme",
+      "Without registration: entire income taxable at MMR (~30% + surcharge + cess)",
+      "80G approval (for donors to get deduction) is a separate application but usually filed alongside",
+      "Application is filed online on the Income Tax e-filing portal; approval typically within 1–3 months",
+    ],
+    examples: [
+      {
+        title: "New Trust — Impact of Registration vs. No Registration",
+        scenario:
+          "Seva Foundation (newly formed, runs free medical camps) earns ₹80 lakh in donations and interest in TY 2026-27. It applied for and received provisional registration before starting activities.",
+        calculation:
+          "WITH Registration (Section 332):\n  Income:                              ₹80,00,000\n  Applied to medical activities (87%): ₹69,60,000  → Exempt\n  Accumulated (13%, with filing):      ₹10,40,000  → Exempt\n  Tax liability:                       ₹         0\n\nWITHOUT Registration:\n  Total income:                        ₹80,00,000\n  Tax at MMR (30% + surcharge + cess): ₹25,04,000\n  ──────────────────────────────────────────────\n  Tax saved by registering:            ₹25,04,000",
+        result:
+          "Registration saves over ₹25 lakh in tax. Any trust or NPO should file for registration as its very first compliance action — even before receiving its first donation.",
+      },
+    ],
+    relatedSlugs: [
+      "application-of-income-85-percent",
+      "npo-regular-income",
+      "npo-80g-approval",
+      "npo-audit-accounts",
+      "npo-return-of-income",
+    ],
+  },
+
+  {
+    slug: "npo-regime-switching",
+    section2025: "Section 333",
+    section1961: "Section 11",
+    title: "Switching Regimes for Charitable Organisations",
+    explanation:
+      "A registered NPO that voluntarily surrenders its exemption status or gets converted into a taxable entity is treated as having dissolved, triggering accreted income exit tax under Section 352. This section prevents NPOs from accumulating assets tax-free and then converting to taxable commercial entities.",
+    category: "Charitable Trusts & NPOs",
+    keywords: [
+      "regime switching",
+      "section 333",
+      "exit from NPO",
+      "charitable trust conversion",
+      "accreted income",
+      "115TD",
+      "NPO exit",
+    ],
+    whoItApplies:
+      "Registered NPOs that choose to surrender their exempt status or convert into a non-charitable taxable entity.",
+    keyPoints: [
+      "Surrendering NPO registration triggers the accreted income exit tax under Section 352",
+      "The trust is treated as dissolved on the date it exits the exempt regime",
+      "Assets transferred to another registered NPO within the prescribed period avoid exit tax",
+      "This provision cannot be bypassed — there is no grandfathering of accumulated assets",
+      "Trusts should carefully evaluate before making any structural change that affects exemption status",
+    ],
+    examples: [
+      {
+        title: "Trust Surrendering Exemption Status",
+        scenario:
+          "An NPO with ₹10 crore FMV assets and ₹1 crore liabilities decides to surrender its Section 332 registration and operate as a regular private limited company.",
+        calculation:
+          "FMV of assets on exit date:            ₹10,00,00,000\nLess: Total liabilities:               ₹ 1,00,00,000\nAccreted income (Section 352):         ₹ 9,00,00,000\nTax at 30%:                            ₹ 2,70,00,000\nAdd: 4% cess:                          ₹   10,80,000\nTotal exit tax:                        ₹ 2,80,80,000\n\nAlternative — Transfer to another NPO:\n  Exit tax:                            ₹           0",
+        result:
+          "Surrendering registration triggers ₹2.81 crore in exit tax. Transferring assets to another registered charitable trust is always the better alternative.",
+      },
+    ],
+    relatedSlugs: [
+      "npo-accreted-income-exit-tax",
+      "npo-registration-12a-12ab",
+      "npo-specified-violations",
+    ],
+  },
+
+  {
+    slug: "tax-on-npo-income",
+    section2025: "Section 334",
+    section1961: "Sections 11, 115BBC, 115BBI",
+    title: "Overall Tax Framework for Registered NPOs",
+    explanation:
+      "Section 334 is the master charging provision for registered NPOs. It classifies an NPO's income into three streams — regular income (mostly exempt), specified income (taxable if misused), and anonymous donations (taxed at 30%) — and specifies the tax treatment for each stream.",
+    category: "Charitable Trusts & NPOs",
+    keywords: [
+      "section 334",
+      "NPO tax framework",
+      "115BBI",
+      "charitable trust tax",
+      "registered NPO income",
+      "trust income computation",
+    ],
+    whoItApplies:
+      "All organisations registered under Section 332 — charitable trusts, religious organisations, educational institutions, hospitals, and other NPOs.",
+    keyPoints: [
+      "Regular income (Section 335): exempt if 85% is applied to charitable objects and proper filing is done",
+      "Specified income (Section 337): taxed at MMR if applied for non-charitable purposes or to benefit specified persons",
+      "Anonymous donations: excess over threshold taxed at flat 30% under Section 188",
+      "If registration is cancelled: ALL income of that year becomes taxable at MMR",
+      "Total tax liability is the sum across all three income streams",
+    ],
+    examples: [
+      {
+        title: "Composite Tax Computation for an NPO",
+        scenario:
+          "Hope Hospital Trust (registered) — TY 2026-27: Regular income ₹2 crore (applied ₹1.87 crore, accumulated ₹13 lakh). Anonymous donations ₹8 lakh. A trustee received ₹5 lakh personal benefit.",
+        calculation:
+          "1. REGULAR INCOME (Section 335)\n   Total income:               ₹2,00,00,000\n   Applied (≥85%):             ₹1,87,00,000 → Exempt\n   Accumulated (with filing):  ₹  13,00,000 → Exempt\n   Tax:                        ₹           0\n\n2. ANONYMOUS DONATIONS (Section 188)\n   Received:                   ₹   8,00,000\n   Exemption (5% of ₹8L):      ₹     40,000\n   Taxable:                    ₹   7,60,000\n   Tax @ 30%:                  ₹   2,28,000\n\n3. SPECIFIED INCOME (Section 337)\n   Trustee personal benefit:   ₹   5,00,000\n   Tax @ MMR (30%):            ₹   1,50,000\n\nTotal before cess:             ₹   3,78,000\nCess (4%):                     ₹     15,120\nTotal tax:                     ₹   3,93,120",
+        result:
+          "The trust pays ₹3.93 lakh. Better governance — no personal benefits to trustees, recording all donors — would reduce this to zero.",
+      },
+    ],
+    relatedSlugs: [
+      "npo-regular-income",
+      "npo-specified-income",
+      "anonymous-donations-30-percent",
+      "npo-specified-violations",
+    ],
+  },
+
+  {
+    slug: "npo-regular-income",
+    section2025: "Section 335",
+    section1961: "Sections 11 & 12",
+    title: "Regular Income of Registered NPO — The Exemption Provision",
+    explanation:
+      "The primary exemption provision for charitable trusts: if at least 85% of the trust's 'regular income' is applied (spent) for charitable or religious objects in the same year, the entire income qualifies for exemption. The remaining 15% can be accumulated and still claimed as exempt if proper Form 10 filing is done before the ITR due date.",
+    category: "Charitable Trusts & NPOs",
+    keywords: [
+      "section 335",
+      "section 11 income",
+      "85 percent rule",
+      "application of income",
+      "regular income NPO",
+      "charitable expenditure",
+      "trust exemption",
+    ],
+    whoItApplies:
+      "All registered NPOs under Section 332 — any income from property held under trust for charitable or religious purposes.",
+    keyPoints: [
+      "85% of regular income must be APPLIED (actually spent) for charitable objects in the SAME financial year",
+      "Regular income includes: donations, grants, fees, interest, rent — any income from trust property",
+      "The remaining 15% can be accumulated (retained) without losing exemption if Form 10 is filed",
+      "Capital gains on sale of trust assets: exempt only if sale proceeds are reinvested in another capital asset within 1 year before or 3 years after the sale",
+      "Income applied abroad (outside India) is NOT treated as applied to charitable objects (with narrow exceptions)",
+    ],
+    examples: [
+      {
+        title: "Education Trust Testing the 85% Rule",
+        scenario:
+          "Gyan Education Trust (registered) receives ₹1.5 crore in income during TY 2026-27 — ₹1.2 crore in donations and ₹30 lakh in interest. It spends ₹1.32 crore on school operations and accumulates ₹18 lakh.",
+        calculation:
+          "Total regular income:                  ₹1,50,00,000\n85% threshold:                         ₹1,27,50,000\n\nActual expenditure on objects:         ₹1,32,00,000  ✓ (88% > 85%)\n\nShortfall from 85%:                    NIL\nEntire ₹1.5 crore income:             EXEMPT\nTax liability:                         ₹          0\n\n──── What if they spent only ₹1.20 crore? ────\nShortfall (₹1.27L − ₹1.20L):          ₹   7,50,000\nThis shortfall becomes TAXABLE at MMR\nTax on shortfall (30%):                ₹   2,25,000",
+        result:
+          "Gyan Trust's actual spending of 88% keeps it fully exempt. Trusts should monitor their application ratio quarterly to avoid a year-end shortfall.",
+      },
+    ],
+    relatedSlugs: [
+      "application-of-income-85-percent",
+      "accumulated-income-charitable-trust",
+      "npo-registration-12a-12ab",
+      "corpus-donation",
+    ],
+  },
+
+  {
+    slug: "npo-taxable-regular-income",
+    section2025: "Section 336",
+    section1961: "IT Rules 2026 (Rule 182)",
+    title: "What Counts as Taxable Regular Income for an NPO",
+    explanation:
+      "Section 336 defines the components of an NPO's regular income that become subject to tax — essentially the portion that fails to meet the 85% application test or is applied for non-exempt purposes. This provision bridges Section 335 and Section 337 by specifying the taxable base calculation.",
+    category: "Charitable Trusts & NPOs",
+    keywords: [
+      "section 336",
+      "taxable regular income NPO",
+      "rule 182",
+      "IT Rules 2026",
+      "trust taxable income",
+      "NPO income computation",
+    ],
+    whoItApplies:
+      "Registered NPOs whose income application falls below the 85% threshold or which apply income for disallowed purposes.",
+    keyPoints: [
+      "Taxable regular income = total regular income minus 85% applied to objects minus amounts accumulated with Form 10",
+      "Any shortfall in the 85% application directly becomes taxable at MMR",
+      "Administrative expenses of the trust are counted as applied to objects — but excessive admin costs attract scrutiny",
+      "Deemed application rules allow certain set-asides to be treated as applied (e.g., repairs to trust property)",
+      "This computation is done annually and reported in the ITR filed by the trust",
+    ],
+    examples: [
+      {
+        title: "Computing Taxable Regular Income",
+        scenario:
+          "A charitable trust has regular income of ₹50 lakh. It spends ₹38 lakh on programs, ₹3 lakh on admin, files Form 10 for ₹6 lakh accumulation, and retains ₹3 lakh without Form 10.",
+        calculation:
+          "Regular income:                        ₹50,00,000\nRequired 85%:                          ₹42,50,000\n\nActual application to objects:\n  Program expenses:                    ₹38,00,000\n  Admin expenses:                      ₹ 3,00,000\nAccumulated with Form 10:              ₹ 6,00,000\nTotal treated as applied:              ₹47,00,000  ✓ (94% > 85%)\n\nRetained without Form 10:              ₹ 3,00,000\n  → NOT treated as applied or accumulated\n  → Taxable at MMR\n  Tax (30%):                           ₹   90,000",
+        result:
+          "The ₹3 lakh retained without Form 10 is taxable even though the overall 85% test is met. Filing Form 10 for that amount would have saved ₹93,600 in tax (including cess).",
+      },
+    ],
+    relatedSlugs: [
+      "npo-regular-income",
+      "application-of-income-85-percent",
+      "npo-specified-income",
+      "accumulated-income-charitable-trust",
+    ],
+  },
+
+  {
+    slug: "npo-specified-income",
+    section2025: "Section 337",
+    section1961: "Sections 11, 12, 13, 115BBC, 115BBI",
+    title: "Specified Income — When NPO Funds Are Misused",
+    explanation:
+      "Section 337 identifies categories of income that lose exemption and are taxed at the Maximum Marginal Rate — primarily when a trust's income benefits trustees, founders, or their relatives personally, or when funds are invested in prohibited modes, or when the trust violates registration conditions.",
+    category: "Charitable Trusts & NPOs",
+    keywords: [
+      "section 337",
+      "specified income NPO",
+      "trustee benefit",
+      "prohibited benefit",
+      "MMR tax trust",
+      "related party benefit",
+      "section 13",
+      "13(1)(c)",
+    ],
+    whoItApplies:
+      "Registered NPOs where income is applied for the personal benefit of specified persons (trustees, authors of trust, relatives) or where conditions of registration are violated.",
+    keyPoints: [
+      "Income is 'specified' (taxable) if it benefits: the author, trustee, founder, or their relatives or associated concerns",
+      "Interest-free or below-market loans to specified persons make the income taxable",
+      "Trust property used for private benefit of any specified person renders that income taxable at MMR",
+      "If SOME income is specified, only that portion is taxable — the rest remains exempt",
+      "Charitable activity for 'a section of the public' must truly be public — not just for a small private group",
+    ],
+    examples: [
+      {
+        title: "Trustee Receiving Free Use of Trust Property",
+        scenario:
+          "A registered charitable trust has regular income of ₹60 lakh. A managing trustee is given use of a trust-owned flat worth ₹25 lakh annual rental value without paying any rent.",
+        calculation:
+          "Total regular income:                  ₹60,00,000\n\nSpecified income (benefit to trustee):\n  Rental value of flat given free:     ₹25,00,000\n  Tax at MMR (30%):                    ₹ 7,50,000\n\nRemaining income (₹35 lakh):\n  Applied to objects (>85%):           → Exempt\n\nTotal before cess:                     ₹ 7,50,000\nCess (4%):                             ₹   30,000\nTotal tax:                             ₹ 7,80,000",
+        result:
+          "The trust pays ₹7.80 lakh because of the trustee's personal benefit. All trustees should pay fair market rent for any trust property they use — even nominal amounts matter legally.",
+      },
+    ],
+    relatedSlugs: [
+      "npo-regular-income",
+      "npo-specified-violations",
+      "npo-other-violations",
+      "tax-on-npo-income",
+    ],
+  },
+
+  {
+    slug: "npo-income-excluded-from-regular",
+    section2025: "Section 338",
+    section1961: "Section 11",
+    title: "Income Excluded from Regular Income of an NPO",
+    explanation:
+      "Section 338 lists specific receipts that are NOT included in an NPO's regular income computation — primarily corpus donations, deemed corpus amounts, and certain capital receipts. This ensures that structural funding (corpus) is not confused with operational income and is not subjected to the 85% application test.",
+    category: "Charitable Trusts & NPOs",
+    keywords: [
+      "section 338",
+      "excluded income NPO",
+      "corpus excluded",
+      "capital receipt trust",
+      "regular income exclusion",
+    ],
+    whoItApplies:
+      "Registered NPOs that receive corpus donations, endowments, or other capital receipts to be maintained as the trust's permanent fund.",
+    keyPoints: [
+      "Corpus donations (Section 339) are completely excluded from regular income — not subject to the 85% rule",
+      "Capital gains on sale of corpus assets are excluded IF reinvested in another capital asset within the prescribed period",
+      "Voluntary contributions specifically earmarked as 'corpus' by the donor in writing are excluded",
+      "Excluded income still needs to be tracked and reported in the trust's ITR",
+      "If corpus funds are later spent on non-corpus purposes, they become taxable at MMR",
+    ],
+    examples: [
+      {
+        title: "Separating Corpus and Regular Income",
+        scenario:
+          "A hospital trust receives ₹1.5 crore in regular operational donations and ₹50 lakh as corpus donation (donor wrote: 'for permanent endowment fund') during TY 2026-27.",
+        calculation:
+          "Regular donations:                     ₹1,50,00,000\n  Subject to 85% application test ✓\n  Required application (85%):          ₹1,27,50,000\n\nCorpus donation (excluded):            ₹  50,00,000\n  NOT subject to 85% rule\n  Must be invested in Section 350 permitted modes\n\nInvestment in government bonds (6%)\nInterest earned annually:              ₹   3,00,000\n  This interest IS regular income → Subject to 85% rule",
+        result:
+          "The ₹50 lakh corpus is protected from the application test. However, the ₹3 lakh annual interest it earns is regular income — the trust must apply ₹2.55 lakh (85%) of that to charitable activities.",
+      },
+    ],
+    relatedSlugs: [
+      "corpus-donation",
+      "deemed-corpus-donation",
+      "npo-regular-income",
+      "npo-permitted-investment-modes",
+    ],
+  },
+
+  {
+    slug: "corpus-donation",
+    section2025: "Section 339",
+    section1961: "Section 11",
+    title: "Corpus Donations — Permanent Fund Contributions",
+    explanation:
+      "A corpus donation is a voluntary contribution made to a registered NPO with a specific written direction from the donor that it should form part of the 'corpus' (permanent fund) of the trust. Such donations are excluded from regular income and are not subject to the 85% application test — they must be kept invested in permitted modes.",
+    category: "Charitable Trusts & NPOs",
+    keywords: [
+      "corpus donation",
+      "section 339",
+      "permanent fund",
+      "endowment",
+      "corpus fund",
+      "written direction",
+      "corpus contribution",
+    ],
+    whoItApplies:
+      "Registered NPOs receiving contributions that donors specifically designate as corpus (permanent endowment) in writing.",
+    keyPoints: [
+      "Must have a WRITTEN direction from the donor specifying it as 'corpus' — oral directions are not valid",
+      "Corpus donations are excluded from regular income and NOT subject to the 85% application requirement",
+      "Must be invested only in the permitted modes specified in Section 350",
+      "Income earned ON corpus investments (interest, rent) IS regular income subject to the 85% test",
+      "Corpus cannot be spent on day-to-day charitable activities — it must be maintained as permanent capital",
+      "Misuse of corpus (spending on non-corpus purposes) triggers taxability at MMR",
+    ],
+    examples: [
+      {
+        title: "Building a Corpus Fund for Scholarships",
+        scenario:
+          "An alumnus donates ₹1 crore to his college alumni charitable trust with a written letter: 'This donation is specifically for the trust's permanent corpus fund to generate income for student scholarships.'",
+        calculation:
+          "Corpus donation received:              ₹1,00,00,000\nWritten direction provided:            ✓\n\nTreatment:\n  Included in regular income?           NO\n  Subject to 85% application test?      NO\n  Taxable as donation received?         NO\n  Must be invested in:                  Section 350 permitted modes\n\nInvestment: Nationalised bank FD @ 7%\nInterest earned annually:              ₹   7,00,000\n  → This IS regular income → Subject to 85% rule\n  Required application (85%):          ₹   5,95,000 to scholarships",
+        result:
+          "The ₹1 crore corpus is protected permanently. Each year ₹7 lakh in interest is generated, of which ₹5.95 lakh must go to scholarships. The corpus itself never needs to be spent.",
+      },
+    ],
+    relatedSlugs: [
+      "deemed-corpus-donation",
+      "npo-income-excluded-from-regular",
+      "npo-permitted-investment-modes",
+      "npo-regular-income",
+    ],
+  },
+
+  {
+    slug: "deemed-corpus-donation",
+    section2025: "Section 340",
+    section1961: "Section 11",
+    title: "Deemed Corpus Donations",
+    explanation:
+      "Section 340 specifies circumstances where certain receipts are treated as corpus donations even without a written donor direction — for example, capital grants from government specifically for asset creation, contributions for construction of buildings, and legacy bequests. This protects infrastructure funding from being treated as operational income.",
+    category: "Charitable Trusts & NPOs",
+    keywords: [
+      "section 340",
+      "deemed corpus",
+      "government grant corpus",
+      "capital grant",
+      "bequest corpus",
+      "infrastructure grant NPO",
+    ],
+    whoItApplies:
+      "Registered NPOs receiving capital grants from government authorities, bequests (inheritances), or contributions specifically for creating or acquiring fixed assets.",
+    keyPoints: [
+      "Government grants specifically for capital asset creation are deemed corpus — not regular income",
+      "Bequests (inheritances) received by an NPO are treated as corpus donations",
+      "Contributions received for construction of a building or purchase of specific capital assets are deemed corpus",
+      "Deemed corpus amounts must be credited to a separate corpus fund in the accounts",
+      "Income earned on deemed corpus investments is regular income subject to the 85% rule",
+    ],
+    examples: [
+      {
+        title: "Government Grant for School Building",
+        scenario:
+          "A state government gives a charitable school trust a grant of ₹2 crore specifically to construct a new school building. No written 'corpus' direction is given.",
+        calculation:
+          "Grant for building construction:       ₹2,00,00,000\n\nWritten corpus direction from government? NO\nDeemed corpus under Section 340?         YES\n  (specifically for capital asset creation)\n\nTreatment:\n  Regular income?                        NO (deemed corpus)\n  Subject to 85% rule?                   NO\n  Usage restriction?                     YES — must be used for the building\n\nIf grant is diverted to salary expenses:\n  Loses deemed corpus status\n  → Becomes regular income → 85% test applies retroactively",
+        result:
+          "The ₹2 crore grant is protected as deemed corpus and need not meet the 85% test. However, it MUST be used for the school building — diverting it to other purposes removes the protection.",
+      },
+    ],
+    relatedSlugs: [
+      "corpus-donation",
+      "npo-income-excluded-from-regular",
+      "npo-regular-income",
+    ],
+  },
+
+  {
+    slug: "application-of-income-85-percent",
+    section2025: "Section 341",
+    section1961: "Section 11",
+    title: "Application of Income — The 85% Charitable Spending Rule",
+    explanation:
+      "Section 341 contains the heart of charitable trust exemption: at least 85% of a trust's regular income must be 'applied' (actually spent or incurred) for its charitable or religious objects during the year. Failure to meet this threshold makes the shortfall taxable at MMR.",
+    category: "Charitable Trusts & NPOs",
+    keywords: [
+      "section 341",
+      "85 percent rule",
+      "application of income",
+      "charitable expenditure",
+      "trust spending",
+      "form 9A",
+      "accumulation of income",
+      "85% charitable",
+    ],
+    whoItApplies:
+      "All registered NPOs. This is the fundamental compliance requirement every charitable trust must satisfy every financial year.",
+    keyPoints: [
+      "85% of regular income must be APPLIED (spent) for charitable/religious objects in the SAME year",
+      "'Applied' means actually paid or incurred — amounts payable but not yet paid may qualify if incurred during the year",
+      "The 15% balance can be accumulated (retained) without tax by filing Form 10 before the ITR due date",
+      "If Form 10 is not filed and less than 85% is spent: the shortfall is taxed at MMR",
+      "Both revenue expenses AND capital expenditure on charitable objects count as 'applied'",
+      "Voluntary donations given by the trust to other registered NPOs also count as application",
+    ],
+    examples: [
+      {
+        title: "Trust Just Below the 85% Threshold",
+        scenario:
+          "Asha Foundation (registered) has regular income of ₹60 lakh in TY 2026-27. It spends ₹49 lakh on programs and ₹3 lakh on admin, retaining ₹8 lakh. It did NOT file Form 10.",
+        calculation:
+          "Regular income:                        ₹60,00,000\n85% threshold:                         ₹51,00,000\n\nActual application:\n  Program expenses:                    ₹49,00,000\n  Admin expenses:                      ₹ 3,00,000\n  Total applied:                       ₹52,00,000  ✓ (86.7% > 85%)\n\nRetained (₹8 lakh) — No Form 10 filed:\n  Treated as unapplied income\n  Tax at MMR:                          ₹ 2,40,000\n\nIf Form 10 filed on time:\n  ₹8L accumulated → Exempt\n  Tax:                                 ₹         0",
+        result:
+          "Asha Foundation met the 85% test (86.7%) but still faces ₹2.49 lakh in tax on the ₹8 lakh retained — because it forgot to file Form 10. Setting a calendar reminder for Form 10 before 31 October every year prevents this.",
+      },
+    ],
+    relatedSlugs: [
+      "npo-regular-income",
+      "accumulated-income-charitable-trust",
+      "npo-books-of-accounts",
+      "npo-return-of-income",
+    ],
+  },
+
+  {
+    slug: "accumulated-income-charitable-trust",
+    section2025: "Section 342",
+    section1961: "Sections 11 & 13",
+    title: "Accumulation of Income — Beyond the 15%",
+    explanation:
+      "Section 342 allows a registered NPO to accumulate (retain without spending) up to 15% of its regular income without losing exemption. For higher accumulations, the trust must file Form 10 before the ITR due date, specifying the purpose and time period (maximum 5 years). Unspent accumulated income after 5 years becomes taxable.",
+    category: "Charitable Trusts & NPOs",
+    keywords: [
+      "section 342",
+      "accumulation of income",
+      "form 10",
+      "form 9A",
+      "15 percent retention",
+      "5 year accumulation",
+      "set aside income",
+      "charitable trust accumulation",
+    ],
+    whoItApplies:
+      "Registered NPOs that wish to retain more than 15% of their income for future charitable projects or building reserves.",
+    keyPoints: [
+      "Up to 15% of regular income can always be retained — no Form 10 filing needed",
+      "For more than 15%: file Form 10 BEFORE the ITR due date, specifying purpose and period (max 5 years)",
+      "Accumulated amounts must be invested only in permitted modes (Section 350) — FDs, govt securities, etc.",
+      "If not spent within the 5-year period: the unspent accumulated amount is taxed at MMR in Year 6",
+      "Form 10 must state a specific charitable purpose (e.g., 'to construct a library') — it is not a blank cheque",
+      "Income accumulated for purchasing a capital asset is also eligible",
+    ],
+    examples: [
+      {
+        title: "Trust Planning a Major Capital Project",
+        scenario:
+          "Navjeevan Trust (income ₹1 crore in TY 2026-27) plans to build a community hospital costing ₹5 crore over 5 years. It spends ₹88 lakh this year and wants to save ₹12 lakh for the project.",
+        calculation:
+          "Regular income:                        ₹1,00,00,000\nApplied to current activities:         ₹  88,00,000  (88% > 85%) ✓\nWanted to accumulate:                  ₹  12,00,000\n\nAutomatic 15% retention allowed:       ₹  15,00,000\nSince ₹12L < ₹15L → Form 10 NOT needed\n\nAlternative scenario (accumulating ₹20L):\n  Automatic limit:                     ₹  15,00,000\n  Additional requiring Form 10:        ₹   5,00,000\n  Form 10 must state:\n    Purpose: Community hospital construction\n    Period: 5 years (by TY 2031-32)\n  Invested in: Nationalised bank FD",
+        result:
+          "Filing Form 10 each year allows the trust to systematically build towards ₹5 crore over 5 years without any tax. Failure to spend by TY 2031-32 would make the unspent amount taxable at MMR with interest.",
+      },
+    ],
+    relatedSlugs: [
+      "application-of-income-85-percent",
+      "npo-permitted-investment-modes",
+      "npo-return-of-income",
+      "npo-regular-income",
+    ],
+  },
+
+  {
+    slug: "deemed-accumulated-income",
+    section2025: "Section 343",
+    section1961: "IT Rules 2026 (Rule 186, Forms 110/111)",
+    title: "Deemed Accumulated Income — When Accumulation Goes Wrong",
+    explanation:
+      "Section 343 specifies situations where income previously accumulated under Form 10 is retrospectively treated as income of an earlier year — triggering tax plus interest. This happens when accumulated funds are applied for purposes other than stated in Form 10, or remain unapplied after the 5-year period.",
+    category: "Charitable Trusts & NPOs",
+    keywords: [
+      "section 343",
+      "deemed accumulated income",
+      "form 10 violation",
+      "accumulation misuse",
+      "5 year limit",
+      "rule 186",
+      "trust income taxable",
+    ],
+    whoItApplies:
+      "Registered NPOs that filed Form 10 for accumulation but did not use the funds as specified, or used them for a different purpose.",
+    keyPoints: [
+      "Accumulated income applied for a different purpose than stated in Form 10 becomes taxable in the year of mis-application",
+      "Accumulated income not spent within the 5-year period is taxable in Year 6 at MMR",
+      "The tax is charged as if the income was received in the year when the Form 10 accumulation was made",
+      "Interest under Section 423 also applies from the original year of accumulation",
+      "Genuine changes in project scope can be declared to the Assessing Officer with proper justification",
+    ],
+    examples: [
+      {
+        title: "Accumulated Income Used for Wrong Purpose",
+        scenario:
+          "In TY 2026-27, a trust accumulated ₹20 lakh via Form 10 for 'building a computer lab.' In TY 2028-29, the trust spends this ₹20 lakh on salaries instead.",
+        calculation:
+          "TY 2026-27: Accumulated ₹20L for computer lab → Exempt at that time\n\nTY 2028-29: ₹20L spent on salaries (wrong purpose)\n\nDeemed income for TY 2026-27:          ₹20,00,000\nTax at MMR (30%):                      ₹ 6,00,000\nInterest u/s 423 (approx. 2 years):    ₹ 1,44,000\nTotal dues:                            ₹ 7,44,000",
+        result:
+          "The ₹20 lakh is retroactively taxed in TY 2026-27 with interest. The trust should either maintain purpose discipline or formally amend the Form 10 with AO approval before changing the application.",
+      },
+    ],
+    relatedSlugs: [
+      "accumulated-income-charitable-trust",
+      "application-of-income-85-percent",
+      "npo-return-of-income",
+    ],
+  },
+
+  {
+    slug: "npo-business-undertaking",
+    section2025: "Section 344",
+    section1961: "IT Rules 2026 (Rule 182)",
+    title: "Business Undertaking Held as Property of an NPO",
+    explanation:
+      "When a business undertaking is part of the trust's assets — typically received through a bequest or donation — Section 344 governs how income from that business is treated. Profits from business undertakings incidental to charitable objects can remain exempt; purely commercial unconnected businesses lose the exemption.",
+    category: "Charitable Trusts & NPOs",
+    keywords: [
+      "section 344",
+      "NPO business property",
+      "trust business undertaking",
+      "business held by trust",
+      "charitable trust business",
+      "rule 182",
+    ],
+    whoItApplies:
+      "Registered NPOs that hold or operate business undertakings as part of their trust corpus — typically received through inheritances, donations, or as part of their charitable objects.",
+    keyPoints: [
+      "A charitable trust can hold a business undertaking only if it is not operated for profit as the primary goal",
+      "Profits from business undertakings incidental to charitable activity are included in regular income and eligible for exemption",
+      "If the business is incidental to the main charitable activity (e.g., a hospital's pharmacy), profits are fully eligible for exemption",
+      "If the business is purely commercial and unconnected to charitable objects, it loses exempt status",
+      "Separate books of accounts must be maintained for each business undertaking",
+    ],
+    examples: [
+      {
+        title: "Hospital Trust Operating an In-House Pharmacy",
+        scenario:
+          "Healing Hearts Charitable Hospital Trust runs an in-house pharmacy as part of its medical services. The pharmacy earns ₹40 lakh profit, entirely used for patient welfare.",
+        calculation:
+          "Pharmacy profit (incidental to hospital objects): ₹40,00,000\n\nIncidental to charitable objects? → YES ✓\n  (pharmacy directly serves hospital patients)\n\nTreatment: Part of regular income (Section 335)\n  Subject to 85% application rule\n  Applied to patient care: ₹40L → EXEMPT\n\nIf pharmacy sells to general public (not patients):\n  Excess profits → NOT incidental → Taxable at MMR",
+        result:
+          "The pharmacy profit is fully exempt as it is incidental to the hospital's charitable activity. If the pharmacy opens to the general public, that portion of income loses the exemption.",
+      },
+    ],
+    relatedSlugs: [
+      "npo-commercial-activities-restriction",
+      "general-public-utility-commercial-limit",
+      "npo-regular-income",
+      "npo-specified-income",
+    ],
+  },
+
+  {
+    slug: "npo-commercial-activities-restriction",
+    section2025: "Section 345",
+    section1961: "Section 11",
+    title: "Restriction on Commercial Activities by Registered NPOs",
+    explanation:
+      "Section 345 restricts registered NPOs from carrying out commercial activities that are not incidental to their charitable objects. Trusts that engage in substantial commercial activities — beyond what is needed for their charitable purposes — risk losing their tax-exempt status on the commercial income.",
+    category: "Charitable Trusts & NPOs",
+    keywords: [
+      "section 345",
+      "commercial activities NPO",
+      "trust commercial restriction",
+      "incidental business",
+      "charitable object restriction",
+    ],
+    whoItApplies:
+      "All registered NPOs — especially those tempted to run revenue-generating commercial ventures under the shield of charitable trust status.",
+    keyPoints: [
+      "Commercial activity is allowed ONLY if it is incidental to the main charitable object",
+      "Allowed example: a blind school selling items made by students — directly serves the charitable object",
+      "Not allowed example: a charitable trust running a hotel for the general public to generate revenue",
+      "The test is: is the commercial activity a MEANS to achieve the charitable object, or an END in itself?",
+      "General Public Utility trusts face an additional stricter cap on commercial receipts under Section 346",
+    ],
+    examples: [
+      {
+        title: "Allowed vs. Disallowed Commercial Activity",
+        scenario:
+          "Trust A: An artisan training trust sells handicrafts made by trainees — earns ₹15 lakh. Trust B: An environment trust runs a commercial parking lot to fund tree-planting — earns ₹20 lakh.",
+        calculation:
+          "TRUST A (Artisan trust selling handicrafts):\n  Charitable object: Skill training of artisans\n  Selling their output: Incidental and integral ✓\n  ₹15 lakh: Regular income → Exempt if 85% applied\n\nTRUST B (Environment trust with parking lot):\n  Charitable object: Environment protection\n  Parking lot: NOT incidental to environment ✗\n  ₹20 lakh: Taxable commercial income at MMR\n  Tax @ 30%:                           ₹ 6,00,000",
+        result:
+          "Trust A's activity is validly incidental. Trust B's parking lot is pure commercial activity unrelated to environment protection — ₹20 lakh is fully taxable. Trust B should receive donations instead of running commercial ventures.",
+      },
+    ],
+    relatedSlugs: [
+      "general-public-utility-commercial-limit",
+      "npo-business-undertaking",
+      "npo-specified-income",
+      "npo-registration-12a-12ab",
+    ],
+  },
+
+  {
+    slug: "general-public-utility-commercial-limit",
+    section2025: "Section 346",
+    section1961: "Section 2(15)",
+    title: "General Public Utility Trusts — 20% Commercial Receipts Cap",
+    explanation:
+      "Trusts registered under the 'General Public Utility' (GPU) object — the broadest charitable category — face a specific restriction: if receipts from commercial activities exceed 20% of total receipts during the year, the GPU object loses its charitable status for that year, making all income taxable.",
+    category: "Charitable Trusts & NPOs",
+    keywords: [
+      "section 346",
+      "general public utility",
+      "2(15)",
+      "20 percent cap",
+      "GPU trust",
+      "charitable definition",
+      "commercial receipts limit",
+    ],
+    whoItApplies:
+      "Trusts and institutions registered under the 'Advancement of any other object of general public utility' category — chambers of commerce, bar associations, trade bodies, and similar organisations.",
+    keyPoints: [
+      "GPU is the residual charitable category: trusts not fitting relief of poverty, education, medical relief, environment, or yoga",
+      "Commercial receipts (fees, subscriptions for services, trade fair revenues) must not exceed 20% of total gross receipts",
+      "If 20% limit is breached: GPU object is NOT a charitable purpose for that year → ALL income becomes taxable",
+      "The 20% limit is tested EVERY YEAR — a one-time breach can be corrected the following year",
+      "Education, medical relief, relief of poverty, environment, and yoga trusts are NOT subject to this 20% cap",
+    ],
+    examples: [
+      {
+        title: "Chamber of Commerce Breaching the 20% Limit",
+        scenario:
+          "A city Chamber of Commerce (GPU trust, registered under Section 332) has total receipts of ₹1 crore — ₹75 lakh from membership fees and ₹25 lakh from organising a trade exhibition.",
+        calculation:
+          "Total gross receipts:                  ₹1,00,00,000\nCommercial receipts (exhibition):      ₹  25,00,000\n\n20% of total receipts:                 ₹  20,00,000\nActual commercial receipts:            ₹  25,00,000  ← EXCEEDS 20%!\n\nConsequence: GPU object fails charitable test\nALL ₹1 crore income taxable at MMR:\nTax @ 30%:                             ₹  30,00,000\n\nIf commercial receipts were ₹18 lakh (18%):\n  GPU object remains charitable ✓\n  Income exempt if 85% applied\n  Tax:                                 ₹           0",
+        result:
+          "Exceeding the 20% cap by just ₹5 lakh costs the Chamber ₹30 lakh in tax. GPU trusts must monitor commercial revenue monthly and restructure events if they risk crossing this threshold.",
+      },
+    ],
+    relatedSlugs: [
+      "npo-commercial-activities-restriction",
+      "npo-registration-12a-12ab",
+      "npo-specified-violations",
+    ],
+  },
+
+  {
+    slug: "npo-books-of-accounts",
+    section2025: "Section 347",
+    section1961: "Section 12A, Rule 187 (IT Rules 2026)",
+    title: "Books of Accounts — Mandatory for All Charitable Organisations",
+    explanation:
+      "Every registered NPO must maintain prescribed books of accounts including cash books, ledgers, journals, and statements of receipts and payments. The books must be maintained at the trust's principal office and preserved for at least 10 years. Poor record-keeping is a common reason for loss of exemption during assessments.",
+    category: "Charitable Trusts & NPOs",
+    keywords: [
+      "section 347",
+      "NPO books of accounts",
+      "charitable trust accounts",
+      "rule 187",
+      "receipt payment statement",
+      "trust records",
+      "10 year preservation",
+    ],
+    whoItApplies:
+      "All registered NPOs without exception — from small village charities to large hospital trusts.",
+    keyPoints: [
+      "Mandatory books: cash book, ledger, journal, and receipts-and-payments account",
+      "Books must be maintained at the registered office or principal place of activity",
+      "Preservation period: minimum 10 years from the end of the relevant financial year",
+      "Failure to maintain proper books can result in cancellation of registration",
+      "For trusts with gross receipts above ₹2.5 crore: additional prescribed records are required as per Rules",
+      "Electronic records are acceptable provided they can be converted to printed form and verified",
+    ],
+    examples: [
+      {
+        title: "Minimum Books Required for a Small Trust",
+        scenario:
+          "A small charitable trust runs a free coaching centre with annual receipts of ₹15 lakh. What minimum books must it maintain?",
+        calculation:
+          "Required books for EVERY registered NPO:\n\n1. Cash Book: All cash receipts (donations, fees)\n   and payments (salaries, rent, supplies)\n   Updated: Daily\n\n2. Ledger: Separate accounts for donors, expenses,\n   assets, corpus fund, accumulated funds\n\n3. Receipts & Payments Account:\n   Summary at year end of all money inflows/outflows\n\n4. Income & Expenditure Account:\n   (Like P&L — distinguishes capital and revenue)\n\n5. Balance Sheet:\n   Assets: Fixed assets + Corpus + Reserves\n   Liabilities: Creditors + Grants payable\n\nPreservation: 10 years minimum",
+        result:
+          "A small trust can use free accounting software — manual books are also valid. These records allow the trust to prepare its ITR (ITR-7) and audit report (Form 10B) and respond to any assessment queries.",
+      },
+    ],
+    relatedSlugs: [
+      "npo-audit-accounts",
+      "npo-return-of-income",
+      "npo-registration-12a-12ab",
+      "application-of-income-85-percent",
+    ],
+  },
+
+  {
+    slug: "npo-audit-accounts",
+    section2025: "Section 348",
+    section1961: "Section 12A, Rule 188, Form 112 (IT Rules 2026)",
+    title: "Audit of Accounts — Mandatory for NPOs above ₹2.5 Lakh",
+    explanation:
+      "Every registered NPO whose total income (before claiming exemption) exceeds ₹2.5 lakh in a year must get its accounts audited by a Chartered Accountant. The audit report in Form 10B (or 10BB for larger trusts) must be filed along with the income tax return.",
+    category: "Charitable Trusts & NPOs",
+    keywords: [
+      "section 348",
+      "NPO audit",
+      "form 10B",
+      "form 10BB",
+      "charitable trust audit",
+      "CA audit NPO",
+      "rule 188",
+      "2.5 lakh threshold",
+    ],
+    whoItApplies:
+      "All registered NPOs whose gross receipts exceed ₹2.5 lakh in the year — effectively all active trusts.",
+    keyPoints: [
+      "Threshold: audit mandatory if total income BEFORE exemption > ₹2.5 lakh",
+      "Audit must be conducted by a practicing Chartered Accountant",
+      "Form 10B: standard audit report for most NPOs; Form 10BB: for trusts with receipts above ₹5 crore",
+      "Audit report must be filed BEFORE the return due date (typically 31 October for trusts with mandatory audit)",
+      "Filing audit report after the return due date attracts late fees under Section 427",
+      "The auditor verifies: proper books maintained, 85% application met, corpus properly invested, no benefit to specified persons",
+    ],
+    examples: [
+      {
+        title: "Consequences of Not Getting Accounts Audited",
+        scenario:
+          "A charitable trust with income of ₹80 lakh skips the audit (Form 10B) and files its ITR claiming full exemption. The Assessing Officer notices the missing audit report.",
+        calculation:
+          "Trust income:                          ₹80,00,000\nClaiming exemption (Section 335):      ₹80,00,000\nAudit report (Form 10B):               NOT FILED ✗\n\nConsequences:\n1. Exemption DISALLOWED\n2. Income taxable at MMR (30%):         ₹24,00,000\n   Cess (4%):                           ₹    96,000\n   Total tax:                           ₹24,96,000\n3. Late fee:                            ₹     5,000\n4. Interest u/s 423/424:                ₹ 2,00,000+\n\nIf audit was done and Form 10B filed:\n  Tax:                                  ₹          0",
+        result:
+          "Skipping the audit costs the trust ₹25+ lakh. The CA's audit fee (typically ₹15,000–₹1 lakh depending on trust size) is negligible compared to the tax and penalty exposure.",
+      },
+    ],
+    relatedSlugs: [
+      "npo-return-of-income",
+      "npo-books-of-accounts",
+      "npo-registration-12a-12ab",
+      "application-of-income-85-percent",
+    ],
+  },
+
+  {
+    slug: "npo-return-of-income",
+    section2025: "Section 349",
+    section1961: "Sections 12A & 139",
+    title: "Filing Income Tax Return for Charitable Organisations",
+    explanation:
+      "Every registered NPO must file an income tax return even if its total tax liability is zero. The return must be filed by 31 October of the assessment year, along with Form 10B (audit report). A late return leads to loss of accumulation benefits and penalties.",
+    category: "Charitable Trusts & NPOs",
+    keywords: [
+      "section 349",
+      "NPO return filing",
+      "charitable trust ITR",
+      "trust return 31 october",
+      "form 10",
+      "form 10B",
+      "ITR-7",
+      "NPO ITR filing",
+    ],
+    whoItApplies:
+      "All registered NPOs — filing is mandatory regardless of whether there is any tax payable.",
+    keyPoints: [
+      "Form ITR-7 is the applicable return form for trusts, NPOs, and political parties",
+      "Due date: 31 October of the assessment year (for trusts with mandatory audit)",
+      "Form 10 (for accumulation beyond 15%) must be filed BEFORE the return due date",
+      "Late filing leads to: loss of Form 10 accumulation benefit (the accumulated amount becomes taxable)",
+      "Penalty for late filing: up to ₹5,000 under Section 428 (equivalent to old 234F)",
+      "Even zero-tax returns are mandatory — failure to file attracts notices and potential penalties",
+    ],
+    examples: [
+      {
+        title: "Impact of Late Return on Accumulation Benefit",
+        scenario:
+          "A trust with ₹1 crore income wants to accumulate ₹13 lakh via Form 10. The CA audit is done on time. However, the trust misses the 31 October due date and files on 15 December.",
+        calculation:
+          "Income:                                ₹1,00,00,000\nApplied to objects (87%):              ₹  87,00,000 → Exempt ✓\nWanted to accumulate (Form 10):        ₹  13,00,000\n\nReturn filed: 15 December — LATE\nForm 10 filed: 15 December — LATE\n\nConsequence of late Form 10:\n  ₹13L accumulation DISALLOWED\n  Treated as unapplied income\n  Tax at MMR (30%):                    ₹ 3,90,000\n  Late fee (Section 428):              ₹     5,000\n  Interest (Section 423):              ₹    23,400\n  Total additional cost:               ₹ 4,18,400",
+        result:
+          "Missing the 31 October deadline cost the trust ₹4.18 lakh. Set a calendar reminder for early October every year — file Form 10 at least two weeks before the return to avoid last-minute issues.",
+      },
+    ],
+    relatedSlugs: [
+      "npo-audit-accounts",
+      "npo-books-of-accounts",
+      "accumulated-income-charitable-trust",
+      "application-of-income-85-percent",
+    ],
+  },
+
+  {
+    slug: "npo-permitted-investment-modes",
+    section2025: "Section 350",
+    section1961: "Section 11(5)",
+    title: "Permitted Modes of Investment for Charitable Trusts",
+    explanation:
+      "Section 350 specifies the 'permitted modes' in which a charitable trust must invest its funds — particularly corpus and accumulated income. Investing in non-permitted modes makes the income attributable to such investments taxable, and can trigger registration cancellation in serious cases.",
+    category: "Charitable Trusts & NPOs",
+    keywords: [
+      "section 350",
+      "permitted investment modes",
+      "section 11(5)",
+      "trust investment",
+      "charitable trust FD",
+      "government securities",
+      "allowed investment NPO",
+    ],
+    whoItApplies:
+      "All registered NPOs — applies specifically to corpus funds, accumulated income set aside via Form 10, and any funds not immediately required for charitable activities.",
+    keyPoints: [
+      "Permitted modes: government securities, post office deposits, nationalised bank FDs, public financial institutions, listed debentures",
+      "NOT permitted: shares of private companies, personal loans, speculative derivatives, unlisted securities",
+      "Corpus and Form 10 accumulations MUST be in permitted modes — violation makes income taxable",
+      "Day-to-day working funds (to be spent within the year) are NOT required to be in permitted modes",
+      "Trust can hold immovable property for use in charitable activities — not treated as 'investment' for this purpose",
+      "Existing non-permitted investments must be converted within 1 year of the violation being noticed",
+    ],
+    examples: [
+      {
+        title: "Trust Investing Corpus in Non-Permitted Mode",
+        scenario:
+          "A charitable trust has a corpus fund of ₹80 lakh. The trustee invests ₹50 lakh in shares of a private limited company and ₹30 lakh in a nationalised bank FD.",
+        calculation:
+          "Corpus fund:                           ₹80,00,000\n\nInvestment 1: Private company shares   ₹50,00,000\n  → NOT a permitted mode ✗\n\nInvestment 2: Nationalised bank FD     ₹30,00,000\n  → Permitted mode ✓\n\nConsequence for ₹50L non-permitted investment:\n  Income attributable (6% on ₹50L):    ₹ 3,00,000\n  Taxable at MMR (30%):                ₹   90,000\n  Plus: registration cancellation risk",
+        result:
+          "The ₹50 lakh must be immediately moved to a permitted mode. The trust should create a written investment policy listing only government securities, nationalised bank FDs, and public financial institutions to prevent such errors.",
+      },
+    ],
+    relatedSlugs: [
+      "corpus-donation",
+      "accumulated-income-charitable-trust",
+      "npo-registration-12a-12ab",
+      "npo-specified-violations",
+    ],
+  },
+
+  {
+    slug: "npo-specified-violations",
+    section2025: "Section 351",
+    section1961: "Sections 12AB & 13",
+    title: "Specified Violations — When NPO Registration is Cancelled",
+    explanation:
+      "Section 351 lists specific violations that can lead to cancellation of an NPO's registration — the most severe outcome for a charitable trust. Key violations include applying income for non-charitable purposes, benefiting specified persons, issuing fake donation receipts, not maintaining books, and deliberate non-compliance.",
+    category: "Charitable Trusts & NPOs",
+    keywords: [
+      "section 351",
+      "NPO violations",
+      "registration cancellation",
+      "12AB cancellation",
+      "charitable trust violation",
+      "fake receipt",
+      "trustee benefit",
+      "specified violation",
+    ],
+    whoItApplies:
+      "All registered NPOs — any trust can face registration cancellation if it commits a specified violation.",
+    keyPoints: [
+      "Applying income for non-charitable purposes or personal benefit of trustees — specified violation",
+      "Investing in non-permitted modes — specified violation",
+      "Applying funds outside India without approval — specified violation",
+      "Issuing false donation receipts or claiming receipts without actually receiving donations — specified violation",
+      "Carrying on commercial activities beyond the permitted threshold — specified violation",
+      "On cancellation: trust's income for that year is FULLY taxable at MMR with no exemption",
+    ],
+    examples: [
+      {
+        title: "Fake Donation Receipts — Worst Case Consequence",
+        scenario:
+          "A registered education trust issues ₹50 lakh worth of fake 80G receipts to donors who made no actual donations. The AO discovers this during assessment.",
+        calculation:
+          "Specified violation: Issuing false receipts ✓\n\nConsequences:\n1. Registration CANCELLED under Section 351\n\n2. Trust income for violation year:\n   Income:                              ₹40,00,000\n   Exemption: DISALLOWED\n   Tax at MMR (30%):                    ₹12,00,000\n\n3. Accreted income tax (Section 352):\n   FMV of all assets (say ₹2 crore):\n   Exit tax (30%):                      ₹60,00,000\n\n4. Prosecution risk:\n   Criminal liability for trustees\n\n5. For donors:\n   80G claims disallowed + interest",
+        result:
+          "Fake donation receipts trigger registration cancellation, ₹72 lakh+ in tax, and criminal prosecution for trustees. This is one of the most serious offences under the IT Act.",
+      },
+    ],
+    relatedSlugs: [
+      "npo-accreted-income-exit-tax",
+      "npo-other-violations",
+      "npo-registration-12a-12ab",
+      "npo-specified-income",
+    ],
+  },
+
+  {
+    slug: "npo-accreted-income-exit-tax",
+    section2025: "Section 352",
+    section1961: "Sections 12AC, 115TD, 115TE, 115TF",
+    title: "Exit Tax on Accreted Income — NPO Dissolution or Conversion",
+    explanation:
+      "When a registered NPO converts to a non-charitable entity, merges with a non-NPO, or has its registration cancelled, a 30% 'exit tax' is levied on its 'accreted income' — the excess of FMV of all assets over total liabilities on the date of conversion or cancellation. This prevents charities from accumulating tax-free assets and then converting to commercial entities.",
+    category: "Charitable Trusts & NPOs",
+    keywords: [
+      "section 352",
+      "accreted income",
+      "exit tax NPO",
+      "115TD",
+      "115TE",
+      "115TF",
+      "30 percent exit tax",
+      "NPO dissolution",
+      "trust conversion",
+      "trust winding up",
+    ],
+    whoItApplies:
+      "Registered NPOs whose registration is cancelled, who convert to a non-charitable entity, or who merge with a non-NPO body.",
+    keyPoints: [
+      "Exit tax = 30% of (FMV of all assets − Total liabilities) on the date of conversion/cancellation",
+      "Triggered by: registration cancellation, voluntary winding up, conversion to company/firm, merger with non-NPO",
+      "NOT triggered if assets are transferred to ANOTHER registered NPO — this is the escape route",
+      "Tax must be paid within 14 days of the conversion or cancellation date",
+      "Failure to pay attracts recovery proceedings and interest from the due date",
+      "Even trustees can be held personally liable for payment in case of trust default",
+    ],
+    examples: [
+      {
+        title: "Trust Converting to Private Limited Company",
+        scenario:
+          "Sunrise Education Trust (registered NPO) converts to Sunrise Education Pvt. Ltd. on 1 April 2027. On that date: FMV of assets = ₹8 crore, liabilities = ₹1.5 crore.",
+        calculation:
+          "Date of conversion:                    1 April 2027\n\nFMV of all assets:                     ₹8,00,00,000\nLess: Total liabilities:               ₹1,50,00,000\nAccreted income:                       ₹6,50,00,000\n\nExit tax @ 30%:                        ₹1,95,00,000\nAdd: 4% cess:                          ₹    7,80,000\nTotal exit tax payable:                ₹2,02,80,000\nDue date:                              15 April 2027\n\nAlternative — Transfer to another NPO:\n  Exit tax:                            ₹           0",
+        result:
+          "Converting to a company triggers ₹2.03 crore in exit tax. The trust should instead merge with another charitable education trust — this avoids exit tax entirely and preserves assets for charitable purposes.",
+      },
+    ],
+    relatedSlugs: [
+      "npo-regime-switching",
+      "npo-specified-violations",
+      "npo-registration-12a-12ab",
+      "corpus-donation",
+    ],
+  },
+
+  {
+    slug: "npo-other-violations",
+    section2025: "Section 353",
+    section1961: "Sections 13 & 115BI",
+    title: "Other Violations by Charitable Organisations",
+    explanation:
+      "Section 353 covers violations by NPOs that are less severe than Section 351 specified violations but still result in partial or full loss of exemption. These include failure to comply with audit requirements, missing return deadlines, applying income for purposes outside the trust deed, and other procedural non-compliance.",
+    category: "Charitable Trusts & NPOs",
+    keywords: [
+      "section 353",
+      "NPO other violations",
+      "115BI",
+      "section 13 violation",
+      "trust non-compliance",
+      "minor violation NPO",
+    ],
+    whoItApplies:
+      "Registered NPOs that commit procedural non-compliance or apply funds for purposes not strictly within their trust deed objects.",
+    keyPoints: [
+      "Applying income for objects not stated in the trust deed — the relevant income becomes taxable",
+      "Failure to file audit report or return by due date — accumulation benefits under Form 10 are lost",
+      "Using trust funds for activities in a different geographic area not covered by the trust deed — scrutiny risk",
+      "Unlike specified violations (Section 351), these do not automatically cancel registration",
+      "The AO can issue show-cause notices and give the trust an opportunity to rectify before imposing tax",
+    ],
+    examples: [
+      {
+        title: "Trust Spending on Activity Outside Its Trust Deed",
+        scenario:
+          "A trust registered to 'provide medical relief in District X' spends ₹10 lakh on medical camps in District Y. Total income: ₹50 lakh.",
+        calculation:
+          "Trust deed object: Medical relief in District X\n\nExpenditure in District Y:             ₹10,00,000\n  → NOT within stated objects ✗\n\nShortfall calculation:\n  Required application (85% of ₹50L): ₹42,50,000\n  Applied to District X:               ₹35,00,000\n  Applied to District Y (not counted): ₹10,00,000\n\nShortfall (₹42.5L − ₹35L):            ₹ 7,50,000\nTaxable at MMR (30%):                  ₹ 2,25,000",
+        result:
+          "The trust faces ₹2.33 lakh in tax (including cess) plus scrutiny risk. Fix: Amend the trust deed to include all districts/geographies where the trust operates, or obtain CIT approval before expanding geographic coverage.",
+      },
+    ],
+    relatedSlugs: [
+      "npo-specified-violations",
+      "npo-registration-12a-12ab",
+      "npo-return-of-income",
+      "npo-audit-accounts",
+    ],
+  },
+
+  {
+    slug: "npo-80g-approval",
+    section2025: "Section 354",
+    section1961: "Section 80G",
+    title: "80G Approval — Enabling Tax Deduction for Donors",
+    explanation:
+      "Section 354 governs the application by a registered NPO to get its donations approved under Section 133 (80G), which allows donors to claim tax deductions. 80G approval is separate from the NPO's own registration under Section 332 — it benefits the DONOR, not the NPO itself.",
+    category: "Charitable Trusts & NPOs",
+    keywords: [
+      "section 354",
+      "80G approval",
+      "donor deduction",
+      "form 10A 80G",
+      "form 10AB 80G",
+      "section 133 approval",
+      "donation receipt validity",
+      "trust 80G registration",
+    ],
+    whoItApplies:
+      "Registered NPOs that wish to issue 80G receipts to donors, enabling those donors to claim tax deductions on their contributions.",
+    keyPoints: [
+      "80G approval must be separately applied for — Section 332 registration alone does NOT give donors the 80G benefit",
+      "Application for 80G is typically filed simultaneously with Section 332 registration (Form 10A includes both)",
+      "Valid for 5 years and must be renewed along with the Section 332 registration renewal",
+      "NPO must issue stamped receipts with its PAN and 80G registration number for each donation",
+      "Cash donations above ₹2,000 cannot be accepted and still be eligible for 80G deduction by donors",
+      "If 80G approval lapses: donations received during the lapsed period are NOT eligible for donor deduction",
+    ],
+    examples: [
+      {
+        title: "Donor Verifying 80G Approval Before Donating",
+        scenario:
+          "Ashok wants to donate ₹2 lakh to Hope Charitable Trust in November 2026 and claim 80G deduction. How does he verify the trust's approval status?",
+        calculation:
+          "Step 1: Request stamped receipt showing:\n  Trust PAN:            AAATH1234X\n  80G Reg No:           AAATH1234XE20240\n  Valid from/to:        1 Apr 2024 – 31 Mar 2029\n\nStep 2: Verify on IT e-filing portal:\n  Search by PAN → Confirm 80G status is active ✓\n\nStep 3: Claim in ITR:\n  Donation:                            ₹2,00,000\n  Category: 50% deduction with limit\n  GTI:                                 ₹15,00,000\n  Qualifying limit (10%):              ₹1,50,000\n  Eligible (lower):                    ₹1,50,000\n  Deduction (50%):                     ₹   75,000\n  Tax saved (30% + cess):              ₹   23,400",
+        result:
+          "Always verify 80G status on the IT portal before donating large amounts. If a trust's 80G approval has lapsed, the donor gets no deduction. The trust must renew its 80G approval BEFORE accepting donations to keep the benefit alive for donors.",
+      },
+    ],
+    relatedSlugs: [
+      "donations-80g",
+      "npo-registration-12a-12ab",
+      "donations-80gga-scientific-rural",
+      "npo-specified-violations",
+    ],
+  },
+
+  {
+    slug: "npo-chapter-interpretations",
+    section2025: "Section 355",
+    section1961: "Sections 2(15), 11, 12, 13, 115BBC, 115TD–115TF",
+    title: "Key Definitions for the Charitable Trust Chapter",
+    explanation:
+      "Section 355 consolidates the definitions of key terms used throughout the NPO/charitable trust chapter — including 'charitable purpose', 'author of the trust', 'specified person', 'regular income', and 'voluntary contribution'. Understanding these definitions is essential for correctly applying all other sections in this chapter.",
+    category: "Charitable Trusts & NPOs",
+    keywords: [
+      "section 355",
+      "charitable purpose definition",
+      "specified person definition",
+      "author of trust",
+      "voluntary contribution",
+      "2(15) definition",
+      "NPO definitions",
+      "religious trust definition",
+    ],
+    whoItApplies:
+      "Relevant to all registered NPOs and their advisors when interpreting and applying the provisions of the charitable trust chapter.",
+    keyPoints: [
+      "'Charitable purpose' includes: relief of poor, education, yoga, medical relief, environment preservation, preservation of monuments, and General Public Utility (GPU)",
+      "'Specified person' = author of trust, trustee, person making a substantial contribution (>₹50,000), and their relatives",
+      "'Voluntary contribution' = any donation made without any service or goods in return",
+      "'Author of trust' = the person who originally created the trust deed and contributed the initial assets",
+      "Definition of 'relative' is broad — includes spouse, children, siblings, parents, and their spouses",
+    ],
+    examples: [
+      {
+        title: "Testing Whether a Payment is to a Specified Person",
+        scenario:
+          "A charitable trust pays ₹3 lakh to a CA firm for audit services. The CA is the son-in-law of one of the trustees. Is this a benefit to a 'specified person'?",
+        calculation:
+          "Trustee's son-in-law = 'relative' of trustee\nRelative of trustee = 'specified person' under Section 355\n\nPayment of ₹3L to CA firm (son-in-law's firm):\n  Nature: Professional fee for audit service\n\nIs it at arm's length rate?\n  If market rate is ₹2.5L but paid ₹3L:\n    Excess ₹50,000 = Benefit to specified person ✗\n    → Specified income (Section 337)\n    Tax at MMR (30%):                    ₹   15,000\n\n  If ₹3L IS the fair market rate:\n    No excess benefit → Not specified income ✓\n    Tax:                                 ₹         0",
+        result:
+          "All transactions with relatives of trustees must be at arm's length market rates and documented with quotes from at least two other comparable service providers. Overpaying a related party — even for genuine services — creates a tax liability for the trust.",
+      },
+    ],
+    relatedSlugs: [
+      "npo-specified-income",
+      "npo-specified-violations",
+      "npo-registration-12a-12ab",
+      "general-public-utility-commercial-limit",
     ],
   },
 ];
