@@ -1271,7 +1271,7 @@ export const SECTIONS: SectionEntry[] = [
   // ── Special Income ────────────────────────────────────────────────────────
   {
     slug: "virtual-digital-assets-crypto",
-    section2025: "Section 171",
+    section2025: "Section 194",
     section1961: "Section 115BBH",
     title: "Virtual Digital Assets (Crypto) — 30%",
     explanation:
