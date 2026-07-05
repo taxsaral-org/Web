@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react";
 import { Search, ArrowRight, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { MAPPINGS, CATEGORIES, type MappingCategory } from "./mapping-data";
+import { MAPPINGS, CATEGORIES, QUICK_FILTERS, type MappingCategory } from "./mapping-data";
 
 const CATEGORY_COLORS: Record<MappingCategory, string> = {
   "Preliminary":            "bg-slate-100 text-slate-700",
@@ -40,12 +40,17 @@ const CATEGORY_COLORS: Record<MappingCategory, string> = {
 export function MappingClient() {
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<MappingCategory | "All">("All");
+  const [activeQuickFilter, setActiveQuickFilter] = useState<string | null>(null);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
+    const qfSections = activeQuickFilter && QUICK_FILTERS[activeQuickFilter]
+      ? new Set(QUICK_FILTERS[activeQuickFilter]!.sections)
+      : null;
     return MAPPINGS.filter((m) => {
       const matchesCategory = activeCategory === "All" || m.category === activeCategory;
       if (!matchesCategory) return false;
+      if (qfSections && !qfSections.has(m.new)) return false;
       if (!q) return true;
       return (
         m.old.toLowerCase().includes(q) ||
@@ -54,7 +59,7 @@ export function MappingClient() {
         m.category.toLowerCase().includes(q)
       );
     });
-  }, [query, activeCategory]);
+  }, [query, activeCategory, activeQuickFilter]);
 
   return (
     <div>
@@ -77,6 +82,27 @@ export function MappingClient() {
             <X className="h-3.5 w-3.5" />
           </button>
         )}
+      </div>
+
+      {/* Quick filters */}
+      <div className="mb-3 flex gap-2 flex-wrap items-center">
+        <span className="text-xs font-medium text-muted-foreground">Quick filter:</span>
+        {Object.entries(QUICK_FILTERS).map(([key, { label, description }]) => (
+          <button
+            key={key}
+            type="button"
+            title={description}
+            onClick={() => setActiveQuickFilter(activeQuickFilter === key ? null : key)}
+            className={cn(
+              "rounded-full border px-3 py-1 text-xs font-medium transition-colors",
+              activeQuickFilter === key
+                ? "bg-emerald-600 text-white border-emerald-600"
+                : "border-emerald-300 text-emerald-700 bg-emerald-50 hover:bg-emerald-100 dark:border-emerald-700 dark:text-emerald-400 dark:bg-emerald-950/40 dark:hover:bg-emerald-900/40"
+            )}
+          >
+            {label}
+          </button>
+        ))}
       </div>
 
       {/* Category filters */}
@@ -114,6 +140,9 @@ export function MappingClient() {
       <p className="mb-3 text-xs text-muted-foreground">
         Showing <span className="font-semibold text-foreground">{filtered.length}</span> of{" "}
         {MAPPINGS.length} section mappings
+        {activeQuickFilter && QUICK_FILTERS[activeQuickFilter] && (
+          <> — <span className="font-semibold text-emerald-700 dark:text-emerald-400">{QUICK_FILTERS[activeQuickFilter]!.label}</span></>
+        )}
         {activeCategory !== "All" && (
           <> in <span className="font-semibold text-foreground">{activeCategory}</span></>
         )}
@@ -192,7 +221,7 @@ export function MappingClient() {
           </p>
           <button
             type="button"
-            onClick={() => { setQuery(""); setActiveCategory("All"); }}
+            onClick={() => { setQuery(""); setActiveCategory("All"); setActiveQuickFilter(null); }}
             className="mt-2 text-xs text-primary hover:underline"
           >
             Clear filters

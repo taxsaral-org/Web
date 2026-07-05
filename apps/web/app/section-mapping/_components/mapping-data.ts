@@ -29,6 +29,49 @@ export type MappingCategory =
   | "Appeals & Revision"
   | "Miscellaneous";
 
+export interface QuickFilter {
+  label: string;
+  description: string;
+  sections: string[];
+}
+
+export const QUICK_FILTERS: Record<string, QuickFilter> = {
+  NPO: {
+    label: "Non-Profit / Charitable Trust",
+    description: "Sections applicable to NPOs, charitable trusts, religious institutions and donation recipients",
+    sections: [
+      "12",   // Political parties and electoral trusts
+      "133",  // 80G donations
+      "135",  // 80GGA donations for scientific research / rural dev
+      "188",  // 115BBC anonymous donations at 30%
+      "332",  // Application for registration — charitable trusts and NPOs
+      "333",  // Switching over of regimes for charitable organisations
+      "334",  // Tax on income of registered NPO
+      "335",  // Regular income of registered NPO
+      "336",  // Taxable regular income of NPO
+      "337",  // Specified income of charitable organisations
+      "338",  // Income not to be included in regular income of NPO
+      "339",  // Corpus donation
+      "340",  // Deemed corpus donation
+      "341",  // Application of income by charitable trust
+      "342",  // Accumulated income of charitable trust
+      "343",  // Deemed accumulated income
+      "344",  // Business undertaking held as property of NPO
+      "345",  // Restriction on commercial activities by registered NPO
+      "346",  // Restriction on commercial activities — general public utility
+      "347",  // Books of accounts for charitable organisations
+      "348",  // Audit of accounts of charitable organisations
+      "349",  // Return of income for charitable organisations
+      "350",  // Permitted modes of investment
+      "351",  // Specified violation by charitable organisation
+      "352",  // Tax on accreted income on conversion / dissolution
+      "353",  // Other violations by charitable organisations
+      "354",  // Application for approval (80G)
+      "355",  // Interpretations for charitable trust chapter
+    ],
+  },
+};
+
 export const CATEGORIES: MappingCategory[] = [
   "Preliminary",
   "Basis of Charge",
