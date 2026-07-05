@@ -78,7 +78,7 @@ export function SiteHeader() {
                 : "text-muted-foreground hover:bg-muted hover:text-foreground"
             )}
           >
-            Sections
+            Section Explainer
           </Link>
 
           {/* Section Mapping link */}
