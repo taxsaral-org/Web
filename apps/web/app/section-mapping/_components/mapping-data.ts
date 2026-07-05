@@ -38,36 +38,90 @@ export interface QuickFilter {
 export const QUICK_FILTERS: Record<string, QuickFilter> = {
   NPO: {
     label: "Non-Profit / Charitable Trust",
-    description: "Sections applicable to NPOs, charitable trusts, religious institutions and donation recipients",
+    description: "NPOs, charitable trusts, religious institutions and donation recipients",
     sections: [
-      "12",   // Political parties and electoral trusts
-      "133",  // 80G donations
-      "135",  // 80GGA donations for scientific research / rural dev
-      "188",  // 115BBC anonymous donations at 30%
-      "332",  // Application for registration — charitable trusts and NPOs
-      "333",  // Switching over of regimes for charitable organisations
-      "334",  // Tax on income of registered NPO
-      "335",  // Regular income of registered NPO
-      "336",  // Taxable regular income of NPO
-      "337",  // Specified income of charitable organisations
-      "338",  // Income not to be included in regular income of NPO
-      "339",  // Corpus donation
-      "340",  // Deemed corpus donation
-      "341",  // Application of income by charitable trust
-      "342",  // Accumulated income of charitable trust
-      "343",  // Deemed accumulated income
-      "344",  // Business undertaking held as property of NPO
-      "345",  // Restriction on commercial activities by registered NPO
-      "346",  // Restriction on commercial activities — general public utility
-      "347",  // Books of accounts for charitable organisations
-      "348",  // Audit of accounts of charitable organisations
-      "349",  // Return of income for charitable organisations
-      "350",  // Permitted modes of investment
-      "351",  // Specified violation by charitable organisation
-      "352",  // Tax on accreted income on conversion / dissolution
-      "353",  // Other violations by charitable organisations
-      "354",  // Application for approval (80G)
-      "355",  // Interpretations for charitable trust chapter
+      "12", "133", "135", "188",
+      "332", "333", "334", "335", "336", "337", "338", "339", "340",
+      "341", "342", "343", "344", "345", "346", "347", "348", "349",
+      "350", "351", "352", "353", "354", "355",
+    ],
+  },
+  Salaried: {
+    label: "Salaried Employees",
+    description: "Salary income, TDS, deductions, new tax regime, Form 16 and relief sections",
+    sections: [
+      "15", "16", "17", "18", "19",
+      "123", "124", "125", "126", "127", "128", "129", "130", "131",
+      "132", "133", "134", "153", "154",
+      "155", "156", "157", "158",
+      "202", "263",
+      "392", "395", "396", "400", "401",
+      "423", "424", "428",
+    ],
+  },
+  NRI: {
+    label: "NRI / Non-Resident",
+    description: "Residence rules, DTAA, NRI special provisions and TDS on foreign remittances",
+    sections: [
+      "6", "9", "10", "59", "60", "61",
+      "159", "160",
+      "207", "208", "209", "210", "211", "212", "213",
+      "214", "215", "216", "217", "218", "219", "220",
+      "303", "306", "393", "422",
+    ],
+  },
+  RealEstate: {
+    label: "Real Estate / Property",
+    description: "House property income, capital gains on sale, stamp duty value and exemptions (54, 54F, etc.)",
+    sections: [
+      "20", "21", "22", "23", "24", "25",
+      "53", "78", "79", "80", "81",
+      "82", "83", "84", "85", "86", "87", "88", "89", "91",
+      "130", "131", "142", "271",
+    ],
+  },
+  SeniorCitizen: {
+    label: "Senior Citizens",
+    description: "Sections specifically beneficial to senior (60+) and very senior citizens (80+)",
+    sections: [
+      "126", "127", "128", "153", "154",
+      "155", "156", "202",
+      "396", "408",
+    ],
+  },
+  Startup: {
+    label: "Startups & New Business",
+    description: "DPIIT-recognised startups, new manufacturing companies and capital expenditure incentives",
+    sections: [
+      "46", "47", "58", "62", "63",
+      "140", "146",
+      "200", "201", "202",
+    ],
+  },
+  Presumptive: {
+    label: "Presumptive Taxation",
+    description: "Small businesses, professionals and transporters on presumptive income scheme (44AD / 44ADA / 44AE)",
+    sections: [
+      "58", "59", "61", "62", "63",
+    ],
+  },
+  Crypto: {
+    label: "Crypto / VDA",
+    description: "Virtual Digital Assets — 30% flat tax, 1% TDS on transfer and treatment as other income",
+    sections: [
+      "92", "194", "393",
+    ],
+  },
+  SearchSeizure: {
+    label: "Search & Seizure",
+    description: "IT raids, survey powers, block assessment, and related penalties and prosecution",
+    sections: [
+      "238", "239", "240", "241", "242", "243", "244", "245", "246",
+      "247", "248", "249", "250", "251", "252",
+      "253", "254", "255", "256", "257", "258", "259", "260", "261",
+      "285", "286", "287",
+      "292", "293", "294", "295", "296", "297", "298", "299", "300",
+      "443", "444", "473", "474",
     ],
   },
 };

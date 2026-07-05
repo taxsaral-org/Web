@@ -85,24 +85,28 @@ export function MappingClient() {
       </div>
 
       {/* Quick filters */}
-      <div className="mb-3 flex gap-2 flex-wrap items-center">
-        <span className="text-xs font-medium text-muted-foreground">Quick filter:</span>
-        {Object.entries(QUICK_FILTERS).map(([key, { label, description }]) => (
-          <button
-            key={key}
-            type="button"
-            title={description}
-            onClick={() => setActiveQuickFilter(activeQuickFilter === key ? null : key)}
-            className={cn(
-              "rounded-full border px-3 py-1 text-xs font-medium transition-colors",
-              activeQuickFilter === key
-                ? "bg-emerald-600 text-white border-emerald-600"
-                : "border-emerald-300 text-emerald-700 bg-emerald-50 hover:bg-emerald-100 dark:border-emerald-700 dark:text-emerald-400 dark:bg-emerald-950/40 dark:hover:bg-emerald-900/40"
-            )}
-          >
-            {label}
-          </button>
-        ))}
+      <div className="mb-4 rounded-xl border bg-muted/30 px-4 py-3">
+        <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+          Quick Filters
+        </p>
+        <div className="flex gap-1.5 flex-wrap">
+          {Object.entries(QUICK_FILTERS).map(([key, { label, description }]) => (
+            <button
+              key={key}
+              type="button"
+              title={description}
+              onClick={() => setActiveQuickFilter(activeQuickFilter === key ? null : key)}
+              className={cn(
+                "rounded-full border px-3 py-1 text-xs font-medium transition-colors",
+                activeQuickFilter === key
+                  ? "bg-emerald-600 text-white border-emerald-600"
+                  : "border-emerald-300 text-emerald-700 bg-emerald-50 hover:bg-emerald-100 dark:border-emerald-700 dark:text-emerald-400 dark:bg-emerald-950/40 dark:hover:bg-emerald-900/40"
+              )}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Category filters */}
