@@ -46,7 +46,7 @@ export function SiteHeader() {
 
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 shrink-0">
-          <span className="text-lg font-bold tracking-tight">TaxSaral</span>
+          <span className="text-lg font-bold tracking-tight bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">TaxSaral</span>
           <span className="hidden rounded-full bg-blue-50 border border-blue-200 px-2 py-0.5 text-xs font-semibold text-blue-700 sm:inline">
             IT Act 2025
           </span>

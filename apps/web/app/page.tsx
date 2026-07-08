@@ -9,6 +9,8 @@ const CALCULATORS = [
       "Compare default vs optional regime in real-time. Includes Section 156 rebate, marginal relief, and deduction breakeven.",
     badge: "Section 202",
     tip: "Most useful calculator to start with",
+    accent: "border-l-4 border-l-blue-400",
+    badgeColor: "bg-blue-50 text-blue-700",
   },
   {
     href: "/calculators/hra",
@@ -17,6 +19,8 @@ const CALCULATORS = [
       "Calculate your House Rent Allowance exemption using the three-condition minimum formula for metro and non-metro cities.",
     badge: "Schedule III",
     tip: null,
+    accent: "border-l-4 border-l-emerald-400",
+    badgeColor: "bg-emerald-50 text-emerald-700",
   },
   {
     href: "/calculators/house-property-income",
@@ -25,6 +29,8 @@ const CALCULATORS = [
       "Compute income or loss from self-occupied, let-out, and deemed let-out properties. Covers co-ownership, arrears, and regime-specific loss set-off.",
     badge: "Sections 20–25",
     tip: null,
+    accent: "border-l-4 border-l-amber-400",
+    badgeColor: "bg-amber-50 text-amber-700",
   },
   {
     href: "/calculators/multiple-employer",
@@ -33,6 +39,8 @@ const CALCULATORS = [
       "Switched jobs this year? Aggregate salary and TDS from all employers to find your true tax position and any shortfall.",
     badge: "Section 392",
     tip: null,
+    accent: "border-l-4 border-l-violet-400",
+    badgeColor: "bg-violet-50 text-violet-700",
   },
   {
     href: "/calculators/advance-tax",
@@ -41,6 +49,8 @@ const CALCULATORS = [
       "Calculate quarterly instalment amounts (Q1–Q4) and check if your net liability crosses the ₹10,000 threshold.",
     badge: "Section 425",
     tip: null,
+    accent: "border-l-4 border-l-rose-400",
+    badgeColor: "bg-rose-50 text-rose-700",
   },
   {
     href: "/calculators/residential-status",
@@ -49,6 +59,8 @@ const CALCULATORS = [
       "Determine whether you are ROR, RNOR, or Non-Resident under Section 6. Step-by-step wizard covering all exceptions for Indian citizens, PIOs, and foreign nationals.",
     badge: "Section 6",
     tip: "Essential for NRIs and returning Indians",
+    accent: "border-l-4 border-l-cyan-500",
+    badgeColor: "bg-cyan-50 text-cyan-700",
   },
 ];
 
@@ -64,16 +76,19 @@ const HOW_IT_WORKS = [
     step: "1",
     title: "Enter your income details",
     body: "Type your salary, deductions, rent paid, or any other input the calculator needs. All fields are optional — you only fill what applies to you.",
+    color: "bg-blue-600",
   },
   {
     step: "2",
     title: "See a live breakdown",
     body: "Results update as you type. Every figure is accompanied by the relevant Act section so you know exactly where the number comes from.",
+    color: "bg-emerald-600",
   },
   {
     step: "3",
     title: "Know your exact position",
     body: "Understand your tax liability, the better regime for your situation, and whether you need to pay advance tax — before you talk to your CA.",
+    color: "bg-violet-600",
   },
 ];
 
@@ -104,7 +119,7 @@ export default function Home() {
   return (
     <main>
       {/* ── Hero ─────────────────────────────────────────────────────── */}
-      <section className="border-b bg-gradient-to-b from-blue-50/70 via-blue-50/20 to-background">
+      <section className="border-b bg-gradient-to-br from-indigo-100/70 via-blue-50/50 to-teal-50/20">
         <div className="container mx-auto max-w-4xl px-4 py-16 text-center">
           {/* Status pill */}
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700">
@@ -157,11 +172,11 @@ export default function Home() {
           Each calculator covers a specific aspect of your income tax. Use them independently or link them together.
         </p>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {CALCULATORS.map(({ href, title, description, badge, tip }) => (
+          {CALCULATORS.map(({ href, title, description, badge, tip, accent, badgeColor }) => (
             <Link
               key={href}
               href={href}
-              className="group relative rounded-xl border bg-card p-6 transition-all hover:border-primary/40 hover:shadow-md hover:bg-primary/[0.015]"
+              className={`group relative rounded-xl border bg-card p-6 transition-all hover:shadow-md hover:bg-muted/20 ${accent}`}
             >
               {tip && (
                 <span className="absolute right-4 top-4 rounded-full bg-emerald-50 px-2 py-0.5 text-xs font-medium text-emerald-700 border border-emerald-200">
@@ -170,7 +185,7 @@ export default function Home() {
               )}
               <div className="mb-3 flex items-start justify-between gap-3 pr-2">
                 <h3 className="text-base font-semibold group-hover:text-primary transition-colors">{title}</h3>
-                <span className="shrink-0 rounded-full bg-primary/10 px-2 py-0.5 text-xs font-mono font-medium text-primary">
+                <span className={`shrink-0 rounded-full px-2 py-0.5 text-xs font-mono font-medium ${badgeColor}`}>
                   {badge}
                 </span>
               </div>
@@ -191,9 +206,9 @@ export default function Home() {
             TaxSaral is designed to help you understand your tax position before you sit down with your CA.
           </p>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
-            {HOW_IT_WORKS.map(({ step, title, body }) => (
+            {HOW_IT_WORKS.map(({ step, title, body, color }) => (
               <div key={step} className="flex gap-4">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground shadow-sm">
+                <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full ${color} text-sm font-bold text-white shadow-sm`}>
                   {step}
                 </div>
                 <div>
@@ -214,8 +229,8 @@ export default function Home() {
             Most tax calculators in India still use the 1961 Act. TaxSaral was built from scratch for 2025.
           </p>
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
-            <div className="rounded-xl border bg-card p-5 hover:border-primary/30 hover:shadow-sm transition-all">
-              <div className="mb-3 inline-flex items-center justify-center h-10 w-10 rounded-xl bg-emerald-50 border border-emerald-100">
+            <div className="rounded-xl border border-t-4 border-t-emerald-400 bg-card p-5 hover:shadow-sm transition-all">
+              <div className="mb-3 inline-flex items-center justify-center h-10 w-10 rounded-xl bg-emerald-100 border border-emerald-200">
                 <ShieldCheck className="h-5 w-5 text-emerald-600" />
               </div>
               <p className="font-semibold text-sm">Built on the actual law</p>
@@ -223,8 +238,8 @@ export default function Home() {
                 Every rate, slab, deduction limit, and section number is sourced directly from the Income Tax Act 2025 — not from a summary or circular. Section numbers are displayed on-screen so you can verify.
               </p>
             </div>
-            <div className="rounded-xl border bg-card p-5 hover:border-primary/30 hover:shadow-sm transition-all">
-              <div className="mb-3 inline-flex items-center justify-center h-10 w-10 rounded-xl bg-blue-50 border border-blue-100">
+            <div className="rounded-xl border border-t-4 border-t-blue-400 bg-card p-5 hover:shadow-sm transition-all">
+              <div className="mb-3 inline-flex items-center justify-center h-10 w-10 rounded-xl bg-blue-100 border border-blue-200">
                 <Lock className="h-5 w-5 text-blue-600" />
               </div>
               <p className="font-semibold text-sm">Completely private</p>
@@ -232,8 +247,8 @@ export default function Home() {
                 Your income details never leave your device. Calculations run entirely in your browser with zero server calls for your data. No account, no email, no tracking of your inputs.
               </p>
             </div>
-            <div className="rounded-xl border bg-card p-5 hover:border-primary/30 hover:shadow-sm transition-all">
-              <div className="mb-3 inline-flex items-center justify-center h-10 w-10 rounded-xl bg-violet-50 border border-violet-100">
+            <div className="rounded-xl border border-t-4 border-t-violet-400 bg-card p-5 hover:shadow-sm transition-all">
+              <div className="mb-3 inline-flex items-center justify-center h-10 w-10 rounded-xl bg-violet-100 border border-violet-200">
                 <Zap className="h-5 w-5 text-violet-600" />
               </div>
               <p className="font-semibold text-sm">Live, linked calculators</p>
