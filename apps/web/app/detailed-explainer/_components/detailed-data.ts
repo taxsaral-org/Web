@@ -15,6 +15,7 @@ export type ContentBlock =
   | { type: "heading"; text: string }
   | { type: "subheading"; text: string }
   | { type: "callout"; variant: "info" | "warning" | "tip"; text: string }
+  | { type: "diagram"; id: string }
   | {
       type: "table";
       headers: string[];
@@ -248,6 +249,10 @@ export const DETAILED_ENTRIES: DetailedEntry[] = [
         ],
       },
       {
+        type: "diagram",
+        id: "deemed-dividend-flow",
+      },
+      {
         type: "callout",
         variant: "info",
         text: "This provision applies only to closely held companies — i.e., unlisted companies where the public are not substantially interested. Listed companies and companies in which the public are substantially interested are outside the scope of Section 2(40)(e).",
@@ -343,6 +348,10 @@ export const DETAILED_ENTRIES: DetailedEntry[] = [
             ],
           },
         ],
+      },
+      {
+        type: "diagram",
+        id: "sv-pvt-ltd-setoff",
       },
       {
         type: "callout",

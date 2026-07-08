@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, Info, AlertTriangle, Lightbulb } from "lucide-react";
 import { DETAILED_ENTRIES } from "../_components/detailed-data";
 import type { ContentBlock } from "../_components/detailed-data";
+import { getDiagram } from "../_components/diagrams";
 import { cn } from "@/lib/utils";
 
 const CATEGORY_COLORS: Record<string, string> = {
@@ -37,6 +38,9 @@ export async function generateMetadata({
 
 function RenderBlock({ block }: { block: ContentBlock }) {
   switch (block.type) {
+    case "diagram":
+      return <>{getDiagram(block.id)}</>;
+
     case "heading":
       return (
         <div className="mt-8 mb-3 first:mt-0">
