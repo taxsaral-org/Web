@@ -81,6 +81,19 @@ export function SiteHeader() {
             Section Explainer
           </Link>
 
+          {/* Detailed Explainer link */}
+          <Link
+            href="/detailed-explainer"
+            className={cn(
+              "rounded-md px-3 py-1.5 text-sm transition-colors",
+              pathname === "/detailed-explainer" || pathname?.startsWith("/detailed-explainer/")
+                ? "bg-primary/10 text-primary font-medium"
+                : "text-muted-foreground hover:bg-muted hover:text-foreground"
+            )}
+          >
+            Detailed Explainer
+          </Link>
+
           {/* Section Mapping link */}
           <Link
             href="/section-mapping"
