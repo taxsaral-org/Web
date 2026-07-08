@@ -5,6 +5,7 @@ import { ArrowLeft, Info, AlertTriangle, Lightbulb } from "lucide-react";
 import { DETAILED_ENTRIES } from "../_components/detailed-data";
 import type { ContentBlock } from "../_components/detailed-data";
 import { getDiagram } from "../_components/diagrams";
+import { DetailedAskWidget } from "../_components/ask-widget";
 import { cn } from "@/lib/utils";
 
 const CATEGORY_COLORS: Record<string, string> = {
@@ -267,8 +268,11 @@ export default async function DetailedEntryPage({
         ))}
       </div>
 
+      {/* Ask a Question */}
+      <DetailedAskWidget section2025={entry.section2025} />
+
       {/* Footer */}
-      <div className="mt-10 rounded-xl border bg-muted/20 px-5 py-4 text-xs text-muted-foreground leading-relaxed">
+      <div className="mt-6 rounded-xl border bg-muted/20 px-5 py-4 text-xs text-muted-foreground leading-relaxed">
         <span className="font-medium text-foreground">Disclaimer: </span>
         This analysis is based on the Income Tax Act 2025 (Tax Year 2026-27) and is for educational
         purposes only. Tax laws are subject to change. Always verify with a Chartered Accountant or
