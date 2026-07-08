@@ -58,7 +58,7 @@ export const DETAILED_CATEGORIES: DetailedCategory[] = [
 export const DETAILED_ENTRIES: DetailedEntry[] = [
   {
     slug: "buyback-of-securities",
-    section2025: "Sections 68–69 & 196",
+    section2025: "Sections 69 & 196",
     section1961: "Section 46A & 115QA",
     title: "Taxation in Case of Buyback of Securities",
     summary:
