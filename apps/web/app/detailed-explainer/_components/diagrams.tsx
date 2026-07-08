@@ -477,12 +477,72 @@ function AgriculturalDecisionTree() {
   );
 }
 
+function COAGrandfatheringFormula() {
+  return (
+    <div className="overflow-x-auto rounded-xl border bg-white p-4">
+      <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-400">
+        Section 90(7) — The COA Formula (Grandfathering)
+      </p>
+      <svg
+        viewBox="0 0 580 215"
+        className="w-full max-w-xl mx-auto h-auto"
+        xmlns="http://www.w3.org/2000/svg"
+        style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}
+      >
+        <defs>
+          <marker id="coa-arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6 Z" fill="#374151" />
+          </marker>
+        </defs>
+
+        {/* Top box: COA = HIGHER OF */}
+        <rect x="160" y="10" width="260" height="54" rx="8" fill="#0f4c3a" />
+        <text x="210" y="34" fill="white" fontSize="13" fontWeight="700">COA</text>
+        <text x="248" y="34" fill="white" fontSize="13"> = </text>
+        <rect x="270" y="18" width="100" height="26" rx="13" fill="#16a34a" />
+        <text x="320" y="35" textAnchor="middle" fill="white" fontSize="11" fontWeight="700">HIGHER OF</text>
+        <text x="290" y="55" textAnchor="middle" fill="#6ee7b7" fontSize="10">Master this formula and every problem is plug-and-play</text>
+
+        {/* Fork lines */}
+        <line x1="290" y1="64" x2="290" y2="84" stroke="#6b7280" strokeWidth="1.5" />
+        <line x1="120" y1="84" x2="460" y2="84" stroke="#6b7280" strokeWidth="1.5" />
+        <line x1="120" y1="84" x2="120" y2="110" stroke="#6b7280" strokeWidth="1.5" markerEnd="url(#coa-arr)" />
+        <line x1="460" y1="84" x2="460" y2="104" stroke="#6b7280" strokeWidth="1.5" markerEnd="url(#coa-arr)" />
+
+        {/* A label at fork */}
+        <text x="195" y="80" fill="#6b7280" fontSize="9.5" fontWeight="600" fontStyle="italic">A</text>
+        <text x="430" y="80" fill="#6b7280" fontSize="9.5" fontWeight="600" fontStyle="italic">B</text>
+
+        {/* Box A: Actual Cost */}
+        <rect x="20" y="110" width="200" height="55" rx="6" fill="#dcfce7" stroke="#4ade80" strokeWidth="1.5" />
+        <text x="120" y="136" textAnchor="middle" fill="#14532d" fontSize="12" fontWeight="700">Actual Cost</text>
+        <text x="120" y="154" textAnchor="middle" fill="#14532d" fontSize="12" fontWeight="700">of Acquisition</text>
+
+        {/* Box B: LOWER OF container */}
+        <rect x="340" y="104" width="220" height="104" rx="6" fill="#fff7ed" stroke="#fb923c" strokeWidth="1.5" />
+        {/* LOWER OF badge */}
+        <rect x="395" y="112" width="110" height="22" rx="11" fill="#fb923c" />
+        <text x="450" y="127" textAnchor="middle" fill="white" fontSize="11" fontWeight="700">LOWER OF</text>
+
+        {/* Sub-pill 1: FMV on 31.01.2018 */}
+        <rect x="355" y="142" width="195" height="26" rx="5" fill="white" stroke="#9ca3af" strokeWidth="1.2" />
+        <text x="452" y="158.5" textAnchor="middle" fill="#374151" fontSize="11" fontWeight="600">FMV on 31.01.2018</text>
+
+        {/* Sub-pill 2: Sale Value */}
+        <rect x="355" y="175" width="195" height="26" rx="5" fill="white" stroke="#9ca3af" strokeWidth="1.2" />
+        <text x="452" y="191.5" textAnchor="middle" fill="#374151" fontSize="11" fontWeight="600">Sale Value</text>
+      </svg>
+    </div>
+  );
+}
+
 export function getDiagram(id: string): ReactNode {
   const diagrams: Record<string, ReactNode> = {
     "deemed-dividend-flow": <DeemedDividendFlow />,
     "sv-pvt-ltd-setoff": <SVPvtLtdSetoff />,
     "sugarcane-split": <SugarcaneRulesSplit />,
     "agricultural-decision-tree": <AgriculturalDecisionTree />,
+    "coa-grandfathering-formula": <COAGrandfatheringFormula />,
   };
   return diagrams[id] ?? null;
 }

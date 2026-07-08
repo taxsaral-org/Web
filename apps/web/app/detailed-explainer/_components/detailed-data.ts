@@ -673,4 +673,240 @@ export const DETAILED_ENTRIES: DetailedEntry[] = [
       },
     ],
   },
+
+  {
+    slug: "cost-of-acquisition-shares-grandfathering",
+    section2025: "Section 90(7)",
+    section1961: "Section 55(2)(ac)",
+    title: "Cost of Acquisition of Shares — The Grandfathering Rule",
+    summary:
+      "How Section 90(7) steps up the cost of listed shares and MF units to their 31 Jan 2018 FMV, protecting pre-2018 gains from LTCG tax — with the master COA formula, three FMV determination cases, and fully worked examples for both listed shares (Mr. Prasun) and MF units (Mr. Raj).",
+    category: "Capital Gains",
+    keywords: [
+      "grandfathering rule",
+      "section 90(7)",
+      "section 55(2)(ac)",
+      "cost of acquisition",
+      "COA",
+      "FMV 31 January 2018",
+      "LTCG listed shares",
+      "section 198",
+      "12.5 percent LTCG",
+      "1.25 lakh exemption",
+      "STT",
+      "NAV unlisted MF",
+      "CII 278",
+      "Mr Prasun",
+      "Mr Raj",
+      "grandfathering listed shares",
+    ],
+    lastUpdated: "2026-07-08",
+    content: [
+      {
+        type: "heading",
+        text: "Why the Grandfathering Rule Exists",
+      },
+      {
+        type: "paragraph",
+        text: "Long-term capital gains (LTCG) on listed shares and equity-oriented mutual fund units were completely tax-free until 31 March 2018. From 1 April 2018, they became taxable under Section 198 of the IT Act 2025. To avoid taxing gains that had already accrued during the tax-free period, Parliament introduced the grandfathering rule — the cost is stepped up to the Fair Market Value (FMV) on 31 January 2018, so only gains earned after that date are taxed.",
+      },
+      {
+        type: "callout",
+        variant: "info",
+        text: "31 Jan 2018 is the freeze date — gains up to this date are protected. 1 Apr 2018 is when LTCG tax started. Any appreciation between 31 Jan 2018 and the date of sale is the taxable portion.",
+      },
+      {
+        type: "heading",
+        text: "The One Formula — COA Under Section 90(7)",
+      },
+      {
+        type: "paragraph",
+        text: "Section 90(7) defines the deemed Cost of Acquisition (COA) for listed shares and MF units acquired before 1 Feb 2018. Master this single formula and every exam problem becomes plug-and-play:",
+      },
+      {
+        type: "diagram",
+        id: "coa-grandfathering-formula",
+      },
+      {
+        type: "table",
+        headers: ["Component", "Value", "Logic"],
+        rows: [
+          {
+            cells: [
+              "Step 1 — B (inner)",
+              "Lower of (FMV on 31.01.2018, Sale Value)",
+              "Ensures the COA never exceeds the actual sale price — prevents artificial losses from the grandfathering step-up",
+            ],
+          },
+          {
+            cells: [
+              "Step 2 — COA (outer)",
+              "Higher of (Actual Cost, Step 1 result)",
+              "Ensures the COA is never lower than what was actually paid — prevents converting a real gain into a loss",
+            ],
+          },
+        ],
+      },
+      {
+        type: "callout",
+        variant: "tip",
+        text: "The formula has two safety valves: 'Lower of FMV/Sale' prevents an inflated FMV from creating a phantom loss; 'Higher of Cost/result' prevents the step-up from turning a real gain into a loss. Between them, the worst outcome is always zero gain — never a negative.",
+      },
+      {
+        type: "heading",
+        text: "Step 1 — Finding FMV on 31 Jan 2018 (Three Cases)",
+      },
+      {
+        type: "paragraph",
+        text: "The FMV on 31.01.2018 is determined differently depending on whether the share or unit was listed on that date:",
+      },
+      {
+        type: "table",
+        headers: ["Case", "Situation", "FMV = ?"],
+        rows: [
+          {
+            cells: [
+              "Case 1",
+              "Share / unit was listed on 31.01.2018",
+              "Highest quoted price on the stock exchange on 31.01.2018 (or on the last trading day before it if the exchange was closed)",
+            ],
+          },
+          {
+            cells: [
+              "Case 2",
+              "Share / unit was listed at the time of transfer, but NOT listed on 31.01.2018",
+              "Actual Cost × (CII of 2017-18 [278] ÷ CII of the year of transfer) — indexed cost used as proxy",
+            ],
+          },
+          {
+            cells: [
+              "Case 3",
+              "Unlisted MF unit (not listed even at transfer)",
+              "Net Asset Value (NAV) of the unit as published by the fund on 31.01.2018",
+            ],
+          },
+        ],
+      },
+      {
+        type: "callout",
+        variant: "warning",
+        text: "The listing date — not the purchase date — determines which case applies. A unit bought in 2015 that was only listed on 1 Feb 2018 was NOT listed on 31.01.2018, so Case 2 applies (indexed cost), not Case 1 (highest price).",
+      },
+      {
+        type: "heading",
+        text: "Step 2 — Tax Under Section 198",
+      },
+      {
+        type: "bullets",
+        items: [
+          "Rate: 12.5% on LTCG above ₹1,25,000 (the annual exemption limit)",
+          "Exemption: First ₹1,25,000 of aggregate LTCG in a Tax Year is tax-free",
+          "STT condition for listed shares: Securities Transaction Tax (STT) must have been paid on both the acquisition and the transfer",
+          "STT condition for MF units: STT must have been paid at least on the transfer (at redemption)",
+          "Indexation: NOT available — the grandfathering step-up replaces indexation for these assets",
+        ],
+      },
+      {
+        type: "heading",
+        text: "Example 1 — Mr. Prasun (300 Listed Shares of A Ltd.)",
+      },
+      {
+        type: "table",
+        headers: ["Particulars", "Value"],
+        rows: [
+          { cells: ["Number of shares", "300"] },
+          { cells: ["Date of purchase", "20.05.2017"] },
+          { cells: ["Cost per share", "₹400"] },
+          { cells: ["Date of sale", "31.05.2026"] },
+          { cells: ["Sale price per share", "₹1,200"] },
+          { cells: ["Highest quoted price on 31.01.2018 (FMV)", "₹700"] },
+          { cells: ["STT paid on purchase and sale?", "Yes → Section 198 applies"] },
+        ],
+      },
+      {
+        type: "subheading",
+        text: "Solution — Applying the COA Formula",
+      },
+      {
+        type: "calculation",
+        rows: [
+          { label: "Step 1 — Lower of (FMV ₹700, Sale ₹1,200) = B", amount: "₹700" },
+          { label: "Step 2 — Higher of (Cost ₹400, B ₹700) = COA", amount: "₹700" },
+          { label: "Gain per share = Sale ₹1,200 − COA ₹700", amount: "₹500" },
+          { label: "LTCG = ₹500 × 300 shares", amount: "₹1,50,000" },
+          { label: "Less: Annual exemption under Section 198", amount: "(₹1,25,000)", negative: true },
+          { label: "Taxable LTCG", amount: "₹25,000", total: true },
+          { label: "Tax @ 12.5% on ₹25,000", amount: "₹3,125", total: true },
+        ],
+      },
+      {
+        type: "heading",
+        text: "Example 2 — Mr. Raj (200 Units Each of Fund A & Fund B)",
+      },
+      {
+        type: "paragraph",
+        text: "Mr. Raj bought 200 units each of Fund A and Fund B on 1.2.2017 at ₹550 per unit and sold all on 3.4.2026 at ₹900 per unit. The key difference: Fund A was listed on 1.1.2018 (so it was listed on 31.1.2018 ✓), while Fund B was listed on 1.2.2018 (so it was NOT listed on 31.1.2018 ✗). Same numbers — different FMV rule.",
+      },
+      {
+        type: "subheading",
+        text: "Fund A — Listed on 31.01.2018 → Use the Standard Formula",
+      },
+      {
+        type: "table",
+        headers: ["Particulars", "Value"],
+        rows: [
+          { cells: ["FMV = Highest price on 31.01.2018", "₹750"] },
+          { cells: ["Lower of (FMV ₹750, Sale ₹900)", "₹750"] },
+          { cells: ["Higher of (Cost ₹550, ₹750) = COA", "₹750"] },
+          { cells: ["LTCG = (₹900 − ₹750) × 200 units", "₹30,000"] },
+        ],
+      },
+      {
+        type: "subheading",
+        text: "Fund B — NOT Listed on 31.01.2018 → FMV is the NAV",
+      },
+      {
+        type: "table",
+        headers: ["Particulars", "Value"],
+        rows: [
+          { cells: ["FMV = NAV on 31.01.2018", "₹950"] },
+          { cells: ["Lower of (NAV ₹950, Sale ₹900)", "₹900"] },
+          { cells: ["Higher of (Cost ₹550, ₹900) = COA", "₹900"] },
+          { cells: ["LTCG = (₹900 − ₹900) × 200 units", "₹0"] },
+        ],
+      },
+      {
+        type: "subheading",
+        text: "Combined Result — Mr. Raj",
+      },
+      {
+        type: "calculation",
+        rows: [
+          { label: "LTCG from Fund A", amount: "₹30,000" },
+          { label: "LTCG from Fund B", amount: "₹0" },
+          { label: "Total LTCG (A + B)", amount: "₹30,000", total: true },
+          { label: "Annual exemption limit under Section 198", amount: "₹1,25,000" },
+          { label: "Total LTCG ₹30,000 is within ₹1.25L limit → Tax payable", amount: "NIL", total: true },
+        ],
+      },
+      {
+        type: "callout",
+        variant: "tip",
+        text: "Fund B's NAV on 31.01.2018 (₹950) exceeded the sale price (₹900), so the COA was capped at ₹900 — equal to the sale price. This gives zero capital gain, illustrating the 'Lower of FMV/Sale' safety valve protecting sellers from phantom losses.",
+      },
+      {
+        type: "heading",
+        text: "Four Things to Carry Into the Exam",
+      },
+      {
+        type: "numbered",
+        items: [
+          "COA = Higher of (Actual Cost, Lower of (FMV on 31.01.2018, Sale Value)) — this one formula handles every scenario.",
+          "FMV method depends on listing status on 31.01.2018 — not purchase date. Listed → highest quoted price; Not listed but listed at transfer → indexed cost (Cost × CII 2017-18/CII of sale year); Unlisted unit → NAV.",
+          "Always check the listing date first — it determines which of the three FMV cases applies and can produce very different tax outcomes for shares with identical cost and sale price.",
+          "LTCG over ₹1,25,000 is taxed at 12.5% under Section 198, with STT paid being a mandatory condition for the grandfathering rate to apply.",
+        ],
+      },
+    ],
+  },
 ];
