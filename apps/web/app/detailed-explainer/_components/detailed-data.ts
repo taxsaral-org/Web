@@ -909,4 +909,223 @@ export const DETAILED_ENTRIES: DetailedEntry[] = [
       },
     ],
   },
+
+  // ── Slump Sale ────────────────────────────────────────────────────────────
+  {
+    slug: "slump-sale-section-77",
+    section2025: "Section 77",
+    section1961: "Section 50B",
+    title: "Slump Sale — Tax on Transfer of Undertaking",
+    summary:
+      "A slump sale is the transfer of an entire undertaking or division for a lump-sum price, with no value assigned to individual assets or liabilities. Gain or loss is computed using Fair Value of Consideration (Rule 53) less Net Worth, and taxed as LTCG or STCG based on the 3-year holding rule.",
+    category: "Capital Gains",
+    keywords: [
+      "slump sale",
+      "section 77",
+      "section 50B",
+      "undertaking transfer",
+      "lump sum consideration",
+      "net worth",
+      "rule 53",
+      "FMV undertaking",
+      "LTCG slump sale",
+      "STCG slump sale",
+      "WDV depreciable assets",
+      "demerger exempt",
+      "section 70",
+      "form 28",
+      "CA certificate slump sale",
+    ],
+    lastUpdated: "2026-07-08",
+    content: [
+      {
+        type: "heading",
+        text: "What Is a Slump Sale?",
+      },
+      {
+        type: "paragraph",
+        text: "A slump sale is the transfer of any undertaking or division for a lump-sum consideration, without assigning individual values to the assets or liabilities being transferred. The definition sits in Section 2(103) of the IT Act 2025.",
+      },
+      {
+        type: "callout",
+        variant: "info",
+        text: "Key distinction: because no per-asset price is fixed, normal capital gains rules (which need an asset-level cost and sale price) cannot apply. Instead, Section 77 uses a special formula — Fair Value of Consideration minus Net Worth — to arrive at the gain or loss.",
+      },
+      {
+        type: "heading",
+        text: "Computing the Gain / Loss",
+      },
+      {
+        type: "calculation",
+        rows: [
+          { label: "Fair Value of Consideration (as per Rule 53)", amount: "XXX" },
+          { label: "Less: Transfer expenses", amount: "(XXX)", negative: true },
+          { label: "Less: Net Worth (Cost of Acquisition)", amount: "(XXX)", negative: true },
+          { label: "LTCG / STCG", amount: "XXX", total: true },
+        ],
+      },
+      {
+        type: "heading",
+        text: "LTCG vs STCG — The 3-Year Rule",
+      },
+      {
+        type: "table",
+        headers: ["Holding Period of the Undertaking", "Classification"],
+        rows: [
+          { cells: ["More than 3 years", "Long-Term Capital Gain (LTCG)"] },
+          { cells: ["3 years or less", "Short-Term Capital Gain (STCG)"] },
+        ],
+      },
+      {
+        type: "callout",
+        variant: "info",
+        text: "The holding period is measured for the undertaking or division as a whole — not for individual assets within it.",
+      },
+      {
+        type: "heading",
+        text: "Fair Value of Consideration — Rule 53 (Higher of FMV 1 and FMV 2)",
+      },
+      {
+        type: "paragraph",
+        text: "The fair value of consideration is the higher of two computations under Rule 53:",
+      },
+      {
+        type: "subheading",
+        text: "FMV 1 — Value of the Undertaking Transferred",
+      },
+      {
+        type: "paragraph",
+        text: "FMV 1 = FMV of Assets − Liabilities (at the values specified below):",
+      },
+      {
+        type: "table",
+        headers: ["Item", "Valuation Basis"],
+        rows: [
+          { cells: ["General assets", "Book value"] },
+          { cells: ["Shares, securities, jewellery, paintings, art works", "Fair Market Value (FMV)"] },
+          { cells: ["Immovable property (land / building)", "Stamp Duty Value (SDV)"] },
+          { cells: ["Liabilities assumed by buyer", "Book value"] },
+        ],
+      },
+      {
+        type: "subheading",
+        text: "Liabilities Excluded from FMV 1",
+      },
+      {
+        type: "bullets",
+        items: [
+          "Provision for unascertained liabilities",
+          "Contingent liabilities (except arrears of cumulative preference share dividends)",
+          "Dividend amount set apart but not yet declared at the AGM",
+          "Provision for taxes other than income tax paid, to the extent tax is payable on book profit",
+        ],
+      },
+      {
+        type: "subheading",
+        text: "FMV 2 — Total Consideration Received",
+      },
+      {
+        type: "bullets",
+        items: [
+          "Total monetary consideration (cash / cash equivalents)",
+          "FMV of non-monetary consideration — shares, securities, jewellery, paintings, other art works",
+          "SDV of immovable property received as consideration",
+        ],
+      },
+      {
+        type: "callout",
+        variant: "tip",
+        text: "The Fair Value of Consideration = Higher of FMV 1 and FMV 2. This prevents tax avoidance by understating the consideration in the sale agreement.",
+      },
+      {
+        type: "heading",
+        text: "Net Worth — The Cost of Acquisition",
+      },
+      {
+        type: "paragraph",
+        text: "Net Worth = Value of Assets − Value of Liabilities, computed as follows:",
+      },
+      {
+        type: "table",
+        headers: ["Asset / Liability Type", "Value Used for Net Worth"],
+        rows: [
+          { cells: ["Depreciable assets", "Written Down Value (WDV)"] },
+          { cells: ["All other assets", "Book value"] },
+          { cells: ["Liabilities taken over", "Book value"] },
+        ],
+      },
+      {
+        type: "subheading",
+        text: "Special Adjustments to Net Worth",
+      },
+      {
+        type: "bullets",
+        items: [
+          "If net worth is negative → cost of acquisition is taken as Nil (gain = FVC in full)",
+          "Self-generated goodwill → valued at Nil",
+          "Revaluation gain must be stripped out — remove it from the respective asset's value before computing net worth",
+          "Assets on which full depreciation was claimed under Section 46 → their net worth value is Nil",
+        ],
+      },
+      {
+        type: "heading",
+        text: "Other Compliance Points",
+      },
+      {
+        type: "bullets",
+        items: [
+          "No profit under Business & Profession (PGBP) arises from a slump sale, even if closing stock or other business items are transferred as part of the undertaking",
+          "The assessee must furnish a CA certificate in Form 28 under Section 63, certifying the correct computation of net worth",
+        ],
+      },
+      {
+        type: "heading",
+        text: "Tax-Efficient Alternatives to a Slump Sale",
+      },
+      {
+        type: "paragraph",
+        text: "Two structuring options can achieve a similar business outcome without triggering Section 77 tax:",
+      },
+      {
+        type: "table",
+        headers: ["Alternative", "Exemption Basis"],
+        rows: [
+          {
+            cells: [
+              "Transfer the undertaking via a Demerger",
+              "Demerger is an exempt transfer under Section 70(1)(j)",
+            ],
+          },
+          {
+            cells: [
+              "Transfer after the acquirer holds 100% shares of the transferee company",
+              "Exempt transfer under Section 70(1)(d) — subsidiary-to-holding or fellow-subsidiary transfer",
+            ],
+          },
+        ],
+      },
+      {
+        type: "callout",
+        variant: "warning",
+        text: "Both alternatives require strict compliance with the conditions laid down in the respective sub-clauses of Section 70(1). A structuring misstep can cause the exemption to fail and the entire transfer to become taxable.",
+      },
+      {
+        type: "heading",
+        text: "Quick Reference — Key Numbers",
+      },
+      {
+        type: "table",
+        headers: ["Parameter", "Rule"],
+        rows: [
+          { cells: ["Holding period for LTCG", "> 3 years"] },
+          { cells: ["Holding period for STCG", "≤ 3 years"] },
+          { cells: ["FVC formula", "Higher of FMV 1 and FMV 2 (Rule 53)"] },
+          { cells: ["Net Worth — depreciable assets", "WDV"] },
+          { cells: ["Net Worth — other assets", "Book value"] },
+          { cells: ["Negative net worth treatment", "COA = Nil"] },
+          { cells: ["Compliance filing", "Form 28 (CA report) under Section 63"] },
+        ],
+      },
+    ],
+  },
 ];
