@@ -266,10 +266,223 @@ function SVPvtLtdSetoff() {
   );
 }
 
+function SugarcaneRulesSplit() {
+  return (
+    <div className="overflow-x-auto rounded-xl border bg-white p-4">
+      <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-400">
+        Rule 270 — Mr. Amar&apos;s Sugarcane (Field to Factory Bifurcation)
+      </p>
+      <svg
+        viewBox="0 0 640 295"
+        className="w-full max-w-2xl mx-auto h-auto"
+        xmlns="http://www.w3.org/2000/svg"
+        style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}
+      >
+        <defs>
+          <marker id="agr-arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6 Z" fill="#374151" />
+          </marker>
+        </defs>
+
+        {/* Top central box */}
+        <rect x="195" y="10" width="250" height="50" rx="7" fill="#1e3a5f" />
+        <text x="320" y="31" textAnchor="middle" fill="white" fontSize="12.5" fontWeight="700">
+          Mr. Amar — Sugarcane Crop
+        </text>
+        <text x="320" y="50" textAnchor="middle" fill="#93c5fd" fontSize="10.5">
+          Rule 270 — split between two uses
+        </text>
+
+        {/* Arrow to left box (40%) */}
+        <polyline
+          points="220,60 105,60 105,110"
+          fill="none" stroke="#374151" strokeWidth="1.5"
+          markerEnd="url(#agr-arr)"
+        />
+        <rect x="78" y="51" width="40" height="18" rx="3" fill="#d1fae5" stroke="#6ee7b7" strokeWidth="1" />
+        <text x="98" y="63.5" textAnchor="middle" fill="#065f46" fontSize="10.5" fontWeight="700">40%</text>
+
+        {/* Arrow to right box (60%) */}
+        <polyline
+          points="420,60 535,60 535,110"
+          fill="none" stroke="#374151" strokeWidth="1.5"
+          markerEnd="url(#agr-arr)"
+        />
+        <rect x="508" y="51" width="40" height="18" rx="3" fill="#fef3c7" stroke="#fcd34d" strokeWidth="1" />
+        <text x="528" y="63.5" textAnchor="middle" fill="#78350f" fontSize="10.5" fontWeight="700">60%</text>
+
+        {/* Left box — Direct Sale */}
+        <rect x="10" y="110" width="195" height="150" rx="6" fill="white" stroke="#6b7280" strokeWidth="1.2" />
+        <rect x="10" y="110" width="195" height="28" rx="6" fill="#dcfce7" />
+        <rect x="10" y="126" width="195" height="12" fill="#dcfce7" />
+        <text x="107" y="128" textAnchor="middle" fill="#14532d" fontSize="11.5" fontWeight="700">Sold Directly</text>
+
+        <text x="22" y="158" fill="#374151" fontSize="10.5">Sale Proceeds</text>
+        <text x="198" y="158" textAnchor="end" fill="#374151" fontSize="10.5">₹12,00,000</text>
+        <line x1="22" y1="164" x2="198" y2="164" stroke="#e5e7eb" strokeWidth="0.8" />
+        <text x="22" y="178" fill="#6b7280" fontSize="10">Less: Cultivation Cost</text>
+        <text x="198" y="178" textAnchor="end" fill="#dc2626" fontSize="10">(₹6,00,000)</text>
+        <line x1="22" y1="185" x2="198" y2="185" stroke="#374151" strokeWidth="1" />
+        <text x="22" y="200" fill="#14532d" fontSize="11" fontWeight="700">Agricultural Income</text>
+        <text x="198" y="200" textAnchor="end" fill="#14532d" fontSize="11" fontWeight="700">₹6,00,000</text>
+
+        <rect x="22" y="213" width="95" height="18" rx="4" fill="#d1fae5" />
+        <text x="69" y="225.5" textAnchor="middle" fill="#065f46" fontSize="9.5" fontWeight="600">EXEMPT ✓</text>
+
+        {/* Right box — Factory Processing */}
+        <rect x="435" y="110" width="195" height="150" rx="6" fill="white" stroke="#6b7280" strokeWidth="1.2" />
+        <rect x="435" y="110" width="195" height="28" rx="6" fill="#fef9c3" />
+        <rect x="435" y="126" width="195" height="12" fill="#fef9c3" />
+        <text x="532" y="128" textAnchor="middle" fill="#78350f" fontSize="11.5" fontWeight="700">Factory Processing</text>
+
+        <text x="447" y="154" fill="#14532d" fontSize="9.5" fontWeight="600">Agri portion (FMV − Cultivation)</text>
+        <text x="447" y="169" fill="#374151" fontSize="10">FMV ₹25L − Cult ₹15L</text>
+        <text x="623" y="169" textAnchor="end" fill="#14532d" fontSize="10" fontWeight="700">₹10,00,000</text>
+        <rect x="447" y="174" width="70" height="17" rx="3" fill="#d1fae5" />
+        <text x="482" y="185.5" textAnchor="middle" fill="#065f46" fontSize="9" fontWeight="600">Exempt ✓</text>
+
+        <line x1="447" y1="196" x2="623" y2="196" stroke="#e5e7eb" strokeWidth="0.8" />
+
+        <text x="447" y="212" fill="#dc2626" fontSize="9.5" fontWeight="600">Business portion (Sale − FMV − Mfg)</text>
+        <text x="447" y="227" fill="#374151" fontSize="10">₹30L − ₹25L − ₹1.5L</text>
+        <text x="623" y="227" textAnchor="end" fill="#dc2626" fontSize="10" fontWeight="700">₹3,50,000</text>
+        <rect x="447" y="233" width="65" height="17" rx="3" fill="#fee2e2" />
+        <text x="480" y="244.5" textAnchor="middle" fill="#991b1b" fontSize="9" fontWeight="600">Taxable ✗</text>
+
+        {/* Summary bar */}
+        <rect x="10" y="273" width="620" height="20" rx="5" fill="#f8fafc" stroke="#e5e7eb" strokeWidth="1" />
+        <text x="320" y="286" textAnchor="middle" fill="#374151" fontSize="10.5">
+          Total Agri Income (Exempt): ₹16,00,000 &nbsp;|&nbsp; Total Business Income (Taxable): ₹3,50,000
+        </text>
+      </svg>
+    </div>
+  );
+}
+
+function AgriculturalDecisionTree() {
+  return (
+    <div className="overflow-x-auto rounded-xl border bg-white p-4">
+      <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-400">
+        Decision Tree — How to Tax Agricultural Income
+      </p>
+      <svg
+        viewBox="0 0 680 575"
+        className="w-full max-w-2xl mx-auto h-auto"
+        xmlns="http://www.w3.org/2000/svg"
+        style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}
+      >
+        <defs>
+          <marker id="dt-arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6 Z" fill="#374151" />
+          </marker>
+        </defs>
+
+        {/* Box A — Start */}
+        <rect x="235" y="10" width="210" height="55" rx="6" fill="white" stroke="#6b7280" strokeWidth="1.5" />
+        <text x="340" y="35" textAnchor="middle" fill="#111827" fontSize="12" fontWeight="700">Does income meet</text>
+        <text x="340" y="53" textAnchor="middle" fill="#111827" fontSize="12" fontWeight="700">Section 2(5) criteria?</text>
+
+        {/* A→B (No, left) */}
+        <polyline points="235,37 190,37 190,137 170,137" fill="none" stroke="#374151" strokeWidth="1.5" markerEnd="url(#dt-arr)" />
+        <rect x="163" y="26" width="28" height="16" rx="3" fill="#fee2e2" />
+        <text x="177" y="37.5" textAnchor="middle" fill="#991b1b" fontSize="9.5" fontWeight="700">No</text>
+
+        {/* A→C (Yes, down) */}
+        <line x1="340" y1="65" x2="340" y2="110" stroke="#374151" strokeWidth="1.5" markerEnd="url(#dt-arr)" />
+        <rect x="345" y="78" width="30" height="16" rx="3" fill="#dcfce7" />
+        <text x="360" y="89.5" textAnchor="middle" fill="#14532d" fontSize="9.5" fontWeight="700">Yes</text>
+
+        {/* Box B — Fully Taxable */}
+        <rect x="10" y="110" width="160" height="55" rx="6" fill="#fee2e2" stroke="#f87171" strokeWidth="1.5" />
+        <text x="90" y="136" textAnchor="middle" fill="#991b1b" fontSize="12" fontWeight="700">Fully Taxable</text>
+        <text x="90" y="153" textAnchor="middle" fill="#991b1b" fontSize="11">as PGBP</text>
+
+        {/* Box C — Own processing? */}
+        <rect x="235" y="110" width="210" height="55" rx="6" fill="white" stroke="#6b7280" strokeWidth="1.5" />
+        <text x="340" y="136" textAnchor="middle" fill="#111827" fontSize="12" fontWeight="700">Processed in</text>
+        <text x="340" y="153" textAnchor="middle" fill="#111827" fontSize="12" fontWeight="700">own business?</text>
+
+        {/* C→D (No, left) */}
+        <polyline points="235,137 185,137 185,237 170,237" fill="none" stroke="#374151" strokeWidth="1.5" markerEnd="url(#dt-arr)" />
+        <rect x="188" y="126" width="28" height="16" rx="3" fill="#fee2e2" />
+        <text x="202" y="137.5" textAnchor="middle" fill="#991b1b" fontSize="9.5" fontWeight="700">No</text>
+
+        {/* C→E (Yes, down) */}
+        <line x1="340" y1="165" x2="340" y2="210" stroke="#374151" strokeWidth="1.5" markerEnd="url(#dt-arr)" />
+        <rect x="345" y="178" width="30" height="16" rx="3" fill="#dcfce7" />
+        <text x="360" y="189.5" textAnchor="middle" fill="#14532d" fontSize="9.5" fontWeight="700">Yes</text>
+
+        {/* Box D — 100% Exempt */}
+        <rect x="10" y="210" width="160" height="55" rx="6" fill="#dcfce7" stroke="#4ade80" strokeWidth="1.5" />
+        <text x="90" y="236" textAnchor="middle" fill="#14532d" fontSize="12" fontWeight="700">100% Exempt</text>
+        <text x="90" y="253" textAnchor="middle" fill="#14532d" fontSize="11">Agricultural Income</text>
+
+        {/* Box E — Specified crop? */}
+        <rect x="235" y="210" width="210" height="55" rx="6" fill="white" stroke="#6b7280" strokeWidth="1.5" />
+        <text x="340" y="236" textAnchor="middle" fill="#111827" fontSize="12" fontWeight="700">Specified crop?</text>
+        <text x="340" y="253" textAnchor="middle" fill="#6b7280" fontSize="10.5">(Tea / Coffee / Rubber)</text>
+
+        {/* E→F (Yes, right) */}
+        <polyline points="445,237 580,237 580,310" fill="none" stroke="#374151" strokeWidth="1.5" markerEnd="url(#dt-arr)" />
+        <rect x="449" y="226" width="30" height="16" rx="3" fill="#dcfce7" />
+        <text x="464" y="237.5" textAnchor="middle" fill="#14532d" fontSize="9.5" fontWeight="700">Yes</text>
+
+        {/* E→G (No, down) */}
+        <line x1="340" y1="265" x2="340" y2="310" stroke="#374151" strokeWidth="1.5" markerEnd="url(#dt-arr)" />
+        <rect x="345" y="278" width="28" height="16" rx="3" fill="#fee2e2" />
+        <text x="359" y="289.5" textAnchor="middle" fill="#991b1b" fontSize="9.5" fontWeight="700">No</text>
+
+        {/* Box F — Rule 271 */}
+        <rect x="490" y="310" width="180" height="55" rx="6" fill="#dbeafe" stroke="#60a5fa" strokeWidth="1.5" />
+        <text x="580" y="336" textAnchor="middle" fill="#1e40af" fontSize="11.5" fontWeight="700">Apply Rule 271</text>
+        <text x="580" y="353" textAnchor="middle" fill="#1e40af" fontSize="10">(Tea / Coffee / Rubber %)</text>
+
+        {/* Box G — Rule 270 */}
+        <rect x="240" y="310" width="180" height="55" rx="6" fill="#dbeafe" stroke="#60a5fa" strokeWidth="1.5" />
+        <text x="330" y="336" textAnchor="middle" fill="#1e40af" fontSize="11.5" fontWeight="700">Apply Rule 270</text>
+        <text x="330" y="353" textAnchor="middle" fill="#1e40af" fontSize="10">Bifurcation (FMV pivot)</text>
+
+        {/* G→H (down) */}
+        <line x1="330" y1="365" x2="330" y2="415" stroke="#374151" strokeWidth="1.5" markerEnd="url(#dt-arr)" />
+
+        {/* F→H (down-left) */}
+        <polyline points="580,365 580,393 332,393 332,415" fill="none" stroke="#374151" strokeWidth="1.5" markerEnd="url(#dt-arr)" />
+
+        {/* Box H — Partial integration? */}
+        <rect x="175" y="415" width="310" height="60" rx="6" fill="white" stroke="#6b7280" strokeWidth="1.5" />
+        <text x="330" y="441" textAnchor="middle" fill="#111827" fontSize="11.5" fontWeight="700">Qualify for Partial Integration?</text>
+        <text x="330" y="458" textAnchor="middle" fill="#6b7280" fontSize="9.5">Individual/HUF/AOP AND agri &gt; ₹5K AND non-agri &gt; basic limit</text>
+
+        {/* H→I (Yes, left) */}
+        <polyline points="175,445 110,445 110,515" fill="none" stroke="#374151" strokeWidth="1.5" markerEnd="url(#dt-arr)" />
+        <rect x="118" y="434" width="30" height="16" rx="3" fill="#dcfce7" />
+        <text x="133" y="445.5" textAnchor="middle" fill="#14532d" fontSize="9.5" fontWeight="700">Yes</text>
+
+        {/* H→J (No, right) */}
+        <polyline points="485,445 570,445 570,515" fill="none" stroke="#374151" strokeWidth="1.5" markerEnd="url(#dt-arr)" />
+        <rect x="490" y="434" width="28" height="16" rx="3" fill="#fee2e2" />
+        <text x="504" y="445.5" textAnchor="middle" fill="#991b1b" fontSize="9.5" fontWeight="700">No</text>
+
+        {/* Box I — 4-Step Partial Integration */}
+        <rect x="10" y="515" width="200" height="50" rx="6" fill="#ede9fe" stroke="#a78bfa" strokeWidth="1.5" />
+        <text x="110" y="539" textAnchor="middle" fill="#4c1d95" fontSize="11.5" fontWeight="700">4-Step Partial</text>
+        <text x="110" y="556" textAnchor="middle" fill="#4c1d95" fontSize="11.5" fontWeight="700">Integration</text>
+
+        {/* Box J — No Further Action */}
+        <rect x="470" y="515" width="200" height="50" rx="6" fill="#f3f4f6" stroke="#9ca3af" strokeWidth="1.5" />
+        <text x="570" y="539" textAnchor="middle" fill="#374151" fontSize="11.5" fontWeight="700">No Further</text>
+        <text x="570" y="556" textAnchor="middle" fill="#374151" fontSize="11.5" fontWeight="700">Action</text>
+      </svg>
+    </div>
+  );
+}
+
 export function getDiagram(id: string): ReactNode {
   const diagrams: Record<string, ReactNode> = {
     "deemed-dividend-flow": <DeemedDividendFlow />,
     "sv-pvt-ltd-setoff": <SVPvtLtdSetoff />,
+    "sugarcane-split": <SugarcaneRulesSplit />,
+    "agricultural-decision-tree": <AgriculturalDecisionTree />,
   };
   return diagrams[id] ?? null;
 }

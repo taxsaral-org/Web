@@ -6,7 +6,8 @@ export type DetailedCategory =
   | "Deductions"
   | "International Tax"
   | "Special Income"
-  | "Charitable Trusts & NPOs";
+  | "Charitable Trusts & NPOs"
+  | "Agricultural Income";
 
 export type ContentBlock =
   | { type: "paragraph"; text: string }
@@ -53,6 +54,7 @@ export const DETAILED_CATEGORIES: DetailedCategory[] = [
   "International Tax",
   "Special Income",
   "Charitable Trusts & NPOs",
+  "Agricultural Income",
 ];
 
 export const DETAILED_ENTRIES: DetailedEntry[] = [
@@ -362,6 +364,312 @@ export const DETAILED_ENTRIES: DetailedEntry[] = [
         type: "callout",
         variant: "warning",
         text: "Directors and shareholders of closely held companies often take loans from the company for personal expenses. Under Section 2(40)(e), such loans are immediately taxable as deemed dividend in the Tax Year they are received — they cannot be deferred by showing them as 'repayable loans' in the company's books.",
+      },
+    ],
+  },
+
+  {
+    slug: "agricultural-income",
+    section2025: "Section 2(5) & Rules 270–271",
+    section1961: "Section 2(1A)",
+    title: "Agricultural Income — Exemption, Bifurcation & Partial Integration",
+    summary:
+      "What qualifies as agricultural income under Section 2(5), how Rule 270 splits field-to-factory income at the FMV pivot, how Rule 271 handles Tea/Coffee/Rubber with fixed percentage splits, and how partial integration raises the effective tax rate on non-agricultural income.",
+    category: "Agricultural Income",
+    keywords: [
+      "agricultural income",
+      "section 2(5)",
+      "section 2(1A)",
+      "rule 270",
+      "rule 271",
+      "partial integration",
+      "tea coffee rubber",
+      "nursery income",
+      "agricultural land rent",
+      "FMV farm gate",
+      "cultivation cost",
+      "Mr Arjun case study",
+      "basic exemption limit",
+      "field to factory",
+      "sugarcane sugar",
+    ],
+    lastUpdated: "2026-07-08",
+    content: [
+      {
+        type: "heading",
+        text: "What Qualifies as Agricultural Income — Section 2(5)",
+      },
+      {
+        type: "paragraph",
+        text: "Agricultural income is fully exempt from income tax. Section 2(5) of the IT Act 2025 recognises four categories of income as agricultural — each with its own qualifying conditions:",
+      },
+      {
+        type: "table",
+        headers: ["Category", "What Qualifies", "Key Condition"],
+        rows: [
+          {
+            cells: [
+              "Agricultural Produce",
+              "Income from sale of produce grown on agricultural land",
+              "Processing must stay within the limits prescribed by Rule 270; excess processing income becomes PGBP",
+            ],
+          },
+          {
+            cells: [
+              "Nursery Income",
+              "Income from growing seedlings, saplings, or plants in nurseries",
+              "Qualifies in full — no processing limit applies",
+            ],
+          },
+          {
+            cells: [
+              "Agricultural Land Rent",
+              "Rent received for letting out agricultural land",
+              "Qualifies for both rural and urban agricultural land",
+            ],
+          },
+          {
+            cells: [
+              "Dwelling & Warehouse Rent",
+              "Rent for a house or godown situated on agricultural land",
+              "Qualifies only if the land is rural AND the premises are used for agricultural purposes",
+            ],
+          },
+        ],
+      },
+      {
+        type: "callout",
+        variant: "warning",
+        text: "Rent from a dwelling house or warehouse on urban agricultural land does NOT qualify as agricultural income — only rural land qualifies for this sub-category.",
+      },
+      {
+        type: "heading",
+        text: "Rule 270 — Bifurcation at the Factory Gate",
+      },
+      {
+        type: "paragraph",
+        text: "When a farmer processes agricultural produce in their own business before selling it (e.g., converting sugarcane into sugar, cotton into yarn), Rule 270 splits the resulting profit into an agricultural component (exempt) and a manufacturing/business component (taxable as PGBP). The pivot point is the Fair Market Value (FMV) of the raw produce at the farm gate.",
+      },
+      {
+        type: "subheading",
+        text: "Scenario A — Raw Produce Sold Directly",
+      },
+      {
+        type: "calculation",
+        rows: [
+          { label: "Sale Proceeds of Raw Agricultural Produce", amount: "XXX" },
+          { label: "Less: Cost of Cultivation", amount: "(XXX)", negative: true },
+          { label: "Agricultural Income (100% Exempt)", amount: "XXX", total: true },
+        ],
+      },
+      {
+        type: "subheading",
+        text: "Scenario B — Produce Processed in Own Business Before Sale",
+      },
+      {
+        type: "table",
+        headers: ["Step", "Formula", "Head of Income"],
+        rows: [
+          {
+            cells: [
+              "Step 1 — Agricultural Profit",
+              "FMV of Raw Produce at Farm Gate − Cost of Cultivation",
+              "Agricultural Income (Exempt)",
+            ],
+          },
+          {
+            cells: [
+              "Step 2 — Business Profit",
+              "Sale Price of Processed Goods − FMV of Raw Produce − Cost of Processing/Manufacturing",
+              "PGBP (Taxable)",
+            ],
+          },
+        ],
+      },
+      {
+        type: "callout",
+        variant: "info",
+        text: "The FMV at the farm gate is the pivot — it separates what the land produced (agricultural income) from what the factory added (business income). Everything up to FMV is exempt; everything beyond is taxable.",
+      },
+      {
+        type: "subheading",
+        text: "Illustration — Mr. Amar's Sugarcane",
+      },
+      {
+        type: "paragraph",
+        text: "Mr. Amar grows sugarcane. He sells 40% as raw cane (proceeds ₹12L, cultivation cost ₹6L) and processes the remaining 60% in his own sugar factory (FMV of raw cane ₹25L, cultivation cost ₹15L, manufacturing cost ₹1.5L, sugar sale proceeds ₹30L).",
+      },
+      {
+        type: "diagram",
+        id: "sugarcane-split",
+      },
+      {
+        type: "table",
+        headers: ["Stream", "Calculation", "Head", "Amount"],
+        rows: [
+          {
+            cells: [
+              "40% — Direct Sale",
+              "₹12,00,000 − ₹6,00,000",
+              "Agricultural Income",
+              "₹6,00,000",
+            ],
+          },
+          {
+            cells: [
+              "60% — Factory (Agri portion)",
+              "FMV ₹25,00,000 − Cultivation ₹15,00,000",
+              "Agricultural Income",
+              "₹10,00,000",
+            ],
+          },
+          {
+            cells: [
+              "60% — Factory (Business portion)",
+              "₹30,00,000 − ₹25,00,000 − ₹1,50,000",
+              "PGBP (Taxable)",
+              "₹3,50,000",
+            ],
+          },
+          {
+            cells: ["Total Agricultural Income (Exempt)", "", "", "₹16,00,000"],
+            bold: true,
+          },
+          {
+            cells: ["Total Business Income (Taxable)", "", "", "₹3,50,000"],
+            bold: true,
+          },
+        ],
+      },
+      {
+        type: "heading",
+        text: "Rule 271 — Statutory Splits for Tea, Coffee & Rubber",
+      },
+      {
+        type: "paragraph",
+        text: "For three specified crops — Tea, Coffee, and Rubber — Rule 271 bypasses the FMV calculation entirely and instead mandates a fixed percentage split between agricultural income (exempt) and business income (taxable as PGBP). The split depends on both the crop and the level of processing:",
+      },
+      {
+        type: "table",
+        headers: ["Crop & Process", "Agricultural Income (Exempt)", "Business Income / PGBP (Taxable)"],
+        rows: [
+          { cells: ["Tea — grown and manufactured", "60%", "40%"] },
+          { cells: ["Coffee — grown and cured", "75%", "25%"] },
+          { cells: ["Coffee — grown, cured, roasted and grounded", "60%", "40%"] },
+          { cells: ["Rubber — grown and manufactured", "65%", "35%"] },
+        ],
+      },
+      {
+        type: "callout",
+        variant: "tip",
+        text: "Rule 271 applies only when the same person both grows and processes the specified crop. If the grower sells raw produce and a separate entity processes it, Rule 271 does not apply — the grower's income is 100% agricultural under Scenario A of Rule 270.",
+      },
+      {
+        type: "heading",
+        text: "Partial Integration — How Agricultural Income Affects Your Tax Rate",
+      },
+      {
+        type: "paragraph",
+        text: "Although agricultural income is exempt from tax, it is not ignored when computing the rate of tax on non-agricultural income. The partial integration mechanism includes agricultural income in the rate computation — effectively pushing the non-agricultural income into higher slab brackets and raising the effective tax rate.",
+      },
+      {
+        type: "subheading",
+        text: "Who Is Subject to Partial Integration?",
+      },
+      {
+        type: "paragraph",
+        text: "All three conditions must be satisfied simultaneously:",
+      },
+      {
+        type: "bullets",
+        items: [
+          "The taxpayer is an Individual, HUF, AOP, BOI, or Artificial Juridical Person (AJP)",
+          "Net agricultural income exceeds ₹5,000 during the Tax Year",
+          "Total non-agricultural income exceeds the applicable basic exemption limit",
+        ],
+      },
+      {
+        type: "callout",
+        variant: "info",
+        text: "Companies, LLPs, and partnership firms are never subject to partial integration — the mechanism applies only to individuals and individual-like entities.",
+      },
+      {
+        type: "heading",
+        text: "The 4-Step Partial Integration Calculation",
+      },
+      {
+        type: "numbered",
+        items: [
+          "Step 1: Compute tax on (Non-agricultural income + Net agricultural income) using the applicable slab rates — as if both were taxable income.",
+          "Step 2: Compute tax on (Basic exemption limit + Net agricultural income) using the same slab rates.",
+          "Step 3: Base tax liability = Step 1 tax − Step 2 tax. This strips out the slab relief from the basic exemption and isolates the marginal tax pushed onto the non-agricultural income by the agricultural income.",
+          "Step 4: Add applicable Surcharge + Health & Education Cess (4%) to the Step 3 base liability to arrive at the final tax payable.",
+        ],
+      },
+      {
+        type: "subheading",
+        text: "Case Study — Mr. Arjun (Tax Year 2026-27)",
+      },
+      {
+        type: "table",
+        headers: ["Particulars", "Amount"],
+        rows: [
+          { cells: ["Non-agricultural income (salary, business, etc.)", "₹7,30,000"] },
+          { cells: ["Net agricultural income", "₹5,20,000"] },
+          { cells: ["Basic exemption limit (Individual — old regime)", "₹2,50,000"] },
+        ],
+      },
+      {
+        type: "subheading",
+        text: "Step 1 — Tax on ₹12,50,000 (₹7,30,000 + ₹5,20,000)",
+      },
+      {
+        type: "calculation",
+        rows: [
+          { label: "Nil on ₹0 to ₹2,50,000", amount: "₹0" },
+          { label: "5% on ₹2,50,001–₹5,00,000 (₹2,50,000)", amount: "₹12,500" },
+          { label: "20% on ₹5,00,001–₹10,00,000 (₹5,00,000)", amount: "₹1,00,000" },
+          { label: "30% on ₹10,00,001–₹12,50,000 (₹2,50,000)", amount: "₹75,000" },
+          { label: "Step 1 Tax", amount: "₹1,87,500", total: true },
+        ],
+      },
+      {
+        type: "subheading",
+        text: "Step 2 — Tax on ₹7,70,000 (₹2,50,000 basic + ₹5,20,000 agri)",
+      },
+      {
+        type: "calculation",
+        rows: [
+          { label: "Nil on ₹0 to ₹2,50,000", amount: "₹0" },
+          { label: "5% on ₹2,50,001–₹5,00,000 (₹2,50,000)", amount: "₹12,500" },
+          { label: "20% on ₹5,00,001–₹7,70,000 (₹2,70,000)", amount: "₹54,000" },
+          { label: "Step 2 Tax", amount: "₹66,500", total: true },
+        ],
+      },
+      {
+        type: "subheading",
+        text: "Steps 3 & 4 — Final Tax Liability",
+      },
+      {
+        type: "calculation",
+        rows: [
+          { label: "Step 3 — Base liability (Step 1 − Step 2): ₹1,87,500 − ₹66,500", amount: "₹1,21,000" },
+          { label: "Step 4 — Health & Education Cess (4% on ₹1,21,000)", amount: "₹4,840" },
+          { label: "Total Tax Payable by Mr. Arjun", amount: "₹1,25,840", total: true },
+        ],
+      },
+      {
+        type: "callout",
+        variant: "tip",
+        text: "Without partial integration, Mr. Arjun's non-agricultural income of ₹7,30,000 would have attracted tax of only ₹46,000 (after deducting exemption and cess). Partial integration raises this to ₹1,25,840 — a ₹79,840 increase in effective tax — solely because his agricultural income pushed his non-agri income into higher slabs.",
+      },
+      {
+        type: "heading",
+        text: "Decision Tree — How to Tax Agricultural Income",
+      },
+      {
+        type: "diagram",
+        id: "agricultural-decision-tree",
       },
     ],
   },

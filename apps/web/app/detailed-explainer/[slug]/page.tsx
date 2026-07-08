@@ -16,6 +16,7 @@ const CATEGORY_COLORS: Record<string, string> = {
   "International Tax":      "bg-sky-100 text-sky-800",
   "Special Income":         "bg-cyan-100 text-cyan-800",
   "Charitable Trusts & NPOs": "bg-teal-100 text-teal-800",
+  "Agricultural Income":      "bg-lime-100 text-lime-800",
 };
 
 export function generateStaticParams() {
