@@ -146,7 +146,7 @@ export const DETAILED_ENTRIES: DetailedEntry[] = [
           },
           {
             cells: [
-              "LTCG under Section 196 arising out of transfer of securities via buyback",
+              "LTCG under Sections 197 & 198 arising out of transfer of securities via buyback",
               "9.5%",
               "17.5%",
             ],
