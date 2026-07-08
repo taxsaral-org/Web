@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { GlobalSearch } from "./global-search";
 
 const CALCULATORS = [
   { href: "/calculators/regime-optimizer", label: "Regime Optimizer", desc: "Find your best tax regime" },
@@ -152,24 +153,25 @@ export function SiteHeader() {
           </div>
         </nav>
 
-        {/* Ask CTA — desktop */}
-        <Link
-          href="/ask"
-          className="hidden sm:inline-flex items-center gap-1.5 rounded-lg border border-primary/40 bg-primary/5 px-3 py-1.5 text-xs font-medium text-primary hover:bg-primary/10 transition-colors shrink-0"
-        >
-          Ask a Question
-        </Link>
-
-        {/* Mobile hamburger */}
-        <button
-          type="button"
-          aria-label={mobileOpen ? "Close menu" : "Open menu"}
-          aria-expanded={mobileOpen}
-          onClick={() => setMobileOpen(v => !v)}
-          className="sm:hidden rounded-md p-2 text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
-        >
-          {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        {/* Right side — search + CTA (desktop) / search + hamburger (mobile) */}
+        <div className="flex items-center gap-1.5 shrink-0">
+          <GlobalSearch />
+          <Link
+            href="/ask"
+            className="hidden sm:inline-flex items-center gap-1.5 rounded-lg border border-primary/40 bg-primary/5 px-3 py-1.5 text-xs font-medium text-primary hover:bg-primary/10 transition-colors"
+          >
+            Ask a Question
+          </Link>
+          <button
+            type="button"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
+            onClick={() => setMobileOpen(v => !v)}
+            className="sm:hidden rounded-md p-2 text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+          >
+            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
