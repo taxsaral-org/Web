@@ -108,6 +108,19 @@ export function SiteHeader() {
             Mapping
           </Link>
 
+          {/* Tax Calendar link */}
+          <Link
+            href="/tax-calendar"
+            className={cn(
+              "rounded-md px-3 py-1.5 text-sm transition-colors",
+              pathname === "/tax-calendar"
+                ? "bg-primary/10 text-primary font-medium"
+                : "text-muted-foreground hover:bg-muted hover:text-foreground"
+            )}
+          >
+            Calendar
+          </Link>
+
           {/* Calculators dropdown */}
           <div ref={dropdownRef} className="relative">
             <button
@@ -213,6 +226,18 @@ export function SiteHeader() {
               )}
             >
               1961 → 2025 Mapping
+            </Link>
+            <Link
+              href="/tax-calendar"
+              onClick={() => setMobileOpen(false)}
+              className={cn(
+                "rounded-md px-3 py-2.5 text-sm font-medium transition-colors",
+                pathname === "/tax-calendar"
+                  ? "bg-primary/10 text-primary"
+                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
+              )}
+            >
+              Tax Calendar
             </Link>
 
             {/* Calculators section */}
