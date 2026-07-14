@@ -7,16 +7,43 @@ import { cn } from "@/lib/utils";
 import { DETAILED_ENTRIES, DETAILED_CATEGORIES } from "./detailed-data";
 import type { DetailedCategory } from "./detailed-data";
 
-const CATEGORY_COLORS: Record<DetailedCategory, string> = {
-  "Capital Gains":          "bg-yellow-100 text-yellow-800",
-  "Corporate Tax":          "bg-violet-100 text-violet-800",
-  "TDS & TCS":              "bg-pink-100 text-pink-800",
-  "Business & Profession":  "bg-amber-100 text-amber-800",
-  "Deductions":             "bg-green-100 text-green-800",
-  "International Tax":      "bg-sky-100 text-sky-800",
-  "Special Income":         "bg-cyan-100 text-cyan-800",
+// Pill badge on the card
+const CATEGORY_BADGE: Record<DetailedCategory, string> = {
+  "Capital Gains":            "bg-yellow-100 text-yellow-800",
+  "Corporate Tax":            "bg-violet-100 text-violet-800",
+  "TDS & TCS":                "bg-pink-100 text-pink-800",
+  "Business & Profession":    "bg-amber-100 text-amber-800",
+  "Deductions":               "bg-green-100 text-green-800",
+  "International Tax":        "bg-sky-100 text-sky-800",
+  "Special Income":           "bg-cyan-100 text-cyan-800",
   "Charitable Trusts & NPOs": "bg-teal-100 text-teal-800",
   "Agricultural Income":      "bg-lime-100 text-lime-800",
+};
+
+// Left border accent on each card
+const CATEGORY_ACCENT: Record<DetailedCategory, string> = {
+  "Capital Gains":            "border-l-yellow-400",
+  "Corporate Tax":            "border-l-violet-400",
+  "TDS & TCS":                "border-l-pink-400",
+  "Business & Profession":    "border-l-amber-400",
+  "Deductions":               "border-l-green-400",
+  "International Tax":        "border-l-sky-400",
+  "Special Income":           "border-l-cyan-400",
+  "Charitable Trusts & NPOs": "border-l-teal-400",
+  "Agricultural Income":      "border-l-lime-400",
+};
+
+// Active filter pill colour (category-matched, not generic primary)
+const CATEGORY_FILTER_ACTIVE: Record<DetailedCategory, string> = {
+  "Capital Gains":            "bg-yellow-100 text-yellow-800 border-yellow-300",
+  "Corporate Tax":            "bg-violet-100 text-violet-800 border-violet-300",
+  "TDS & TCS":                "bg-pink-100 text-pink-800 border-pink-300",
+  "Business & Profession":    "bg-amber-100 text-amber-800 border-amber-300",
+  "Deductions":               "bg-green-100 text-green-800 border-green-300",
+  "International Tax":        "bg-sky-100 text-sky-800 border-sky-300",
+  "Special Income":           "bg-cyan-100 text-cyan-800 border-cyan-300",
+  "Charitable Trusts & NPOs": "bg-teal-100 text-teal-800 border-teal-300",
+  "Agricultural Income":      "bg-lime-100 text-lime-800 border-lime-300",
 };
 
 export function DetailedListingClient() {
@@ -26,8 +53,7 @@ export function DetailedListingClient() {
   const filtered = useMemo(() => {
     const q = query.toLowerCase().trim();
     return DETAILED_ENTRIES.filter((e) => {
-      const matchesCategory = !activeCategory || e.category === activeCategory;
-      if (!matchesCategory) return false;
+      if (activeCategory && e.category !== activeCategory) return false;
       if (!q) return true;
       return (
         e.title.toLowerCase().includes(q) ||
@@ -39,18 +65,22 @@ export function DetailedListingClient() {
     });
   }, [query, activeCategory]);
 
+  const visibleCategories = DETAILED_CATEGORIES.filter((cat) =>
+    DETAILED_ENTRIES.some((e) => e.category === cat)
+  );
+
   return (
     <div className="space-y-6">
 
       {/* Search */}
       <div className="relative">
-        <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
+        <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder='Search by topic, section number, or keyword… e.g. "buyback", "ESOP", "80G"'
-          className="w-full rounded-xl border bg-background pl-10 pr-10 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 placeholder:text-muted-foreground"
+          placeholder='Search by topic, section number, or keyword… e.g. "slump sale", "buyback", "agricultural"'
+          className="w-full rounded-xl border bg-background py-3 pl-10 pr-10 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30"
         />
         {query && (
           <button
@@ -63,34 +93,33 @@ export function DetailedListingClient() {
         )}
       </div>
 
-      {/* Category filters */}
+      {/* Category filter pills */}
       <div className="flex flex-wrap gap-2">
         <button
           type="button"
           onClick={() => setActiveCategory(null)}
           className={cn(
-            "rounded-full px-3 py-1 text-xs font-medium transition-colors",
+            "rounded-full border px-3 py-1 text-xs font-medium transition-colors",
             !activeCategory
-              ? "bg-primary text-primary-foreground"
-              : "border hover:bg-muted text-muted-foreground"
+              ? "border-primary bg-primary text-primary-foreground"
+              : "border-border text-muted-foreground hover:bg-muted hover:text-foreground"
           )}
         >
           All ({DETAILED_ENTRIES.length})
         </button>
-        {DETAILED_CATEGORIES.filter((cat) =>
-          DETAILED_ENTRIES.some((e) => e.category === cat)
-        ).map((cat) => {
+        {visibleCategories.map((cat) => {
           const count = DETAILED_ENTRIES.filter((e) => e.category === cat).length;
+          const isActive = activeCategory === cat;
           return (
             <button
               key={cat}
               type="button"
-              onClick={() => setActiveCategory(activeCategory === cat ? null : cat)}
+              onClick={() => setActiveCategory(isActive ? null : cat)}
               className={cn(
-                "rounded-full px-3 py-1 text-xs font-medium transition-colors",
-                activeCategory === cat
-                  ? "bg-primary text-primary-foreground"
-                  : "border hover:bg-muted text-muted-foreground"
+                "rounded-full border px-3 py-1 text-xs font-medium transition-colors",
+                isActive
+                  ? CATEGORY_FILTER_ACTIVE[cat]
+                  : "border-border text-muted-foreground hover:bg-muted hover:text-foreground"
               )}
             >
               {cat} ({count})
@@ -122,20 +151,26 @@ export function DetailedListingClient() {
             <span className="font-semibold text-foreground">{filtered.length}</span> of{" "}
             {DETAILED_ENTRIES.length} analyses
           </p>
+
           {filtered.map((entry) => (
             <Link
               key={entry.slug}
               href={`/detailed-explainer/${entry.slug}`}
-              className="group block rounded-xl border bg-card p-5 transition-all hover:border-primary/40 hover:shadow-sm"
+              className={cn(
+                "group block rounded-xl border border-l-4 bg-card p-5 transition-all",
+                "hover:shadow-md hover:bg-muted/10",
+                CATEGORY_ACCENT[entry.category]
+              )}
             >
-              <div className="mb-2.5 flex flex-wrap items-center gap-2">
+              {/* Top row: section + category + old section */}
+              <div className="mb-3 flex flex-wrap items-center gap-2">
                 <span className="rounded-md bg-primary/10 px-2.5 py-0.5 font-mono text-xs font-semibold text-primary">
                   {entry.section2025}
                 </span>
                 <span
                   className={cn(
                     "rounded-full px-2.5 py-0.5 text-xs font-medium",
-                    CATEGORY_COLORS[entry.category]
+                    CATEGORY_BADGE[entry.category]
                   )}
                 >
                   {entry.category}
@@ -143,20 +178,24 @@ export function DetailedListingClient() {
                 {entry.section1961 && (
                   <span className="text-xs text-muted-foreground">
                     was{" "}
-                    <span className="font-medium text-foreground">
-                      {entry.section1961}
-                    </span>{" "}
+                    <span className="font-medium text-foreground">{entry.section1961}</span>{" "}
                     in IT Act 1961
                   </span>
                 )}
               </div>
-              <h2 className="mb-1.5 text-base font-semibold leading-snug group-hover:text-primary transition-colors">
+
+              {/* Title */}
+              <h2 className="mb-1.5 text-base font-semibold leading-snug transition-colors group-hover:text-primary">
                 {entry.title}
               </h2>
-              <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">
+
+              {/* Summary */}
+              <p className="line-clamp-2 text-sm leading-relaxed text-muted-foreground">
                 {entry.summary}
               </p>
-              <div className="mt-3 flex items-center gap-1 text-xs font-medium text-primary">
+
+              {/* CTA */}
+              <div className="mt-3 flex items-center gap-1 text-xs font-semibold text-primary opacity-70 transition-all group-hover:opacity-100">
                 Read full analysis
                 <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
               </div>
