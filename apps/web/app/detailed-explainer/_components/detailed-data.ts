@@ -1128,4 +1128,183 @@ export const DETAILED_ENTRIES: DetailedEntry[] = [
       },
     ],
   },
+
+  // ── Employee Welfare Deductions ───────────────────────────────────────────
+  {
+    slug: "employee-welfare-deductions-section-29",
+    section2025: "Section 29",
+    section1961: "Sections 36(1)(iv), 36(1)(iva) & 36(1)(v)",
+    title: "Employer Deductions for Employee Welfare — PF, NPS & Gratuity",
+    summary:
+      "Section 29 allows employers to deduct contributions to provident funds, NPS, and gratuity funds from business income — subject to fund approval, actual payment, and prescribed limits. Employee contributions collected but not deposited on time are taxed as employer's business income.",
+    category: "Business & Profession",
+    keywords: [
+      "section 29",
+      "employer contribution",
+      "provident fund deduction",
+      "NPS employer deduction",
+      "gratuity fund",
+      "employee welfare",
+      "recognised provident fund",
+      "statutory provident fund",
+      "approved superannuation fund",
+      "PGBP employer deduction",
+      "36(1)(iv)",
+      "36(1)(iva)",
+      "36(1)(v)",
+      "actual payment condition",
+      "employee contribution deemed income",
+      "section 2(49)(o)",
+    ],
+    lastUpdated: "2026-07-09",
+    content: [
+      {
+        type: "heading",
+        text: "What Section 29 Covers",
+      },
+      {
+        type: "paragraph",
+        text: "Section 29 of the IT Act 2025 allows an employer to deduct certain employee welfare expenditure from business income. It covers four distinct types of contributions, each governed by its own sub-section:",
+      },
+      {
+        type: "table",
+        headers: ["Sub-section", "Contribution Type"],
+        rows: [
+          { cells: ["29(1)(a) / (c)", "Employer → Provident Fund / Superannuation / Gratuity Fund (approved)"] },
+          { cells: ["29(1)(b)",       "Employer → National Pension System (NPS)"] },
+          { cells: ["29(1)(d)",       "Employer → Approved Gratuity Fund (including crystallised provisions)"] },
+          { cells: ["29(1)(e)",       "Employee contributions collected by employer — late deposit consequences"] },
+          { cells: ["29(3)",          "General bar on fund-creation contributions"] },
+        ],
+      },
+      {
+        type: "heading",
+        text: "Section 29(1)(a)/(c) — Provident Fund & Superannuation Contributions",
+      },
+      {
+        type: "paragraph",
+        text: "Employer contributions are deductible only when two conditions are met: the fund must be approved/recognised, and the amount must have been actually paid during the year.",
+      },
+      {
+        type: "subheading",
+        text: "Allowed — Contributions to Approved / Recognised Funds",
+      },
+      {
+        type: "bullets",
+        items: [
+          "Statutory Provident Fund (SPF) — established under the Provident Funds Act",
+          "Recognised Provident Fund (RPF) — recognised by the Commissioner",
+          "Approved Superannuation Fund",
+          "Approved Gratuity Fund",
+          "Any other fund approved under applicable law",
+        ],
+      },
+      {
+        type: "subheading",
+        text: "Not Allowed — Contributions to Unapproved Funds",
+      },
+      {
+        type: "bullets",
+        items: [
+          "Unapproved Provident Fund",
+          "Unapproved Superannuation Fund",
+          "Unapproved Gratuity Fund",
+          "Any other non-approved fund",
+        ],
+      },
+      {
+        type: "callout",
+        variant: "warning",
+        text: "The 'actually paid' condition is hard. Contributions accrued in the books but not deposited to the fund by the ITR due date are disallowed — even if the employer has made a provision.",
+      },
+      {
+        type: "heading",
+        text: "Section 29(1)(b) — NPS Employer Contribution",
+      },
+      {
+        type: "paragraph",
+        text: "Employer contributions to the National Pension System are deductible at the lower of two amounts:",
+      },
+      {
+        type: "table",
+        headers: ["Limit", "Amount"],
+        rows: [
+          { cells: ["a.  14% of Basic Salary + DA (as per employment terms)", "↓"] },
+          { cells: ["b.  Actual contribution made",                            "Lower of (a) and (b)"] },
+        ],
+      },
+      {
+        type: "callout",
+        variant: "tip",
+        text: "Important upgrade from IT Act 1961: private-sector employers were capped at 10% of Basic + DA under old Section 36(1)(iva). IT Act 2025 raises this to 14% for all employers — matching the rate previously available only to government employers. Review your NPS contribution policy accordingly.",
+      },
+      {
+        type: "heading",
+        text: "Section 29(1)(d) — Gratuity Fund Provisions",
+      },
+      {
+        type: "bullets",
+        items: [
+          "Provision made for payment to an approved gratuity fund → ALLOWED as deduction",
+          "Gratuity that has become legally payable during the year (liability crystallised) → ALLOWED",
+          "General provisions for future gratuity that have not yet crystallised → NOT ALLOWED",
+          "No double deduction: if deduction was already allowed on a provision, no further deduction at actual payment against that same provision",
+        ],
+      },
+      {
+        type: "callout",
+        variant: "info",
+        text: "Crystallisation occurs when the employee completes the minimum qualifying service (typically 5 years) and the gratuity liability becomes legally enforceable. A provision made in anticipation — before crystallisation — does not qualify.",
+      },
+      {
+        type: "heading",
+        text: "Section 29(1)(e) — Employee Contributions Received but Not Deposited",
+      },
+      {
+        type: "paragraph",
+        text: "When an employer deducts the employee's share of PF, superannuation, or gratuity contributions from salary, those amounts belong to the employees — not the employer. Section 29(1)(e) creates a strict consequence for late deposit:",
+      },
+      {
+        type: "table",
+        headers: ["Situation", "Tax Treatment"],
+        rows: [
+          { cells: ["Deposited on or before ITR due date under Section 263(1)", "Deductible — no issue"] },
+          { cells: ["Not deposited by ITR due date",                            "Deemed as employer's PGBP income under Section 2(49)(o) — taxed in full"] },
+        ],
+      },
+      {
+        type: "callout",
+        variant: "warning",
+        text: "There is no grace period. If the employer collects ₹5 lakh as employee PF contributions but fails to deposit it before the ITR due date, the entire ₹5 lakh is added back as taxable business income of the employer under Section 2(49)(o).",
+      },
+      {
+        type: "heading",
+        text: "Section 29(3) — General Bar on Fund-Creation Contributions",
+      },
+      {
+        type: "paragraph",
+        text: "No deduction is allowed for employer contributions made to set up or fund any fund, trust, or institution — unless the contribution is specifically permitted under the IT Act 2025 or any other applicable law.",
+      },
+      {
+        type: "callout",
+        variant: "info",
+        text: "This provision prevents employers from creating informal welfare pools or arbitrary trusts and claiming deductions. Only contributions to legally recognised structures (SPF, RPF, NPS, approved gratuity fund) survive this filter.",
+      },
+      {
+        type: "heading",
+        text: "Full Summary — All Deductions at a Glance",
+      },
+      {
+        type: "table",
+        headers: ["Sub-section", "Type", "Deduction Rule"],
+        rows: [
+          { cells: ["29(1)(a)/(c)", "Approved PF / Superannuation / Gratuity Fund", "Full amount — must be actually paid; unapproved funds disallowed"] },
+          { cells: ["29(1)(b)", "NPS (employer share)", "Lower of 14% of Basic+DA or actual contribution; must be actually paid"] },
+          { cells: ["29(1)(d)", "Gratuity fund provision", "Allowed if crystallised or to approved fund; no double deduction on actual payment"] },
+          { cells: ["29(1)(e)", "Employee contributions received", "Deposit by ITR due date or entire amount becomes employer's PGBP income"] },
+          { cells: ["29(3)", "Fund / trust setup contributions", "No deduction unless specifically authorised by law"] },
+        ],
+      },
+    ],
+  },
 ];
