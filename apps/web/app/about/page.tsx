@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ShieldCheck, Database, Lock, BookOpen, Calculator, Mail } from "lucide-react";
+import { ShieldCheck, Database, Lock, BookOpen, Calculator, Mail, Linkedin } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About TaxSaral — Free IT Act 2025 Tax Calculators",
+  title: "About TaxSaral — Built by Sriram Veeraraghavan | Free IT Act 2025 Tools",
   description:
-    "Learn about TaxSaral — who we are, why we built free Income Tax Act 2025 calculators, and our commitment to privacy and accuracy.",
+    "TaxSaral is built by Sriram Veeraraghavan, CA Final student, to make India's Income Tax Act 2025 simple and accessible for everyone. Free calculators, plain-English explainers, no login.",
+  alternates: { canonical: "https://taxsaral.org/about" },
+  openGraph: { title: "About TaxSaral | Built by Sriram Veeraraghavan", description: "Free IT Act 2025 calculators and explainers built by a CA Final student to make tax simple for everyone.", url: "https://taxsaral.org/about", type: "website", siteName: "TaxSaral" },
+  twitter: { card: "summary", title: "About TaxSaral | Built by Sriram Veeraraghavan", description: "Free IT Act 2025 tools built by a CA Final student to make tax simple for everyone." },
 };
 
 const OFFERINGS = [
@@ -39,32 +42,80 @@ export default function AboutPage() {
         </p>
       </div>
 
-      {/* Why we built this */}
+      {/* Builder Bio */}
       <section className="mb-10 rounded-2xl border bg-card p-6 sm:p-8">
-        <h2 className="text-xl font-bold mb-3">Why we built TaxSaral</h2>
-        <div className="space-y-3 text-muted-foreground leading-relaxed">
+        <div className="flex flex-col sm:flex-row sm:items-start gap-5">
+
+          {/* Avatar placeholder */}
+          <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-primary/10 text-2xl font-bold text-primary mx-auto sm:mx-0">
+            SV
+          </div>
+
+          <div className="flex-1 text-center sm:text-left">
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-1">
+              <h2 className="text-xl font-bold">Sriram Veeraraghavan</h2>
+              <span className="rounded-full bg-amber-100 text-amber-800 px-2.5 py-0.5 text-xs font-medium">
+                CA Final Student
+              </span>
+            </div>
+            <div className="flex items-center justify-center sm:justify-start gap-3 mb-4">
+              <a
+                href="https://www.linkedin.com/in/vsriram1008"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Linkedin className="h-3.5 w-3.5" />
+                linkedin.com/in/vsriram1008
+              </a>
+              <span className="text-border">·</span>
+              <a
+                href="mailto:vsriram1008@gmail.com"
+                className="text-xs text-muted-foreground hover:text-primary transition-colors"
+              >
+                vsriram1008@gmail.com
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="space-y-3 text-muted-foreground leading-relaxed mt-2">
           <p>
-            The Income Tax Act 2025 introduced entirely new section numbers throughout the law.
-            Familiar references — like Section 80C, 234B, 234C — no longer exist under the new Act.
-            This created genuine confusion for taxpayers and even for tax professionals navigating
-            the transition.
+            Hey, I&apos;m Sriram — and I built this site because I was frustrated. The Income Tax
+            Act 2025 came out and suddenly everything changed — new section numbers, new rules, new
+            everything. But the resources out there were either too dry, too technical, or just plain
+            confusing. I figured if I was struggling to make sense of it as someone studying this
+            full time, regular taxpayers must be completely lost.
           </p>
           <p>
-            Most existing tax tools and guides online still reference the old Act. TaxSaral was built
-            specifically to fill that gap: accurate, jargon-free calculators and explanations grounded
-            entirely in the <strong className="text-foreground">IT Act 2025</strong>, with no legacy
-            content mixing in references to repealed law.
+            So I built TaxSaral. No jargon. No paywalls. No login required. Just honest,
+            plain-English explanations of what the law actually says — and calculators that do the
+            math for you.
           </p>
           <p>
-            Our goal is simple — give every Indian taxpayer access to reliable, free tools so they can
-            understand their tax position before speaking to a Chartered Accountant.
+            I did my articleship in <strong className="text-foreground">Internal Audit and Forensic
+            Audit</strong> at <strong className="text-foreground">SPR &amp; Co</strong> — which gave
+            me a deep appreciation for how businesses actually work from the inside, how financial
+            irregularities hide in plain sight, and why getting the numbers right matters more than
+            most people think. After that, I had the opportunity to do my Industrial Training at{" "}
+            <strong className="text-foreground">IIM Bangalore</strong>, which pushed me to think
+            bigger about how finance and tax education can be made truly accessible.
+          </p>
+          <p>
+            TaxSaral is still growing. More sections, more calculators, more explainers — all
+            coming. If you&apos;re a CA student, a tax professional, or just someone who got a weird
+            notice from the IT department and has no idea what it means — you&apos;re in the right
+            place.
+          </p>
+          <p className="font-medium text-foreground">
+            Tax doesn&apos;t have to be hard. That&apos;s the whole point.
           </p>
         </div>
       </section>
 
       {/* What we offer */}
       <section className="mb-10">
-        <h2 className="text-xl font-bold mb-4">What we offer</h2>
+        <h2 className="text-xl font-bold mb-4">What&apos;s on TaxSaral</h2>
         <div className="space-y-4">
           {OFFERINGS.map(({ icon: Icon, title, body }) => (
             <div key={title} className="flex gap-4 rounded-xl border bg-card p-4">
@@ -82,7 +133,7 @@ export default function AboutPage() {
 
       {/* Our principles */}
       <section className="mb-10">
-        <h2 className="text-xl font-bold mb-4">Our principles</h2>
+        <h2 className="text-xl font-bold mb-4">How we operate</h2>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           {PRINCIPLES.map(({ icon: Icon, title, body }) => (
             <div key={title} className="rounded-xl border bg-card p-4 text-center">
@@ -97,9 +148,9 @@ export default function AboutPage() {
       </section>
 
       {/* Disclaimer */}
-      <section className="mb-10 rounded-xl border border-amber-200 bg-amber-50 p-5">
-        <h2 className="text-sm font-semibold text-amber-900 mb-2">Important disclaimer</h2>
-        <p className="text-sm text-amber-800 leading-relaxed">
+      <section className="mb-10 rounded-xl border border-amber-200 bg-amber-50 dark:border-amber-800 dark:bg-amber-950/30 p-5">
+        <h2 className="text-sm font-semibold text-amber-900 dark:text-amber-100 mb-2">Important disclaimer</h2>
+        <p className="text-sm text-amber-800 dark:text-amber-200 leading-relaxed">
           TaxSaral provides educational information and calculation estimates only. Nothing on this
           site constitutes tax advice, legal advice, or a substitute for professional consultation.
           Indian income tax law involves individual circumstances that cannot all be captured in a
@@ -113,7 +164,7 @@ export default function AboutPage() {
       <section className="rounded-xl border bg-card p-6 text-center">
         <h2 className="text-lg font-bold mb-2">Get in touch</h2>
         <p className="text-sm text-muted-foreground mb-4">
-          Have a tax question, feedback, or partnership enquiry?
+          Have a tax question, feedback, or just want to say hi?
         </p>
         <div className="flex flex-wrap justify-center gap-3">
           <Link
@@ -128,6 +179,15 @@ export default function AboutPage() {
             className="inline-flex items-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium hover:bg-muted transition-colors"
           >
             vsriram1008@gmail.com
+          </a>
+          <a
+            href="https://www.linkedin.com/in/vsriram1008"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium hover:bg-muted transition-colors"
+          >
+            <Linkedin className="h-4 w-4" />
+            LinkedIn
           </a>
         </div>
       </section>
