@@ -1515,4 +1515,165 @@ export const DETAILED_ENTRIES: DetailedEntry[] = [
       },
     ],
   },
+  {
+    slug: "preliminary-expenses-section-44",
+    section2025: "Section 44",
+    section1961: "Section 35D",
+    title: "Preliminary Expenses — Amortisation of Pre-Commencement Expenditure",
+    summary:
+      "Section 44 of the IT Act 2025 allows eligible resident assessees to claim deduction on preliminary expenses incurred before or after commencement of business, spread equally over 5 successive tax years. The deduction is subject to prescribed limits based on the cost of project and capital employed, and strict conditions around audit, documentation in Form 5, and availability on amalgamation and demerger.",
+    category: "Business & Profession",
+    keywords: [
+      "section 44",
+      "preliminary expenses",
+      "35D",
+      "pre-commencement expenses",
+      "feasibility report",
+      "project report",
+      "MOA AOA printing",
+      "public issue expenses",
+      "cost of project",
+      "capital employed",
+      "5 equal instalments",
+      "Form 5",
+      "Form 6",
+      "amortisation",
+      "setting up business",
+      "new unit",
+      "extension of business",
+      "amalgamation demerger",
+      "share premium capital employed",
+      "CBDT notified expenses",
+    ],
+    lastUpdated: "2026-07-19",
+    content: [
+      {
+        type: "paragraph",
+        text: "Preliminary expenses are often incurred before a business begins operations or while expanding an existing business. Section 44 explains how such expenses can be claimed as a deduction over a period of time, subject to the conditions and limits provided under the Income Tax Act, 2025.",
+      },
+      {
+        type: "paragraph",
+        text: "Section 44 of the Income Tax Act, 2025 deals with deduction allowed in respect of preliminary expenditure incurred for setting up of a business or unit.",
+      },
+      {
+        type: "heading",
+        text: "Meaning of Preliminary Expenses",
+      },
+      {
+        type: "paragraph",
+        text: "Preliminary expenses shall include the following:",
+      },
+      {
+        type: "bullets",
+        items: [
+          "Preparation of feasibility report / project report",
+          "Marketing Survey",
+          "Engineering Survey",
+          "Expenses relating to drafting and printing of Memorandum of Association (MOA) / Articles of Association (AOA)",
+          "Expenses relating to public issue of shares and debentures",
+          "Other expenses that are notified by CBDT",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "In Form 5, the assessee has to provide the details of the preliminary expenses.",
+      },
+      {
+        type: "heading",
+        text: "Allowable Deduction of Preliminary Expenses under Section 44",
+      },
+      {
+        type: "numbered",
+        items: [
+          "Deduction is allowed to a resident assessee who incurs preliminary expenses before commencement of a business unit or after commencement for extension or setting up of a new unit.",
+          "Deduction is allowed in 5 equal instalments in 5 successive tax years, from the tax year in which the business commences or the extension of business / setting up of new business gets completed.",
+          "Cost of Project is the amount that has been invested in the fixed assets of the project.",
+          "Capital Employed meaning: Capital employed includes share capital, debentures, and long-term borrowings for a new project or extension of an existing project. It does not include reserves and surplus including securities premium. If long-term borrowings have been taken from a foreign country for purchase of plant and machinery, the tenure of such long-term borrowings shall not be less than 7 years.",
+          "Audit is mandatory for the expenses that are being incurred, except for companies and cooperative societies, and the audit report in Form 6 is to be submitted as per Section 63.",
+          "The assessee has to furnish the details of the preliminary expenses in Form 5, one month prior to the date of Return of Income under Section 263(1).",
+          "Deduction under Section 44 will be available to the amalgamated company and the resulting company in case of amalgamation and demerger of companies.",
+        ],
+      },
+      {
+        type: "heading",
+        text: "Amount of Deduction Allowed",
+      },
+      {
+        type: "subheading",
+        text: "A. For Indian Company",
+      },
+      {
+        type: "paragraph",
+        text: "The allowable deduction is the lower of the following two amounts:",
+      },
+      {
+        type: "bullets",
+        items: [
+          "Actual preliminary expenses incurred; or",
+          "5% of the higher of: (i) Cost of Project, or (ii) Capital Employed in the business of the company.",
+        ],
+      },
+      {
+        type: "subheading",
+        text: "B. For Other Resident Assessee (non-company)",
+      },
+      {
+        type: "paragraph",
+        text: "The allowable deduction is the lower of the following two amounts:",
+      },
+      {
+        type: "bullets",
+        items: [
+          "Actual preliminary expenses incurred; or",
+          "5% of the Cost of Project.",
+        ],
+      },
+      {
+        type: "callout",
+        variant: "info",
+        text: "In both cases, the qualifying deduction (after applying the above cap) is further divided into 5 equal annual instalments and claimed over 5 successive tax years beginning from the year of commencement or completion of the extension / new unit.",
+      },
+      {
+        type: "heading",
+        text: "Illustration — Berger Paints India Ltd.",
+      },
+      {
+        type: "subheading",
+        text: "Facts of the Case",
+      },
+      {
+        type: "paragraph",
+        text: "Berger Paints India Ltd. is a company engaged in the manufacture of paints. The company incurred preliminary expenses of ₹42 lakhs. The cost of the project was ₹400 lakhs and the capital employed in the business of the company was ₹700 lakhs. For the purpose of claiming deduction u/s 44, the company restricted the said expenditure to ₹35 lakhs, i.e., 5% of ₹700 lakhs, being the capital employed in the business. For this purpose, the company treated share premium of ₹100 lakhs as part of the capital employed. For T.Y. 2026-27, it claimed deduction of ₹7 lakhs, being 1/5th of ₹35 lakhs, u/s 44. The Assessing Officer disallowed ₹1 lakh, being the portion relating to share premium (1/5th of 5% of ₹100 lakhs), contending that the same was not part of capital employed. Whether 'premium' on subscribed share capital is 'capital employed in the business of the company' u/s 44 so as to be eligible for a deduction? Examine the correctness of the contention of the Assessing Officer, with the aid of a case law.",
+      },
+      {
+        type: "subheading",
+        text: "Answer",
+      },
+      {
+        type: "paragraph",
+        text: "The issue under consideration is whether 'premium' on subscribed share capital can be treated as 'capital employed in the business of the company' u/s 44 to be eligible for increased deduction. This issue came up before the Supreme Court in Berger Paints India Ltd. [2017]. The Supreme Court observed that the share premium collected by the assessee on its subscribed issued share capital could not be part of 'capital employed in the business of the company' for the purpose of Section 44(4)(b). If it were the intention of the legislature to treat share premium as being 'capital employed in the business of the company', it would have been explicitly mentioned. Moreover, Sl. No. IV(i) in Form MGT-7 read with Section 92 of the Companies Act, 2013 dealing with capital structure of the company provides the break-up of 'issued share capital' and 'subscribed share capital', which does not include share premium at the time of subscription. Hence, in the absence of a reference in Section 44, share premium is not a part of capital employed. Also, Section 52 of the Companies Act, 2013 requires a company to transfer the premium amount to a separate account called 'securities premium account'.",
+      },
+      {
+        type: "paragraph",
+        text: "Accordingly, the amount qualifying for deduction u/s 44 would be ₹30 lakhs, being 5% of ₹600 lakhs [i.e., ₹700 lakhs (−) share premium of ₹100 lakhs]. The deduction u/s 44 for T.Y. 2026-27 would be ₹6 lakhs, being 1/5th of ₹30 lakhs. The contention of the Assessing Officer is, therefore, correct.",
+      },
+      {
+        type: "calculation",
+        rows: [
+          { label: "Capital employed (as claimed by company)", amount: "₹700 lakhs" },
+          { label: "Less: Share premium (excluded — not 'capital employed' per SC ruling)", amount: "(₹100 lakhs)", negative: true },
+          { label: "Eligible capital employed", amount: "₹600 lakhs", total: true },
+          { label: "5% of eligible capital employed (deduction ceiling)", amount: "₹30 lakhs" },
+          { label: "Actual preliminary expenses incurred", amount: "₹42 lakhs" },
+          { label: "Qualifying deduction (lower of actual vs. 5% ceiling)", amount: "₹30 lakhs", total: true },
+          { label: "Annual instalment (1/5th of ₹30 lakhs) — deductible each year for 5 years", amount: "₹6 lakhs" },
+        ],
+      },
+      {
+        type: "callout",
+        variant: "warning",
+        text: "Reader Takeaway: While preliminary expenses may be eligible for deduction under Section 44, the computation must strictly follow the statutory meaning of 'cost of project' and 'capital employed'. In particular, share premium is not treated as part of capital employed for this purpose, and therefore cannot increase the deduction available to the assessee. This principle was confirmed by the Supreme Court in Berger Paints India Ltd. [2017].",
+      },
+    ],
+  },
 ];
