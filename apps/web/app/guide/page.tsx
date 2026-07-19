@@ -6,9 +6,12 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Income Tax Act 2025 — Complete Guide for Taxpayers | TaxSaral",
-  description:
-    "Understand India's Income Tax Act 2025 before meeting your CA. Covers the Tax Year concept, two regimes, new section numbers, key deductions, TDS, advance tax, and what to bring to your tax consultant.",
+  title: "Income Tax Act 2025 — Complete Beginner's Guide | TaxSaral",
+  description: "Understand India's Income Tax Act 2025 from scratch. Learn the Tax Year concept, two tax regimes, new section numbers vs old 1961 Act, key deductions, TDS, advance tax, and how to prepare for your CA.",
+  keywords: ["income tax act 2025 guide", "IT Act 2025 explained", "income tax India beginners", "old vs new tax regime", "income tax 2026-27 guide", "income tax for salaried", "what is income tax"],
+  alternates: { canonical: "https://taxsaral.org/guide" },
+  openGraph: { title: "Income Tax Act 2025 — Complete Beginner's Guide | TaxSaral", description: "Understand IT Act 2025 from scratch — two regimes, deductions, TDS, and advance tax explained simply.", url: "https://taxsaral.org/guide", type: "website", siteName: "TaxSaral" },
+  twitter: { card: "summary", title: "Income Tax Act 2025 Beginner's Guide | TaxSaral", description: "Understand IT Act 2025 — two regimes, deductions, TDS, and advance tax explained simply." },
 };
 
 // ── Table of contents ─────────────────────────────────────────────────────────

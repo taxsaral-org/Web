@@ -2,10 +2,16 @@ import type { Metadata } from "next";
 import { AlertTriangle } from "lucide-react";
 import { HraClient } from "./_components/hra-client";
 
+const BASE = "https://taxsaral.org";
+const PAGE_URL = `${BASE}/calculators/hra`;
+
 export const metadata: Metadata = {
-  title: "HRA Exemption Calculator — TaxSaral",
-  description:
-    "Calculate your House Rent Allowance exemption under the Income Tax Act 2025 (Schedule III), Tax Year 2026-27. Metro and non-metro city rates included.",
+  title: "HRA Exemption Calculator 2026-27 — Free Online | TaxSaral",
+  description: "Calculate your HRA exemption under IT Act 2025 (Schedule III) for Tax Year 2026-27. Covers metro/non-metro rules, actual rent paid vs 10% salary, and regime comparison.",
+  keywords: ["HRA calculator", "house rent allowance exemption", "HRA exemption 2026-27", "IT Act 2025 HRA", "schedule III exemption"],
+  alternates: { canonical: PAGE_URL },
+  openGraph: { title: "HRA Exemption Calculator 2026-27 | TaxSaral", description: "Free HRA exemption calculator under IT Act 2025. Metro and non-metro city rates.", url: PAGE_URL, type: "website", siteName: "TaxSaral" },
+  twitter: { card: "summary", title: "HRA Exemption Calculator 2026-27 | TaxSaral", description: "Free HRA exemption calculator under IT Act 2025." },
 };
 
 const HRA_FAQS = [
@@ -50,9 +56,32 @@ const KEY_POINTS = [
   },
 ];
 
+const HRA_JSONLD_FAQ = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: HRA_FAQS.map(({ q, a }) => ({
+    "@type": "Question",
+    name: q,
+    acceptedAnswer: { "@type": "Answer", text: a },
+  })),
+};
+const HRA_JSONLD_APP = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: "HRA Exemption Calculator 2026-27",
+  url: PAGE_URL,
+  applicationCategory: "FinanceApplication",
+  operatingSystem: "All",
+  description: "Free HRA exemption calculator under IT Act 2025 Schedule III for Tax Year 2026-27.",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "INR" },
+  provider: { "@type": "Organization", name: "TaxSaral", url: BASE },
+};
+
 export default function HraPage() {
   return (
     <div className="container mx-auto max-w-3xl px-4 py-8">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(HRA_JSONLD_FAQ) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(HRA_JSONLD_APP) }} />
       {/* Page header */}
       <div className="mb-8">
         <div className="mb-2 flex flex-wrap items-center gap-2 text-sm text-muted-foreground">

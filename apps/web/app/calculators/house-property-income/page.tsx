@@ -2,10 +2,16 @@ import type { Metadata } from "next";
 import { AlertTriangle, Globe } from "lucide-react";
 import { HpClient } from "./_components/hp-client";
 
+const BASE = "https://taxsaral.org";
+const PAGE_URL = `${BASE}/calculators/house-property-income`;
+
 export const metadata: Metadata = {
-  title: "House Property Income Calculator — TaxSaral",
-  description:
-    "Calculate income or loss from house property under Sections 20-25, Income Tax Act 2025. Covers self-occupied, let-out, deemed let-out, co-ownership, and arrears.",
+  title: "House Property Income Calculator 2026-27 — Free Online | TaxSaral",
+  description: "Calculate income or loss from house property under Sections 20-25, IT Act 2025. Covers self-occupied, let-out, deemed let-out, home loan interest, co-ownership and arrears.",
+  keywords: ["house property income calculator", "HP income tax", "home loan interest deduction", "section 20 IT Act 2025", "let out property tax", "self occupied property tax"],
+  alternates: { canonical: PAGE_URL },
+  openGraph: { title: "House Property Income Calculator 2026-27 | TaxSaral", description: "Free house property income calculator under IT Act 2025. Sections 20-25.", url: PAGE_URL, type: "website", siteName: "TaxSaral" },
+  twitter: { card: "summary", title: "House Property Income Calculator 2026-27 | TaxSaral", description: "Free house property income calculator under IT Act 2025." },
 };
 
 const HP_FAQS = [
@@ -50,9 +56,32 @@ const KEY_POINTS = [
   },
 ];
 
+const HP_JSONLD_FAQ = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: HP_FAQS.map(({ q, a }) => ({
+    "@type": "Question",
+    name: q,
+    acceptedAnswer: { "@type": "Answer", text: a },
+  })),
+};
+const HP_JSONLD_APP = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: "House Property Income Calculator 2026-27",
+  url: PAGE_URL,
+  applicationCategory: "FinanceApplication",
+  operatingSystem: "All",
+  description: "Free house property income and loss calculator under IT Act 2025 Sections 20-25 for Tax Year 2026-27.",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "INR" },
+  provider: { "@type": "Organization", name: "TaxSaral", url: BASE },
+};
+
 export default function HousePropertyPage() {
   return (
     <div className="container mx-auto max-w-4xl px-4 py-8">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(HP_JSONLD_FAQ) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(HP_JSONLD_APP) }} />
       {/* Page header */}
       <div className="mb-8">
         <div className="mb-2 flex flex-wrap items-center gap-2 text-sm text-muted-foreground">

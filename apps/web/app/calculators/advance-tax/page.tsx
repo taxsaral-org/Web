@@ -3,10 +3,16 @@ import { AlertTriangle } from "lucide-react";
 import { parseParam } from "@/lib/cross-link";
 import { AdvanceTaxClient } from "./_components/at-client";
 
+const BASE = "https://taxsaral.org";
+const PAGE_URL = `${BASE}/calculators/advance-tax`;
+
 export const metadata: Metadata = {
-  title: "Advance Tax Calculator — TaxSaral",
-  description:
-    "Calculate your quarterly advance tax instalments under the Income Tax Act 2025, Tax Year 2026-27. Know your Q1–Q4 due dates and amounts.",
+  title: "Advance Tax Calculator 2026-27 — Quarterly Instalments | TaxSaral",
+  description: "Calculate your advance tax instalments for Tax Year 2026-27 under IT Act 2025. Sections 403-408 — Q1 June, Q2 September, Q3 December, Q4 March due dates and amounts.",
+  keywords: ["advance tax calculator", "advance tax 2026-27", "quarterly advance tax", "section 403 IT Act 2025", "advance tax due dates", "advance tax instalments"],
+  alternates: { canonical: PAGE_URL },
+  openGraph: { title: "Advance Tax Calculator 2026-27 | TaxSaral", description: "Free advance tax instalment calculator for Tax Year 2026-27 under IT Act 2025.", url: PAGE_URL, type: "website", siteName: "TaxSaral" },
+  twitter: { card: "summary", title: "Advance Tax Calculator 2026-27 | TaxSaral", description: "Free advance tax calculator — Q1 to Q4 instalments under IT Act 2025." },
 };
 
 type Props = {
@@ -55,12 +61,35 @@ const KEY_POINTS = [
   },
 ];
 
+const AT_JSONLD_FAQ = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: AT_FAQS.map(({ q, a }) => ({
+    "@type": "Question",
+    name: q,
+    acceptedAnswer: { "@type": "Answer", text: a },
+  })),
+};
+const AT_JSONLD_APP = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: "Advance Tax Calculator 2026-27",
+  url: PAGE_URL,
+  applicationCategory: "FinanceApplication",
+  operatingSystem: "All",
+  description: "Free advance tax instalment calculator for Tax Year 2026-27 under IT Act 2025 Sections 403-408.",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "INR" },
+  provider: { "@type": "Organization", name: "TaxSaral", url: BASE },
+};
+
 export default function AdvanceTaxPage({ searchParams }: Props) {
   const initialIncome = parseParam(searchParams, "income");
   const initialTds = parseParam(searchParams, "tds");
 
   return (
     <div className="container mx-auto max-w-3xl px-4 py-8">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(AT_JSONLD_FAQ) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(AT_JSONLD_APP) }} />
       {/* Page header */}
       <div className="mb-8">
         <div className="mb-2 flex flex-wrap items-center gap-2 text-sm text-muted-foreground">

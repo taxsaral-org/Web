@@ -2,10 +2,16 @@ import type { Metadata } from "next";
 import { AlertTriangle } from "lucide-react";
 import { MultipleEmployerClient } from "./_components/me-client";
 
+const BASE = "https://taxsaral.org";
+const PAGE_URL = `${BASE}/calculators/multiple-employer`;
+
 export const metadata: Metadata = {
-  title: "Multiple Employer Tax Calculator — TaxSaral",
-  description:
-    "Aggregate salary from multiple employers and check advance tax liability. Income Tax Act 2025, Tax Year 2026-27.",
+  title: "Multiple Employer Tax Calculator 2026-27 — Job Change TDS | TaxSaral",
+  description: "Calculate total tax liability when you have changed jobs or have multiple employers in Tax Year 2026-27. Aggregate salary, check TDS shortfall, and file Form 12B. IT Act 2025.",
+  keywords: ["multiple employer calculator", "job change tax", "form 12B", "TDS shortfall", "salary aggregation", "IT Act 2025", "tax year 2026-27"],
+  alternates: { canonical: PAGE_URL },
+  openGraph: { title: "Multiple Employer Tax Calculator 2026-27 | TaxSaral", description: "Free calculator for multiple employer salary aggregation and TDS under IT Act 2025.", url: PAGE_URL, type: "website", siteName: "TaxSaral" },
+  twitter: { card: "summary", title: "Multiple Employer Tax Calculator 2026-27 | TaxSaral", description: "Free multiple employer salary and TDS calculator under IT Act 2025." },
 };
 
 const ME_FAQS = [
@@ -50,9 +56,32 @@ const KEY_POINTS = [
   },
 ];
 
+const ME_JSONLD_FAQ = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: ME_FAQS.map(({ q, a }) => ({
+    "@type": "Question",
+    name: q,
+    acceptedAnswer: { "@type": "Answer", text: a },
+  })),
+};
+const ME_JSONLD_APP = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: "Multiple Employer Tax Calculator 2026-27",
+  url: PAGE_URL,
+  applicationCategory: "FinanceApplication",
+  operatingSystem: "All",
+  description: "Free calculator for aggregating salary from multiple employers and checking TDS shortfall under IT Act 2025.",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "INR" },
+  provider: { "@type": "Organization", name: "TaxSaral", url: BASE },
+};
+
 export default function MultipleEmployerPage() {
   return (
     <div className="container mx-auto max-w-3xl px-4 py-8">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ME_JSONLD_FAQ) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ME_JSONLD_APP) }} />
       {/* Page header */}
       <div className="mb-8">
         <div className="mb-2 flex flex-wrap items-center gap-2 text-sm text-muted-foreground">

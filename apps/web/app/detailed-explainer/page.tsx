@@ -4,9 +4,12 @@ import { DetailedListingClient } from "./_components/detailed-listing-client";
 import { DETAILED_ENTRIES } from "./_components/detailed-data";
 
 export const metadata: Metadata = {
-  title: "Detailed Tax Explainer — In-Depth Section Analysis | TaxSaral",
-  description:
-    "Deep-dive analyses of specific Income Tax Act 2025 sections — full tax treatment, worked examples, tables, and calculation walk-throughs in plain English.",
+  title: "Detailed Tax Explainer — In-Depth IT Act 2025 Analysis | TaxSaral",
+  description: "Deep-dive analyses of Income Tax Act 2025 provisions — full tax treatment, worked examples, case laws, computation tables, and step-by-step calculation walk-throughs in plain English.",
+  keywords: ["income tax act 2025 analysis", "detailed tax explainer", "IT Act 2025 provisions", "capital gains tax India", "business deduction analysis", "TDS detailed guide"],
+  alternates: { canonical: "https://taxsaral.org/detailed-explainer" },
+  openGraph: { title: "Detailed IT Act 2025 Explainer | TaxSaral", description: "Deep-dive analyses of IT Act 2025 sections — worked examples, case laws, and computation tables.", url: "https://taxsaral.org/detailed-explainer", type: "website", siteName: "TaxSaral" },
+  twitter: { card: "summary", title: "Detailed IT Act 2025 Explainer | TaxSaral", description: "In-depth analyses of IT Act 2025 provisions with worked examples." },
 };
 
 const HIGHLIGHTS = [

@@ -3,10 +3,17 @@ import { AlertTriangle } from "lucide-react";
 import { parseParam } from "@/lib/cross-link";
 import { OptimizerClient } from "./_components/optimizer-client";
 
+const BASE = "https://taxsaral.org";
+const PAGE_URL = `${BASE}/calculators/regime-optimizer`;
+
 export const metadata: Metadata = {
-  title: "Tax Regime Optimizer — TaxSaral",
+  title: "Income Tax Regime Optimizer 2026-27 — Default vs Optional | TaxSaral",
   description:
-    "Compare Default vs Optional income tax regimes under the Income Tax Act 2025 for Tax Year 2026-27. Real-time calculation with Section 156 rebate and marginal relief.",
+    "Free income tax regime calculator for Tax Year 2026-27 (IT Act 2025). Compare Default vs Optional regime, Section 156 rebate, HRA, 80C, home loan. Find which regime saves you more tax.",
+  keywords: ["income tax regime calculator", "default vs optional regime", "IT Act 2025 calculator", "section 156 rebate", "tax year 2026-27", "80C deduction calculator", "HRA calculator"],
+  alternates: { canonical: PAGE_URL },
+  openGraph: { title: "Income Tax Regime Optimizer 2026-27 | TaxSaral", description: "Compare Default vs Optional tax regime under IT Act 2025. Free, real-time calculator.", url: PAGE_URL, type: "website", siteName: "TaxSaral" },
+  twitter: { card: "summary", title: "Income Tax Regime Optimizer 2026-27 | TaxSaral", description: "Compare Default vs Optional tax regime under IT Act 2025. Free, real-time." },
 };
 
 type Props = {
@@ -51,12 +58,36 @@ const KEY_POINTS = [
   },
 ];
 
+const REGIME_JSONLD_FAQ = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: REGIME_FAQS.map(({ q, a }) => ({
+    "@type": "Question",
+    name: q,
+    acceptedAnswer: { "@type": "Answer", text: a },
+  })),
+};
+
+const REGIME_JSONLD_APP = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: "Income Tax Regime Optimizer 2026-27",
+  url: PAGE_URL,
+  applicationCategory: "FinanceApplication",
+  operatingSystem: "All",
+  description: "Compare Default vs Optional income tax regime under IT Act 2025 for Tax Year 2026-27.",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "INR" },
+  provider: { "@type": "Organization", name: "TaxSaral", url: BASE },
+};
+
 export default function RegimeOptimizerPage({ searchParams }: Props) {
   const initialHra = parseParam(searchParams, "hra");
   const initialHpIncome = parseParam(searchParams, "hpIncome", true);
 
   return (
     <div className="container mx-auto max-w-6xl px-4 py-8">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(REGIME_JSONLD_FAQ) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(REGIME_JSONLD_APP) }} />
       {/* Page header */}
       <div className="mb-8">
         <div className="mb-2 flex flex-wrap items-center gap-2 text-sm text-muted-foreground">

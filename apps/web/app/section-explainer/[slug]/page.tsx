@@ -23,6 +23,8 @@ export function generateStaticParams() {
   return SECTIONS.map((s) => ({ slug: s.slug }));
 }
 
+const BASE = "https://taxsaral.org";
+
 export async function generateMetadata({
   params,
 }: {
@@ -31,9 +33,16 @@ export async function generateMetadata({
   const { slug } = await params;
   const section = SECTIONS.find((s) => s.slug === slug);
   if (!section) return {};
+  const title = `${section.section2025} — ${section.title} | TaxSaral`;
+  const description = section.explanation.slice(0, 160);
+  const url = `${BASE}/section-explainer/${section.slug}`;
   return {
-    title: `${section.section2025} — ${section.title} | TaxSaral Section Explainer`,
-    description: section.explanation.slice(0, 155),
+    title,
+    description,
+    keywords: section.keywords,
+    alternates: { canonical: url },
+    openGraph: { title, description, url, type: "article", siteName: "TaxSaral" },
+    twitter: { card: "summary", title, description },
   };
 }
 
@@ -50,8 +59,35 @@ export default async function SectionDetailPage({
     .map((rs) => SECTIONS.find((s) => s.slug === rs))
     .filter(Boolean);
 
+  const pageUrl = `${BASE}/section-explainer/${section.slug}`;
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: BASE },
+      { "@type": "ListItem", position: 2, name: "Section Explainer", item: `${BASE}/section-explainer` },
+      { "@type": "ListItem", position: 3, name: `${section.section2025} — ${section.title}`, item: pageUrl },
+    ],
+  };
+  const faqSchema = section.examples.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: section.examples.map((ex) => ({
+      "@type": "Question",
+      name: ex.title,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: `${ex.scenario} ${ex.calculation} Result: ${ex.result}`,
+      },
+    })),
+  } : null;
+
   return (
     <div className="container mx-auto max-w-3xl px-4 py-10">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      {faqSchema && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      )}
 
       {/* Breadcrumb */}
       <nav className="mb-6 flex items-center gap-2 text-xs text-muted-foreground">

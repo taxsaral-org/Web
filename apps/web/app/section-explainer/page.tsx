@@ -3,8 +3,11 @@ import { ExplainerClient } from "./_components/explainer-client";
 
 export const metadata: Metadata = {
   title: "IT Act 2025 Section Explainer — Plain-English Guide | TaxSaral",
-  description:
-    "Look up any Income Tax Act 2025 section in plain English. See the old IT Act 1961 equivalent, what the section means, and who it applies to.",
+  description: "Look up any Income Tax Act 2025 section in plain English. See the old IT Act 1961 equivalent, what the section means, worked examples, and who it applies to.",
+  keywords: ["IT Act 2025 sections", "income tax act 2025 guide", "section explainer", "IT Act 1961 to 2025 mapping", "income tax plain english"],
+  alternates: { canonical: "https://taxsaral.org/section-explainer" },
+  openGraph: { title: "IT Act 2025 Section Explainer | TaxSaral", description: "Every Income Tax Act 2025 section explained in plain English with worked examples.", url: "https://taxsaral.org/section-explainer", type: "website", siteName: "TaxSaral" },
+  twitter: { card: "summary", title: "IT Act 2025 Section Explainer | TaxSaral", description: "Every IT Act 2025 section in plain English with worked examples." },
 };
 
 export default function SectionExplainerPage() {

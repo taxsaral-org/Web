@@ -3,9 +3,12 @@ import { CalendarDays } from "lucide-react";
 import { CalendarClient } from "./_components/calendar-client";
 
 export const metadata: Metadata = {
-  title: "Tax Calendar 2026-27 — All Due Dates & Deadlines | TaxSaral",
-  description:
-    "Complete income tax due dates for Tax Year 2026-27 (AY 2027-28). Advance tax instalments, TDS/TCS return dates, ITR filing deadlines, audit report submissions, and more — with live countdowns.",
+  title: "Income Tax Due Dates 2026-27 — Complete Tax Calendar | TaxSaral",
+  description: "All income tax due dates for Tax Year 2026-27 (AY 2027-28) in one place — advance tax instalments, TDS/TCS returns, ITR filing deadlines (July 31, October 31), audit report dates, with live countdowns.",
+  keywords: ["income tax due dates 2026-27", "ITR filing deadline 2027", "advance tax due dates", "TDS return due dates", "tax calendar 2026-27", "last date income tax return"],
+  alternates: { canonical: "https://taxsaral.org/tax-calendar" },
+  openGraph: { title: "Income Tax Due Dates 2026-27 — Tax Calendar | TaxSaral", description: "Complete income tax calendar for TY 2026-27 — ITR deadlines, advance tax, TDS returns with live countdowns.", url: "https://taxsaral.org/tax-calendar", type: "website", siteName: "TaxSaral" },
+  twitter: { card: "summary", title: "Income Tax Due Dates 2026-27 | TaxSaral", description: "Complete income tax calendar — ITR deadlines, advance tax, TDS return dates with live countdowns." },
 };
 
 const LEGEND = [

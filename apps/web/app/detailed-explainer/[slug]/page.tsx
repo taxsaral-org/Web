@@ -24,6 +24,8 @@ export function generateStaticParams() {
   return DETAILED_ENTRIES.map((e) => ({ slug: e.slug }));
 }
 
+const BASE = "https://taxsaral.org";
+
 export async function generateMetadata({
   params,
 }: {
@@ -32,9 +34,27 @@ export async function generateMetadata({
   const { slug } = await params;
   const entry = DETAILED_ENTRIES.find((e) => e.slug === slug);
   if (!entry) return {};
+  const title = `${entry.section2025} — ${entry.title} | TaxSaral`;
+  const description = entry.summary.slice(0, 160);
+  const url = `${BASE}/detailed-explainer/${entry.slug}`;
   return {
-    title: `${entry.section2025} — ${entry.title} | TaxSaral Detailed Explainer`,
-    description: entry.summary.slice(0, 155),
+    title,
+    description,
+    keywords: entry.keywords,
+    alternates: { canonical: url },
+    openGraph: {
+      title,
+      description,
+      url,
+      type: "article",
+      modifiedTime: entry.lastUpdated,
+      siteName: "TaxSaral",
+    },
+    twitter: {
+      card: "summary",
+      title,
+      description,
+    },
   };
 }
 
@@ -208,8 +228,33 @@ export default async function DetailedEntryPage({
   const entry = DETAILED_ENTRIES.find((e) => e.slug === slug);
   if (!entry) notFound();
 
+  const pageUrl = `${BASE}/detailed-explainer/${entry.slug}`;
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: entry.title,
+    description: entry.summary,
+    url: pageUrl,
+    dateModified: entry.lastUpdated,
+    keywords: entry.keywords.join(", "),
+    author: { "@type": "Organization", name: "TaxSaral", url: BASE },
+    publisher: { "@type": "Organization", name: "TaxSaral", url: BASE },
+    about: { "@type": "Legislation", name: `${entry.section2025} — Income Tax Act 2025`, jurisdiction: "India" },
+  };
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: BASE },
+      { "@type": "ListItem", position: 2, name: "Detailed Explainer", item: `${BASE}/detailed-explainer` },
+      { "@type": "ListItem", position: 3, name: `${entry.section2025} — ${entry.title}`, item: pageUrl },
+    ],
+  };
+
   return (
     <div className="container mx-auto max-w-3xl px-4 py-10">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Breadcrumb */}
       <nav className="mb-6 flex items-center gap-2 text-xs text-muted-foreground">

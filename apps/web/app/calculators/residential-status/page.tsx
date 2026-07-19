@@ -2,10 +2,16 @@ import type { Metadata } from "next";
 import { AlertTriangle } from "lucide-react";
 import { ResidentialStatusClient } from "./_components/rs-client";
 
+const BASE = "https://taxsaral.org";
+const PAGE_URL = `${BASE}/calculators/residential-status`;
+
 export const metadata: Metadata = {
-  title: "Residential Status Calculator — TaxSaral",
-  description:
-    "Determine your residential status (ROR / RNOR / Non-Resident) under Section 6 of the Income Tax Act 2025. Covers Indian citizens, PIOs, and foreign nationals for Tax Year 2026-27.",
+  title: "Residential Status Calculator 2026-27 — ROR / RNOR / NR | TaxSaral",
+  description: "Determine your Indian tax residential status under IT Act 2025 — Resident (ROR), Resident Not Ordinarily Resident (RNOR), or Non-Resident (NR). Covers NRI, PIO, foreign nationals.",
+  keywords: ["residential status calculator", "ROR RNOR NRI", "section 6 IT Act 2025", "non resident India tax", "NRI residential status", "182 days rule", "PIO tax status"],
+  alternates: { canonical: PAGE_URL },
+  openGraph: { title: "Residential Status Calculator 2026-27 | TaxSaral", description: "Free ROR / RNOR / NR residential status calculator under IT Act 2025.", url: PAGE_URL, type: "website", siteName: "TaxSaral" },
+  twitter: { card: "summary", title: "Residential Status Calculator 2026-27 | TaxSaral", description: "Free residential status calculator — ROR, RNOR, NR under IT Act 2025." },
 };
 
 const KEY_POINTS = [
@@ -50,9 +56,22 @@ const FAQS = [
   },
 ];
 
+const RS_JSONLD_APP = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: "Residential Status Calculator 2026-27",
+  url: PAGE_URL,
+  applicationCategory: "FinanceApplication",
+  operatingSystem: "All",
+  description: "Free ROR / RNOR / Non-Resident status calculator under IT Act 2025 Section 6 for Tax Year 2026-27.",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "INR" },
+  provider: { "@type": "Organization", name: "TaxSaral", url: BASE },
+};
+
 export default function ResidentialStatusPage() {
   return (
     <div className="container mx-auto max-w-3xl px-4 py-8">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(RS_JSONLD_APP) }} />
       {/* Page header */}
       <div className="mb-8">
         <div className="mb-2 flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
