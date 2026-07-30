@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/calculators/multiple-employer`,     lastModified: NOW, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/calculators/advance-tax`,           lastModified: NOW, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/calculators/residential-status`,    lastModified: NOW, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE}/form-comparison`,                    lastModified: NOW, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/ask`,                               lastModified: NOW, changeFrequency: "monthly", priority: 0.7 },
   ];
 

@@ -1,0 +1,428 @@
+export type FormStatus = "Same" | "Renamed" | "New in 2025" | "Discontinued" | "Merged";
+
+export type FormCategory =
+  | "Returns of Income (ITR)"
+  | "TDS / TCS Returns"
+  | "TDS / TCS Certificates"
+  | "Declarations & Undertakings"
+  | "Audit Reports"
+  | "Salary & Employer Forms"
+  | "Deductions & Claims"
+  | "Other Procedural Forms";
+
+export interface FormEntry {
+  oldForm: string;      // IT Act 1961 form name/number
+  newForm: string;      // IT Act 2025 form name/number
+  purpose: string;      // What the form is for
+  oldSection: string;   // Relevant old section
+  newSection: string;   // Relevant new section
+  category: FormCategory;
+  status: FormStatus;
+  notes?: string;
+}
+
+export const FORM_CATEGORIES: FormCategory[] = [
+  "Returns of Income (ITR)",
+  "TDS / TCS Returns",
+  "TDS / TCS Certificates",
+  "Declarations & Undertakings",
+  "Audit Reports",
+  "Salary & Employer Forms",
+  "Deductions & Claims",
+  "Other Procedural Forms",
+];
+
+export const FORMS: FormEntry[] = [
+  // ── Returns of Income ────────────────────────────────────────────────────
+  {
+    oldForm: "ITR-1 (Sahaj)",
+    newForm: "ITR-1 (Sahaj)",
+    purpose: "For resident individuals with income from salary, one house property, other sources (interest etc.) and total income up to ₹50 lakh",
+    oldSection: "Section 139(1)",
+    newSection: "Section 263(1)",
+    category: "Returns of Income (ITR)",
+    status: "Same",
+  },
+  {
+    oldForm: "ITR-2",
+    newForm: "ITR-2",
+    purpose: "For individuals and HUF not having income from profits and gains of business or profession",
+    oldSection: "Section 139(1)",
+    newSection: "Section 263(1)",
+    category: "Returns of Income (ITR)",
+    status: "Same",
+  },
+  {
+    oldForm: "ITR-3",
+    newForm: "ITR-3",
+    purpose: "For individuals and HUF having income from profits and gains of business or profession",
+    oldSection: "Section 139(1)",
+    newSection: "Section 263(1)",
+    category: "Returns of Income (ITR)",
+    status: "Same",
+  },
+  {
+    oldForm: "ITR-4 (Sugam)",
+    newForm: "ITR-4 (Sugam)",
+    purpose: "For individuals, HUF and firms (other than LLP) with presumptive income from business or profession",
+    oldSection: "Section 44AD / 44ADA / 44AE",
+    newSection: "Section 58 (44AD / 44ADA equivalent)",
+    category: "Returns of Income (ITR)",
+    status: "Same",
+  },
+  {
+    oldForm: "ITR-5",
+    newForm: "ITR-5",
+    purpose: "For firms, LLPs, AOP, BOI, artificial juridical person, co-operative society",
+    oldSection: "Section 139(1)",
+    newSection: "Section 263(1)",
+    category: "Returns of Income (ITR)",
+    status: "Same",
+  },
+  {
+    oldForm: "ITR-6",
+    newForm: "ITR-6",
+    purpose: "For companies other than companies claiming exemption under Section 11",
+    oldSection: "Section 139(1)",
+    newSection: "Section 263(1)",
+    category: "Returns of Income (ITR)",
+    status: "Same",
+  },
+  {
+    oldForm: "ITR-7",
+    newForm: "ITR-7",
+    purpose: "For persons including companies required to furnish returns under Sections 139(4A), 139(4B), 139(4C), 139(4D)",
+    oldSection: "Section 139(4A)–(4D)",
+    newSection: "Section 263(4A)–(4D)",
+    category: "Returns of Income (ITR)",
+    status: "Same",
+  },
+  {
+    oldForm: "ITR-V",
+    newForm: "ITR-V",
+    purpose: "Verification acknowledgement form generated after e-filing (to be sent to CPC if not e-verified)",
+    oldSection: "Section 139",
+    newSection: "Section 263",
+    category: "Returns of Income (ITR)",
+    status: "Same",
+  },
+
+  // ── TDS / TCS Returns ─────────────────────────────────────────────────────
+  {
+    oldForm: "Form 24Q",
+    newForm: "Form 24Q",
+    purpose: "Quarterly TDS statement for tax deducted at source on salary payments",
+    oldSection: "Section 192",
+    newSection: "Section 392",
+    category: "TDS / TCS Returns",
+    status: "Same",
+  },
+  {
+    oldForm: "Form 26Q",
+    newForm: "Form 26Q",
+    purpose: "Quarterly TDS statement for tax deducted at source on payments other than salary (domestic)",
+    oldSection: "Sections 193–196D",
+    newSection: "Sections 393–420",
+    category: "TDS / TCS Returns",
+    status: "Same",
+  },
+  {
+    oldForm: "Form 27Q",
+    newForm: "Form 27Q",
+    purpose: "Quarterly TDS statement for tax deducted at source on payments made to non-residents",
+    oldSection: "Section 195",
+    newSection: "Section 395",
+    category: "TDS / TCS Returns",
+    status: "Same",
+  },
+  {
+    oldForm: "Form 27EQ",
+    newForm: "Form 27EQ",
+    purpose: "Quarterly TCS (Tax Collected at Source) return",
+    oldSection: "Section 206C",
+    newSection: "Section 420",
+    category: "TDS / TCS Returns",
+    status: "Same",
+  },
+
+  // ── TDS / TCS Certificates ────────────────────────────────────────────────
+  {
+    oldForm: "Form 16",
+    newForm: "Form 16",
+    purpose: "Annual TDS certificate issued by employer to employee — Part A (tax deducted & deposited) and Part B (computation of income)",
+    oldSection: "Section 203",
+    newSection: "Section 403",
+    category: "TDS / TCS Certificates",
+    status: "Same",
+  },
+  {
+    oldForm: "Form 16A",
+    newForm: "Form 16A",
+    purpose: "TDS certificate for tax deducted on payments other than salary (interest, rent, professional fees, etc.)",
+    oldSection: "Section 203",
+    newSection: "Section 403",
+    category: "TDS / TCS Certificates",
+    status: "Same",
+  },
+  {
+    oldForm: "Form 16B",
+    newForm: "Form 16B",
+    purpose: "TDS certificate for tax deducted on purchase of immovable property",
+    oldSection: "Section 194IA",
+    newSection: "Section 394",
+    category: "TDS / TCS Certificates",
+    status: "Same",
+  },
+  {
+    oldForm: "Form 16C",
+    newForm: "Form 16C",
+    purpose: "TDS certificate for tax deducted on rent paid by individual/HUF (above ₹50,000/month)",
+    oldSection: "Section 194IB",
+    newSection: "Section 394",
+    category: "TDS / TCS Certificates",
+    status: "Same",
+  },
+  {
+    oldForm: "Form 27D",
+    newForm: "Form 27D",
+    purpose: "TCS certificate issued by seller to buyer showing tax collected at source",
+    oldSection: "Section 206C",
+    newSection: "Section 420",
+    category: "TDS / TCS Certificates",
+    status: "Same",
+  },
+
+  // ── Declarations & Undertakings ───────────────────────────────────────────
+  {
+    oldForm: "Form 15G",
+    newForm: "Form 15G",
+    purpose: "Declaration by resident individual (below 60 years) that income is below taxable limit — for nil TDS on interest, dividends etc.",
+    oldSection: "Section 197A",
+    newSection: "Section 397",
+    category: "Declarations & Undertakings",
+    status: "Same",
+  },
+  {
+    oldForm: "Form 15H",
+    newForm: "Form 15H",
+    purpose: "Declaration by resident senior citizen (60 years or above) that tax on estimated income is nil — for nil TDS",
+    oldSection: "Section 197A(1C)",
+    newSection: "Section 397",
+    category: "Declarations & Undertakings",
+    status: "Same",
+  },
+  {
+    oldForm: "Form 27C",
+    newForm: "Form 27C",
+    purpose: "Declaration by buyer to seller for non-collection of TCS on purchase of goods for manufacturing or processing",
+    oldSection: "Section 206C(1A)",
+    newSection: "Section 420",
+    category: "Declarations & Undertakings",
+    status: "Same",
+  },
+
+  // ── Audit Reports ──────────────────────────────────────────────────────────
+  {
+    oldForm: "Form 3CA",
+    newForm: "Form 6A",
+    purpose: "Audit report where the accounts of the assessee have been audited under any other law (e.g., Companies Act)",
+    oldSection: "Section 44AB",
+    newSection: "Section 63",
+    category: "Audit Reports",
+    status: "Renamed",
+    notes: "Under IT Act 2025, audit under Section 63 uses revised form numbering.",
+  },
+  {
+    oldForm: "Form 3CB",
+    newForm: "Form 6B",
+    purpose: "Audit report where the accounts of the assessee have NOT been audited under any other law",
+    oldSection: "Section 44AB",
+    newSection: "Section 63",
+    category: "Audit Reports",
+    status: "Renamed",
+  },
+  {
+    oldForm: "Form 3CD",
+    newForm: "Form 6C",
+    purpose: "Statement of particulars required to be furnished under Section 44AB — the detailed tax audit statement",
+    oldSection: "Section 44AB",
+    newSection: "Section 63",
+    category: "Audit Reports",
+    status: "Renamed",
+    notes: "Most comprehensive form — all disallowances, depreciation, payments, and transactions reported here.",
+  },
+  {
+    oldForm: "Form 3AE",
+    newForm: "Form 5",
+    purpose: "Statement of details of preliminary expenses incurred before commencement of business",
+    oldSection: "Section 35D",
+    newSection: "Section 44",
+    category: "Audit Reports",
+    status: "Renamed",
+  },
+  {
+    oldForm: "Form 10B",
+    newForm: "Form 10B",
+    purpose: "Audit report under Section 12A(b) for charitable or religious trusts claiming exemption",
+    oldSection: "Section 12A",
+    newSection: "Section 292",
+    category: "Audit Reports",
+    status: "Same",
+    notes: "Form name retained; section reference updated to IT Act 2025.",
+  },
+  {
+    oldForm: "Form 10BB",
+    newForm: "Form 10BB",
+    purpose: "Audit report for educational institutions, hospitals and other entities under Section 10(23C)",
+    oldSection: "Section 10(23C)",
+    newSection: "Section 11(23C)",
+    category: "Audit Reports",
+    status: "Same",
+  },
+  {
+    oldForm: "Form 29B",
+    newForm: "Form 29B",
+    purpose: "Report by Chartered Accountant for Book Profit computation for MAT (Minimum Alternate Tax) purposes",
+    oldSection: "Section 115JB",
+    newSection: "Section 236",
+    category: "Audit Reports",
+    status: "Same",
+  },
+
+  // ── Salary & Employer Forms ───────────────────────────────────────────────
+  {
+    oldForm: "Form 12B",
+    newForm: "Form 12B",
+    purpose: "Statement furnished by employee joining a new employer — details of salary received from previous employer(s) during the same financial year",
+    oldSection: "Section 192(2)",
+    newSection: "Section 392(2)",
+    category: "Salary & Employer Forms",
+    status: "Same",
+  },
+  {
+    oldForm: "Form 12BA",
+    newForm: "Form 12BA",
+    purpose: "Statement showing particulars of perquisites, other fringe benefits, and profits in lieu of salary provided by employer",
+    oldSection: "Section 17",
+    newSection: "Section 16",
+    category: "Salary & Employer Forms",
+    status: "Same",
+  },
+  {
+    oldForm: "Form 10E",
+    newForm: "Form 10E",
+    purpose: "Form for furnishing particulars of income under Section 192(2A) for claiming relief on salary arrears under Section 89(1)",
+    oldSection: "Section 89(1)",
+    newSection: "Section 157",
+    category: "Salary & Employer Forms",
+    status: "Same",
+    notes: "Relief for arrears of salary or advance salary — prevents higher tax due to bunching of income.",
+  },
+
+  // ── Deductions & Claims ───────────────────────────────────────────────────
+  {
+    oldForm: "Form 10BA",
+    newForm: "Form 10BA",
+    purpose: "Declaration for claiming deduction under Section 80GG — rent paid where HRA is not received",
+    oldSection: "Section 80GG",
+    newSection: "Section 134",
+    category: "Deductions & Claims",
+    status: "Same",
+  },
+  {
+    oldForm: "Form 67",
+    newForm: "Form 67",
+    purpose: "Statement of income from a country or specified territory outside India and Foreign Tax Credit claim",
+    oldSection: "Section 90 / 91",
+    newSection: "Section 162 / 163",
+    category: "Deductions & Claims",
+    status: "Same",
+    notes: "Must be filed on or before the due date of return to claim FTC.",
+  },
+
+  // ── Other Procedural Forms ────────────────────────────────────────────────
+  {
+    oldForm: "Form 26AS",
+    newForm: "AIS (Annual Information Statement)",
+    purpose: "Consolidated annual tax statement — TDS, TCS, advance tax, self-assessment tax, refunds, and now includes financial transactions from various sources",
+    oldSection: "Section 203AA",
+    newSection: "Section 285BB",
+    category: "Other Procedural Forms",
+    status: "Renamed",
+    notes: "Form 26AS has been largely superseded by AIS (Annual Information Statement) which has a much wider scope.",
+  },
+  {
+    oldForm: "Form 26QB",
+    newForm: "Form 26QB",
+    purpose: "Challan-cum-statement for TDS on purchase of immovable property (buyer deducts 1% TDS and deposits via this form)",
+    oldSection: "Section 194IA",
+    newSection: "Section 394",
+    category: "Other Procedural Forms",
+    status: "Same",
+  },
+  {
+    oldForm: "Form 26QC",
+    newForm: "Form 26QC",
+    purpose: "Challan-cum-statement for TDS on rent paid by individual or HUF above ₹50,000 per month",
+    oldSection: "Section 194IB",
+    newSection: "Section 394",
+    category: "Other Procedural Forms",
+    status: "Same",
+  },
+  {
+    oldForm: "Form 13",
+    newForm: "Form 13",
+    purpose: "Application for certificate authorising deduction of tax at lower rate or no deduction",
+    oldSection: "Section 197",
+    newSection: "Section 397",
+    category: "Other Procedural Forms",
+    status: "Same",
+  },
+  {
+    oldForm: "Form 15CA",
+    newForm: "Form 15CA",
+    purpose: "Online declaration for remittance of money outside India — filed by the remitter before making a foreign payment",
+    oldSection: "Section 195",
+    newSection: "Section 395",
+    category: "Other Procedural Forms",
+    status: "Same",
+  },
+  {
+    oldForm: "Form 15CB",
+    newForm: "Form 15CB",
+    purpose: "Certificate from Chartered Accountant for foreign remittances — confirms nature of payment and applicable tax treaty provisions",
+    oldSection: "Section 195",
+    newSection: "Section 395",
+    category: "Other Procedural Forms",
+    status: "Same",
+    notes: "Required when remittance exceeds ₹5 lakh in a financial year and is taxable.",
+  },
+  {
+    oldForm: "Form 35",
+    newForm: "Form 35",
+    purpose: "Appeal to Commissioner of Income Tax (Appeals) against orders of Assessing Officer",
+    oldSection: "Section 246A",
+    newSection: "Section 356",
+    category: "Other Procedural Forms",
+    status: "Same",
+  },
+  {
+    oldForm: "Form 36",
+    newForm: "Form 36",
+    purpose: "Appeal to Income Tax Appellate Tribunal (ITAT) against orders of CIT(A) or other authorities",
+    oldSection: "Section 253",
+    newSection: "Section 357",
+    category: "Other Procedural Forms",
+    status: "Same",
+  },
+  {
+    oldForm: "—",
+    newForm: "Form 5",
+    purpose: "Statement of preliminary expenses incurred before commencement or for extension of business — to be submitted 1 month before filing return",
+    oldSection: "Not applicable (was Form 3AE under Section 35D)",
+    newSection: "Section 44",
+    category: "Other Procedural Forms",
+    status: "New in 2025",
+    notes: "Corresponds to old Form 3AE under Section 35D of IT Act 1961. Now numbered Form 5 under IT Act 2025.",
+  },
+];

@@ -121,6 +121,19 @@ export function SiteHeader() {
             Calendar
           </Link>
 
+          {/* Form Comparison link */}
+          <Link
+            href="/form-comparison"
+            className={cn(
+              "rounded-md px-3 py-1.5 text-sm transition-colors",
+              pathname === "/form-comparison"
+                ? "bg-primary/10 text-primary font-medium"
+                : "text-muted-foreground hover:bg-muted hover:text-foreground"
+            )}
+          >
+            Forms
+          </Link>
+
           {/* Calculators dropdown */}
           <div ref={dropdownRef} className="relative">
             <button
@@ -238,6 +251,18 @@ export function SiteHeader() {
               )}
             >
               Tax Calendar
+            </Link>
+            <Link
+              href="/form-comparison"
+              onClick={() => setMobileOpen(false)}
+              className={cn(
+                "rounded-md px-3 py-2.5 text-sm font-medium transition-colors",
+                pathname === "/form-comparison"
+                  ? "bg-primary/10 text-primary"
+                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
+              )}
+            >
+              Form Comparison
             </Link>
 
             {/* Calculators section */}
