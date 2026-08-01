@@ -6,6 +6,7 @@ import { DETAILED_ENTRIES } from "../_components/detailed-data";
 import type { ContentBlock } from "../_components/detailed-data";
 import { getDiagram } from "../_components/diagrams";
 import { DetailedAskWidget } from "../_components/ask-widget";
+import { DetailPageActions } from "../_components/detail-page-actions";
 import { cn } from "@/lib/utils";
 
 const CATEGORY_COLORS: Record<string, string> = {
@@ -256,18 +257,26 @@ export default async function DetailedEntryPage({
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
-      {/* Breadcrumb */}
-      <nav className="mb-6 flex items-center gap-2 text-xs text-muted-foreground">
-        <Link
-          href="/detailed-explainer"
-          className="hover:text-foreground transition-colors flex items-center gap-1"
-        >
-          <ArrowLeft className="h-3 w-3" />
-          Detailed Explainer
-        </Link>
-        <span>/</span>
-        <span className="truncate font-medium text-foreground">{entry.section2025}</span>
-      </nav>
+      {/* Breadcrumb + actions row */}
+      <div className="mb-6 flex items-center justify-between gap-4">
+        <nav className="flex items-center gap-2 text-xs text-muted-foreground min-w-0">
+          <Link
+            href="/detailed-explainer"
+            className="hover:text-foreground transition-colors flex items-center gap-1 shrink-0"
+          >
+            <ArrowLeft className="h-3 w-3" />
+            Detailed Explainer
+          </Link>
+          <span>/</span>
+          <span className="truncate font-medium text-foreground">{entry.section2025}</span>
+        </nav>
+        <DetailPageActions
+          slug={entry.slug}
+          title={entry.title}
+          section={entry.section2025}
+          category={entry.category}
+        />
+      </div>
 
       {/* Header */}
       <div className="mb-8">

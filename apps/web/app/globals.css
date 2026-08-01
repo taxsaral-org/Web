@@ -57,3 +57,63 @@
     @apply bg-background text-foreground;
   }
 }
+
+@media print {
+  .no-print,
+  header,
+  footer,
+  nav[aria-label],
+  [data-sidebar],
+  [data-radix-popper-content-wrapper] {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 12pt;
+  }
+
+  .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  a {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+
+  /* Tables */
+  table {
+    border-collapse: collapse !important;
+    width: 100% !important;
+    page-break-inside: avoid;
+  }
+  th, td {
+    border: 1px solid #ccc !important;
+    padding: 6px 10px !important;
+    color: black !important;
+    background: white !important;
+  }
+  thead { background: #f3f4f6 !important; }
+
+  /* Section headings */
+  h1 { font-size: 18pt; margin-bottom: 12pt; }
+  h2 { font-size: 14pt; margin: 12pt 0 6pt; }
+  h3 { font-size: 11pt; margin: 8pt 0 4pt; }
+
+  /* Callout blocks */
+  .rounded-lg, .rounded-xl {
+    border: 1px solid #ccc !important;
+    background: white !important;
+    box-shadow: none !important;
+  }
+
+  /* Page title strip */
+  .print-header-url::after {
+    content: " — taxsaral.org";
+    font-size: 9pt;
+    color: #666;
+  }
+}

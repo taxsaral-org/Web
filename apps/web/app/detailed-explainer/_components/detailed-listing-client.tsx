@@ -6,6 +6,8 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { DETAILED_ENTRIES, DETAILED_CATEGORIES } from "./detailed-data";
 import type { DetailedCategory } from "./detailed-data";
+import { BookmarkButton } from "@/components/bookmark-button";
+import { RecentHistory } from "./recent-history";
 
 // Pill badge on the card
 const CATEGORY_BADGE: Record<DetailedCategory, string> = {
@@ -71,6 +73,9 @@ export function DetailedListingClient() {
 
   return (
     <div className="space-y-6">
+
+      {/* Recently viewed */}
+      <RecentHistory />
 
       {/* Search */}
       <div className="relative">
@@ -153,53 +158,71 @@ export function DetailedListingClient() {
           </p>
 
           {filtered.map((entry) => (
-            <Link
+            <div
               key={entry.slug}
-              href={`/detailed-explainer/${entry.slug}`}
               className={cn(
-                "group block rounded-xl border border-l-4 bg-card p-5 transition-all",
+                "group relative rounded-xl border border-l-4 bg-card transition-all",
                 "hover:shadow-md hover:bg-muted/10",
                 CATEGORY_ACCENT[entry.category]
               )}
             >
-              {/* Top row: section + category + old section */}
-              <div className="mb-3 flex flex-wrap items-center gap-2">
-                <span className="rounded-md bg-primary/10 px-2.5 py-0.5 font-mono text-xs font-semibold text-primary">
-                  {entry.section2025}
-                </span>
-                <span
-                  className={cn(
-                    "rounded-full px-2.5 py-0.5 text-xs font-medium",
-                    CATEGORY_BADGE[entry.category]
-                  )}
-                >
-                  {entry.category}
-                </span>
-                {entry.section1961 && (
-                  <span className="text-xs text-muted-foreground">
-                    was{" "}
-                    <span className="font-medium text-foreground">{entry.section1961}</span>{" "}
-                    in IT Act 1961
+              {/* Bookmark button — top right, always visible */}
+              <div className="absolute right-3 top-3 z-10">
+                <BookmarkButton
+                  item={{
+                    slug: entry.slug,
+                    type: "detailed",
+                    title: entry.title,
+                    section: entry.section2025,
+                    category: entry.category,
+                  }}
+                />
+              </div>
+
+              {/* Clickable card area */}
+              <Link
+                href={`/detailed-explainer/${entry.slug}`}
+                className="block p-5 pr-14"
+              >
+                {/* Top row: section + category + old section */}
+                <div className="mb-3 flex flex-wrap items-center gap-2">
+                  <span className="rounded-md bg-primary/10 px-2.5 py-0.5 font-mono text-xs font-semibold text-primary">
+                    {entry.section2025}
                   </span>
-                )}
-              </div>
+                  <span
+                    className={cn(
+                      "rounded-full px-2.5 py-0.5 text-xs font-medium",
+                      CATEGORY_BADGE[entry.category]
+                    )}
+                  >
+                    {entry.category}
+                  </span>
+                  {entry.section1961 && (
+                    <span className="text-xs text-muted-foreground">
+                      was{" "}
+                      <span className="font-medium text-foreground">{entry.section1961}</span>{" "}
+                      in IT Act 1961
+                    </span>
+                  )}
+                </div>
 
-              {/* Title */}
-              <h2 className="mb-1.5 text-base font-semibold leading-snug transition-colors group-hover:text-primary">
-                {entry.title}
-              </h2>
+                {/* Title */}
+                <h2 className="mb-1.5 text-base font-semibold leading-snug transition-colors group-hover:text-primary">
+                  {entry.title}
+                </h2>
 
-              {/* Summary */}
-              <p className="line-clamp-2 text-sm leading-relaxed text-muted-foreground">
-                {entry.summary}
-              </p>
+                {/* Summary */}
+                <p className="line-clamp-2 text-sm leading-relaxed text-muted-foreground">
+                  {entry.summary}
+                </p>
 
-              {/* CTA */}
-              <div className="mt-3 flex items-center gap-1 text-xs font-semibold text-primary opacity-70 transition-all group-hover:opacity-100">
-                Read full analysis
-                <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
-              </div>
-            </Link>
+                {/* CTA */}
+                <div className="mt-3 flex items-center gap-1 text-xs font-semibold text-primary opacity-70 transition-all group-hover:opacity-100">
+                  Read full analysis
+                  <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
+                </div>
+              </Link>
+            </div>
           ))}
         </div>
       )}

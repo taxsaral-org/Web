@@ -3,9 +3,10 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Bookmark } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { GlobalSearch } from "./global-search";
+import { ThemeToggle } from "./theme-toggle";
 
 const CALCULATORS = [
   { href: "/calculators/regime-optimizer", label: "Regime Optimizer", desc: "Find your best tax regime" },
@@ -182,6 +183,20 @@ export function SiteHeader() {
         {/* Right side — search + CTA (desktop) / search + hamburger (mobile) */}
         <div className="flex items-center gap-1.5 shrink-0">
           <GlobalSearch />
+          <ThemeToggle />
+          <Link
+            href="/bookmarks"
+            aria-label="My Bookmarks"
+            title="My Bookmarks"
+            className={cn(
+              "hidden sm:flex h-8 w-8 items-center justify-center rounded-md transition-colors",
+              pathname === "/bookmarks"
+                ? "bg-primary/10 text-primary"
+                : "text-muted-foreground hover:bg-muted hover:text-foreground"
+            )}
+          >
+            <Bookmark className="h-4 w-4" />
+          </Link>
           <Link
             href="/ask"
             className="hidden sm:inline-flex items-center gap-1.5 rounded-lg border border-primary/40 bg-primary/5 px-3 py-1.5 text-xs font-medium text-primary hover:bg-primary/10 transition-colors"
@@ -286,10 +301,23 @@ export function SiteHeader() {
             ))}
 
             <Link
+              href="/bookmarks"
+              onClick={() => setMobileOpen(false)}
+              className={cn(
+                "mt-2 rounded-md px-3 py-2.5 text-sm font-medium transition-colors flex items-center gap-2",
+                pathname === "/bookmarks"
+                  ? "bg-primary/10 text-primary"
+                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
+              )}
+            >
+              <Bookmark className="h-4 w-4" />
+              My Bookmarks
+            </Link>
+            <Link
               href="/ask"
               onClick={() => setMobileOpen(false)}
               className={cn(
-                "mt-2 rounded-md px-3 py-2.5 text-sm font-medium transition-colors",
+                "rounded-md px-3 py-2.5 text-sm font-medium transition-colors",
                 pathname === "/ask"
                   ? "bg-primary/10 text-primary"
                   : "text-primary hover:bg-primary/10"
