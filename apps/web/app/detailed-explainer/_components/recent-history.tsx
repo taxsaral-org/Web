@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Clock, X } from "lucide-react";
+import { Clock } from "lucide-react";
 import { useHistory } from "@/hooks/use-history";
 
 export function RecentHistory() {
