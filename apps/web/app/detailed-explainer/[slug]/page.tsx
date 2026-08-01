@@ -7,6 +7,7 @@ import type { ContentBlock } from "../_components/detailed-data";
 import { getDiagram } from "../_components/diagrams";
 import { DetailedAskWidget } from "../_components/ask-widget";
 import { DetailPageActions } from "../_components/detail-page-actions";
+import { ReadingProgress } from "../_components/reading-progress";
 import { cn } from "@/lib/utils";
 
 const CATEGORY_COLORS: Record<string, string> = {
@@ -254,6 +255,7 @@ export default async function DetailedEntryPage({
 
   return (
     <div className="container mx-auto max-w-3xl px-4 py-10">
+      <ReadingProgress />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
