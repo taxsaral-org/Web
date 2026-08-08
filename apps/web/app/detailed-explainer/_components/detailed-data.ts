@@ -1676,4 +1676,277 @@ export const DETAILED_ENTRIES: DetailedEntry[] = [
       },
     ],
   },
+  {
+    slug: "deemed-pgbp-income-section-38",
+    section2025: "Section 38",
+    section1961: "Sections 41, 32(1) proviso, 35(5), 36(1)(vii)",
+    title: "Deemed Profits and Gains of Business or Profession",
+    summary:
+      "Section 38 of the IT Act 2025 deems certain receipts and events as taxable business income even when they are not earnings in the ordinary sense — covering recoveries against previously claimed deductions, balancing charges on sale of SLM-depreciated assets, proceeds from scientific research assets, recovery of bad debts, and withdrawals from special reserves.",
+    category: "Business & Profession",
+    keywords: [
+      "section 38",
+      "deemed PGBP income",
+      "balancing charge",
+      "terminal depreciation",
+      "SLM depreciation",
+      "recovery of bad debts",
+      "scientific research assets",
+      "special reserves",
+      "working capital loan waiver",
+      "deemed business income",
+      "section 41 equivalent",
+      "loan waiver taxability",
+      "written off liability",
+      "time-barred liability",
+      "dissolution of firm bad debts",
+    ],
+    lastUpdated: "2026-08-08",
+    content: [
+      {
+        type: "paragraph",
+        text: "Section 38 of the Income Tax Act, 2025 brings within the charge of tax certain amounts that are not earnings from business in the traditional sense but are treated as profits and gains of business or profession (PGBP) because they represent the reversal of deductions or benefits already enjoyed by the assessee.",
+      },
+      {
+        type: "heading",
+        text: "Overview — Five Limbs of Section 38",
+      },
+      {
+        type: "numbered",
+        items: [
+          "Section 38(1)(a) — Recovery against any deduction that was already claimed",
+          "Section 38(1)(b) — Balancing Charge (on sale of SLM-depreciated assets)",
+          "Section 38(1)(c) — Sale of Scientific Research Assets",
+          "Section 38(1)(d) — Recovery of Bad Debts",
+          "Section 38(1)(e) — Withdrawal from special reserves created under Section 32(e)",
+        ],
+      },
+      {
+        type: "heading",
+        text: "Section 38(1)(a) — Recovery Against Any Earlier Deduction",
+      },
+      {
+        type: "paragraph",
+        text: "If an assessee was allowed a deduction in an earlier tax year in respect of any expenditure, loss, or liability, and in the current tax year obtains a refund or recovery of the same, the amount earlier claimed as an expense shall be deemed to be PGBP income in the year of recovery.",
+      },
+      {
+        type: "callout",
+        variant: "info",
+        text: "Example: A company lost stock in a fire and booked the loss in its accounts. It later received insurance compensation for the same loss. The compensation received is treated as deemed PGBP income under Section 38(1)(a).",
+      },
+      {
+        type: "subheading",
+        text: "Other Situations Covered",
+      },
+      {
+        type: "bullets",
+        items: [
+          "If the assessee writes off a liability without the consent of the creditor, the amount so written off is treated as deemed income.",
+          "If the assessee writes off a time-barred liability, the amount is treated as deemed PGBP income under Section 38(1)(a).",
+        ],
+      },
+      {
+        type: "subheading",
+        text: "Treatment of Loan Waivers",
+      },
+      {
+        type: "table",
+        headers: ["Type of Waiver", "Tax Treatment"],
+        rows: [
+          { cells: ["Waiver of loan by Government", "Fully taxable as income under Section 2(49)(w)"] },
+          { cells: ["Waiver of working capital loan — principal", "Principal is taxable under Section 38(1)(a)"] },
+          { cells: ["Waiver of working capital loan — interest", "Not taxable — interest deduction is allowed only when actually paid under Section 37, so no prior deduction was claimed"] },
+          { cells: ["Waiver of loan of a capital nature", "Waived amount is not income; it must be reduced from the block of assets before computing depreciation"] },
+        ],
+      },
+      {
+        type: "callout",
+        variant: "tip",
+        text: "Why is the principal of a working capital loan taxable? Because the assessee would have incurred revenue expenditure out of the working capital loan obtained; hence, the waived portion of that loan — which funded expenses that were already deducted — is now treated as deemed PGBP income.",
+      },
+      {
+        type: "heading",
+        text: "Section 38(1)(b) — Balancing Charge",
+      },
+      {
+        type: "paragraph",
+        text: "The balancing charge concept applies only to undertakings that follow the Straight Line Method (SLM) of depreciation — not to those using the block-of-assets approach (WDV method). Under the SLM approach, depreciation is tracked asset-wise, so the WDV of each individual asset is readily available and can be compared with its sale consideration.",
+      },
+      {
+        type: "callout",
+        variant: "info",
+        text: "Under the block-of-assets (WDV) system, an individual asset loses its separate identity once it enters the block, making it impossible to determine its individual WDV at the time of sale. Balancing charge therefore cannot arise for block-of-assets assessees.",
+      },
+      {
+        type: "subheading",
+        text: "What Is a Balancing Charge?",
+      },
+      {
+        type: "paragraph",
+        text: "A balancing charge arises when an SLM asset is sold for more than its WDV but not more than its original cost. The excess depreciation claimed earlier (the gap between cost and WDV) is recovered on sale and is taxed as deemed PGBP income in the year of sale.",
+      },
+      {
+        type: "subheading",
+        text: "Three Scenarios — Illustration",
+      },
+      {
+        type: "table",
+        headers: ["Particulars", "Scenario 1", "Scenario 2", "Scenario 3"],
+        rows: [
+          { cells: ["Sale Value", "₹1,00,000", "₹60,000", "₹1,20,000"] },
+          { cells: ["Cost of Asset", "₹1,10,000", "₹1,10,000", "₹1,10,000"] },
+          { cells: ["WDV", "₹80,000", "₹80,000", "₹80,000"] },
+          { cells: ["Balancing Charge / Terminal Depreciation", "₹20,000 — Balancing Charge", "₹20,000 — Terminal Depreciation", "₹30,000 — Balancing Charge"] },
+          { cells: ["Capital Gain", "Nil", "Nil", "₹10,000"] },
+        ],
+      },
+      {
+        type: "subheading",
+        text: "Scenario 1 — Sale Value Between WDV and Cost",
+      },
+      {
+        type: "calculation",
+        rows: [
+          { label: "Sale Value", amount: "₹1,00,000" },
+          { label: "Less: WDV", amount: "(₹80,000)", negative: true },
+          { label: "Balancing Charge (taxable as PGBP income)", amount: "₹20,000", total: true },
+          { label: "Capital Gain", amount: "Nil" },
+        ],
+      },
+      {
+        type: "subheading",
+        text: "Scenario 2 — Sale Value Below WDV",
+      },
+      {
+        type: "calculation",
+        rows: [
+          { label: "WDV", amount: "₹80,000" },
+          { label: "Less: Sale Value", amount: "(₹60,000)", negative: true },
+          { label: "Terminal Depreciation (allowed as deduction)", amount: "₹20,000", total: true },
+        ],
+      },
+      {
+        type: "subheading",
+        text: "Scenario 3 — Sale Value Exceeds Actual Cost",
+      },
+      {
+        type: "paragraph",
+        text: "When the sale value exceeds the original cost, the tax treatment is split into two parts: the Balancing Charge (capped at total depreciation allowed) and a Capital Gain on the excess over cost.",
+      },
+      {
+        type: "calculation",
+        rows: [
+          { label: "Depreciation previously claimed (Cost − WDV)", amount: "₹30,000" },
+          { label: "Balancing Charge [limited to depreciation allowed]", amount: "₹30,000", total: true },
+          { label: "Sale Value", amount: "₹1,20,000" },
+          { label: "Less: Original Cost", amount: "(₹1,10,000)", negative: true },
+          { label: "Capital Gain (taxed under Capital Gains head)", amount: "₹10,000", total: true },
+        ],
+      },
+      {
+        type: "heading",
+        text: "Section 38(1)(c) — Sale of Scientific Research Assets",
+      },
+      {
+        type: "paragraph",
+        text: "When a scientific research activity is closed, the asset used in that research may either be transferred to another business unit of the same assessee or sold outright.",
+      },
+      {
+        type: "table",
+        headers: ["Situation", "Tax Treatment"],
+        rows: [
+          { cells: ["Asset transferred to another business unit of the same assessee", "The asset is added to the block of assets at nil value as per Section 39(4). No immediate tax consequence."] },
+          { cells: ["Asset sold without being put to business use after scientific research", "Lower of (i) selling price or (ii) deduction claimed under Section 51 is taxable as PGBP income under Section 38(1)(c). Any excess of sale price over original cost is treated as Capital Gain."] },
+        ],
+      },
+      {
+        type: "subheading",
+        text: "Illustration — XYZ Ltd.",
+      },
+      {
+        type: "paragraph",
+        text: "XYZ Ltd. acquired a scientific research asset on 1 April 2023 for ₹15,00,000 and claimed a deduction of the entire amount under Section 51. The asset was used exclusively for scientific research and was never put to use in regular business. On 30 September 2026, the company sold the asset for ₹18,50,000.",
+      },
+      {
+        type: "calculation",
+        rows: [
+          { label: "Sale Consideration", amount: "₹18,50,000" },
+          { label: "Deduction Claimed under Section 51", amount: "₹15,00,000" },
+          { label: "PGBP Income [Section 38(1)(c)] — Lower of above two", amount: "₹15,00,000", total: true },
+          { label: "Capital Gain = Sale Consideration − Original Cost", amount: "" },
+          { label: "₹18,50,000 − ₹15,00,000", amount: "₹3,50,000", total: true },
+        ],
+      },
+      {
+        type: "callout",
+        variant: "info",
+        text: "Nature of Capital Gain: Since the asset was held for more than 24 months (April 2023 to September 2026), the gain qualifies as Long-Term Capital Gain (LTCG), subject to the applicable holding period conditions under the relevant provisions.",
+      },
+      {
+        type: "heading",
+        text: "Section 38(1)(d) — Recovery of Bad Debts",
+      },
+      {
+        type: "paragraph",
+        text: "A deduction for bad debts and provision for doubtful debts is allowed under Section 31. Where such a deduction has been allowed in a prior year and a subsequent recovery is made, the amount recovered is taxable as PGBP income in the year of recovery — even if the business or provision is no longer in existence in the year of recovery.",
+      },
+      {
+        type: "subheading",
+        text: "Three Cases — How Much is Taxable?",
+      },
+      {
+        type: "table",
+        headers: ["Case", "Deduction Allowed (Section 31)", "Amount Disallowed Earlier", "Amount Recovered", "Taxable Amount"],
+        rows: [
+          { cells: ["Case 1", "₹1,00,000", "Nil", "₹1,00,000", "₹1,00,000 (entire recovery)"] },
+          { cells: ["Case 2", "₹60,000", "₹40,000", "₹70,000", "₹30,000 (₹70,000 − ₹40,000)"] },
+          { cells: ["Case 3", "Nil", "₹60,000", "₹40,000", "Nil — balance ₹20,000 is allowed as deduction"] },
+        ],
+      },
+      {
+        type: "callout",
+        variant: "tip",
+        text: "Rule of thumb: Only the portion of recovery that corresponds to a previously allowed deduction is taxable. Recovery against a disallowed bad debt is not income — in fact, if recovery falls short of the disallowed amount, the unrecovered balance is allowed as a deduction.",
+      },
+      {
+        type: "subheading",
+        text: "Special Situations",
+      },
+      {
+        type: "bullets",
+        items: [
+          "Recovery after dissolution of firm: If a firm claimed bad debt deduction under Section 31 and is later dissolved, any recovery by the partners is NOT taxable under Section 38(1)(d). The assessee who claimed the deduction (the firm) and the person who recovers (the partners) are different persons — so the section cannot apply.",
+          "Bad debts in case of succession: The successor is entitled to claim a deduction in respect of bad debts even if the corresponding debt was recognised as income by the predecessor. Where the predecessor recognised the debt as income but later wrote it off, the successor can claim the deduction, subject to the prescribed conditions.",
+        ],
+      },
+      {
+        type: "heading",
+        text: "Section 38(1)(e) — Withdrawal from Special Reserves",
+      },
+      {
+        type: "paragraph",
+        text: "Any withdrawal from special reserves created under Section 32(e) is taxable as PGBP income in the year in which the withdrawal is made. The logic is the same as Section 38(1)(a) — a deduction was claimed when the reserve was created, so any reversal of the reserve must be brought back into income.",
+      },
+      {
+        type: "heading",
+        text: "Quick Reference — All Five Limbs",
+      },
+      {
+        type: "table",
+        headers: ["Sub-section", "Trigger Event", "Amount Taxable as PGBP"],
+        rows: [
+          { cells: ["38(1)(a)", "Recovery of expenditure / reversal of liability earlier deducted", "Amount recovered or written back"] },
+          { cells: ["38(1)(b)", "Sale of SLM-depreciated asset above WDV", "Excess of sale value over WDV, capped at total depreciation claimed"] },
+          { cells: ["38(1)(c)", "Sale of scientific research asset not put to business use", "Lower of sale consideration or deduction claimed under Section 51"] },
+          { cells: ["38(1)(d)", "Recovery of bad debt earlier allowed as deduction under Section 31", "Amount recovered corresponding to the earlier allowed deduction"] },
+          { cells: ["38(1)(e)", "Withdrawal from special reserve (Section 32(e))", "Amount withdrawn"] },
+        ],
+      },
+      {
+        type: "callout",
+        variant: "warning",
+        text: "Key Principle: Section 38 is the statute's anti-double-benefit mechanism. Wherever the law permitted a deduction or allowance in an earlier year, any reversal, recovery, or realisation in a later year is brought back to tax as PGBP income. The section ensures that a taxpayer cannot permanently benefit from a deduction that has since been reversed by events.",
+      },
+    ],
+  },
 ];
