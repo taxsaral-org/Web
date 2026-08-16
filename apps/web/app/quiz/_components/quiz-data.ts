@@ -257,7 +257,7 @@ export const QUIZ_CHAPTERS: QuizChapter[] = [
     chapter: "Chapter 1 — Basics & Tax Rates TY 2026-27",
     topic: "Basic Concepts",
     description:
-      "Case-study MCQs from CA Bhanwar Borana's ICAI study material. Covers diversion vs. application of income, exempt agricultural income (nursery, film shooting, Sikkim), Rule 271 splits for rubber/coffee/sugarcane, partial integration tax computation, HUF status, Hundi (Section 106), and unexplained expenditure (Section 105).",
+      "Case-study MCQs from ICAI study material. Covers diversion vs. application of income, exempt agricultural income (nursery, film shooting, Sikkim), Rule 271 splits for rubber/coffee/sugarcane, partial integration tax computation, HUF status, Hundi (Section 106), and unexplained expenditure (Section 105).",
     difficulty: "Hard",
     questions: [
       {
