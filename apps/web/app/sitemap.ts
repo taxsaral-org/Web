@@ -22,6 +22,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/calculators/residential-status`,    lastModified: NOW, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/form-comparison`,                    lastModified: NOW, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/quiz`,                              lastModified: NOW, changeFrequency: "weekly",  priority: 0.8 },
+    { url: `${BASE}/quiz/detailed-explainer`,           lastModified: NOW, changeFrequency: "weekly",  priority: 0.7 },
+    { url: `${BASE}/quiz/icai`,                         lastModified: NOW, changeFrequency: "weekly",  priority: 0.7 },
     { url: `${BASE}/ask`,                               lastModified: NOW, changeFrequency: "monthly", priority: 0.7 },
   ];
 
