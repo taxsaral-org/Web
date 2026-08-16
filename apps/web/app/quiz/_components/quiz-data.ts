@@ -253,8 +253,8 @@ export const QUIZ_CHAPTERS: QuizChapter[] = [
   {
     slug: "basic-concepts-chapter-1",
     source: "icai",
-    title: "Basics, Tax Rates TY 2026-27 & Exempt Income — Case Studies",
-    chapter: "Chapter 1 — Basics & Tax Rates TY 2026-27",
+    title: "Chapter 1: Basic Concepts",
+    chapter: "Chapter 1 — Basic Concepts",
     topic: "Basic Concepts",
     description:
       "Case-study MCQs from ICAI study material. Covers diversion vs. application of income, exempt agricultural income (nursery, film shooting, Sikkim), Rule 271 splits for rubber/coffee/sugarcane, partial integration tax computation, HUF status, Hundi (Section 106), and unexplained expenditure (Section 105).",
