@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SECTIONS } from "@/app/section-explainer/_components/sections-data";
 import { DETAILED_ENTRIES } from "@/app/detailed-explainer/_components/detailed-data";
+import { QUIZ_CHAPTERS } from "@/app/quiz/_components/quiz-data";
 
 const BASE = "https://taxsaral.org";
 const NOW = new Date();
@@ -20,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/calculators/advance-tax`,           lastModified: NOW, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/calculators/residential-status`,    lastModified: NOW, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/form-comparison`,                    lastModified: NOW, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE}/quiz`,                              lastModified: NOW, changeFrequency: "weekly",  priority: 0.8 },
     { url: `${BASE}/ask`,                               lastModified: NOW, changeFrequency: "monthly", priority: 0.7 },
   ];
 
@@ -37,5 +39,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...detailedPages, ...sectionPages];
+  const quizPages: MetadataRoute.Sitemap = QUIZ_CHAPTERS.map((c) => ({
+    url: `${BASE}/quiz/${c.slug}`,
+    lastModified: new Date(c.lastUpdated),
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...detailedPages, ...sectionPages, ...quizPages];
 }

@@ -135,6 +135,19 @@ export function SiteHeader() {
             Forms
           </Link>
 
+          {/* Quiz link */}
+          <Link
+            href="/quiz"
+            className={cn(
+              "rounded-md px-3 py-1.5 text-sm transition-colors",
+              pathname === "/quiz" || pathname?.startsWith("/quiz/")
+                ? "bg-primary/10 text-primary font-medium"
+                : "text-muted-foreground hover:bg-muted hover:text-foreground"
+            )}
+          >
+            Quiz
+          </Link>
+
           {/* Calculators dropdown */}
           <div ref={dropdownRef} className="relative">
             <button
@@ -290,6 +303,18 @@ export function SiteHeader() {
               )}
             >
               Form Comparison
+            </Link>
+            <Link
+              href="/quiz"
+              onClick={() => setMobileOpen(false)}
+              className={cn(
+                "rounded-md px-3 py-2.5 text-sm font-medium transition-colors",
+                pathname === "/quiz" || pathname?.startsWith("/quiz/")
+                  ? "bg-primary/10 text-primary"
+                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
+              )}
+            >
+              Quiz
             </Link>
 
             {/* Calculators section */}
