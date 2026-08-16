@@ -9,8 +9,11 @@ export interface QuizQuestion {
   section?: string;                  // e.g. "Section 38(1)(a)"
 }
 
+export type QuizSource = "detailed-explainer" | "icai";
+
 export interface QuizChapter {
   slug: string;
+  source: QuizSource;
   title: string;
   chapter: string;                   // e.g. "Chapter 4 — PGBP"
   topic: string;                     // short topic label
@@ -25,6 +28,7 @@ export interface QuizChapter {
 export const QUIZ_CHAPTERS: QuizChapter[] = [
   {
     slug: "deemed-pgbp-income-section-38",
+    source: "detailed-explainer",
     title: "Deemed Profits and Gains of Business or Profession",
     chapter: "PGBP — Section 38",
     topic: "Deemed PGBP Income",
@@ -248,6 +252,7 @@ export const QUIZ_CHAPTERS: QuizChapter[] = [
 
   {
     slug: "basic-concepts-chapter-1",
+    source: "icai",
     title: "Basic Concepts — Case Studies",
     chapter: "Chapter 1 — Basic Concepts",
     topic: "Basic Concepts",
@@ -352,6 +357,7 @@ export const QUIZ_CHAPTERS: QuizChapter[] = [
   // ── Buyback of Securities ─────────────────────────────────────────────────
   {
     slug: "buyback-of-securities",
+    source: "detailed-explainer",
     title: "Taxation in Case of Buyback of Securities",
     chapter: "Capital Gains — Sections 69 & 196",
     topic: "Buyback of Securities",
@@ -444,6 +450,7 @@ export const QUIZ_CHAPTERS: QuizChapter[] = [
   // ── Deemed Dividend ───────────────────────────────────────────────────────
   {
     slug: "deemed-dividend-closely-held-companies",
+    source: "detailed-explainer",
     title: "Deemed Dividend — Loans by Closely Held Companies",
     chapter: "Special Income — Section 2(40)(e)",
     topic: "Deemed Dividend",
@@ -536,6 +543,7 @@ export const QUIZ_CHAPTERS: QuizChapter[] = [
   // ── Agricultural Income ───────────────────────────────────────────────────
   {
     slug: "agricultural-income",
+    source: "detailed-explainer",
     title: "Agricultural Income — Exemption, Bifurcation & Partial Integration",
     chapter: "Agricultural Income — Section 2(5) & Rules 270–271",
     topic: "Agricultural Income",
@@ -628,6 +636,7 @@ export const QUIZ_CHAPTERS: QuizChapter[] = [
   // ── Grandfathering Rule ───────────────────────────────────────────────────
   {
     slug: "cost-of-acquisition-shares-grandfathering",
+    source: "detailed-explainer",
     title: "Cost of Acquisition of Shares — The Grandfathering Rule",
     chapter: "Capital Gains — Section 90(7)",
     topic: "Grandfathering Rule",
@@ -720,6 +729,7 @@ export const QUIZ_CHAPTERS: QuizChapter[] = [
   // ── Slump Sale ────────────────────────────────────────────────────────────
   {
     slug: "slump-sale-section-77",
+    source: "detailed-explainer",
     title: "Slump Sale — Tax on Transfer of Undertaking",
     chapter: "Capital Gains — Section 77",
     topic: "Slump Sale",
@@ -812,6 +822,7 @@ export const QUIZ_CHAPTERS: QuizChapter[] = [
   // ── Employee Welfare Deductions ───────────────────────────────────────────
   {
     slug: "employee-welfare-deductions-section-29",
+    source: "detailed-explainer",
     title: "Employer Deductions for Employee Welfare — PF, NPS & Gratuity",
     chapter: "Business & Profession — Section 29",
     topic: "Employee Welfare Deductions",
@@ -904,6 +915,7 @@ export const QUIZ_CHAPTERS: QuizChapter[] = [
   // ── Specified Business Deduction ──────────────────────────────────────────
   {
     slug: "specified-business-deduction-section-46",
+    source: "detailed-explainer",
     title: "Specified Business Deduction — 100% Capital Expenditure Write-Off",
     chapter: "Business & Profession — Section 46",
     topic: "Specified Business Deduction",
@@ -996,6 +1008,7 @@ export const QUIZ_CHAPTERS: QuizChapter[] = [
   // ── Preliminary Expenses ──────────────────────────────────────────────────
   {
     slug: "preliminary-expenses-section-44",
+    source: "detailed-explainer",
     title: "Preliminary Expenses — Amortisation of Pre-Commencement Expenditure",
     chapter: "Business & Profession — Section 44",
     topic: "Preliminary Expenses",
