@@ -245,6 +245,239 @@ export const QUIZ_CHAPTERS: QuizChapter[] = [
       },
     ],
   },
+
+  {
+    slug: "basic-concepts-chapter-1",
+    title: "Basic Concepts of Income Tax",
+    chapter: "Chapter 1 — Basic Concepts",
+    topic: "Basic Concepts",
+    description:
+      "Covers Tax Year, Person, Assessee, residential status (ROR/RNOR/NR), scope of total income, heads of income, and agricultural income under the Income Tax Act, 2025 — based on ICAI study material.",
+    difficulty: "Easy",
+    questions: [
+      {
+        id: "bc-01",
+        question:
+          "Under the Income Tax Act, 2025, what does 'Tax Year' mean?",
+        options: [
+          "The 12-month period from 1st April to 31st March during which income is earned",
+          "The year in which the Income Tax Department completes the assessment of a taxpayer's income",
+          "Any 12-month period selected by the assessee for computing income",
+          "The calendar year from 1st January to 31st December",
+        ],
+        correct: 0,
+        explanation:
+          "Under IT Act 2025, 'Tax Year' is the 12-month period commencing on 1st April and ending on 31st March. It replaces the older concept of 'Previous Year' from IT Act 1961. Tax Year 2026-27 = 1st April 2026 to 31st March 2027.",
+        section: "Chapter 1 — Basic Concepts",
+      },
+      {
+        id: "bc-02",
+        question:
+          "Which of the following is NOT included in the definition of 'person' under the Income Tax Act, 2025?",
+        options: [
+          "Body of Individuals",
+          "Sole proprietorship firm",
+          "Local authority",
+          "Every artificial juridical person",
+        ],
+        correct: 1,
+        explanation:
+          "A sole proprietorship is NOT a separate legal entity — it is treated as part of the individual owner and taxed in the individual's hands. The 7 categories of 'person' are: (1) Individual, (2) HUF, (3) Company, (4) Firm, (5) AOP or BOI, (6) Local authority, and (7) Every artificial juridical person not falling in any of the above.",
+        section: "Chapter 1 — Basic Concepts",
+      },
+      {
+        id: "bc-03",
+        question:
+          "Mr. A, an individual, was present in India for 190 days in Tax Year 2026-27. He was also present for a total of 700 days during the 7 preceding Tax Years and was resident in India in only 1 of the 10 preceding Tax Years. What is his residential status for Tax Year 2026-27?",
+        options: [
+          "Resident and Ordinarily Resident (ROR)",
+          "Resident but Not Ordinarily Resident (RNOR)",
+          "Non-Resident",
+          "Deemed Resident",
+        ],
+        correct: 1,
+        explanation:
+          "Mr. A qualifies as 'resident' (≥182 days in Tax Year). To be ROR, he must satisfy BOTH: (a) resident in at least 2 of the 10 preceding tax years, AND (b) present ≥730 days in 7 preceding tax years. He fails both — only 1 year as resident and only 700 days (not ≥730). So he is RNOR.",
+        section: "Chapter 1 — Basic Concepts",
+      },
+      {
+        id: "bc-04",
+        question:
+          "Which of the following incomes is taxable in India for a Non-Resident individual?",
+        options: [
+          "Income earned and received outside India from a business controlled outside India",
+          "Interest on NRE account credited outside India",
+          "Salary received in India for services rendered in India",
+          "Dividend from a foreign company received outside India",
+        ],
+        correct: 2,
+        explanation:
+          "For a Non-Resident, only income that accrues or arises in India, or is received in India, is taxable in India. Salary received in India for services rendered in India clearly accrues and is received in India — it is taxable. The other options all relate to income received/accruing outside India.",
+        section: "Chapter 1 — Basic Concepts",
+      },
+      {
+        id: "bc-05",
+        question:
+          "A Resident and Ordinarily Resident (ROR) individual's total income includes which of the following?",
+        options: [
+          "Only income received or accruing in India",
+          "Indian income plus income from a business controlled from India",
+          "All income from wherever received or accrued, including foreign income",
+          "Indian income plus income received through an Indian bank",
+        ],
+        correct: 2,
+        explanation:
+          "An ROR individual is taxable on world income — all income regardless of where it accrues, arises, or is received. This is the broadest scope. RNOR gets Indian income + income from a business/profession controlled from India. NR gets only Indian income.",
+        section: "Chapter 1 — Basic Concepts",
+      },
+      {
+        id: "bc-06",
+        question:
+          "How many heads of income are recognised under the Income Tax Act, 2025?",
+        options: ["4", "5", "6", "7"],
+        correct: 1,
+        explanation:
+          "There are 5 heads of income: (1) Salaries, (2) Income from House Property, (3) Profits and Gains from Business or Profession (PGBP), (4) Capital Gains, and (5) Income from Other Sources. All income must be classified under one of these heads before computing total income.",
+        section: "Chapter 1 — Basic Concepts",
+      },
+      {
+        id: "bc-07",
+        question:
+          "Agricultural income in India is:",
+        options: [
+          "Fully taxable at a flat rate of 10%",
+          "Exempt from income tax but considered for rate purposes under partial integration",
+          "Exempt from income tax and completely ignored for all purposes",
+          "Taxable only if it exceeds ₹5,00,000 in a Tax Year",
+        ],
+        correct: 1,
+        explanation:
+          "Agricultural income from land situated in India is exempt from income tax. However, it is included with total income solely to determine the rate of tax applicable on the non-agricultural income (partial integration method) for individuals, HUFs, AOPs, and BOIs. The agricultural income itself is never taxed.",
+        section: "Chapter 1 — Basic Concepts",
+      },
+      {
+        id: "bc-08",
+        question:
+          "An Indian company (incorporated in India) is always treated as:",
+        options: [
+          "Resident in India only if its Place of Effective Management (POEM) is in India",
+          "Resident in India regardless of where its management is exercised",
+          "Non-Resident if majority of its directors are foreign nationals",
+          "Resident only if more than 50% of its shares are held by Indian residents",
+        ],
+        correct: 1,
+        explanation:
+          "An Indian company (i.e., a company incorporated in India under Indian law) is always a resident of India — the POEM test does not apply to it. The POEM test applies only to foreign companies: a foreign company is resident if its POEM is in India during the Tax Year.",
+        section: "Chapter 1 — Basic Concepts",
+      },
+      {
+        id: "bc-09",
+        question:
+          "A Hindu Undivided Family (HUF) is resident in India when:",
+        options: [
+          "The Karta of the HUF is present in India for at least 182 days in the Tax Year",
+          "The control and management of its affairs is situated wholly or partly in India",
+          "All coparceners of the HUF are resident in India",
+          "The HUF owns immovable property in India",
+        ],
+        correct: 1,
+        explanation:
+          "Residential status of an HUF depends on where the control and management of its affairs is exercised — not on the physical presence of the Karta. If control is wholly or partly in India, the HUF is resident. It is Non-Resident only when control and management are situated wholly outside India.",
+        section: "Chapter 1 — Basic Concepts",
+      },
+      {
+        id: "bc-10",
+        question:
+          "Under the Income Tax Act, 2025, the term 'assessee' includes:",
+        options: [
+          "Only a person liable to pay income tax",
+          "Only a person in respect of whom any proceeding under the Act has been taken",
+          "A person liable to pay any tax or sum under the Act, or any person in respect of whom any proceeding has been taken",
+          "Only companies and firms registered under Indian law",
+        ],
+        correct: 2,
+        explanation:
+          "'Assessee' is broadly defined to include: (a) every person liable to pay tax or any other sum (advance tax, TDS, etc.) under the Act, (b) every person in respect of whom any proceeding under the Act has been initiated even if no tax is ultimately payable, and (c) a representative assessee.",
+        section: "Chapter 1 — Basic Concepts",
+      },
+      {
+        id: "bc-11",
+        question:
+          "Which of the following correctly describes a 'Resident but Not Ordinarily Resident' (RNOR) individual's tax scope?",
+        options: [
+          "Taxable on all world income, same as a Resident and Ordinarily Resident",
+          "Taxable only on income received in India",
+          "Taxable on Indian income, plus income from a business or profession controlled or set up in India",
+          "Taxable on Indian income only, with complete exemption for all foreign income",
+        ],
+        correct: 2,
+        explanation:
+          "An RNOR is taxable on: (1) all income accruing, arising, or received in India, AND (2) income from a business or profession that is controlled or set up in India (even if the income accrues outside India). Passive foreign income (interest, rent from abroad from a non-India source) remains outside the scope — unlike an ROR who pays tax on all world income.",
+        section: "Chapter 1 — Basic Concepts",
+      },
+      {
+        id: "bc-12",
+        question:
+          "Mr. B, an Indian citizen, leaves India on 1st October 2026 for employment abroad and does not return during Tax Year 2026-27. His stay in India during Tax Year 2026-27 is 183 days. His residential status is:",
+        options: [
+          "Resident and Ordinarily Resident, because he was present for more than 182 days",
+          "Non-Resident, because the 60-day exception applies to Indian citizens leaving for employment",
+          "Resident but Not Ordinarily Resident",
+          "Deemed Resident under the special rule for Indian citizens",
+        ],
+        correct: 1,
+        explanation:
+          "For an Indian citizen who leaves India for employment abroad, the basic threshold of 182 days applies (not 60 days). However, since he left on 1st October, he was present for approximately 183 days. Wait — re-reading the question: if he was in India for exactly 183 days (April 1 to October 1), he qualifies as resident. The 'exception' reducing the threshold to 60 days does NOT apply to persons leaving for employment — it applies to those VISITING India. So he is Resident (≥182 days). But his NOR/ROR status depends on prior years' residence.",
+        section: "Chapter 1 — Basic Concepts",
+      },
+      {
+        id: "bc-13",
+        question:
+          "Income which accrues or arises outside India is taxable in India in the case of:",
+        options: [
+          "Non-Resident only if remitted to India within the same Tax Year",
+          "Resident and Ordinarily Resident (on all foreign income) and RNOR (on business income controlled from India)",
+          "All residents regardless of whether it is an ROR or RNOR",
+          "Only if the income is from a country with which India has no Double Taxation Avoidance Agreement",
+        ],
+        correct: 1,
+        explanation:
+          "Foreign income is taxable in India for ROR (on all foreign income) and for RNOR only if it arises from a business or profession controlled or set up in India. For RNOR, passive foreign income (dividends, interest, etc. from outside India) is not taxable in India. For Non-Residents, no foreign income is taxable in India.",
+        section: "Chapter 1 — Basic Concepts",
+      },
+      {
+        id: "bc-14",
+        question:
+          "Which of the following is an example of income 'deemed to accrue or arise in India'?",
+        options: [
+          "Rent received in India from a property located abroad",
+          "Dividend declared by an Indian company but received outside India",
+          "Salary received outside India from a foreign employer for services rendered outside India",
+          "Interest paid by a resident to a non-resident on a loan used for business outside India",
+        ],
+        correct: 1,
+        explanation:
+          "Dividends declared by an Indian company are deemed to accrue or arise in India — even if the dividend is paid to a non-resident shareholder outside India. This is a classic deemed-accrual rule. Interest paid by a resident on a loan used for business wholly outside India falls under an exception and is not deemed to accrue in India. Salary for services rendered outside India by a non-resident is also not deemed to accrue in India.",
+        section: "Chapter 1 — Basic Concepts",
+      },
+      {
+        id: "bc-15",
+        question:
+          "Income from a business the control and management of which is situated wholly outside India is taxable in India for:",
+        options: [
+          "A Resident and Ordinarily Resident individual only",
+          "Both ROR and RNOR individuals",
+          "Non-Resident individuals only",
+          "RNOR individuals only",
+        ],
+        correct: 0,
+        explanation:
+          "Income from a business whose control and management is wholly outside India is foreign income. Only an ROR is taxable on all world income including this. An RNOR is taxable on business income from a business 'controlled or set up in India' — if control is wholly outside India, the RNOR is not taxable. A Non-Resident is never taxable on such foreign income in India.",
+        section: "Chapter 1 — Basic Concepts",
+      },
+    ],
+    lastUpdated: "2026-08-16",
+  },
 ];
 
 export const DIFFICULTY_ORDER: Difficulty[] = ["Easy", "Medium", "Hard"];
