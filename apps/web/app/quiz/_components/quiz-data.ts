@@ -253,11 +253,11 @@ export const QUIZ_CHAPTERS: QuizChapter[] = [
   {
     slug: "basic-concepts-chapter-1",
     source: "icai",
-    title: "Basic Concepts — Case Studies",
-    chapter: "Chapter 1 — Basic Concepts",
+    title: "Basics, Tax Rates TY 2026-27 & Exempt Income — Case Studies",
+    chapter: "Chapter 1 — Basics & Tax Rates TY 2026-27",
     topic: "Basic Concepts",
     description:
-      "Case-study MCQs from ICAI study material. Apply the concepts of diversion vs. application of income, HUF status, Hundi borrowings (Section 106), and unexplained expenditure (Section 105) to real-world scenarios.",
+      "Case-study MCQs from CA Bhanwar Borana's ICAI study material. Covers diversion vs. application of income, exempt agricultural income (nursery, film shooting, Sikkim), Rule 271 splits for rubber/coffee/sugarcane, partial integration tax computation, HUF status, Hundi (Section 106), and unexplained expenditure (Section 105).",
     difficulty: "Hard",
     questions: [
       {
@@ -349,6 +349,162 @@ export const QUIZ_CHAPTERS: QuizChapter[] = [
         explanation:
           "Under Section 105 of the IT Act, 2025 (equivalent to Section 69C of the IT Act, 1961), unexplained expenditure is deemed to be the assessee's income. Section 105(2) further provides that irrespective of any other provision of the Act, such deemed income shall NOT be allowed as a deduction. Once ₹60,000 is treated as unexplained expenditure and added as deemed income, the firm loses the right to claim any deduction for it. The firm's claim is not tenable.",
         section: "Section 105 — Unexplained Expenditure",
+      },
+
+      // ── Q4 — Exempt Income (3 parts) ──────────────────────────────────────
+
+      {
+        id: "bc-07",
+        question:
+          "Houses are constructed on agricultural land situated in India (used for growing crops). The owner lets these houses to industrial workers for their residential use and receives rent of ₹60,000. Is this rent agricultural income exempt under Section 11?",
+        options: [
+          "Yes — the land is used for agriculture, so all income arising from it is agricultural income",
+          "No — Section 2(5) excludes income from land or buildings used for any purpose other than agriculture, including letting for residential purposes",
+          "Yes — rent from buildings on agricultural land is always agricultural income, regardless of how the building is used",
+          "No — rental income is always taxable under 'Income from House Property', never as agricultural income",
+        ],
+        correct: 1,
+        explanation:
+          "Section 2(5) provides that any income derived from land or buildings used for any purpose other than agriculture — including letting for residential purposes — is NOT agricultural income. The houses are let to industrial workers for residential use, not for agricultural operations. Hence the ₹60,000 rent is chargeable to tax (not exempt under Section 11 Schedule II).",
+        section: "Section 2(5) — Meaning of Agricultural Income",
+      },
+      {
+        id: "bc-08",
+        question:
+          "Anand Nursery earns ₹75,000 from the sale of seedlings grown without carrying out all the basic agricultural operations on land. Is this income exempt as agricultural income?",
+        options: [
+          "No — agricultural income requires all basic operations (ploughing, sowing, watering, harvesting) to be performed on the land; without them the income is taxable",
+          "Partially — 50% is exempt as agricultural income and 50% is taxable as business income",
+          "Yes — Section 2(5)(d) specifically deems income derived from saplings or seedlings grown in a nursery to be agricultural income, even if basic operations were not carried out",
+          "No — nursery income is always classified as business income, not agricultural income",
+        ],
+        correct: 2,
+        explanation:
+          "Section 2(5)(d) contains a targeted deeming provision: income derived from saplings or seedlings grown in a nursery shall be deemed to be agricultural income. This applies regardless of whether all the basic agricultural operations were performed on land. Hence Anand Nursery's ₹75,000 is fully exempt agricultural income under Section 11 (Schedule II).",
+        section: "Section 2(5)(d) — Nursery Income",
+      },
+      {
+        id: "bc-09",
+        question:
+          "Mr. Gaitonde, born and brought up in Sikkim, earns ₹2,25,000 from his business located in Sikkim and ₹55,000 as interest on securities/bonds issued by the Government of Rajasthan. What is his taxable income for TY 2026-27?",
+        options: [
+          "Both are fully taxable — the Sikkim exemption applies only to agricultural income",
+          "Only the Rajasthan bond interest is exempt; the Sikkim business income is taxable",
+          "Both are fully exempt — Section 11 [Schedule III S.No. 20] exempts all income of a Sikkimese individual from any source in Sikkim, and income by way of interest on securities",
+          "Both are exempt only if Mr. Gaitonde's total income is below ₹5 lakh",
+        ],
+        correct: 2,
+        explanation:
+          "Section 11 [Schedule III S.No. 20] grants a two-limb exemption to a Sikkimese individual: (1) income accruing or arising from any source in the State of Sikkim, and (2) income by way of dividend or interest on securities. Both streams — ₹2,25,000 business income from Sikkim and ₹55,000 interest on Rajasthan government bonds — are exempt. There is no income ceiling for this exemption.",
+        section: "Section 11 Schedule III — Sikkim Exemption",
+      },
+
+      // ── Q5 — Rubber (India + Malaysia) ────────────────────────────────────
+
+      {
+        id: "bc-10",
+        question:
+          "Mr. Akash (resident Indian) earns ₹22 lakhs from rubber manufactured from rubber plants grown by him in India, and ₹30 lakhs from rubber manufactured from rubber plants grown by him in Malaysia. What is his total business income chargeable to tax in India for TY 2026-27?",
+        options: [
+          "₹7.70 lakhs — only 35% of the India rubber income; the Malaysia income is not taxable as a resident",
+          "₹30 lakhs — the India rubber income is fully exempt; only the foreign income is taxable",
+          "₹37.70 lakhs — 35% of the India rubber income (Rule 271) plus the full Malaysia income",
+          "₹52 lakhs — full income from both sources is taxable as PGBP",
+        ],
+        correct: 2,
+        explanation:
+          "Rule 271 applies only to rubber grown AND manufactured in India: 65% is agricultural income (exempt), 35% is business income. For rubber grown outside India (Malaysia), the rule does not apply — the entire income is taxable PGBP since there is no Indian agricultural base. As a resident, Mr. Akash's global income is taxable. Business income = 35% × ₹22L + ₹30L = ₹7.70L + ₹30L = ₹37.70 lakhs.",
+        section: "Rule 271 — Agricultural Income Split (Rubber)",
+      },
+
+      // ── Q6 — Coffee (grown & cured vs grown, cured, roasted & grounded) ───
+
+      {
+        id: "bc-11",
+        question:
+          "Mr. Ram earns ₹15 lakhs from sale of coffee grown and cured in India. Mr. Shyam earns ₹25 lakhs from sale of coffee grown, cured, roasted and grounded in India. What is the business income (PGBP) chargeable to tax for each?",
+        options: [
+          "Mr. Ram: ₹3.75 lakhs (25%); Mr. Shyam: ₹10 lakhs (40%)",
+          "Mr. Ram: ₹7.50 lakhs (50%); Mr. Shyam: ₹12.50 lakhs (50%)",
+          "Mr. Ram: ₹11.25 lakhs (75%); Mr. Shyam: ₹15 lakhs (60%)",
+          "Both: 40% — a single Rule 271 rate applies to all coffee income",
+        ],
+        correct: 0,
+        explanation:
+          "Rule 271 fixed splits for coffee: (a) grown and cured = 75% agricultural / 25% PGBP; (b) grown, cured, roasted and grounded = 60% agricultural / 40% PGBP. The extra processing steps (roasting and grinding) shift 15% more income to the taxable business bucket. Mr. Ram's PGBP = 25% × ₹15L = ₹3.75L. Mr. Shyam's PGBP = 40% × ₹25L = ₹10L.",
+        section: "Rule 271 — Agricultural Income Split (Coffee)",
+      },
+
+      // ── Q7 — Sugarcane (Rule 270 FMV pivot) ───────────────────────────────
+
+      {
+        id: "bc-12",
+        question:
+          "Mr. Amar grows sugarcane. He sells 40% of the produce as raw sugarcane for ₹12L (cost ₹6L). He converts the remaining 60% into sugar: market value of that sugarcane = ₹25L (cost ₹15L); manufacturing cost ₹1.5L; sugar sold for ₹30L. What is his business income?",
+        options: [
+          "₹19.50 lakhs (total receipts less total costs)",
+          "₹13.50 lakhs (sale of sugar ₹30L less total costs ₹16.5L)",
+          "₹7.50 lakhs (net profit on sugar portion only)",
+          "₹3.50 lakhs (sugar sale ₹30L less market value of sugarcane ₹25L less manufacturing ₹1.5L)",
+        ],
+        correct: 3,
+        explanation:
+          "Rule 270 uses the FMV of raw produce at the farm gate as the pivot. Sale of raw sugarcane (40%) → entirely agricultural: ₹12L − ₹6L = ₹6L agri income. Sugar manufacturing: PGBP = Sugar sales (₹30L) − Market value of sugarcane (₹25L) − Manufacturing cost (₹1.5L) = ₹3.50L. Agricultural income = Market value of sugarcane (₹25L) − Cost of cultivation (₹15L) = ₹10L. Total agri = ₹6L + ₹10L = ₹16L. Business income = ₹3.50 lakhs.",
+        section: "Rule 270 — Farm Gate FMV Pivot (Sugarcane)",
+      },
+
+      // ── Q8 — Film shooting on agricultural land ────────────────────────────
+
+      {
+        id: "bc-13",
+        question:
+          "Ankur owns agricultural land in Kerala used for growing fruits, paddy, vegetables, and flowers. Yahoo Movies Ltd. paid him ₹5 lakhs as rent for using the land to shoot a film. Ankur treats this as agricultural income exempt under Section 11. Is he correct?",
+        options: [
+          "Yes — any income derived from agricultural land is agricultural income",
+          "Yes — rent from any agricultural land is exempt, regardless of the purpose of use by the tenant",
+          "No — the ₹5 lakhs has no nexus with agricultural operations on the land; income from shooting a film on agricultural land is not agricultural income",
+          "Partially — 50% is agricultural income since the land itself is agricultural",
+        ],
+        correct: 2,
+        explanation:
+          "The Madras High Court in B. Nagi Reddi v. CIT (2002), following the Supreme Court in CIT v. Raja Benoy Kumar Sahas Roy (1957), held that income from allowing film shooting on agricultural land is NOT agricultural income — it has no nexus with the land as an agricultural entity. Section 2(5) requires income to be derived from agricultural operations on the land. Merely because the land is agricultural does not make all income from it agricultural income. The ₹5L is taxable.",
+        section: "Section 2(5) — Nexus with Agricultural Operations",
+      },
+
+      // ── Q9(a) — Partial Integration (age 40) ─────────────────────────────
+
+      {
+        id: "bc-14",
+        question:
+          "Mr. Keshav (age 40, opted out of Section 202 / new regime): salary ₹3L, house property ₹2.8L, net agricultural income ₹2.9L (₹4.5L less ₹1.6L expenses). Total income = ₹5.8L. Using partial integration of agricultural income, what is his final tax liability including Health & Education Cess?",
+        options: [
+          "₹86,500 (tax on ₹8.7L ignoring Step 2 offset)",
+          "₹66,000 (before cess)",
+          "₹68,640 (after 4% H&E cess)",
+          "₹58,240 (super senior citizen computation)",
+        ],
+        correct: 2,
+        explanation:
+          "Step 1: Tax on (₹5.8L + ₹2.9L = ₹8.7L) = 5% × ₹2.5L + 20% × ₹3.7L = ₹86,500. Step 2: Tax on (basic exemption ₹2.5L + agricultural ₹2.9L = ₹5.4L) = 5% × ₹2.5L + 20% × ₹40,000 = ₹20,500. Step 3: ₹86,500 − ₹20,500 = ₹66,000. Step 4: ₹66,000 + 4% cess = ₹68,640. The basic exemption for age 40 (old regime) is ₹2,50,000.",
+        section: "Partial Integration — Tax Computation (Age 40)",
+      },
+
+      // ── Q9(b) — Partial Integration (age 75) ─────────────────────────────
+
+      {
+        id: "bc-15",
+        question:
+          "Same facts as above but Mr. Keshav is now 75 years old (senior citizen, basic exemption ₹3,00,000 under old regime). What is his final tax liability including Health & Education Cess under partial integration?",
+        options: [
+          "₹84,000 (Step 1 tax only)",
+          "₹68,640 (same as for age 40)",
+          "₹56,000 (before cess)",
+          "₹58,240 (after 4% H&E cess)",
+        ],
+        correct: 3,
+        explanation:
+          "Step 1: Tax on (₹5.8L + ₹2.9L = ₹8.7L) = 5% × ₹2L + 20% × ₹3.7L = ₹10,000 + ₹74,000 = ₹84,000. (Basic exemption ₹3L → 5% slab starts at ₹3L, so ₹3L–₹5L = ₹2L at 5%.) Step 2: Tax on (₹3L + ₹2.9L = ₹5.9L) = 5% × ₹2L + 20% × ₹90,000 = ₹10,000 + ₹18,000 = ₹28,000. Step 3: ₹84,000 − ₹28,000 = ₹56,000. Step 4: ₹56,000 + 4% cess = ₹58,240. The higher basic exemption for senior citizens reduces both Steps 1 and 2, giving a lower net tax than age 40.",
+        section: "Partial Integration — Tax Computation (Age 75)",
       },
     ],
     lastUpdated: "2026-08-16",
