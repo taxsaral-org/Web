@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, Info, AlertTriangle, Lightbulb } from "lucide-react";
+import { ArrowLeft, Info, AlertTriangle, Lightbulb, Brain, ChevronRight } from "lucide-react";
 import { DETAILED_ENTRIES } from "../_components/detailed-data";
 import type { ContentBlock } from "../_components/detailed-data";
 import { getDiagram } from "../_components/diagrams";
 import { DetailedAskWidget } from "../_components/ask-widget";
 import { DetailPageActions } from "../_components/detail-page-actions";
 import { ReadingProgress } from "../_components/reading-progress";
+import { QUIZ_CHAPTERS } from "@/app/quiz/_components/quiz-data";
 import { cn } from "@/lib/utils";
 
 const CATEGORY_COLORS: Record<string, string> = {
@@ -323,6 +324,34 @@ export default async function DetailedEntryPage({
           <RenderBlock key={i} block={block} />
         ))}
       </div>
+
+      {/* Test Yourself */}
+      {QUIZ_CHAPTERS.some((c) => c.slug === entry.slug) && (
+        <div className="mt-10">
+          <Link
+            href={`/quiz/${entry.slug}`}
+            className="group flex items-center justify-between gap-4 rounded-2xl border border-violet-200 bg-gradient-to-r from-violet-50 to-indigo-50 px-6 py-5 transition-colors hover:border-violet-400 hover:from-violet-100 hover:to-indigo-100 dark:border-violet-800 dark:from-violet-950/30 dark:to-indigo-950/30 dark:hover:border-violet-600"
+          >
+            <div className="flex items-center gap-4 min-w-0">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-violet-100 dark:bg-violet-900/40">
+                <Brain className="h-6 w-6 text-violet-600 dark:text-violet-400" />
+              </div>
+              <div className="min-w-0">
+                <p className="text-xs font-semibold uppercase tracking-wider text-violet-500 dark:text-violet-400">
+                  Test Yourself
+                </p>
+                <p className="mt-0.5 text-sm font-semibold text-foreground leading-snug">
+                  {QUIZ_CHAPTERS.find((c) => c.slug === entry.slug)?.title}
+                </p>
+                <p className="mt-0.5 text-xs text-muted-foreground">
+                  {QUIZ_CHAPTERS.find((c) => c.slug === entry.slug)?.questions.length} MCQs · Check your understanding of this topic
+                </p>
+              </div>
+            </div>
+            <ChevronRight className="h-5 w-5 shrink-0 text-violet-400 transition-transform group-hover:translate-x-0.5 dark:text-violet-500" />
+          </Link>
+        </div>
+      )}
 
       {/* Ask a Question */}
       <DetailedAskWidget section2025={entry.section2025} />
