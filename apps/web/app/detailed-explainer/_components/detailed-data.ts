@@ -1949,4 +1949,278 @@ export const DETAILED_ENTRIES: DetailedEntry[] = [
       },
     ],
   },
+
+  {
+    slug: "alternate-minimum-tax-section-206",
+    section2025: "Section 206(2)",
+    section1961: "Section 115JC",
+    title: "Alternate Minimum Tax (AMT)",
+    summary:
+      "AMT is a parallel tax computation for every assessee other than a company. Where profit-linked or investment-linked deductions cut the normal tax below 18.5% of Adjusted Total Income, the assessee pays AMT instead — and carries forward the difference as AMT credit for up to 15 years.",
+    category: "Business & Profession",
+    keywords: [
+      "alternate minimum tax",
+      "AMT",
+      "section 206",
+      "section 206(2)",
+      "115JC",
+      "adjusted total income",
+      "ATI",
+      "AMT credit",
+      "18.5 percent minimum tax",
+      "minimum tax non-corporate",
+      "LLP minimum tax",
+      "firm AMT",
+      "section 46 deduction AMT",
+      "Chapter VIII deduction AMT",
+    ],
+    lastUpdated: "2026-09-10",
+    content: [
+      {
+        type: "heading",
+        text: "What is Alternate Minimum Tax?",
+      },
+      {
+        type: "paragraph",
+        text: "Alternate Minimum Tax (AMT) is a parallel tax computation that applies to every assessee other than a company. It is governed by Section 206(2) of the Income Tax Act 2025. Its purpose is to ensure that non-corporate taxpayers who substantially reduce their liability by claiming profit-linked or investment-linked deductions still contribute a minimum level of tax.",
+      },
+      {
+        type: "paragraph",
+        text: "AMT is the non-corporate counterpart of Minimum Alternate Tax (MAT), which applies to companies. Where MAT is charged on “book profit”, AMT is charged on “Adjusted Total Income”.",
+      },
+      {
+        type: "heading",
+        text: "When Does AMT Apply?",
+      },
+      {
+        type: "paragraph",
+        text: "AMT applies only when both of the following conditions are satisfied for the tax year:",
+      },
+      {
+        type: "numbered",
+        items: [
+          "The total income of the assessee exceeds ₹20,00,000; and",
+          "The assessee has claimed a deduction under Section 46 (capital expenditure of specified businesses), or a deduction under any of Sections 138 to 152 (except Section 149) forming part of Chapter VIII.",
+        ],
+      },
+      {
+        type: "callout",
+        variant: "info",
+        text: "If the total income is ₹20,00,000 or less, AMT never applies — whatever deductions have been claimed. The ₹20 lakh threshold is a hard gate, not a graded relief.",
+      },
+      {
+        type: "subheading",
+        text: "Who is Outside the AMT Net",
+      },
+      {
+        type: "bullets",
+        items: [
+          "Companies — they are covered by MAT, not AMT.",
+          "Specified funds referred to in Schedule VI (S. No. 1) — Alternative Investment Funds.",
+          "Assessees who opt for the concessional regimes under Sections 202, 203 and 204.",
+        ],
+      },
+      {
+        type: "callout",
+        variant: "warning",
+        text: "An assessee who opts for the new regime is outside AMT — but any AMT credit standing to their account from earlier years lapses on exercising that option and cannot be revived.",
+      },
+      {
+        type: "heading",
+        text: "AMT Rate",
+      },
+      {
+        type: "paragraph",
+        text: "Under Section 206(2), the income tax payable by the assessee is the higher of: (a) the tax liability computed under the normal provisions of the Act; or (b) the applicable AMT rate on the Adjusted Total Income (ATI).",
+      },
+      {
+        type: "table",
+        headers: ["Assessee", "AMT Rate on ATI"],
+        rows: [
+          { cells: ["Any non-corporate assessee (general rate)", "18.5%"] },
+          { cells: ["Unit in an International Financial Services Centre (IFSC) deriving income solely in convertible foreign exchange", "9%"] },
+          { cells: ["Co-operative society", "15%"] },
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "To the AMT so computed, surcharge (if applicable) and health and education cess at 4% are added.",
+      },
+      {
+        type: "heading",
+        text: "Computing Adjusted Total Income (ATI)",
+      },
+      {
+        type: "paragraph",
+        text: "ATI begins with the total income computed under the normal provisions and adds back the specified deductions that AMT is designed to neutralise.",
+      },
+      {
+        type: "calculation",
+        rows: [
+          { label: "Total income as per normal tax computation", amount: "XXX" },
+          { label: "Add: Deduction claimed under Section 46", amount: "XXX", indent: true },
+          { label: "Add: Deduction claimed under Sections 138 to 152 (except Section 149)", amount: "XXX", indent: true },
+          { label: "Less: Depreciation under Section 33 that would have been allowed had the Section 46 deduction not been claimed", amount: "(XXX)", indent: true, negative: true },
+          { label: "Adjusted Total Income", amount: "XXX", total: true },
+        ],
+      },
+      {
+        type: "bullets",
+        items: [
+          "Section 46 provides a deduction for capital expenditure of specified businesses.",
+          "Sections 138 to 152 provide income-linked deductions under Chapter VIII. Section 149 is excluded from the add-back.",
+          "The depreciation line prevents double counting — where a Section 46 deduction was claimed on a capital asset, the normal Section 33 depreciation on that asset is notionally restored before arriving at ATI.",
+        ],
+      },
+      {
+        type: "heading",
+        text: "AMT Credit",
+      },
+      {
+        type: "paragraph",
+        text: "Where AMT is paid in a year because it exceeds the normal tax, the excess is available as AMT credit, to be set off in a later year in which the normal tax exceeds the AMT of that year.",
+      },
+      {
+        type: "calculation",
+        rows: [
+          { label: "Tax liability on Adjusted Total Income (AMT)", amount: "XXX" },
+          { label: "Less: Tax liability under the normal provisions", amount: "(XXX)", indent: true, negative: true },
+          { label: "AMT Credit", amount: "XXX", total: true },
+        ],
+      },
+      {
+        type: "bullets",
+        items: [
+          "AMT credit can be carried forward for up to 15 tax years.",
+          "In a later year, the credit is set off against the normal tax liability to the extent the normal tax exceeds the AMT of that year.",
+          "AMT credit can be adjusted even in a subsequent year in which AMT itself is no longer applicable to the assessee.",
+          "If the assessee opts for the new regime, the AMT credit lapses.",
+        ],
+      },
+      {
+        type: "heading",
+        text: "Compliance Requirement",
+      },
+      {
+        type: "paragraph",
+        text: "An assessee to whom AMT applies must obtain a report from a chartered accountant certifying the computation of Adjusted Total Income and the AMT. The report has to be furnished at least one month before the due date for filing the return of income under Section 263(1).",
+      },
+      {
+        type: "heading",
+        text: "Worked Example — M/s Turnip LLP",
+      },
+      {
+        type: "paragraph",
+        text: "M/s Turnip LLP is engaged in the export of computer software from a Special Economic Zone (SEZ). It commenced business on 1 April 2020. Its net profit as per the Profit & Loss Account for the year ended 31 March 2027 is ₹330 lakhs, after debiting or crediting the following items:",
+      },
+      {
+        type: "numbered",
+        items: [
+          "Advertisement in a souvenir published by a political party — ₹2.5 lakhs",
+          "Remuneration to its working partners — ₹220 lakhs",
+          "Interest on the current account balance of the partners at 15% p.a. — ₹22.5 lakhs",
+          "Depreciation — ₹25 lakhs",
+        ],
+      },
+      {
+        type: "subheading",
+        text: "Additional Information",
+      },
+      {
+        type: "numbered",
+        items: [
+          "Depreciation allowable as per the Income-tax Rules is ₹30 lakhs.",
+          "Payment of remuneration to working partners and interest on the current account is authorised by the Partnership Deed.",
+          "Brought forward business loss and depreciation from Tax Year 2024-25 were ₹50 lakhs and ₹30 lakhs respectively.",
+          "Total turnover and export turnover of the firm were ₹25 crores and ₹20 crores respectively.",
+        ],
+      },
+      {
+        type: "subheading",
+        text: "Step 1 — Book Profit and Total Income Under Normal Provisions",
+      },
+      {
+        type: "calculation",
+        rows: [
+          { label: "Profits and gains of business or profession (as per P&L)", amount: "₹330.00" },
+          { label: "Add: Depreciation debited in books", amount: "₹25.00", indent: true },
+          { label: "Add: Remuneration to working partners", amount: "₹220.00", indent: true },
+          { label: "Add: Interest to partners in excess of 12% (₹22.5 × 3/15)", amount: "₹4.50", indent: true },
+          { label: "Add: Advertisement in political party souvenir — disallowed u/s 34(2)(c)", amount: "₹2.50", indent: true },
+          { label: "Sub-total", amount: "₹582.00", total: true },
+          { label: "Less: Depreciation as per Income-tax Rules, 2026", amount: "(₹30.00)", indent: true, negative: true },
+          { label: "Less: Brought forward unabsorbed depreciation u/s 33(11) [allowed while computing book profit u/s 35(e)]", amount: "(₹30.00)", indent: true, negative: true },
+          { label: "Book Profit", amount: "₹522.00", total: true },
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Allowable partners’ remuneration under Section 35 = 90% of the first ₹6 lakh of book profit + 60% of the balance = ₹5.40 lakhs + (60% × ₹516 lakhs) ₹309.60 lakhs = ₹315.00 lakhs. Since the remuneration actually paid (₹220 lakhs) is lower than this limit, the entire ₹220 lakhs is allowed.",
+      },
+      {
+        type: "calculation",
+        rows: [
+          { label: "Book Profit", amount: "₹522.00" },
+          { label: "Less: Remuneration to working partners actually paid (lower than the ₹315 lakh limit)", amount: "(₹220.00)", indent: true, negative: true },
+          { label: "Business Income", amount: "₹302.00", total: true },
+          { label: "Less: Brought forward business loss of T.Y. 2024-25", amount: "(₹50.00)", indent: true, negative: true },
+          { label: "Gross Total Income", amount: "₹252.00", total: true },
+          { label: "Less: Deduction u/s 144 (SEZ) — ₹302 × 20/25 × 50% (seventh year of operation)", amount: "(₹120.80)", indent: true, negative: true },
+          { label: "Less: Deduction u/s 137 (political party advertisement) — not available to a non-company", amount: "₹0.00", indent: true },
+          { label: "Total Income", amount: "₹131.20", total: true },
+        ],
+      },
+      {
+        type: "subheading",
+        text: "Step 2 — Tax Under Normal Provisions",
+      },
+      {
+        type: "calculation",
+        rows: [
+          { label: "Tax @ 30% on ₹131.20 lakhs", amount: "₹39.3600" },
+          { label: "Add: Surcharge @ 12% (total income exceeds ₹1 crore)", amount: "₹4.7232", indent: true },
+          { label: "Add: Health and education cess @ 4%", amount: "₹1.7633", indent: true },
+          { label: "Tax liability under normal provisions", amount: "₹45.8465", total: true },
+        ],
+      },
+      {
+        type: "subheading",
+        text: "Step 3 — Adjusted Total Income and AMT",
+      },
+      {
+        type: "calculation",
+        rows: [
+          { label: "Total Income (as computed above)", amount: "₹131.20" },
+          { label: "Add: Deduction claimed u/s 144", amount: "₹120.80", indent: true },
+          { label: "Adjusted Total Income", amount: "₹252.00", total: true },
+          { label: "Alternate Minimum Tax @ 18.5%", amount: "₹46.6200" },
+          { label: "Add: Surcharge @ 12% (ATI exceeds ₹1 crore)", amount: "₹5.5944", indent: true },
+          { label: "Add: Health and education cess @ 4%", amount: "₹2.0886", indent: true },
+          { label: "Tax liability u/s 206(2)", amount: "₹54.3030", total: true },
+        ],
+      },
+      {
+        type: "callout",
+        variant: "info",
+        text: "Since the tax under the normal provisions (₹45.8465 lakhs) is lower than the AMT (₹54.3030 lakhs), the Adjusted Total Income of ₹252 lakhs is deemed to be the total income and the tax payable for T.Y. 2026-27 is ₹54.3030 lakhs.",
+      },
+      {
+        type: "subheading",
+        text: "Step 4 — AMT Credit Carried Forward",
+      },
+      {
+        type: "calculation",
+        rows: [
+          { label: "Tax liability u/s 206(2)", amount: "₹54.3030" },
+          { label: "Less: Tax liability under the normal provisions", amount: "(₹45.8465)", indent: true, negative: true },
+          { label: "AMT credit to be carried forward u/s 206(2)(e)", amount: "₹8.4565", total: true },
+        ],
+      },
+      {
+        type: "callout",
+        variant: "tip",
+        text: "The AMT credit of ₹8.4565 lakhs can be carried forward for up to 15 tax years and set off in any later year in which the normal tax exceeds the AMT of that year.",
+      },
+    ],
+  },
 ];
