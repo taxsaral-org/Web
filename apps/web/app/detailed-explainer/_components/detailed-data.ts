@@ -1,3 +1,5 @@
+import { GENERATED_ARTICLES } from "./articles.generated";
+
 export type DetailedCategory =
   | "Capital Gains"
   | "Corporate Tax"
@@ -43,6 +45,12 @@ export interface DetailedEntry {
   keywords: string[];
   lastUpdated: string;
   content: ContentBlock[];
+  /** Contributor name — shows the credit card at the foot of the article. */
+  author?: string;
+  /** Full LinkedIn profile URL for the contributor. */
+  authorLinkedIn?: string;
+  /** Optional custom thank-you line; a default is used when omitted. */
+  authorNote?: string;
 }
 
 export const DETAILED_CATEGORIES: DetailedCategory[] = [
@@ -57,7 +65,12 @@ export const DETAILED_CATEGORIES: DetailedCategory[] = [
   "Agricultural Income",
 ];
 
-export const DETAILED_ENTRIES: DetailedEntry[] = [
+/**
+ * Articles written directly in this file.
+ * Articles written in Word live in content/detailed-explainer/word/ and are
+ * merged in below via GENERATED_ARTICLES — run `npm run publish` to rebuild them.
+ */
+const BUILT_IN_ENTRIES: DetailedEntry[] = [
   {
     slug: "buyback-of-securities",
     section2025: "Sections 69 & 196",
@@ -2223,4 +2236,10 @@ export const DETAILED_ENTRIES: DetailedEntry[] = [
       },
     ],
   },
+];
+
+/** Built-in articles plus everything published from Word. */
+export const DETAILED_ENTRIES: DetailedEntry[] = [
+  ...BUILT_IN_ENTRIES,
+  ...GENERATED_ARTICLES,
 ];

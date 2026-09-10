@@ -12,7 +12,9 @@
     "lint": "turbo run lint",
     "type-check": "turbo run type-check",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,css}\"",
-    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md,css}\""
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md,css}\"",
+    "new-article": "node scripts/new-article.mjs",
+    "publish": "node scripts/publish-articles.mjs"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^7.18.0",

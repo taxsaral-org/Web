@@ -8,6 +8,7 @@ import { getDiagram } from "../_components/diagrams";
 import { DetailedAskWidget } from "../_components/ask-widget";
 import { DetailPageActions } from "../_components/detail-page-actions";
 import { ReadingProgress } from "../_components/reading-progress";
+import { AuthorCredit } from "../_components/author-credit";
 import { QUIZ_CHAPTERS } from "@/app/quiz/_components/quiz-data";
 import { cn } from "@/lib/utils";
 
@@ -355,6 +356,15 @@ export default async function DetailedEntryPage({
 
       {/* Ask a Question */}
       <DetailedAskWidget section2025={entry.section2025} />
+
+      {/* Author credit */}
+      {entry.author && (
+        <AuthorCredit
+          author={entry.author}
+          authorLinkedIn={entry.authorLinkedIn}
+          authorNote={entry.authorNote}
+        />
+      )}
 
       {/* Footer */}
       <div className="mt-6 rounded-xl border bg-muted/20 px-5 py-4 text-xs text-muted-foreground leading-relaxed">
