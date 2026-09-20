@@ -1,47 +1,51 @@
 import type { Metadata } from "next";
 import { Scale, Landmark, TrendingUp } from "lucide-react";
-import { CASE_LAWS } from "./_components/case-law-data";
+import { CASE_LAWS, CASE_CATEGORIES } from "./_components/case-law-data";
 import { CaseLawClient } from "./_components/case-law-client";
 
 const BASE = "https://taxsaral.org";
 const PAGE_URL = `${BASE}/case-law`;
 
 export const metadata: Metadata = {
-  title: "Landmark Case Laws — Capital Gains & Charitable Trusts | TaxSaral",
+  title: "Landmark Income Tax Case Laws — Full Summaries | TaxSaral",
   description:
-    "Leading Supreme Court and High Court judgments on capital gains and charitable trusts / NPOs, each summarised and mapped to the corresponding Income Tax Act 2025 section.",
+    "Leading Supreme Court and High Court judgments on capital gains, charitable trusts, transfer pricing, international taxation, business deductions and reassessment — with facts, arguments, reasoning and principles, mapped to Income Tax Act 2025 sections.",
   keywords: [
     "income tax case law",
     "capital gains case law",
     "charitable trust case law",
-    "NPO taxation judgments",
+    "transfer pricing case law",
+    "international taxation judgments",
+    "permanent establishment case law",
+    "reassessment case law",
     "IT Act 2025 case law",
     "Supreme Court income tax",
-    "section 2(15) case law",
     "landmark tax judgments",
   ],
   alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: "Landmark Case Laws — Capital Gains & Charitable Trusts | TaxSaral",
+    title: "Landmark Income Tax Case Laws — Full Summaries | TaxSaral",
     description:
-      "Leading judgments on capital gains and NPO taxation, mapped to IT Act 2025 sections.",
+      "Capital gains, NPOs, transfer pricing, international tax, business deductions and reassessment — facts, arguments, reasoning and principles, mapped to IT Act 2025 sections.",
     url: PAGE_URL,
     type: "website",
     siteName: "TaxSaral",
   },
   twitter: {
     card: "summary",
-    title: "Landmark Case Laws — IT Act 2025 | TaxSaral",
+    title: "Landmark Income Tax Case Laws — IT Act 2025 | TaxSaral",
     description:
-      "Capital gains and charitable trust judgments, summarised and mapped to the new sections.",
+      "Detailed judgment summaries across six subject areas, mapped to the new sections.",
   },
 };
 
 export default function CaseLawPage() {
-  const cgCount = CASE_LAWS.filter((c) => c.category === "Capital Gains").length;
-  const npoCount = CASE_LAWS.filter(
-    (c) => c.category === "Charitable Trusts & NPOs"
-  ).length;
+  const byCategory = CASE_CATEGORIES.map((cat) => ({
+    cat,
+    count: CASE_LAWS.filter((c) => c.category === cat).length,
+  })).filter((x) => x.count > 0);
+
+  const courts = new Set(CASE_LAWS.map((c) => c.court)).size;
 
   const collectionSchema = {
     "@context": "https://schema.org",
@@ -85,13 +89,14 @@ export default function CaseLawPage() {
           </div>
 
           <p className="mb-6 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-            Leading judgments on capital gains and charitable trusts — each with the issue,
-            the holding, and a summary of the reasoning. Every case is mapped from the
-            Income Tax Act 1961 section it was decided under to the corresponding section
-            of the Income Tax Act 2025, with a note on whether the principle still holds.
+            Leading judgments set out in full — the facts, how the matter reached the court,
+            the arguments on both sides, the reasoning, and the principles established. Every
+            case is mapped from the Income Tax Act 1961 provision it was decided under to the
+            corresponding section of the Income Tax Act 2025, with a note on how far the
+            principle still holds under the new Act.
           </p>
 
-          <div className="grid gap-3 sm:grid-cols-3">
+          <div className="mb-4 grid gap-3 sm:grid-cols-3">
             <div className="rounded-xl border bg-card px-4 py-3">
               <div className="flex items-center gap-2">
                 <Scale className="h-4 w-4 text-muted-foreground" />
@@ -101,18 +106,29 @@ export default function CaseLawPage() {
             </div>
             <div className="rounded-xl border bg-card px-4 py-3">
               <div className="flex items-center gap-2">
-                <TrendingUp className="h-4 w-4 text-yellow-600" />
-                <span className="text-lg font-bold">{cgCount}</span>
+                <Landmark className="h-4 w-4 text-muted-foreground" />
+                <span className="text-lg font-bold">{byCategory.length}</span>
               </div>
-              <p className="mt-0.5 text-xs text-muted-foreground">Capital Gains</p>
+              <p className="mt-0.5 text-xs text-muted-foreground">Subject areas</p>
             </div>
             <div className="rounded-xl border bg-card px-4 py-3">
               <div className="flex items-center gap-2">
-                <Landmark className="h-4 w-4 text-teal-600" />
-                <span className="text-lg font-bold">{npoCount}</span>
+                <TrendingUp className="h-4 w-4 text-muted-foreground" />
+                <span className="text-lg font-bold">{courts}</span>
               </div>
-              <p className="mt-0.5 text-xs text-muted-foreground">Charitable Trusts &amp; NPOs</p>
+              <p className="mt-0.5 text-xs text-muted-foreground">Courts represented</p>
             </div>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {byCategory.map(({ cat, count }) => (
+              <span
+                key={cat}
+                className="rounded-full border bg-card px-3 py-1 text-xs text-muted-foreground"
+              >
+                {cat} <span className="font-semibold text-foreground">{count}</span>
+              </span>
+            ))}
           </div>
         </div>
       </section>

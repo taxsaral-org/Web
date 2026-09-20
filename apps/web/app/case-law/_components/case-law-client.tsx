@@ -9,17 +9,40 @@ import type { CaseCategory } from "./case-law-data";
 const CATEGORY_BADGE: Record<CaseCategory, string> = {
   "Capital Gains": "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300",
   "Charitable Trusts & NPOs": "bg-teal-100 text-teal-800 dark:bg-teal-900/30 dark:text-teal-300",
+  "Transfer Pricing": "bg-violet-100 text-violet-800 dark:bg-violet-900/30 dark:text-violet-300",
+  "International Tax": "bg-sky-100 text-sky-800 dark:bg-sky-900/30 dark:text-sky-300",
+  "Business & Profession": "bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300",
+  "Assessment & Reassessment": "bg-rose-100 text-rose-800 dark:bg-rose-900/30 dark:text-rose-300",
 };
 
 const CATEGORY_ACCENT: Record<CaseCategory, string> = {
   "Capital Gains": "border-l-yellow-400",
   "Charitable Trusts & NPOs": "border-l-teal-400",
+  "Transfer Pricing": "border-l-violet-400",
+  "International Tax": "border-l-sky-400",
+  "Business & Profession": "border-l-amber-400",
+  "Assessment & Reassessment": "border-l-rose-400",
 };
 
 const CATEGORY_FILTER_ACTIVE: Record<CaseCategory, string> = {
   "Capital Gains": "bg-yellow-100 text-yellow-800 border-yellow-300",
   "Charitable Trusts & NPOs": "bg-teal-100 text-teal-800 border-teal-300",
+  "Transfer Pricing": "bg-violet-100 text-violet-800 border-violet-300",
+  "International Tax": "bg-sky-100 text-sky-800 border-sky-300",
+  "Business & Profession": "bg-amber-100 text-amber-800 border-amber-300",
+  "Assessment & Reassessment": "bg-rose-100 text-rose-800 border-rose-300",
 };
+
+function Section({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div>
+      <h3 className="mb-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+        {title}
+      </h3>
+      {children}
+    </div>
+  );
+}
 
 export function CaseLawClient() {
   const [query, setQuery] = useState("");
@@ -36,7 +59,9 @@ export function CaseLawClient() {
         c.citation.toLowerCase().includes(q) ||
         c.issue.toLowerCase().includes(q) ||
         c.held.toLowerCase().includes(q) ||
+        c.facts.toLowerCase().includes(q) ||
         c.summary.toLowerCase().includes(q) ||
+        c.principles.some((p) => p.toLowerCase().includes(q)) ||
         c.section1961.toLowerCase().includes(q) ||
         c.section2025.toLowerCase().includes(q) ||
         c.sectionTopic.toLowerCase().includes(q) ||
@@ -197,20 +222,60 @@ export function CaseLawClient() {
 
                 {/* Expanded detail */}
                 {isOpen && (
-                  <div className="space-y-4 border-t px-5 pb-5 pt-4">
-                    <div>
-                      <h3 className="mb-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                        Issue before the court
-                      </h3>
+                  <div className="space-y-5 border-t px-5 pb-5 pt-4">
+                    <Section title="Issue before the court">
                       <p className="text-sm leading-relaxed text-foreground/90">{c.issue}</p>
-                    </div>
+                    </Section>
 
-                    <div>
-                      <h3 className="mb-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                        Summary
-                      </h3>
+                    <Section title="Facts">
+                      <p className="text-sm leading-relaxed text-foreground/90">{c.facts}</p>
+                    </Section>
+
+                    {c.proceduralHistory && (
+                      <Section title="How the matter reached the court">
+                        <p className="text-sm leading-relaxed text-foreground/90">
+                          {c.proceduralHistory}
+                        </p>
+                      </Section>
+                    )}
+
+                    {c.contentions && (
+                      <Section title="Arguments">
+                        <div className="grid gap-3 sm:grid-cols-2">
+                          <div className="rounded-lg border border-emerald-200 bg-emerald-50/60 px-4 py-3 dark:border-emerald-900 dark:bg-emerald-950/20">
+                            <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">
+                              For the assessee
+                            </p>
+                            <p className="text-sm leading-relaxed text-foreground/90">
+                              {c.contentions.assessee}
+                            </p>
+                          </div>
+                          <div className="rounded-lg border border-rose-200 bg-rose-50/60 px-4 py-3 dark:border-rose-900 dark:bg-rose-950/20">
+                            <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-rose-700 dark:text-rose-400">
+                              For the Revenue
+                            </p>
+                            <p className="text-sm leading-relaxed text-foreground/90">
+                              {c.contentions.revenue}
+                            </p>
+                          </div>
+                        </div>
+                      </Section>
+                    )}
+
+                    <Section title="The court's reasoning">
                       <p className="text-sm leading-relaxed text-foreground/90">{c.summary}</p>
-                    </div>
+                    </Section>
+
+                    <Section title="Principles established">
+                      <ul className="space-y-2">
+                        {c.principles.map((p, i) => (
+                          <li key={i} className="flex gap-2.5 text-sm leading-relaxed text-foreground/90">
+                            <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-primary/60" />
+                            <span>{p}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </Section>
 
                     <div className="rounded-lg border border-blue-200 bg-blue-50 px-4 py-3 dark:border-blue-800 dark:bg-blue-950/30">
                       <h3 className="mb-1 text-xs font-semibold uppercase tracking-wider text-blue-700 dark:text-blue-300">
