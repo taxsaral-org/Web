@@ -135,6 +135,19 @@ export function SiteHeader() {
             Forms
           </Link>
 
+          {/* Case Law link */}
+          <Link
+            href="/case-law"
+            className={cn(
+              "rounded-md px-3 py-1.5 text-sm transition-colors",
+              pathname === "/case-law" || pathname?.startsWith("/case-law/")
+                ? "bg-primary/10 text-primary font-medium"
+                : "text-muted-foreground hover:bg-muted hover:text-foreground"
+            )}
+          >
+            Case Law
+          </Link>
+
           {/* Quiz link */}
           <Link
             href="/quiz"
@@ -303,6 +316,18 @@ export function SiteHeader() {
               )}
             >
               Form Comparison
+            </Link>
+            <Link
+              href="/case-law"
+              onClick={() => setMobileOpen(false)}
+              className={cn(
+                "rounded-md px-3 py-2.5 text-sm font-medium transition-colors",
+                pathname === "/case-law" || pathname?.startsWith("/case-law/")
+                  ? "bg-primary/10 text-primary"
+                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
+              )}
+            >
+              Case Law
             </Link>
             <Link
               href="/quiz"
