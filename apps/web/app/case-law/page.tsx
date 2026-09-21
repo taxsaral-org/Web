@@ -9,7 +9,7 @@ const PAGE_URL = `${BASE}/case-law`;
 export const metadata: Metadata = {
   title: "Landmark Income Tax Case Laws — Full Summaries | TaxSaral",
   description:
-    "Leading Supreme Court and High Court judgments on capital gains, charitable trusts, transfer pricing, international taxation, business deductions and reassessment — with facts, arguments, reasoning and principles, mapped to Income Tax Act 2025 sections.",
+    "100 landmark Supreme Court and High Court judgments on capital gains, charitable trusts, transfer pricing, international taxation, business deductions, TDS, reassessment, penalties and cash credits — each with facts, arguments, reasoning and principles, mapped to Income Tax Act 2025 sections.",
   keywords: [
     "income tax case law",
     "capital gains case law",
@@ -18,6 +18,9 @@ export const metadata: Metadata = {
     "international taxation judgments",
     "permanent establishment case law",
     "reassessment case law",
+    "penalty case law",
+    "section 68 cash credits",
+    "TDS case law",
     "IT Act 2025 case law",
     "Supreme Court income tax",
     "landmark tax judgments",

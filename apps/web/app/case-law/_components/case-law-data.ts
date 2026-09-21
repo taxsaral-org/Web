@@ -5,7 +5,10 @@ export type CaseCategory =
   | "International Tax"
   | "Business & Profession"
   | "Assessment & Reassessment"
-  | "TDS & TCS";
+  | "TDS & TCS"
+  | "Penalties"
+  | "Cash Credits & Unexplained Income"
+  | "General Principles";
 
 export const CASE_CATEGORIES: CaseCategory[] = [
   "Capital Gains",
@@ -15,6 +18,9 @@ export const CASE_CATEGORIES: CaseCategory[] = [
   "Business & Profession",
   "Assessment & Reassessment",
   "TDS & TCS",
+  "Penalties",
+  "Cash Credits & Unexplained Income",
+  "General Principles",
 ];
 
 export type Court =
@@ -2316,6 +2322,2328 @@ export const CASE_LAWS: CaseLaw[] = [
       "copyrighted article",
       "software characterisation",
       "sales tax",
+    ],
+  },
+
+  // ══════════════════════════════════════════════════════════════════════════
+  // CAPITAL GAINS — further judgments
+  // ══════════════════════════════════════════════════════════════════════════
+  {
+    slug: "mansukh-dyeing-revaluation",
+    caseName: "CIT v. Mansukh Dyeing and Printing Mills",
+    citation: "(2022) 449 ITR 439 (SC)",
+    court: "Supreme Court",
+    year: 2022,
+    category: "Capital Gains",
+    section1961: "Section 45(4)",
+    section2025: "Section 67",
+    sectionTopic: "Capital gains — charging section",
+    issue:
+      "On reconstitution of a firm, where assets are revalued and the enhanced value is credited to the partners' capital accounts, does a transfer arise attracting capital gains?",
+    held:
+      "Yes. Crediting the revaluation surplus to partners' capital accounts, which they are then entitled to draw, amounts to a distribution of assets and attracts the charge — even though no asset physically leaves the firm.",
+    facts:
+      "A partnership firm admitted new partners. Around the same time it revalued its land and building substantially above book value, and credited the resulting surplus to the capital accounts of the existing partners in their profit-sharing ratio. No asset was physically transferred out of the firm and no dissolution occurred. The Assessing Officer treated the credit of the revaluation surplus as a distribution of capital assets to partners on reconstitution and brought the amount to tax as capital gains in the firm's hands.",
+    proceduralHistory:
+      "The Tribunal and the Bombay High Court decided in the firm's favour, holding that a mere book revaluation on reconstitution was not a transfer. The Revenue appealed to the Supreme Court, which reversed.",
+    contentions: {
+      assessee:
+        "Nothing left the firm. The land and building continued to be owned and used by the firm, and the revaluation was an accounting entry reflecting current worth. A distribution requires assets actually to pass to the partners, which did not happen; the provision is directed at dissolution or a genuine handing over of assets.",
+      revenue:
+        "By crediting the enhanced value to the partners' capital accounts, the firm conferred on them an immediate and enforceable entitlement to that amount, which they could withdraw. In substance the partners received the benefit of the appreciation, and the incoming partners obtained an interest in assets carrying that uplift. That is a distribution in all but name.",
+    },
+    summary:
+      "The Court held that the provision is not confined to dissolution but extends to a transfer of capital assets by way of distribution on the reconstitution of a firm. It looked to the substance of what the entries achieved. On revaluation, the surplus was credited to the existing partners' capital accounts, which meant they became entitled to draw those amounts from the firm; correspondingly, the incoming partners acquired rights in assets whose recorded value had been stepped up. The benefit of the appreciation in the land and building therefore passed to the partners, and the firm parted with it. The Court held that it would defeat the provision to require a physical handing over of the asset, since the very purpose of the amendment was to catch arrangements by which appreciation is passed to partners without a conventional transfer. It accordingly held that capital gains arose in the hands of the firm in the year of revaluation and credit.",
+    principles: [
+      "The charge on distribution applies to reconstitution of a firm, not only to dissolution.",
+      "Crediting a revaluation surplus to partners' capital accounts is a distribution in substance.",
+      "A physical handing over of the asset is not required for the charge to arise.",
+      "Substance governs over the form of the accounting entries.",
+    ],
+    relevance:
+      "Capital gains are charged under Section 67 of the IT Act 2025. The decision governs firm and LLP restructurings where revaluation precedes the admission or retirement of partners, a common step in succession planning and in bringing in investors. It makes the timing and accounting treatment of revaluation a live tax question rather than a book entry.",
+    keywords: [
+      "revaluation",
+      "reconstitution of firm",
+      "partners capital account",
+      "distribution of assets",
+      "45(4)",
+      "LLP restructuring",
+    ],
+  },
+  {
+    slug: "sunil-siddharthbhai",
+    caseName: "Sunil Siddharthbhai v. CIT",
+    citation: "(1985) 156 ITR 509 (SC)",
+    court: "Supreme Court",
+    year: 1985,
+    category: "Capital Gains",
+    section1961: "Sections 45 & 48",
+    section2025: "Sections 67 & 72",
+    sectionTopic: "Capital gains — charging section; mode of computation",
+    issue:
+      "When a partner contributes a personal capital asset to a firm as capital contribution, does a taxable capital gain arise, and what is the consideration?",
+    held:
+      "A transfer does occur, but on the law as it then stood the consideration was not ascertainable — the credit to the capital account is a notional figure whose real worth depends on future events — so no computable gain arose.",
+    facts:
+      "The assessee, a partner, brought shares held by him personally into the partnership as his capital contribution. The value at which the shares were credited to his capital account was higher than his cost of acquiring them. The Revenue treated the difference as a capital gain, arguing that the credit to the capital account represented the consideration received for parting with the shares. The assessee contended that on entering the firm he did not receive any determinate sum, since what he obtained was a right to share in future profits and in the net assets on dissolution.",
+    proceduralHistory:
+      "The matter reached the Supreme Court, which examined both whether a transfer occurred and whether any consideration capable of computation had accrued.",
+    contentions: {
+      assessee:
+        "On contributing the asset, the partner's exclusive interest is replaced by a right to a share in the firm, which is neither a definite sum nor capable of valuation at that date. The amount credited to the capital account is a notional entry that may be wholly eroded by losses, drawings or the firm's liabilities. Without an ascertainable consideration, Section 48 cannot operate.",
+      revenue:
+        "The asset passed from the partner's exclusive ownership to the firm, which is a transfer. The figure at which it was credited to his capital account is the value the partners themselves placed on it, and there is no reason not to treat that agreed figure as the full value of the consideration.",
+    },
+    summary:
+      "The Court held that when a partner brings a personal asset into a partnership, the exclusive interest he had is reduced to a shared interest and the asset becomes property of the firm; that satisfies the extended meaning of transfer. But the charge failed on the computation limb. What the partner receives in exchange is a right during the subsistence of the firm to share profits, and on dissolution a share in the net assets after satisfying liabilities — an entitlement whose value cannot be determined at the date of contribution. The credit in the capital account is only a notional figure entered for the purpose of adjusting rights between partners; it does not represent money or money's worth received, since it may be diminished or extinguished by the firm's trading. The consideration therefore being incapable of ascertainment, the computation provisions could not be applied and no chargeable gain arose. The Court added the important qualification that where the transaction is a device or a sham — where the firm is a mere pretext for converting an asset into money without tax — the Revenue may lift the veil and tax the real transaction.",
+    principles: [
+      "Contribution of a personal asset to a firm is a transfer, the exclusive interest becoming a shared one.",
+      "The credit to the partner's capital account is notional and does not by itself constitute consideration received.",
+      "Where the consideration is incapable of ascertainment, the computation provisions fail and no gain is chargeable.",
+      "A sham or device dressed up as a capital contribution may be looked through and taxed on its real character.",
+    ],
+    relevance:
+      "The statutory position has since been overtaken for this specific transaction by provisions deeming the amount recorded in the firm's books to be the full value of consideration, so the result no longer follows. What endures is the reasoning: the analysis of what a partner actually receives, the distinction between a notional book credit and real consideration, and the express reservation permitting a sham arrangement to be looked through. Read it for the principle, and check the current deeming provisions for the outcome.",
+    keywords: [
+      "capital contribution",
+      "partnership",
+      "notional consideration",
+      "ascertainable consideration",
+      "device or sham",
+      "shared interest",
+    ],
+  },
+  {
+    slug: "george-henderson",
+    caseName: "CIT v. George Henderson & Co Ltd",
+    citation: "(1967) 66 ITR 622 (SC)",
+    court: "Supreme Court",
+    year: 1967,
+    category: "Capital Gains",
+    section1961: "Section 48",
+    section2025: "Section 72",
+    sectionTopic: "Mode of computation of capital gains",
+    issue:
+      "Does 'full value of the consideration' mean the market value of the asset transferred, or the consideration actually agreed between the parties?",
+    held:
+      "The consideration actually agreed. 'Full value of the consideration' means the whole price received or receivable for the transfer, and is not the same thing as the fair market value of the asset.",
+    facts:
+      "The assessee company transferred shares to another company at a price lower than the market quotation on the date of transfer. The Revenue computed the capital gain by substituting the market value of the shares for the price actually agreed, on the footing that 'full value of the consideration' must mean the true worth of what was given up. The assessee contended that the expression refers to the entirety of the price agreed between the parties and that the statute, as it then stood, contained no power to substitute market value in an ordinary transaction.",
+    proceduralHistory:
+      "The matter came before the Supreme Court by reference, the question being the correct construction of the words 'full value of the consideration' in the computation provision.",
+    contentions: {
+      assessee:
+        "The words describe the consideration for the transfer, and the adjective 'full' requires the whole of it to be brought in rather than a part. It does not convert the consideration into something else. Where Parliament intended market value to be substituted, it said so expressly in specific provisions dealing with particular transactions.",
+      revenue:
+        "Capital gains are meant to tax the accretion in the value of an asset. If a taxpayer can transfer at an undervalue and be assessed only on the stated price, the charge is easily defeated. 'Full value' should therefore be read as the true or market value of the asset.",
+    },
+    summary:
+      "The Court held that the expression 'full value of the consideration' means the whole price received or receivable by the transferor in exchange for the asset. The word 'full' is used in contradistinction to a part of the consideration: it directs that the entire amount agreed be taken, including any part paid in kind or deferred, and precludes deducting from it anything other than what the provision allows. It does not mean market value, which is a distinct concept the statute employs elsewhere in express terms. The Court pointed to provisions in which Parliament had specifically directed that fair market value be substituted in defined circumstances, and reasoned that the existence of those provisions shows that the general computation provision does not itself carry that meaning. Consideration is what the transferor receives; market value is what the asset is worth, and the two need not coincide. Absent a specific provision permitting substitution, the price actually agreed governs the computation.",
+    principles: [
+      "'Full value of the consideration' means the whole price received or receivable, not the market value of the asset.",
+      "'Full' is used in contrast to a part of the consideration, requiring the entirety to be brought in.",
+      "Market value may be substituted only where a specific provision expressly so directs.",
+      "Consideration received and value of the asset are distinct concepts under the Act.",
+    ],
+    relevance:
+      "The general rule in Section 72 of the IT Act 2025 remains that the consideration agreed governs. The practical significance now lies in how extensively that rule has been displaced by specific deeming provisions — Section 78 for immovable property by reference to stamp duty value, Section 79 for unquoted shares, and Section 80 where consideration is not ascertainable. George Henderson identifies the default; those sections mark out where the default no longer applies.",
+    keywords: [
+      "full value of consideration",
+      "market value",
+      "computation",
+      "understatement",
+      "deeming provision",
+      "price agreed",
+    ],
+  },
+  {
+    slug: "dhun-dadabhoy-kapadia",
+    caseName: "Miss Dhun Dadabhoy Kapadia v. CIT",
+    citation: "(1967) 63 ITR 651 (SC)",
+    court: "Supreme Court",
+    year: 1967,
+    category: "Capital Gains",
+    section1961: "Sections 48 & 55",
+    section2025: "Sections 72 & 90",
+    sectionTopic:
+      "Mode of computation; meaning of cost of acquisition and improvement",
+    issue:
+      "On sale of a rights entitlement, may the shareholder deduct the fall in value of the original shares caused by the rights issue in computing the gain?",
+    held:
+      "Yes. The rights entitlement comes into existence at the cost of a depreciation in the value of the original holding, and that diminution is the real cost the shareholder incurred to acquire it.",
+    facts:
+      "The assessee held shares in a company which made a rights issue. She did not subscribe but sold her rights entitlement in the market and realised a sum. Because the rights issue diluted the company's shares, the market value of her original holding fell appreciably once the shares went ex-rights. The Revenue assessed the whole of the sale proceeds of the rights entitlement as a capital gain, on the footing that the entitlement had cost her nothing. She contended that it had cost her the fall in value of the shares she already held.",
+    proceduralHistory:
+      "The assessment was upheld through the appellate stages and the High Court answered the reference against her. She appealed to the Supreme Court.",
+    contentions: {
+      assessee:
+        "The rights entitlement did not arrive free. It came into being by diminishing the value of the existing holding, the total value of the holding plus the entitlement immediately after the issue being no more than the value of the holding before it. The depreciation in the original shares is therefore the price paid for the entitlement and must be brought into the computation.",
+      revenue:
+        "The assessee paid nothing for the entitlement, which accrued to her by virtue of her existing shareholding. A notional fall in the market value of shares she continued to hold is not expenditure and cannot be deducted; she may realise that value if and when she sells those shares.",
+    },
+    summary:
+      "The Court approached the question by asking what the shareholder had actually given up in order to obtain the thing she sold. It observed that immediately before the rights issue her holding had a certain market value, and immediately afterwards the shares stood at a lower quotation precisely because of the dilution the issue caused. The entitlement she was able to sell was carved out of the value that had previously resided in her shares. In a commercial sense, therefore, she acquired the entitlement at the cost of that depreciation, and the computation must reflect it if the exercise is to capture her real gain rather than an inflated figure. The Court held that the diminution in the value of the original shares, measured by the difference in quotation before and after the shares went ex-rights, is to be deducted in computing the gain on the sale of the rights entitlement. Any other approach would tax as profit an amount that was matched by a real fall in the value of what she continued to hold.",
+    principles: [
+      "A rights entitlement is acquired at the cost of the depreciation it causes in the original holding.",
+      "The fall in market value of the existing shares on going ex-rights is deductible in computing the gain on the entitlement.",
+      "The computation must capture the real commercial gain rather than an inflated figure.",
+      "Cost of acquisition is not confined to a cash outlay.",
+    ],
+    relevance:
+      "Cost of acquisition is dealt with in Section 90 of the IT Act 2025, which prescribes specific rules for rights entitlements and bonus shares. Those provisions now largely govern the computation, so the outcome should be checked against them. The reasoning retains value wherever a new asset is carved out of an existing holding and the statute leaves the cost to be determined on general principles.",
+    keywords: [
+      "rights entitlement",
+      "renunciation",
+      "cost of acquisition",
+      "ex-rights",
+      "dilution",
+      "real gain",
+      "bonus shares",
+    ],
+  },
+  {
+    slug: "grace-collis",
+    caseName: "CIT v. Grace Collis",
+    citation: "(2001) 248 ITR 323 (SC)",
+    court: "Supreme Court",
+    year: 2001,
+    category: "Capital Gains",
+    section1961: "Sections 2(47) & 45",
+    section2025: "Section 2 (definition of transfer); Section 67",
+    sectionTopic: "Meaning of transfer; capital gains — charging section",
+    issue:
+      "Does the extinguishment of rights in a capital asset amount to a transfer only where it accompanies a transfer of the asset to someone else, or is extinguishment an independent head?",
+    held:
+      "Extinguishment is an independent limb. Rights in a capital asset may be extinguished without any corresponding transfer to another person, and such extinguishment is itself a transfer for capital gains purposes.",
+    facts:
+      "Shareholders held shares in a company which amalgamated with another. On the amalgamation taking effect, the amalgamating company ceased to exist and the shares held in it were extinguished, the shareholders receiving shares in the amalgamated company. The question was whether the extinguishment of the original shareholding constituted a transfer, an earlier line of authority having suggested that extinguishment counted only where it was accompanied by a transfer of the asset to another party.",
+    proceduralHistory:
+      "The matter came before the Supreme Court, which reconsidered the narrower reading of the extinguishment limb adopted in an earlier decision and departed from it.",
+    contentions: {
+      assessee:
+        "On the earlier view, extinguishment qualifies only where rights pass to another person; here the shares in the amalgamating company simply ceased to exist on its dissolution, with nothing passing to anyone, so there was no transfer and no chargeable gain.",
+      revenue:
+        "The definition lists sale, exchange, relinquishment and the extinguishment of any rights as separate limbs. Reading extinguishment as requiring a correlative transfer would make the limb redundant, since a transfer to another is already covered by the earlier words.",
+    },
+    summary:
+      "The Court examined the structure of the definition and held that its several limbs are disjunctive. Sale, exchange and relinquishment each involve the asset or rights in it passing to another. If the extinguishment limb were also confined to cases where rights pass, it would add nothing to what precedes it, and a construction rendering statutory words superfluous is to be avoided. The Court therefore held that the extinguishment of any rights in a capital asset is an independent limb, which may be satisfied whether or not there is a corresponding acquisition by anyone else. To the extent that an earlier decision had held that extinguishment must be accompanied by a transfer of the asset to another person, the Court held that view to be erroneous. Applying that construction, the shares in the amalgamating company were extinguished on amalgamation, and that extinguishment was a transfer within the definition.",
+    principles: [
+      "The limbs of the definition of transfer are disjunctive and each must be given independent meaning.",
+      "Extinguishment of rights in a capital asset is a transfer whether or not anyone else acquires them.",
+      "A construction rendering statutory words superfluous is to be avoided.",
+      "Extinguishment of shares on amalgamation falls within the definition.",
+    ],
+    relevance:
+      "The extinguishment limb carries into the definition of transfer under the IT Act 2025, with the charge in Section 67. It underpins the treatment of amalgamations, reduction of share capital, surrender of rights, and the buyback analysis. Note that exemptions for qualifying amalgamations operate separately — establishing that a transfer occurred is the first step, not the last.",
+    keywords: [
+      "extinguishment of rights",
+      "transfer",
+      "amalgamation",
+      "disjunctive limbs",
+      "reduction of capital",
+      "surrender",
+    ],
+  },
+  {
+    slug: "vania-silk-mills",
+    caseName: "Vania Silk Mills (P) Ltd v. CIT",
+    citation: "(1991) 191 ITR 647 (SC)",
+    court: "Supreme Court",
+    year: 1991,
+    category: "Capital Gains",
+    section1961: "Sections 2(47) & 45",
+    section2025: "Section 2 (definition of transfer); Section 67",
+    sectionTopic: "Meaning of transfer; capital gains — charging section",
+    issue:
+      "Where an asset is destroyed and the owner receives insurance money, does the destruction amount to a transfer giving rise to capital gains?",
+    held:
+      "No, on the law as it then stood. Destruction of an asset is not a transfer; the asset ceases to exist rather than passing to anyone, and insurance money is paid under the policy rather than as consideration for a transfer.",
+    facts:
+      "Machinery belonging to the assessee was destroyed by fire. The insurer paid a sum under the policy which exceeded the written down value of the machinery. The Revenue treated the receipt as consideration arising from a transfer of the asset and assessed the excess as a capital gain, reasoning that the owner's rights in the machinery had been extinguished and money had been received in their place.",
+    proceduralHistory:
+      "The matter reached the Supreme Court, where the scope of the extinguishment limb of the definition of transfer fell for consideration in the context of destruction of an asset.",
+    contentions: {
+      assessee:
+        "A transfer contemplates the asset passing from one person to another. Where property is destroyed, nothing passes; it simply ceases to exist. The insurance money is paid under a contract of indemnity because the insured event occurred, not as the price of the asset.",
+      revenue:
+        "The owner's rights in the machinery were extinguished by the fire, and extinguishment of rights falls within the definition of transfer. Money was received in consequence, and the excess over written down value represents a gain.",
+    },
+    summary:
+      "The Court held that the extinguishment contemplated by the definition is extinguishment that results from a transfer — that is, where rights come to an end because the asset or rights in it pass to another. Destruction of an asset is different in kind: the subject matter ceases to exist altogether and no person acquires anything. The Court reasoned that the words defining transfer, read as a whole, are concerned with transactions by which property moves between persons, and that an event such as fire is not a transaction at all. As to the insurance money, it held that the payment is made because the contingency insured against occurred and is measured by the indemnity the policy provides; it is not consideration for parting with the asset, there being no counterparty acquiring it. The receipt accordingly fell outside the charge.",
+    principles: [
+      "Transfer contemplates property passing between persons; destruction involves nothing passing.",
+      "The extinguishment limb, in this view, addresses extinguishment resulting from a transfer.",
+      "Insurance money is paid under the contract of indemnity, not as consideration for the asset.",
+      "An event such as fire is not a transaction within the definition of transfer.",
+    ],
+    relevance:
+      "The outcome was specifically reversed by Parliament, which introduced a provision deeming money or assets received from an insurer on damage or destruction to give rise to capital gains in the year of receipt. That deeming treatment continues under the IT Act 2025, so an insurance receipt on destruction is chargeable today. Read Vania Silk Mills as the reason that provision exists, and for its analysis of the extinguishment limb, which Grace Collis later revisited.",
+    keywords: [
+      "destruction of asset",
+      "insurance claim",
+      "extinguishment",
+      "transfer",
+      "indemnity",
+      "45(1A)",
+      "legislative reversal",
+    ],
+  },
+  {
+    slug: "jupiter-capital-reduction",
+    caseName: "PCIT v. Jupiter Capital Pvt Ltd",
+    citation: "(2025) 302 Taxman 3 (SC)",
+    court: "Supreme Court",
+    year: 2025,
+    category: "Capital Gains",
+    section1961: "Sections 2(47) & 45",
+    section2025: "Section 2 (definition of transfer); Section 67",
+    sectionTopic: "Meaning of transfer; capital gains — charging section",
+    issue:
+      "Does a reduction of share capital, under which the number of shares held is cut down while the shareholder's proportionate interest is unchanged, amount to a transfer?",
+    held:
+      "Yes. Reduction of capital extinguishes the shareholder's rights in the shares cancelled, and that extinguishment is a transfer. The resulting loss is a capital loss available for set off.",
+    facts:
+      "The assessee held shares in a company which carried out a reduction of its share capital sanctioned by the court. The number of shares held by the assessee was reduced substantially, with consideration paid on the cancelled shares, although the assessee's percentage shareholding in the company remained the same because the reduction applied across the board. The assessee claimed a capital loss, being the difference between the cost of the cancelled shares and the amount received. The Revenue disallowed the claim, contending that since the proportionate holding was unchanged, nothing had in substance been transferred.",
+    proceduralHistory:
+      "The Tribunal and the High Court allowed the assessee's claim, holding that a reduction of capital extinguishes rights and is therefore a transfer. The Revenue appealed to the Supreme Court, which affirmed.",
+    contentions: {
+      assessee:
+        "On reduction, the shares cancelled cease to exist and all rights attaching to them are extinguished. Extinguishment of rights in a capital asset is expressly a transfer, and the loss suffered on the cancelled shares is a capital loss. That the percentage holding is unchanged is immaterial, because the asset transferred is the shares themselves, not a percentage.",
+      revenue:
+        "Because the reduction applied uniformly, the assessee's proportionate stake in the company was exactly what it had been before. Nothing of substance changed hands and no real loss was suffered; permitting a loss on a transaction that leaves the shareholder in the same relative position would create an artificial deduction.",
+    },
+    summary:
+      "The Court held that a reduction of share capital involves the extinguishment of the rights attached to the shares that are cancelled, and that extinguishment is expressly within the definition of transfer. It reasoned that the capital asset in question is the shares held, and when a portion of them is cancelled the holder's rights in those shares come to an end; the fact that the reduction is proportionate across all shareholders does not alter that. The Court declined to treat an unchanged percentage interest as decisive, observing that a shareholder's rights are embodied in the shares held and that cancelling shares necessarily destroys rights that previously existed. Having held that a transfer occurred, it followed that the difference between the cost of the cancelled shares and the consideration received was a capital loss, which the assessee was entitled to carry forward and set off in the ordinary way.",
+    principles: [
+      "Reduction of share capital extinguishes rights in the cancelled shares and is a transfer.",
+      "An unchanged proportionate shareholding does not prevent a transfer from arising.",
+      "The capital asset is the shares held, not the percentage interest they represent.",
+      "A loss arising on reduction of capital is a capital loss available for set off.",
+    ],
+    relevance:
+      "A recent affirmation that the extinguishment limb, established in Grace Collis, reaches capital reduction. Under the IT Act 2025 the charge is in Section 67 and the definition of transfer in Section 2. The decision matters for corporate restructurings and for loss planning, and should be read alongside the provisions treating distributions on reduction as deemed dividend to the extent of accumulated profits — the two operate on different parts of the same payment.",
+    keywords: [
+      "reduction of share capital",
+      "extinguishment",
+      "capital loss",
+      "proportionate shareholding",
+      "restructuring",
+      "deemed dividend",
+    ],
+  },
+
+  // ══════════════════════════════════════════════════════════════════════════
+  // BUSINESS & PROFESSION — further judgments
+  // ══════════════════════════════════════════════════════════════════════════
+  {
+    slug: "empire-jute-loom-hours",
+    caseName: "Empire Jute Co Ltd v. CIT",
+    citation: "(1980) 124 ITR 1 (SC)",
+    court: "Supreme Court",
+    year: 1980,
+    category: "Business & Profession",
+    section1961: "Section 37(1)",
+    section2025: "Section 34",
+    sectionTopic:
+      "General conditions — revenue expenditure laid out wholly and exclusively for business",
+    issue:
+      "Is payment made to acquire additional loom hours capital expenditure because it yields an enduring advantage, or revenue expenditure because it merely enables more profitable working?",
+    held:
+      "Revenue. An enduring advantage is not decisive. Where the advantage is in the revenue-earning sphere — facilitating trading operations or enabling more efficient conduct of business without touching the fixed capital — the expenditure is revenue in nature.",
+    facts:
+      "The assessee was a member of an association of jute mills which, to limit production, restricted the number of hours each mill could work its looms. Members were permitted to transfer their allotment of loom hours among themselves. The assessee purchased loom hours from other mills so that it could work its own looms for longer, and claimed the payment as revenue expenditure. The Revenue disallowed it as capital, reasoning that the right to work additional hours was an advantage of an enduring nature which augmented the assessee's profit-making apparatus.",
+    proceduralHistory:
+      "The disallowance was sustained through the appellate stages and by the High Court, which applied the enduring benefit test. The assessee appealed to the Supreme Court.",
+    contentions: {
+      assessee:
+        "No new asset was acquired and the fixed capital was untouched — the number of looms remained the same. What was bought was the ability to operate the existing plant more intensively for a period, which goes to the profitability of trading operations and is therefore on revenue account.",
+      revenue:
+        "The right to work additional loom hours enhanced the assessee's productive capacity and conferred a benefit that endured beyond the year. Expenditure bringing into existence an advantage of enduring benefit to the trade is capital expenditure.",
+    },
+    summary:
+      "Justice Bhagwati held that the enduring benefit test, though useful, is not to be applied mechanically and does not yield a universal rule. What matters is the nature of the advantage in a commercial sense. If the advantage consists of facilitating the assessee's trading operations, or enabling the management and conduct of business to be carried on more efficiently or more profitably, while leaving the fixed capital untouched, the expenditure is on revenue account even though the advantage may endure for an indefinite future. The Court drew the distinction between the profit-earning apparatus itself and the process of earning profits: expenditure that adds to or augments the former is capital, while expenditure that merely improves the latter is revenue. On the facts, the loom hours purchased did not add to the assessee's plant or fixed capital; the number of looms was unchanged, and all that was obtained was the right to operate them for longer during a limited period. The advantage therefore lay in the revenue field, and the payment was deductible.",
+    principles: [
+      "The enduring benefit test is not decisive and must not be applied mechanically.",
+      "Expenditure facilitating trading operations or enabling more efficient conduct of business is revenue, even if the advantage endures.",
+      "The distinction is between augmenting the profit-earning apparatus (capital) and improving the process of earning profits (revenue).",
+      "Expenditure leaving the fixed capital untouched points towards revenue treatment.",
+    ],
+    relevance:
+      "The leading Indian authority on the capital–revenue divide, applied under Section 34 of the IT Act 2025 and cited across the whole field of business deductions. It governs recurring modern questions — software licences, market access payments, non-compete fees, and spectrum or franchise charges — wherever the Revenue relies on enduring benefit alone to characterise a payment as capital.",
+    keywords: [
+      "capital versus revenue",
+      "enduring benefit",
+      "profit earning apparatus",
+      "loom hours",
+      "fixed capital",
+      "business efficiency",
+    ],
+  },
+  {
+    slug: "madras-industrial-debenture-discount",
+    caseName: "Madras Industrial Investment Corporation Ltd v. CIT",
+    citation: "(1997) 225 ITR 802 (SC)",
+    court: "Supreme Court",
+    year: 1997,
+    category: "Business & Profession",
+    section1961: "Sections 37(1) & 145",
+    section2025: "Sections 34 & 272",
+    sectionTopic:
+      "General conditions for revenue expenditure; method of accounting",
+    issue:
+      "Where debentures are issued at a discount, is the whole discount deductible in the year of issue, or must it be spread over the life of the debentures?",
+    held:
+      "It must be spread. The discount is the price of obtaining the use of money over the debenture's term, so the liability is to be allocated over that period rather than deducted entirely in the year of issue.",
+    facts:
+      "The assessee issued debentures at a discount to face value, receiving less than the amount it would ultimately have to repay. It claimed the entire discount as a deduction in the year of issue, treating it as expenditure incurred in raising the loan. The Revenue took the view that the discount represented a cost of borrowing referable to the whole term of the debentures and allowed only the proportion relating to the year in question.",
+    proceduralHistory:
+      "The dispute proceeded through the appellate stages to the High Court, which upheld the spreading. The assessee appealed to the Supreme Court.",
+    contentions: {
+      assessee:
+        "The liability to pay the discount arose in the year of issue, when the debentures were allotted at less than face value. Ordinarily a liability is deductible in the year it is incurred, and there is no provision requiring the deduction to be deferred or apportioned across future years.",
+      revenue:
+        "The discount is in substance additional interest, being the consideration for having the use of the money for the debenture's term. Allowing the whole of it in the first year would distort the profits of that year and of the years that follow, each of which enjoys the benefit of the borrowing.",
+    },
+    summary:
+      "The Court accepted that the liability had been incurred in the year of issue, but held that the year in which a liability is incurred does not invariably determine the year of deduction. Where an expenditure is incurred for the purpose of securing a benefit that is spread over a number of years, it may properly be spread over those years. It characterised the discount as the cost of obtaining the use of the borrowed funds, no different in substance from interest: a company that issues at a discount pays for the loan in that form rather than by a higher coupon. Since the benefit of the borrowing extends over the whole term of the debentures, matching the cost to that period gives a truer picture of the profits of each year. The Court held that the assessee was entitled to deduct a proportionate part of the discount in each year over which the liability was spread, and it noted that the assessee had itself written off the discount over the term in its books, which was consistent with the commercial reality of the transaction.",
+    principles: [
+      "The year in which a liability is incurred does not always determine the year of deduction.",
+      "Expenditure securing a benefit spread over several years may be allocated across those years.",
+      "Discount on debentures is in substance the cost of obtaining the use of money over the term.",
+      "Matching the cost to the period benefited gives a truer picture of each year's profits.",
+    ],
+    relevance:
+      "Applied under Section 34 of the IT Act 2025, with the method of accounting governed by Section 272. The matching approach it endorses is routinely applied to upfront borrowing costs, premium on redemption, and lease premia. It should be read alongside Taparia Tools, which confirms that spreading is not compulsory where the assessee has actually paid the sum and claims it in that year.",
+    keywords: [
+      "debenture discount",
+      "deferred revenue expenditure",
+      "matching principle",
+      "spreading",
+      "borrowing cost",
+      "year of deduction",
+    ],
+  },
+  {
+    slug: "taparia-tools",
+    caseName: "Taparia Tools Ltd v. JCIT",
+    citation: "(2015) 372 ITR 605 (SC)",
+    court: "Supreme Court",
+    year: 2015,
+    category: "Business & Profession",
+    section1961: "Sections 36(1)(iii) & 37(1)",
+    section2025: "Sections 32 & 34",
+    sectionTopic:
+      "Other specified deductions allowable; general conditions for revenue expenditure",
+    issue:
+      "Where a taxpayer actually pays upfront the entire interest on a debenture issue, must the deduction nonetheless be spread over the debenture's term because the books show it being amortised?",
+    held:
+      "No. Where the liability has been incurred and the sum actually paid in the year, the whole of it is deductible in that year. The treatment adopted in the books does not govern, and there is no concept of deferred revenue expenditure in the Act absent a specific provision.",
+    facts:
+      "The assessee issued debentures and offered subscribers a choice: receive interest periodically over the term, or take a discounted lump sum of the entire interest upfront. Some subscribers chose the upfront option and were paid accordingly during the year. In its books, the assessee amortised that upfront payment over the life of the debentures, but in its return it claimed the whole amount as a deduction in the year of payment. The Revenue allowed only the proportion charged in the books, relying on the assessee's own accounting treatment and on the spreading approach.",
+    proceduralHistory:
+      "The disallowance was upheld by the Tribunal and the Bombay High Court, which considered that the assessee's own amortisation in the books reflected the correct position. The assessee appealed to the Supreme Court.",
+    contentions: {
+      assessee:
+        "The liability to pay the interest arose and was discharged entirely in the year in question; nothing remained outstanding. Under the mercantile system a liability incurred and paid is deductible in that year. Entries in the books do not create or destroy a right to a deduction, which depends on the provisions of the Act.",
+      revenue:
+        "The assessee itself treated the payment as relating to future years by spreading it in its accounts, and consistency requires the same treatment for tax. Allowing the whole in one year distorts the profits of that year and departs from the matching approach approved in Madras Industrial.",
+    },
+    summary:
+      "The Court held that the entries an assessee makes in its books are not determinative of its entitlement to a deduction; the question is governed by the provisions of the Act applied to the facts. Where the liability has been definitely incurred and the sum has actually been paid in the relevant year, the ordinary rule is that the deduction is allowable in that year in full. The Court distinguished Madras Industrial on an important footing: there the assessee had itself claimed the deduction over the term and the issue was whether spreading was permissible, whereas here the assessee had paid the entire amount and claimed it in the year of payment. It held that Madras Industrial gives the assessee an option to spread where the expenditure relates to future years, but does not compel spreading where the sum has been paid outright. The Court emphasised that there is no general concept of deferred revenue expenditure in the Act, and that in the absence of a specific provision requiring deferral, an actual payment discharging an incurred liability is deductible when made.",
+    principles: [
+      "Book entries do not determine entitlement to a deduction; the Act and the facts govern.",
+      "A liability definitely incurred and actually paid in the year is deductible in full in that year.",
+      "Spreading under Madras Industrial is an option available to the assessee, not a compulsion.",
+      "There is no general concept of deferred revenue expenditure in the Act absent a specific provision.",
+    ],
+    relevance:
+      "Applied under Sections 32 and 34 of the IT Act 2025. Read with Madras Industrial it produces a workable rule: an assessee that has actually paid may claim in full in the year of payment, while an assessee that has incurred a liability relating to future years may spread it. The rejection of book entries as determinative is relied on far beyond this context, including in disputes over provisions and accounting standards.",
+    keywords: [
+      "upfront interest",
+      "deferred revenue expenditure",
+      "book entries",
+      "matching",
+      "debentures",
+      "actual payment",
+      "mercantile system",
+    ],
+  },
+  {
+    slug: "woodward-governor",
+    caseName: "CIT v. Woodward Governor India (P) Ltd",
+    citation: "(2009) 312 ITR 254 (SC)",
+    court: "Supreme Court",
+    year: 2009,
+    category: "Business & Profession",
+    section1961: "Sections 37(1) & 43A",
+    section2025: "Sections 34, 42 & 43",
+    sectionTopic:
+      "General conditions for revenue expenditure; capitalising exchange rate changes; taxation of foreign exchange fluctuation",
+    issue:
+      "Is an unrealised loss arising on restating foreign currency liabilities at the year-end rate deductible, or must the loss be realised before it can be claimed?",
+    held:
+      "Deductible, where the liability is on revenue account. Under the mercantile system a loss arising from restating a revenue liability at the closing rate is an accrued liability, not a contingent one, and realisation is not a precondition.",
+    facts:
+      "The assessee had liabilities denominated in foreign currency arising from its trading operations. At the year end, in accordance with the applicable accounting standard, it restated those liabilities at the exchange rate prevailing on the balance sheet date and charged the resulting increase to the profit and loss account, claiming it as a deduction. No payment had yet been made and the loss was therefore unrealised. The Revenue disallowed the claim, characterising it as a notional or contingent loss that could be recognised only on actual payment.",
+    proceduralHistory:
+      "The claim was allowed by the appellate authorities and the High Court. The Revenue appealed to the Supreme Court, which considered both revenue-account liabilities and liabilities incurred for acquiring capital assets.",
+    contentions: {
+      assessee:
+        "Under the mercantile system, a liability that has accrued is deductible whether or not it has been discharged. Once the exchange rate has moved, the rupee amount required to settle the liability has increased, and that increase is a present liability rather than a contingency. The accounting treatment follows a mandatory standard and reflects commercial reality.",
+      revenue:
+        "Until the liability is actually discharged, the rate may move back and no loss may ever eventuate. What is claimed is a notional figure based on a hypothetical settlement at the balance sheet date, and a deduction cannot be founded on an event that has not occurred.",
+    },
+    summary:
+      "The Court held that the mercantile system requires expenditure and losses to be recognised when the liability arises, not when it is discharged. Where a trading liability is denominated in foreign currency and the rupee has depreciated by the balance sheet date, the amount the assessee must find in order to settle has increased; that increase is an accrued liability, and the fact that the rate might subsequently move the other way does not make it contingent. The Court examined the accounting framework, noted that restatement at the closing rate was mandated by the applicable standard, and held that where accounts are maintained on the mercantile basis in accordance with recognised standards and are not shown to present a distorted picture, the loss so recognised is allowable. It drew a firm distinction, however, between liabilities on revenue account and liabilities incurred for acquiring capital assets: for the latter, the statutory provision dealing with capitalisation of exchange differences governs and the difference adjusts the cost of the asset rather than being deducted.",
+    principles: [
+      "Under the mercantile system a liability is recognised when it accrues, not when it is discharged.",
+      "An exchange loss on restating a revenue liability at the closing rate is accrued, not contingent.",
+      "Accounts maintained on a recognised accounting standard, absent distortion, support the claim.",
+      "Liabilities incurred for acquiring capital assets are governed by the capitalisation provision instead.",
+    ],
+    relevance:
+      "The IT Act 2025 addresses this expressly: Section 43 governs the taxation of foreign exchange fluctuation gains and losses, and Section 42 the capitalisation of exchange differences on liabilities for acquiring assets, with the general deduction in Section 34. The revenue–capital distinction the Court drew remains the organising principle, and the case should be read with Tata Iron & Steel on the capital side.",
+    keywords: [
+      "foreign exchange loss",
+      "mark to market",
+      "unrealised loss",
+      "mercantile system",
+      "accrued liability",
+      "43A",
+      "accounting standard",
+    ],
+  },
+  {
+    slug: "excel-industries-real-income",
+    caseName: "CIT v. Excel Industries Ltd",
+    citation: "(2013) 358 ITR 295 (SC)",
+    court: "Supreme Court",
+    year: 2013,
+    category: "Business & Profession",
+    section1961: "Sections 28 & 145",
+    section2025: "Sections 26 & 272",
+    sectionTopic:
+      "Profits and gains of business — charging section; method of accounting",
+    issue:
+      "Does the benefit of advance licences and duty entitlement passbook entitlements accrue as income in the year the licences are granted, or in the year they are actually used to import goods free of duty?",
+    held:
+      "In the year of utilisation. Income accrues only when a right to receive it becomes vested and enforceable; until the licence is used, the benefit is contingent and no real income has arisen.",
+    facts:
+      "The assessee exported goods and became entitled, under export promotion schemes, to advance licences and passbook credits permitting duty-free import of raw materials. The Revenue sought to tax the face value of these entitlements as income in the year the licences were granted, treating them as a benefit arising from business that had accrued on grant. The assessee recognised the benefit only in the year in which the licences were actually utilised to import materials free of duty, on the footing that until then nothing had crystallised.",
+    proceduralHistory:
+      "The appellate authorities and the High Court accepted the assessee's treatment, noting that the Revenue had consistently accepted the same treatment in other years. The Revenue appealed to the Supreme Court.",
+    contentions: {
+      assessee:
+        "The entitlement is a right to import without duty at some future time. Whether any benefit is ever obtained depends on whether imports are made, whether the licence is used within its validity, and on the duty rates then prevailing. Income accrues when the right to receive becomes enforceable, which is on utilisation, not on grant.",
+      revenue:
+        "The licences had a market value on grant and could in principle be dealt with. A benefit arising from business is income when it arises, and deferring recognition to utilisation postpones tax without warrant.",
+    },
+    summary:
+      "The Court applied the settled principle that income accrues when a right to receive it becomes vested, and that a mere expectation or a contingent entitlement is not income. It held that on the grant of an advance licence the assessee obtained no enforceable right to any sum; what it had was the possibility of saving duty if and when it imported materials, which depended on future trading decisions and on circumstances outside its control. Until the licence was actually used, no real income had arisen, and taxing the face value of the entitlement would be taxing a hypothetical benefit. The Court laid emphasis on the concept of real income, observing that the Act taxes income that has actually accrued and not income that may never materialise. It also relied on consistency: the Revenue had accepted the assessee's treatment over many years and there was no justification for departing from it in the years under appeal, particularly where the dispute concerned only the year of taxability and the revenue effect was neutral over time.",
+    principles: [
+      "Income accrues when the right to receive becomes vested and enforceable, not on a mere expectation.",
+      "A contingent entitlement dependent on future events is not income.",
+      "The Act taxes real income, not a hypothetical or notional benefit.",
+      "Where only the year of taxability is in dispute and the effect is revenue neutral, consistency carries weight.",
+    ],
+    relevance:
+      "Business income is charged under Section 26 of the IT Act 2025 with the method of accounting in Section 272. The real income principle it applies is invoked wherever the Revenue seeks to tax an entitlement, incentive, subsidy or credit before it has been realised, and is frequently paired with Balbir Singh Maini, which applies the same principle to capital gains.",
+    keywords: [
+      "real income",
+      "accrual",
+      "advance licence",
+      "DEPB",
+      "export incentive",
+      "contingent right",
+      "consistency",
+      "year of taxability",
+    ],
+  },
+  {
+    slug: "bharat-earth-movers-leave-encashment",
+    caseName: "Bharat Earth Movers v. CIT",
+    citation: "(2000) 245 ITR 428 (SC)",
+    court: "Supreme Court",
+    year: 2000,
+    category: "Business & Profession",
+    section1961: "Section 37(1)",
+    section2025: "Section 34",
+    sectionTopic:
+      "General conditions — revenue expenditure laid out wholly and exclusively for business",
+    issue:
+      "Is a provision for the liability to pay leave encashment to employees deductible, when the actual payment will fall due only in future years and its amount is not precisely known?",
+    held:
+      "Yes. A liability that has definitely arisen in the year is deductible even though it will be discharged in future and its quantification requires estimation. Only a contingent liability is excluded.",
+    facts:
+      "The assessee operated a leave scheme under which employees accumulated leave and were entitled to encash it, either during service or on retirement. In accordance with actuarial estimates it created a provision in its accounts for the liability accruing in respect of leave earned during the year, and claimed the provision as a deduction. The Revenue disallowed it, taking the view that no liability to pay had yet arisen, that the payment might never be made if an employee left in circumstances that forfeited the entitlement, and that the amount was in any event an estimate.",
+    proceduralHistory:
+      "The disallowance was confirmed through the appellate stages and by the High Court, which regarded the liability as contingent. The assessee appealed to the Supreme Court.",
+    contentions: {
+      assessee:
+        "The entitlement to encash leave arises as the leave is earned during the year of service; the employer's obligation is therefore present, though its discharge lies in the future. Difficulty in quantifying a liability does not make it contingent, and the estimate had been made on an actuarial basis.",
+      revenue:
+        "Whether any payment will be made, to whom and in what amount depends on future events — continued service, the manner of cessation, and the employee's choices. A liability of that character is contingent, and a provision for it is not an expenditure incurred.",
+    },
+    summary:
+      "The Court restated the distinction between an accrued liability and a contingent one. A liability is accrued where the obligation has definitely arisen in the year, even though it is to be discharged at a future date; it is contingent only where the very existence of the obligation depends on an event that may or may not happen. Applying that test, the Court held that the employer's obligation to pay leave encashment arises as and when the employee renders service and earns leave, because it is that service that creates the entitlement. The obligation is therefore present, and what lies in the future is only its discharge. The Court held that the need to estimate the amount does not convert an accrued liability into a contingent one: if the liability can be quantified with reasonable certainty, a provision made on a proper basis is deductible. It added that the possibility of some employees forfeiting the benefit affects the estimate rather than the existence of the liability, and can be built into the actuarial calculation.",
+    principles: [
+      "A liability definitely arising in the year is deductible even though discharge lies in the future.",
+      "A liability is contingent only where its very existence depends on an uncertain event.",
+      "Difficulty in quantification does not make an accrued liability contingent.",
+      "A provision quantified with reasonable certainty on a proper basis is allowable.",
+    ],
+    relevance:
+      "Applied under Section 34 of the IT Act 2025 and central to the treatment of provisions generally — leave encashment, warranty, and other estimated obligations. Note the important qualification: Parliament subsequently introduced a provision requiring leave encashment specifically to be allowed only on actual payment, so for that item the statutory rule now displaces the general principle. The reasoning continues to govern other provisions, as Rotork Controls illustrates.",
+    keywords: [
+      "provision",
+      "leave encashment",
+      "accrued liability",
+      "contingent liability",
+      "actuarial estimate",
+      "43B",
+      "quantification",
+    ],
+  },
+  {
+    slug: "rotork-controls-warranty",
+    caseName: "Rotork Controls India (P) Ltd v. CIT",
+    citation: "(2009) 314 ITR 62 (SC)",
+    court: "Supreme Court",
+    year: 2009,
+    category: "Business & Profession",
+    section1961: "Section 37(1)",
+    section2025: "Section 34",
+    sectionTopic:
+      "General conditions — revenue expenditure laid out wholly and exclusively for business",
+    issue:
+      "Is a provision for warranty obligations on goods sold during the year an allowable deduction, or a contingent liability disallowable until claims are actually made?",
+    held:
+      "Allowable, where it is based on a reliable estimate grounded in historical experience. A warranty provision meets the recognition tests for a liability; a provision made on an ad hoc or arbitrary basis does not.",
+    facts:
+      "The assessee manufactured valve actuators sold with a standard warranty under which defects arising within the warranty period would be remedied free of charge. Experience showed that a proportion of units sold would require attention. The assessee made a provision each year for the estimated cost of meeting warranty obligations on the goods sold in that year, computed by reference to its actual historical experience of defect rates and repair costs, and adjusted the provision as claims materialised or lapsed. The Revenue disallowed the provision as a contingent liability, since no claim had yet been made on any particular unit.",
+    proceduralHistory:
+      "The disallowance was upheld by the High Court. The assessee appealed to the Supreme Court, which examined the accounting recognition criteria for provisions and their application in tax.",
+    contentions: {
+      assessee:
+        "The obligation arises on the sale itself, because the warranty is part of the bargain and the price charged reflects it. Recognising the associated cost in the same year matches expense to revenue. The provision is not arbitrary: it is derived from actual defect experience and is trued up against outcomes.",
+      revenue:
+        "Until a customer makes a claim there is no liability to anyone in any amount. The provision is an estimate of something that may never occur in respect of any given unit, and a deduction cannot be granted for a liability that is contingent on a future event.",
+    },
+    summary:
+      "The Court adopted the recognition tests for a provision: there must be a present obligation arising from a past event, a probable outflow of resources to settle it, and a reliable estimate of the amount. Applying them, it held that the sale of a product carrying a warranty is the past event, and the obligation to rectify defects arises on that sale rather than when a customer complains. Where historical data establish that a proportion of units will require attention, an outflow is probable even though it cannot be attributed to identified units in advance. The Court held that a provision computed on that footing satisfies the third test and is deductible. It emphasised that the quality of the estimate is decisive: a provision built on a sensible basis, derived from actual experience of defect rates and costs and reversed or adjusted as outcomes become known, is allowable, whereas one made on an ad hoc percentage without historical support is not. It also noted that where excess provisions are reversed and offered to tax in later years, the revenue effect over time is neutral.",
+    principles: [
+      "A provision requires a present obligation from a past event, a probable outflow, and a reliable estimate.",
+      "The sale of goods under warranty is the past event creating the obligation.",
+      "Probability is assessed across the population of goods sold, not unit by unit.",
+      "A provision grounded in historical experience and trued up against outcomes is allowable; an ad hoc provision is not.",
+    ],
+    relevance:
+      "Applied under Section 34 of the IT Act 2025 and the leading authority on provisions for warranty, product support, service obligations and similar estimated liabilities. The practical lesson is evidential: the deduction turns on the documentation supporting the estimate, so defect history, the basis of computation and the reversal workings should be capable of production.",
+    keywords: [
+      "warranty provision",
+      "present obligation",
+      "reliable estimate",
+      "historical experience",
+      "contingent liability",
+      "matching",
+      "reversal",
+    ],
+  },
+  {
+    slug: "alom-extrusions-43b",
+    caseName: "CIT v. Alom Extrusions Ltd",
+    citation: "(2009) 319 ITR 306 (SC)",
+    court: "Supreme Court",
+    year: 2009,
+    category: "Business & Profession",
+    section1961: "Section 43B",
+    section2025: "Section 37",
+    sectionTopic: "Deductions allowed only on actual payment",
+    issue:
+      "Where the employer's contribution to provident fund is paid after the statutory due date but before the return is filed, is the deduction allowable — and does the amendment removing the earlier restriction operate retrospectively?",
+    held:
+      "Yes to both. The employer's contribution is deductible if paid by the return due date, and the amendment deleting the restrictive proviso is curative and applies retrospectively.",
+    facts:
+      "The assessee paid its own contributions to provident fund and similar welfare funds after the due dates prescribed under the relevant welfare legislation, but before the due date for filing its income tax return. Under the provision as originally enacted, a second proviso had required such contributions to be paid by the due date under the welfare statute, and only other categories of payment enjoyed the relaxation allowing payment up to the return due date. That second proviso was subsequently deleted, placing employer contributions on the same footing as other payments. The question was whether the deletion applied to earlier years.",
+    proceduralHistory:
+      "High Courts had divided on the retrospectivity of the deletion. The Supreme Court took up the question to settle the position.",
+    contentions: {
+      assessee:
+        "The deletion of the restrictive proviso removed an anomaly under which employers' welfare contributions were treated worse than taxes, duties and other statutory dues. An amendment that cures a defect and removes unintended hardship is curative in nature and should be read as operating from the inception of the provision.",
+      revenue:
+        "The amendment was expressed to take effect from a specified date, and a fiscal provision is presumed to operate prospectively. Applying it to earlier years would reopen concluded positions and confer a benefit Parliament did not extend to those years.",
+    },
+    summary:
+      "The Court examined the legislative history and the purpose of the provision, which was to ensure that statutory dues were actually paid rather than merely provided for, while allowing a reasonable window running to the filing of the return. It found that the original scheme created an unintended discrimination: employers who paid their welfare fund contributions shortly after the welfare statute's due date but well before filing lost the deduction permanently, whereas the same delay in paying taxes or duties was forgiven. The deletion of the second proviso removed that discrimination and brought employer contributions into line with other categories. The Court held that an amendment of this character is curative — it remedies an unintended consequence rather than conferring a new benefit — and that such amendments are to be read as operating retrospectively from the date the provision was introduced. It followed that the employer's contributions paid before the return due date were deductible in the earlier years as well.",
+    principles: [
+      "The purpose of the provision is to secure actual payment, with a window running to the return due date.",
+      "Employer contributions to welfare funds are deductible if paid by the return due date.",
+      "An amendment removing an unintended discrimination is curative in nature.",
+      "A curative amendment operates retrospectively from the inception of the provision it corrects.",
+    ],
+    relevance:
+      "Carried into Section 37 of the IT Act 2025, which retains the actual-payment rule. Read this case strictly alongside Checkmate Services: Alom Extrusions concerns the employer's own contribution and permits payment up to the return due date, while Checkmate holds that the employees' contribution is different in character and must reach the fund by the welfare statute's deadline. Conflating the two is the most common error in this area.",
+    keywords: [
+      "43B",
+      "employer contribution",
+      "provident fund",
+      "return due date",
+      "curative amendment",
+      "retrospective",
+      "second proviso",
+    ],
+  },
+  {
+    slug: "sa-builders-commercial-expediency",
+    caseName: "S.A. Builders Ltd v. CIT (Appeals)",
+    citation: "(2007) 288 ITR 1 (SC)",
+    court: "Supreme Court",
+    year: 2007,
+    category: "Business & Profession",
+    section1961: "Section 36(1)(iii)",
+    section2025: "Section 32",
+    sectionTopic: "Other specified deductions allowable — interest on borrowed capital",
+    issue:
+      "Where a company borrows at interest and advances funds interest-free to its subsidiary, is the interest on the borrowing deductible?",
+    held:
+      "Yes, if the advance was made as a measure of commercial expediency. The test is whether the funds were advanced for the assessee's own business purposes, not whether the assessee earned a direct return.",
+    facts:
+      "The assessee had borrowed money on which it paid interest, and in the same period advanced sums to its subsidiary company without charging interest. The Assessing Officer disallowed a proportion of the interest on the borrowings, reasoning that to the extent borrowed funds had been diverted to an interest-free advance, the interest could not be said to have been incurred for the purposes of the assessee's business. The assessee maintained that the subsidiary's operations were closely connected with its own and that supporting it served its business interests.",
+    proceduralHistory:
+      "The disallowance was sustained by the appellate authorities and the High Court, which considered that an interest-free advance could not be for the purposes of the lender's business. The assessee appealed to the Supreme Court.",
+    contentions: {
+      assessee:
+        "The expression 'for the purposes of business' is wider than earning income directly from the sum advanced. Assistance to a subsidiary whose activities support or complement the assessee's own business is a legitimate business purpose, and it is for the businessman to judge what his interests require.",
+      revenue:
+        "Interest is deductible where capital is borrowed for the purposes of business. Money lent on without charge produces nothing for the lender, so the borrowing to that extent cannot be said to serve the business, and the interest must be apportioned and disallowed.",
+    },
+    summary:
+      "The Court held that the correct question is not whether the assessee earned a return on the amount advanced, but whether the advance was made as a measure of commercial expediency — an expression covering expenditure a prudent businessman incurs for the purposes of the business, even though not under legal compulsion and even though no immediate return results. Where a holding company advances funds to a subsidiary for the subsidiary's business, and there is a nexus between that assistance and the holding company's own business interests, the interest on borrowings deployed for that purpose is deductible. The Court cautioned that the mere existence of a subsidiary relationship is not enough: the Revenue and the appellate authorities must examine whether the advance genuinely served the assessee's business, and an advance made for the personal benefit of directors or for purposes unconnected with the business would stand on a different footing. It remitted the matter for that enquiry to be made on the facts.",
+    principles: [
+      "Interest is deductible where borrowed capital is used for the purposes of the business.",
+      "'For the purposes of business' is wider than directly earning income from the sum advanced.",
+      "Commercial expediency covers what a prudent businessman does for the business, without legal compulsion or immediate return.",
+      "A nexus between the advance and the assessee's own business must be established on the facts.",
+      "An advance for personal benefit or unconnected purposes is not protected.",
+    ],
+    relevance:
+      "Applied under Section 32 of the IT Act 2025. The leading authority on interest-free advances within groups, and the standard answer to proportionate interest disallowances. It should be read with South Indian Bank, which supplies the complementary presumption that investments are made from own funds where those exceed the advances — together they cover most interest disallowance disputes.",
+    keywords: [
+      "interest on borrowed capital",
+      "commercial expediency",
+      "interest free advance",
+      "subsidiary",
+      "36(1)(iii)",
+      "nexus",
+      "proportionate disallowance",
+    ],
+  },
+  {
+    slug: "malayalam-plantations",
+    caseName: "CIT v. Malayalam Plantations Ltd",
+    citation: "(1964) 53 ITR 140 (SC)",
+    court: "Supreme Court",
+    year: 1964,
+    category: "Business & Profession",
+    section1961: "Section 37(1)",
+    section2025: "Section 34",
+    sectionTopic:
+      "General conditions — revenue expenditure laid out wholly and exclusively for business",
+    issue:
+      "How wide is the expression 'for the purpose of the business' — is it confined to expenditure incurred in earning profits?",
+    held:
+      "It is wider. The expression covers not merely the earning of profits but the many acts incidental to carrying on a business, including protecting and preserving it, provided the expenditure is not of a personal or capital character.",
+    facts:
+      "The assessee company, which carried on plantation business in India, paid estate duty arising on the death of non-resident shareholders in respect of shares they held in the company. Under the governing legislation the company was liable to pay that duty. It claimed the payment as a deduction in computing its business profits. The Revenue disallowed it on the footing that the liability arose from the death of shareholders and had nothing to do with earning the company's profits.",
+    proceduralHistory:
+      "The matter came before the Supreme Court, which took the opportunity to expound the scope of the phrase 'for the purpose of the business' in the general deduction provision.",
+    contentions: {
+      assessee:
+        "The company was under a statutory obligation to make the payment by reason of its own position, and discharging a liability imposed on it in its character as a company carrying on business is expenditure for the purposes of that business. The phrase is not limited to outlays that directly generate receipts.",
+      revenue:
+        "The duty was occasioned by the death of shareholders and related to their estates, not to the company's trading. An expenditure must have some connection with the earning of profits before it can be deducted in computing them.",
+    },
+    summary:
+      "The Court held that the expression 'for the purpose of the business' is wider in scope than the expression 'for the purpose of earning profits'. It comprehends many acts incidental to the carrying on of a business: the payment of statutory dues and taxes imposed as a precondition of trading, the protection and preservation of the assets and the business itself, the discharge of obligations imposed by law on the trader in that capacity, and expenditure incurred in the ordinary course by a prudent businessman for the advantage of the business. The Court cautioned that the range is not unlimited — the expenditure must be incurred in the assessee's capacity as a person carrying on the business, must not be personal, and must not be capital in nature. Applying that test, it examined whether the estate duty had been paid by the company in its character as a trader or in some other capacity, and held that a payment which the company was obliged to make by reason of the shareholding of deceased members did not satisfy the requirement. The principle it laid down, however, has proved far more significant than the outcome on the facts.",
+    principles: [
+      "'For the purpose of the business' is wider than 'for the purpose of earning profits'.",
+      "It covers acts incidental to carrying on the business, including protecting and preserving it.",
+      "Statutory obligations imposed on the trader in that capacity may qualify.",
+      "The expenditure must not be personal or capital in nature, and must arise in the trading capacity.",
+    ],
+    relevance:
+      "One of the foundational statements on the general deduction provision, now Section 34 of the IT Act 2025. It is cited wherever the Revenue argues that an expenditure has no direct link to revenue — litigation costs, regulatory penalties and settlements, business protection expenditure, and group support costs. Read with S.A. Builders on commercial expediency and Empire Jute on the capital–revenue divide, it forms the core framework for business deductions.",
+    keywords: [
+      "purpose of business",
+      "wholly and exclusively",
+      "incidental to business",
+      "protection of business",
+      "statutory liability",
+      "general deduction",
+    ],
+  },
+  {
+    slug: "godrej-boyce-14a",
+    caseName: "Godrej & Boyce Manufacturing Co Ltd v. DCIT",
+    citation: "(2017) 394 ITR 449 (SC)",
+    court: "Supreme Court",
+    year: 2017,
+    category: "Business & Profession",
+    section1961: "Section 14A",
+    section2025: "Section 14",
+    sectionTopic: "Heads of income; expenditure relating to exempt income",
+    issue:
+      "Does the disallowance for expenditure relating to exempt income apply to dividends on which the company has already paid distribution tax, and from when does the prescribed computation method operate?",
+    held:
+      "The disallowance applies, because the dividend is exempt in the shareholder's hands whatever tax the company has paid. The prescribed method operates prospectively, and before it the Assessing Officer must determine the disallowance on a reasonable basis.",
+    facts:
+      "The assessee received dividend income which was exempt in its hands, the distributing companies having paid dividend distribution tax. It contended that no disallowance of related expenditure should be made because the income had already borne tax at the company level, so it was not truly exempt in an economic sense. A second question concerned the years before the prescribed computation method was notified, and whether that method could be applied to them.",
+    proceduralHistory:
+      "The Bombay High Court decided the principal question against the assessee while holding the prescribed method to be prospective. The matter came before the Supreme Court on appeal.",
+    contentions: {
+      assessee:
+        "Dividend distribution tax is a charge on the same income, collected at the company's end for administrative convenience. To disallow expenditure on the footing that the dividend is exempt, when tax has in fact been paid on it, produces double taxation in substance. In any event the prescribed formula cannot be applied to years before it was brought into force.",
+      revenue:
+        "The statute exempts the dividend in the shareholder's hands, and the disallowance is triggered by that exemption. The incidence of distribution tax on the company is a separate charge on a different person and does not alter the character of the receipt in the recipient's hands.",
+    },
+    summary:
+      "The Court held that the disallowance turns on whether the income does not form part of the total income of the assessee, and dividend income falling within the exemption satisfies that test regardless of the distribution tax borne by the company. The charge on the distributing company is a distinct levy on a different taxable person; it does not convert an exempt receipt in the shareholder's hands into a taxable one, and the argument based on economic double taxation could not displace the statutory language. On the second question, the Court confirmed that the prescribed computation method operates prospectively from the date it was brought into force and cannot be applied to earlier years. For those earlier years the Assessing Officer must determine the amount of expenditure relatable to exempt income on a reasonable basis, having regard to the accounts, and must record reasons for rejecting the assessee's own computation before doing so. The Court reiterated that the disallowance cannot exceed what is genuinely relatable to the exempt income.",
+    principles: [
+      "The disallowance applies wherever the income does not form part of the assessee's total income.",
+      "Dividend distribution tax paid by the company does not make the dividend taxable in the shareholder's hands.",
+      "The prescribed computation method operates prospectively from its introduction.",
+      "For earlier years the disallowance must be determined on a reasonable basis with recorded reasons.",
+    ],
+    relevance:
+      "The disallowance now sits in Section 14 of the IT Act 2025. Note that the dividend regime has since changed fundamentally — dividends are taxable in the shareholder's hands rather than subjected to distribution tax — so the specific controversy is largely spent for current years. The case remains important for older assessments and for its insistence that any disallowance be confined to expenditure genuinely relatable to exempt income, read with Maxopp and South Indian Bank.",
+    keywords: [
+      "section 14A",
+      "dividend distribution tax",
+      "exempt income",
+      "Rule 8D prospective",
+      "reasonable basis",
+      "recorded reasons",
+      "double taxation",
+    ],
+  },
+
+  // ══════════════════════════════════════════════════════════════════════════
+  // TDS & TCS — further judgments
+  // ══════════════════════════════════════════════════════════════════════════
+  {
+    slug: "hindustan-coca-cola-beverage",
+    caseName: "Hindustan Coca Cola Beverage (P) Ltd v. CIT",
+    citation: "(2007) 293 ITR 226 (SC)",
+    court: "Supreme Court",
+    year: 2007,
+    category: "TDS & TCS",
+    section1961: "Sections 194-I & 201",
+    section2025: "Sections 393 & 399",
+    sectionTopic:
+      "TDS on specified payments; consequences of failure to deduct or pay",
+    issue:
+      "Where a payer fails to deduct tax at source but the recipient has already paid tax on that income, can the tax again be recovered from the payer?",
+    held:
+      "No. Once the recipient has discharged the tax on the income, the same tax cannot be collected a second time from the deductor. The deductor remains liable for interest for the period of default and for any penalty.",
+    facts:
+      "The assessee had made payments in respect of the use of warehousing facilities. It treated the arrangement as one for services and deducted tax at the lower rate applicable to contractual payments rather than the higher rate applicable to rent. The Assessing Officer held that the payments were rent, treated the assessee as an assessee in default for the shortfall, and raised a demand for the tax itself. The recipient had, however, already filed its return disclosing the receipts and had paid the tax due on them.",
+    proceduralHistory:
+      "The demand was upheld through the appellate stages. The assessee appealed to the Supreme Court, relying on a long-standing Board circular which directed that tax should not be recovered from the deductor where the recipient had paid it.",
+    contentions: {
+      assessee:
+        "The object of the withholding machinery is to collect tax on the recipient's income. Once that tax has been paid by the recipient, the objective is fulfilled, and recovering the same amount again from the payer would collect the tax twice on a single income. The Board had itself directed as much in a circular binding on the Revenue.",
+      revenue:
+        "The obligation to deduct is independent, and a person who fails to comply is by statute an assessee in default in respect of the tax not deducted. The recipient's conduct in paying its own tax does not discharge the payer's separate statutory obligation.",
+    },
+    summary:
+      "The Court accepted that the deductor's obligation is independent and that a failure to deduct attracts the consequences the statute prescribes, but held that the character of those consequences must be kept in view. The withholding machinery exists to collect, at source, tax that is ultimately due on the recipient's income. Where the recipient has filed a return and paid the tax on that very income, the sum has been collected and there is no further tax outstanding to be recovered. Permitting the Revenue to demand it again from the payer would result in the same tax being collected twice on one income, which the scheme does not contemplate. The Court relied on the Board's circular to the same effect, noting that such circulars bind the Revenue. It was careful, however, to confine the relief: the deductor is not absolved altogether. It remains liable to interest from the date the tax ought to have been deducted until the date the recipient paid, compensating the Revenue for the delay, and it remains exposed to penalty for the failure to deduct.",
+    principles: [
+      "The withholding machinery collects tax ultimately due on the recipient's income.",
+      "Where the recipient has paid the tax, the same tax cannot be recovered again from the deductor.",
+      "The deductor remains liable to interest for the period between the default and the recipient's payment.",
+      "Liability to penalty for failure to deduct is unaffected.",
+      "Board circulars directing this approach bind the Revenue.",
+    ],
+    relevance:
+      "Withholding is consolidated in Section 393 of the IT Act 2025, with the consequences of default in Section 399. This remains the primary defence to a demand for tax raised on a deductor, though it requires evidence that the recipient returned the income and paid the tax — typically a certificate from the payee's accountant, which the statute now contemplates in terms. Interest exposure survives, so the relief is partial.",
+    keywords: [
+      "assessee in default",
+      "short deduction",
+      "recipient paid tax",
+      "double recovery",
+      "interest liability",
+      "194-I",
+      "CBDT circular",
+    ],
+  },
+  {
+    slug: "eli-lilly-expatriate-salary",
+    caseName: "CIT v. Eli Lilly & Co (India) P Ltd",
+    citation: "(2009) 312 ITR 225 (SC)",
+    court: "Supreme Court",
+    year: 2009,
+    category: "TDS & TCS",
+    section1961: "Sections 192 & 201",
+    section2025: "Sections 392 & 399",
+    sectionTopic:
+      "TDS on salaries; consequences of failure to deduct or pay",
+    issue:
+      "Must an Indian entity deduct tax on salary paid abroad by a foreign parent to expatriates working in India, where no part of that salary is paid by the Indian entity itself?",
+    held:
+      "Yes, where the payment abroad is for services rendered in India. The withholding obligation attaches to the salary as a whole, not merely to the component routed through the Indian payroll.",
+    facts:
+      "The assessee was an Indian joint venture to which expatriate employees were seconded by the foreign participant. The expatriates worked wholly for the Indian entity and were paid partly in India, on which tax was duly deducted, and partly abroad by the foreign company in home currency. The Indian entity deducted tax only on the Indian component, taking the view that it could not be required to withhold on amounts it neither paid nor controlled. The Assessing Officer held it to be an assessee in default in respect of the home-country component and raised demands for tax and interest.",
+    proceduralHistory:
+      "The matter travelled through the appellate stages with differing outcomes and reached the Supreme Court, which considered both the extent of the obligation and the consequences where the expatriates had themselves paid tax.",
+    contentions: {
+      assessee:
+        "The obligation to deduct arises on payment of salary by the payer. The Indian entity made no payment of the home-country component; that was paid abroad by a different company out of its own funds. An obligation to withhold cannot attach to a payment the assessee neither makes nor is in a position to control.",
+      revenue:
+        "The expatriates rendered their services entirely in India for the Indian entity, and the salary in both its components was consideration for that work. Splitting the payment between two jurisdictions cannot reduce the withholding obligation, or the machinery would be defeated by simple structuring.",
+    },
+    summary:
+      "The Court held that the withholding obligation on salary attaches to the income chargeable under that head in the employee's hands, and where services are rendered in India the whole of the salary referable to those services is chargeable, wherever it is paid. The division of the remuneration between an Indian and an overseas component was an arrangement between the group companies and could not curtail the obligation, since the Indian entity was the economic employer for whose benefit the services were rendered. The Court rejected the contention that the obligation is confined to sums physically disbursed by the Indian entity, observing that such a reading would permit the machinery to be circumvented by routing part of the remuneration offshore. It went on to address the consequences. Applying the principle in Hindustan Coca Cola, it held that where the expatriates had filed returns and paid tax on the full salary, the tax could not be recovered a second time from the Indian entity, though interest for the period of default remained payable. On penalty, the Court held that a bona fide belief, in a field where the position had not been settled, could constitute reasonable cause.",
+    principles: [
+      "Withholding on salary attaches to the whole salary chargeable for services rendered in India, wherever paid.",
+      "Splitting remuneration across jurisdictions does not reduce the Indian entity's obligation.",
+      "The entity for whose benefit the services are rendered carries the obligation as economic employer.",
+      "Where employees have paid the tax, it cannot be recovered again from the deductor, but interest remains.",
+      "A bona fide belief on an unsettled question may constitute reasonable cause against penalty.",
+    ],
+    relevance:
+      "Salary withholding sits in Section 392 of the IT Act 2025, with default consequences in Section 399. The decision governs secondment and expatriate arrangements, which remain common in multinational groups, and is closely connected with the separate question whether a secondment creates a service permanent establishment or a taxable service fee — issues that are analysed together in practice.",
+    keywords: [
+      "expatriate salary",
+      "secondment",
+      "economic employer",
+      "home country payroll",
+      "section 192",
+      "assessee in default",
+      "reasonable cause",
+    ],
+  },
+  {
+    slug: "transmission-corporation-ap",
+    caseName: "Transmission Corporation of AP Ltd v. CIT",
+    citation: "(1999) 239 ITR 587 (SC)",
+    court: "Supreme Court",
+    year: 1999,
+    category: "TDS & TCS",
+    section1961: "Sections 195 & 195(2)",
+    section2025: "Section 393",
+    sectionTopic: "TDS on specified payments including non-resident remittances",
+    issue:
+      "Where a composite payment to a non-resident includes elements that are not chargeable to tax, must the payer withhold on the gross sum, or only on the taxable portion?",
+    held:
+      "Withholding attaches to the sum chargeable, and where a payment is composite the payer must apply to the Assessing Officer for a determination of the appropriate proportion rather than deciding unilaterally.",
+    facts:
+      "The assessee made payments to non-resident contractors under composite contracts which covered both the supply of equipment from outside India and services rendered within India. It took the view that a substantial part of the consideration related to offshore supply and was not chargeable in India, and deducted tax only on a portion. It did not apply to the Assessing Officer for a determination of the proportion on which tax should be withheld. The Revenue held the assessee in default in respect of the balance.",
+    proceduralHistory:
+      "The matter came before the Supreme Court, which examined the interaction between the general withholding obligation and the machinery permitting a payer to obtain a determination of the proportion chargeable.",
+    contentions: {
+      assessee:
+        "The obligation extends only to sums chargeable to tax. Where a payment is plainly composite and part of it represents consideration for something not taxable in India, requiring deduction on the gross amount would collect tax on a receipt outside the charge.",
+      revenue:
+        "The statute provides a specific mechanism for precisely this situation: a payer who considers that only a proportion is chargeable may apply for a determination. A payer who bypasses that mechanism and makes its own apportionment does so at its own risk and cannot complain of being held in default.",
+    },
+    summary:
+      "The Court confirmed that the withholding obligation is confined to sums chargeable to tax, but held that where the payment is composite and the chargeable proportion is not self-evident, the payer is not at liberty to determine that proportion for itself and withhold accordingly. The statute supplies a mechanism for the purpose, permitting the payer to apply to the Assessing Officer for a determination of the appropriate proportion, and that mechanism exists because the payer is not the appropriate authority to adjudicate the extent of a non-resident's Indian tax liability. The Court held that a payer who makes its own apportionment without obtaining a determination assumes the risk that the apportionment will be found wrong, and may be treated as in default to the extent of the shortfall. It emphasised that the decision does not require withholding on sums that are not chargeable at all; the obligation remains tied to chargeability, and the determination procedure is the route by which a disputed apportionment is resolved.",
+    principles: [
+      "The withholding obligation extends only to sums chargeable to tax.",
+      "Where a payment is composite, the payer should apply for a determination of the chargeable proportion.",
+      "A payer making its own apportionment without a determination assumes the risk of being held in default.",
+      "The payer is not the appropriate authority to adjudicate a non-resident's tax liability.",
+    ],
+    relevance:
+      "Withholding is consolidated in Section 393 of the IT Act 2025. Read this case with GE India Technology, which clarified that where the payer's view is that no part of the sum is chargeable, no deduction is required and an application is optional rather than mandatory. Transmission Corporation governs the different situation of a composite payment with a disputed taxable proportion, where obtaining a determination is the prudent course.",
+    keywords: [
+      "composite payment",
+      "offshore supply",
+      "chargeable proportion",
+      "section 195(2)",
+      "determination",
+      "non-resident contractor",
+      "apportionment",
+    ],
+  },
+  {
+    slug: "japan-airlines-landing-charges",
+    caseName: "CIT v. Japan Airlines Co Ltd",
+    citation: "(2015) 377 ITR 372 (SC)",
+    court: "Supreme Court",
+    year: 2015,
+    category: "TDS & TCS",
+    section1961: "Section 194-I",
+    section2025: "Section 393",
+    sectionTopic: "TDS on specified payments — rent",
+    issue:
+      "Are landing and parking charges paid by airlines to the airports authority 'rent' attracting withholding at the rate applicable to rent, or fees for a composite package of services?",
+    held:
+      "They are rent. The definition of rent in the withholding provision is very wide and covers any payment for the use of land, whatever the arrangement is called and whether or not the payee owns the property.",
+    facts:
+      "The appellant airlines paid landing and parking charges to the Airports Authority of India in respect of their aircraft. They deducted tax at the lower rate applicable to payments to contractors, on the footing that the charges were for a bundle of services — provision of runway lighting, navigational aids, ground safety, air traffic services and technical support — rather than for the use of land as such. The Revenue took the view that the charges were rent for the use of the runway and parking areas and that tax ought to have been withheld at the higher rate applicable to rent.",
+    proceduralHistory:
+      "High Courts had reached opposing conclusions, the Delhi High Court treating the charges as rent and the Madras High Court taking the contrary view. The Supreme Court resolved the conflict.",
+    contentions: {
+      assessee:
+        "What the airline pays for is a comprehensive package enabling safe landing and take-off, of which the physical use of the tarmac is only one element. The charges are calculated by reference to aircraft weight rather than area or duration of occupation, which shows that the payment is for services and not for occupying land.",
+      revenue:
+        "The expression rent is defined in the provision in the widest terms, extending to any payment under any arrangement for the use of land or a building. An aircraft landing on and parking on the runway and apron is using land, and the label attached to the charge is immaterial.",
+    },
+    summary:
+      "The Court examined the definition of rent in the withholding provision and held it to be markedly wider than the ordinary or general law meaning of the term. The definition extends to any payment, by whatever name called, under any lease, tenancy or any other agreement or arrangement, for the use of land or a building. The Court held that each element of that definition was satisfied: the aircraft physically use the runway to land and take off, and the apron to park, so there is use of land; the payment is made under an arrangement with the authority; and the wide words 'by whatever name called' prevent the characterisation adopted by the parties from governing. It rejected the argument that the services bundled with the facility take the payment outside the definition, holding that the provision of ancillary services alongside the use of land does not convert a payment for that use into something else. The basis on which the charge is computed, whether by weight or by area, was held to be a matter of pricing mechanics and not determinative of character.",
+    principles: [
+      "The statutory definition of rent for withholding purposes is far wider than its general law meaning.",
+      "It extends to any payment under any arrangement for the use of land or a building.",
+      "The words 'by whatever name called' prevent the parties' characterisation from governing.",
+      "Ancillary services provided alongside the use of land do not alter the character of the payment.",
+      "The basis of computing the charge is a pricing matter and not determinative.",
+    ],
+    relevance:
+      "Withholding provisions are consolidated in Section 393 of the IT Act 2025 and the wide definition of rent carries forward. The decision governs payments for the use of infrastructure and facilities generally — port and terminal charges, warehousing, shared premises, data centre and co-location fees — wherever a payment for the use of land is presented as a service fee.",
+    keywords: [
+      "rent",
+      "landing charges",
+      "parking charges",
+      "194-I",
+      "use of land",
+      "by whatever name called",
+      "composite services",
+    ],
+  },
+  {
+    slug: "bharti-cellular-human-intervention",
+    caseName: "CIT v. Bharti Cellular Ltd",
+    citation: "(2011) 330 ITR 239 (SC)",
+    court: "Supreme Court",
+    year: 2011,
+    category: "TDS & TCS",
+    section1961: "Sections 194J & 9(1)(vii)",
+    section2025: "Sections 393 & 9",
+    sectionTopic:
+      "TDS on specified payments — professional or technical services; income deemed to accrue in India",
+    issue:
+      "Do interconnect and port access charges paid for the use of another operator's network constitute fees for technical services, requiring withholding at the rate applicable to such fees?",
+    held:
+      "Technical services connote a human element. Where a facility operates automatically without human intervention, the payment is for the use of a facility rather than for technical services — but the question requires expert evidence on the facts.",
+    facts:
+      "The assessee, a cellular operator, paid interconnect usage and port access charges to another operator for routing calls across its network. Tax was not deducted at the rate applicable to fees for technical services, on the basis that the interconnection was effected by automated switching equipment without any human involvement. The Revenue held that the charges were for technical services, given the sophisticated technology involved in establishing and maintaining the connection, and raised demands.",
+    proceduralHistory:
+      "The Delhi High Court held that the services were rendered without human intervention and therefore fell outside the definition. The Revenue appealed to the Supreme Court, which agreed with the legal test but found the factual foundation inadequate.",
+    contentions: {
+      assessee:
+        "Once interconnection is established, calls are routed automatically by switching equipment. No person applies technical skill to any individual call. The expression technical services, read with the words that accompany it in the definition, connotes services involving a human element rather than the automatic functioning of machinery.",
+      revenue:
+        "The network is highly technical and its design, installation and continuous monitoring require substantial expertise. A service does not cease to be technical because the equipment operates automatically once configured, and the charges are consideration for access to that technical capability.",
+    },
+    summary:
+      "The Court accepted the legal test that had been applied below, namely that technical services within the definition connote services involving a human element, applying the principle that words take colour from those with which they are associated — the term appearing alongside managerial and consultancy services, both of which necessarily involve human agency. A facility that functions automatically, without a person applying skill to the particular transaction, is therefore not the rendering of technical services, and payment for its use is not a fee for such services. The Court held, however, that whether human intervention is in fact involved in interconnection and port access is a technical question that cannot be answered by assumption. It criticised the absence of any expert evidence on the point in the proceedings below and observed that neither the Revenue nor the Tribunal had examined a technical witness on how the interconnection actually operates and what human involvement, if any, it entails. It accordingly set aside the orders and remitted the matter, directing that technical evidence be obtained before the question is decided.",
+    principles: [
+      "Technical services within the definition connote a human element.",
+      "The term takes colour from managerial and consultancy services, which necessarily involve human agency.",
+      "Payment for a facility that operates automatically is not a fee for technical services.",
+      "Whether human intervention exists is a technical question requiring expert evidence, not assumption.",
+    ],
+    relevance:
+      "The human intervention test continues to govern the characterisation of automated services under Sections 9 and 393 of the IT Act 2025, and is central to disputes over cloud computing, data processing, software as a service, payment gateways and platform fees. The Court's insistence on expert evidence is as important as the test itself: in practice these disputes turn on the technical record assembled at the assessment stage.",
+    keywords: [
+      "fees for technical services",
+      "human intervention",
+      "interconnect charges",
+      "194J",
+      "automated services",
+      "noscitur a sociis",
+      "expert evidence",
+    ],
+  },
+
+  // ══════════════════════════════════════════════════════════════════════════
+  // TRANSFER PRICING — further judgments
+  // ══════════════════════════════════════════════════════════════════════════
+  {
+    slug: "cotton-naturals-currency",
+    caseName: "CIT v. Cotton Naturals (I) Pvt Ltd",
+    citation: "(2015) 276 CTR 445 (Del)",
+    court: "Delhi High Court",
+    year: 2015,
+    category: "Transfer Pricing",
+    section1961: "Sections 92B & 92C",
+    section2025: "Sections 163 & 165",
+    sectionTopic:
+      "Meaning of international transaction; determination of arm's length price",
+    issue:
+      "Which currency determines the arm's length interest rate on a loan to an overseas associated enterprise — the lender's home currency or the currency in which the loan is denominated and repayable?",
+    held:
+      "The currency in which the loan is denominated and repayable. The interest rate applicable to that currency in the borrower's market governs, and the lender's domestic rates are irrelevant.",
+    facts:
+      "The assessee advanced a loan in foreign currency to its wholly owned subsidiary abroad, charging interest at a rate reflecting conditions in the currency and market concerned. The Transfer Pricing Officer substituted a rate derived from Indian lending conditions, reasoning that the funds originated in India and that the appropriate comparison was with what the assessee could have obtained by lending domestically. A substantial adjustment followed.",
+    proceduralHistory:
+      "The Tribunal held in favour of the assessee on the choice of benchmark. The Revenue appealed to the Delhi High Court, which delivered a detailed judgment on the principles governing the pricing of cross-border intra-group loans.",
+    contentions: {
+      assessee:
+        "Interest compensates the lender for the use of money in a particular currency over a period, and different currencies carry different rates because they carry different inflation and monetary conditions. A loan denominated and repayable in foreign currency must be compared with foreign currency lending; the rupee rate reflects an entirely different economic environment.",
+      revenue:
+        "The lender is an Indian enterprise that has deployed Indian funds abroad. The arm's length exercise should measure what those funds would have earned had they been lent in India, and the domestic rate supplies that measure.",
+    },
+    summary:
+      "The Court held that the currency in which the loan is to be repaid is the determining factor in fixing the applicable interest rate. It reasoned that interest rates are not universal but are specific to currencies, reflecting the inflation, monetary policy and credit conditions attaching to each. A loan advanced and repayable in a foreign currency therefore has to be benchmarked against the rates at which comparable foreign currency loans are made in the relevant market, and the domestic prime lending rate has no application. The Court rejected the opportunity cost approach, holding that the transfer pricing exercise asks what price the transaction itself would have commanded between independent parties, not what the taxpayer might have earned from an alternative deployment of its funds. It went on to identify the factors relevant to comparability in such lending — the currency, the tenor, the credit rating of the borrower, the security offered and the prevailing conditions in the borrower's market — and held that an appropriate benchmark rate in that currency, suitably adjusted for risk, is the correct starting point.",
+    principles: [
+      "The currency in which the loan is denominated and repayable determines the applicable interest rate.",
+      "Interest rates are currency-specific, reflecting the monetary conditions attaching to each currency.",
+      "The domestic prime lending rate is irrelevant to pricing a foreign currency loan abroad.",
+      "The arm's length enquiry concerns the price of the transaction, not the taxpayer's forgone alternatives.",
+      "Comparability turns on currency, tenor, credit rating, security and market conditions.",
+    ],
+    relevance:
+      "Read with Tata Autocomp, this settles the approach to outbound intra-group lending under Sections 163 and 165 of the IT Act 2025. The detailed comparability factors it identifies are used in practice to construct the benchmark, and the analysis extends to guarantee fees and other cross-border financing. The specific reference rates have moved on with the replacement of LIBOR, but the currency principle is unaffected.",
+    keywords: [
+      "interest benchmarking",
+      "currency of loan",
+      "outbound lending",
+      "credit rating",
+      "opportunity cost",
+      "comparability factors",
+      "LIBOR",
+    ],
+  },
+  {
+    slug: "cushman-wakefield-tpo-role",
+    caseName: "CIT v. Cushman and Wakefield (India) Pvt Ltd",
+    citation: "(2014) 367 ITR 730 (Del)",
+    court: "Delhi High Court",
+    year: 2014,
+    category: "Transfer Pricing",
+    section1961: "Sections 37(1), 92C & 92CA",
+    section2025: "Sections 34, 165 & 166",
+    sectionTopic:
+      "General conditions for revenue expenditure; determination of arm's length price; reference to the Transfer Pricing Officer",
+    issue:
+      "May the Transfer Pricing Officer determine the arm's length price of intra-group services at nil on the ground that no benefit was received, and does that determination dispose of the deductibility of the payment?",
+    held:
+      "No to both. The officer's role is to price the transaction, not to decide whether the expenditure should be allowed. Deductibility is for the Assessing Officer to determine separately under the ordinary provisions.",
+    facts:
+      "The assessee reimbursed its overseas group companies for the cost of regional and global support services — including management, marketing and administrative support — on a cost allocation basis. The Transfer Pricing Officer took the view that the assessee had not demonstrated any tangible benefit from the services, determined the arm's length price at nil, and the entire payment was disallowed in consequence. The assessee contended that the officer had confused two distinct enquiries: what the services should have cost, and whether the expenditure was allowable.",
+    proceduralHistory:
+      "The matter came before the Delhi High Court from the Tribunal, and the Court took the opportunity to delineate the respective functions of the Transfer Pricing Officer and the Assessing Officer.",
+    contentions: {
+      assessee:
+        "The transfer pricing provisions supply machinery for determining whether the price charged between associated enterprises is at arm's length. Whether an expenditure was incurred for the purposes of the business and is therefore deductible is a separate question arising under the ordinary deduction provisions, on which the Assessing Officer must apply his own mind.",
+      revenue:
+        "If no benefit was derived, an independent enterprise would not have paid anything for the services, so nil is the correct arm's length price. Determining the price at nil disposes of the matter and no separate enquiry into deductibility is required.",
+    },
+    summary:
+      "The Court held that the two enquiries are distinct and must not be collapsed into one. The Transfer Pricing Officer's mandate is to determine the arm's length price of an international transaction by applying the prescribed methods; it is not to assess whether the expenditure satisfies the conditions for deduction. Conversely, the Assessing Officer retains the jurisdiction to examine whether a payment was laid out wholly and exclusively for the purposes of the business, and that examination is not concluded by the transfer pricing determination. The Court held that a finding of nil arm's length price founded solely on the absence of demonstrable benefit is in substance a disallowance dressed up as a pricing exercise, and is beyond the officer's function. It accepted that the benefit question is not wholly irrelevant — evidence that services were actually rendered bears on comparability and on the pricing analysis — but held that it cannot be used to determine the price at nil without a proper application of the prescribed methods. The Court also observed that cost allocation without mark-up may itself be an arm's length outcome where the services are of a shareholder or stewardship character.",
+    principles: [
+      "Determining the arm's length price and determining deductibility are distinct enquiries.",
+      "The Transfer Pricing Officer prices the transaction; the Assessing Officer decides allowability.",
+      "A nil price founded solely on absence of benefit is a disallowance beyond the officer's function.",
+      "Evidence that services were rendered bears on comparability but cannot substitute for the prescribed methods.",
+      "Cost allocation without mark-up may be an arm's length outcome for stewardship services.",
+    ],
+    relevance:
+      "Applied under Sections 165 and 166 of the IT Act 2025 for pricing, and Section 34 for deductibility. Together with EKL Appliances it forms the principal defence to nil adjustments on intra-group service and management fee arrangements, which remain among the most frequently litigated transfer pricing issues. The separation of functions it insists on also affects procedure, since each determination must be challenged on its own footing.",
+    keywords: [
+      "intra-group services",
+      "management fee",
+      "nil ALP",
+      "benefit test",
+      "TPO jurisdiction",
+      "cost allocation",
+      "stewardship",
+    ],
+  },
+
+  // ══════════════════════════════════════════════════════════════════════════
+  // INTERNATIONAL TAXATION — further judgments
+  // ══════════════════════════════════════════════════════════════════════════
+  {
+    slug: "ishikawajima-harima",
+    caseName: "Ishikawajima-Harima Heavy Industries Ltd v. DIT",
+    citation: "(2007) 288 ITR 408 (SC)",
+    court: "Supreme Court",
+    year: 2007,
+    category: "International Tax",
+    section1961: "Sections 9(1)(vii) & 5",
+    section2025: "Sections 9 & 5",
+    sectionTopic:
+      "Income deemed to accrue or arise in India; scope of total income",
+    issue:
+      "In a turnkey contract split between offshore supply, offshore services and onshore work, is the consideration for the offshore elements taxable in India?",
+    held:
+      "No. Territorial nexus is essential. Offshore supply where title passes outside India, and services rendered wholly outside India, are not chargeable merely because the project is located in India or the payment is made by an Indian party.",
+    facts:
+      "A Japanese company, as part of a consortium, contracted with an Indian company to build a liquefied natural gas facility. The contract was a turnkey arrangement covering offshore supply of equipment, offshore services such as design and engineering performed in Japan, and onshore supply, services, construction and commissioning in India. The price was allocated between these components. Title to the offshore equipment passed outside India and payment for it was received abroad. The Revenue sought to tax the consideration attributable to the offshore supply and offshore services, on the footing that the contract was a composite whole to be performed in India.",
+    proceduralHistory:
+      "The Authority for Advance Rulings decided substantially against the taxpayer, treating the contract as indivisible. The matter came before the Supreme Court, which examined the divisibility of the contract and the nexus required before income may be deemed to arise in India.",
+    contentions: {
+      assessee:
+        "The contract itself apportioned the price among distinct components. Property in the offshore equipment passed outside India, and the design and engineering services were performed entirely in Japan. Neither the location of the project nor the residence of the payer supplies a territorial connection sufficient to bring offshore activity within the Indian charge.",
+      revenue:
+        "The contract was a single turnkey obligation to deliver a working facility in India, and it cannot be dismembered for tax purposes. The entire consideration relates to a project in India, and the services were utilised in India even if performed abroad.",
+    },
+    summary:
+      "The Court held that the contract, having itself allocated consideration among identifiable components, was divisible and could be examined component by component. On offshore supply, it held that where property in the goods passes outside India and payment is received abroad, the transaction is completed outside India and the resulting income does not accrue here; the fact that the equipment is destined for an Indian site does not create a taxable nexus. On offshore services, the Court held that for fees for technical services to be taxable there must be sufficient territorial nexus, and that the services must be both rendered in India and utilised in India. Services performed wholly abroad therefore fell outside the charge, notwithstanding that their benefit was enjoyed in India. The Court emphasised that a deeming provision must be construed strictly and cannot be extended to create a charge on income lacking any real connection with India, and that the principle of territorial nexus underlies the scheme. It accordingly held the offshore supply and offshore service consideration not chargeable.",
+    principles: [
+      "A turnkey contract that apportions consideration among components may be examined component by component.",
+      "Offshore supply where title passes and payment is received abroad does not give rise to Indian income.",
+      "Sufficient territorial nexus is required before income may be deemed to arise in India.",
+      "A deeming provision is construed strictly and cannot reach income lacking real connection with India.",
+      "The location of the project and the residence of the payer do not by themselves create nexus.",
+    ],
+    relevance:
+      "Foundational for cross-border EPC and turnkey contracts under Section 9 of the IT Act 2025. Its holding on the rendered-and-utilised requirement for technical service fees was subsequently displaced by an amendment providing that such income is taxable whether or not the services are rendered in India, so that limb must be checked against the current provision and against any applicable treaty. The reasoning on divisibility and on offshore supply remains good and is applied routinely, and should be read with Samsung Heavy Industries on attribution.",
+    keywords: [
+      "offshore supply",
+      "offshore services",
+      "territorial nexus",
+      "turnkey contract",
+      "EPC",
+      "divisible contract",
+      "fees for technical services",
+    ],
+  },
+  {
+    slug: "morgan-stanley-service-pe",
+    caseName: "DIT v. Morgan Stanley & Co Inc",
+    citation: "(2007) 292 ITR 416 (SC)",
+    court: "Supreme Court",
+    year: 2007,
+    category: "International Tax",
+    section1961: "Sections 9 & 90",
+    section2025: "Sections 9 & 159",
+    sectionTopic:
+      "Income deemed to accrue or arise in India; double taxation relief",
+    issue:
+      "Does a captive back-office subsidiary create a permanent establishment of its foreign parent, and if so, what further profits may be attributed once the subsidiary is remunerated at arm's length?",
+    held:
+      "Outsourcing to a captive performing support functions does not create a fixed place or agency permanent establishment, though deputation of the parent's employees can create a service permanent establishment. Where the captive is remunerated at arm's length, nothing further is attributable.",
+    facts:
+      "A United States investment bank outsourced certain back-office and support functions — data processing, research support and account reconciliation — to its Indian group company, which was remunerated on a cost-plus basis. The US entity also deputed some of its own personnel to India as stewards to protect its interests and monitor quality, and seconded others who worked under the Indian company's control. The question arose whether these arrangements created a permanent establishment in India and, if so, what profits were attributable to it.",
+    proceduralHistory:
+      "The matter came to the Supreme Court from the Authority for Advance Rulings, and was decided together with issues concerning the attribution of profits where transfer pricing had already been applied.",
+    contentions: {
+      assessee:
+        "The Indian company performs its own business of providing support services and is separately compensated at arm's length. The US entity has no place at its disposal and conducts no business of its own through the Indian premises. Stewardship activity undertaken to protect its own interest as a customer does not amount to carrying on business in India.",
+      revenue:
+        "The Indian entity works exclusively for the group, using its systems and performing functions integral to the parent's business, and the presence of the parent's personnel in India reinforces the connection. A permanent establishment exists and a share of the global profits attributable to the Indian operations should be taxed.",
+    },
+    summary:
+      "The Court addressed the three limbs separately. On fixed place, it held that the Indian company carried on its own business of rendering outsourced services and the US entity had no premises at its disposal through which it conducted business, so no fixed place permanent establishment arose from the outsourcing itself. On agency, it held that the Indian company had no authority to conclude contracts binding the parent and did not habitually do so. On service permanent establishment, the Court drew an important distinction: employees deputed purely as stewards, to protect the parent's interest in the quality of work done for it, do not render services to the Indian entity and do not create a permanent establishment; but employees seconded to work under the Indian entity's control, contributing to its operations, can constitute a service permanent establishment because the parent is thereby furnishing services in India through personnel. On attribution, the Court held that where the associated enterprise has been remunerated at an arm's length price that properly reflects the functions performed, assets used and risks assumed, the transfer pricing analysis exhausts the profits attributable to the permanent establishment and nothing further falls to be taxed.",
+    principles: [
+      "Outsourcing to a captive subsidiary does not by itself create a fixed place permanent establishment.",
+      "Stewardship activity to protect the parent's own interest does not create a permanent establishment.",
+      "Deputation of employees working under the Indian entity's control can create a service permanent establishment.",
+      "Where the associated enterprise is remunerated at arm's length reflecting functions, assets and risks, no further profits are attributable.",
+    ],
+    relevance:
+      "Central to India's outsourcing and global capability centre model under Sections 9 and 159 of the IT Act 2025. The attribution holding is the more valuable half in practice: it means a robust transfer pricing position operates as a defence on attribution even where a permanent establishment is found. Read with E-Funds on existence and Samsung Heavy Industries on the burden of proof.",
+    keywords: [
+      "service PE",
+      "stewardship",
+      "deputation",
+      "secondment",
+      "captive subsidiary",
+      "attribution of profits",
+      "arm's length remuneration",
+    ],
+  },
+  {
+    slug: "gvk-industries-nexus",
+    caseName: "GVK Industries Ltd v. ITO",
+    citation: "(2011) 332 ITR 130 (SC)",
+    court: "Supreme Court",
+    year: 2011,
+    category: "International Tax",
+    section1961: "Section 9(1)(vii)",
+    section2025: "Section 9",
+    sectionTopic: "Income deemed to accrue or arise in India",
+    issue:
+      "Can Parliament tax income of a non-resident arising from services rendered entirely outside India, and does a success fee for arranging foreign finance fall within the charge?",
+    held:
+      "Parliament may legislate in respect of extra-territorial acts provided there is a real connection with India. A success fee for advisory services used in an Indian project has such a connection and is taxable as fees for technical services.",
+    facts:
+      "The assessee, an Indian company setting up a power project, engaged a non-resident financial adviser to assist in structuring and arranging the finance required for the project, including loans from foreign lenders. The adviser worked from outside India, and on successful completion of the financing the assessee paid it a success fee. The assessee applied for a no-deduction certificate, contending that the adviser had rendered no services in India and that the payment was not chargeable. The Revenue held the fee to be fees for technical services deemed to arise in India.",
+    proceduralHistory:
+      "The High Court decided against the assessee. On appeal, a Constitution Bench of the Supreme Court first addressed the question of legislative competence to tax extra-territorial acts, and a subsequent Bench then applied that framework to the facts.",
+    contentions: {
+      assessee:
+        "The adviser had no presence in India and performed all its work abroad. Taxing income arising from acts performed wholly outside the country exceeds Parliament's competence, which is confined to the territory of India, and in any event the services were not utilised in a business carried on outside India so as to fall within the charge.",
+      revenue:
+        "The advisory services were commissioned by an Indian company, related to a project situated in India, were used to raise finance deployed in India, and were paid for out of Indian resources. The connection with India is substantial, and the deeming provision applies to fees for services utilised in a business carried on in India.",
+    },
+    summary:
+      "The Constitution Bench held that Parliament is not disabled from legislating in respect of extra-territorial aspects or causes, provided those aspects or causes have a real and not illusory connection with India and are expected to have an impact on or effect in the country. Purely extra-territorial legislation lacking any nexus with India would be beyond competence, but a provision that reaches foreign acts having a genuine Indian connection is valid. Applying that framework, the Court examined the character of the success fee. The adviser had been engaged by an Indian company for the specific purpose of arranging finance for a project to be established in India, and its advice was used in a business carried on in India. The consideration was therefore for services utilised in India in the relevant sense, and the fee answered the description of fees for technical services within the deeming provision. The Court distinguished payments made for earning income from a source outside India, which the provision expressly excludes. The success fee was accordingly held chargeable and subject to withholding.",
+    principles: [
+      "Parliament may legislate for extra-territorial aspects having a real, not illusory, connection with India.",
+      "Legislation lacking any nexus with India would exceed legislative competence.",
+      "Fees for services utilised in a business carried on in India fall within the deeming provision.",
+      "Payments for earning income from a source outside India are excluded by the provision itself.",
+    ],
+    relevance:
+      "The constitutional foundation for India's deeming provisions, now in Section 9 of the IT Act 2025, and the authority relied on whenever the reach of those provisions over foreign activity is challenged. It applies directly to advisory, arranging and structuring fees paid to non-residents, and should be read with Ishikawajima-Harima and the subsequent amendment concerning services rendered outside India, as well as any applicable treaty definition.",
+    keywords: [
+      "success fee",
+      "fees for technical services",
+      "extra-territorial operation",
+      "real connection",
+      "legislative competence",
+      "9(1)(vii)",
+      "source rule",
+    ],
+  },
+  {
+    slug: "hyundai-heavy-industries",
+    caseName: "CIT v. Hyundai Heavy Industries Co Ltd",
+    citation: "(2007) 291 ITR 482 (SC)",
+    court: "Supreme Court",
+    year: 2007,
+    category: "International Tax",
+    section1961: "Sections 9 & 90",
+    section2025: "Sections 9 & 159",
+    sectionTopic:
+      "Income deemed to accrue or arise in India; double taxation relief",
+    issue:
+      "Where an installation permanent establishment comes into existence only when erection work begins in India, can profits from the earlier offshore fabrication and supply be attributed to it?",
+    held:
+      "No. A permanent establishment cannot be attributed profits from activities completed before it came into existence. Only the income arising from the Indian installation activity is taxable, computed as though the permanent establishment were a distinct enterprise.",
+    facts:
+      "A Korean company contracted to fabricate and install an offshore platform for an Indian oil company. The fabrication was carried out entirely in Korea and the completed structure was delivered to the Indian company, with title passing outside India. Thereafter the Korean company carried out installation and commissioning at the Indian site, for which it established a presence in India that constituted an installation permanent establishment under the treaty. The Revenue attributed a share of the profits on the entire contract, including the offshore fabrication and supply, to the Indian permanent establishment.",
+    proceduralHistory:
+      "The matter proceeded through the appellate stages to the High Court and came before the Supreme Court, which addressed the point in time at which such a permanent establishment comes into existence and the consequences for attribution.",
+    contentions: {
+      assessee:
+        "The permanent establishment came into existence only when the installation activity began in India. The fabrication had by then been completed abroad and title to the platform had already passed outside India. Profits earned before the permanent establishment existed cannot be attributed to it, since it played no part in earning them.",
+      revenue:
+        "The contract was a single obligation to deliver an installed platform, and the profit on it should be apportioned to the Indian operations. The fabrication was undertaken for the purpose of the Indian project and its profit is properly connected with the Indian presence.",
+    },
+    summary:
+      "The Court held that an installation permanent establishment comes into being only when the installation activity commences in India, and that profits cannot be attributed to it in respect of a period before it existed. It emphasised that the attribution exercise proceeds on the hypothesis that the permanent establishment is a distinct and separate enterprise dealing independently with the head office: on that footing, one asks what profits the Indian establishment would have earned for the functions it performed. The offshore fabrication had been carried out by the head office in Korea and completed before the Indian activity began, with title passing outside India; the Indian establishment contributed nothing to it and would have earned nothing from it as an independent enterprise. Only the installation and commissioning carried out in India fell to be attributed, and the profit on that activity was to be computed by reference to the functions performed, assets used and risks assumed in India. The Court rejected a global apportionment of contract profits as inconsistent with the separate enterprise hypothesis.",
+    principles: [
+      "An installation permanent establishment comes into existence when installation activity begins in India.",
+      "No profits may be attributed to a permanent establishment for a period before it existed.",
+      "Attribution proceeds on the hypothesis of a distinct and separate enterprise dealing independently with the head office.",
+      "Global apportionment of contract profits is inconsistent with the separate enterprise hypothesis.",
+    ],
+    relevance:
+      "Governs the taxation of composite offshore and onshore contracts under Sections 9 and 159 of the IT Act 2025, alongside Ishikawajima-Harima on divisibility and Samsung Heavy Industries on the burden of establishing a permanent establishment and the impermissibility of ad hoc attribution. The temporal point — that the permanent establishment must exist before profits can be attributed to it — is distinctive to this case.",
+    keywords: [
+      "installation PE",
+      "offshore fabrication",
+      "attribution of profits",
+      "separate enterprise hypothesis",
+      "turnkey contract",
+      "period of existence",
+    ],
+  },
+  {
+    slug: "ap-moller-maersk-reimbursement",
+    caseName: "DIT v. A.P. Moller Maersk A/S",
+    citation: "(2017) 392 ITR 186 (SC)",
+    court: "Supreme Court",
+    year: 2017,
+    category: "International Tax",
+    section1961: "Sections 9(1)(vi), 9(1)(vii) & 90",
+    section2025: "Sections 9 & 159",
+    sectionTopic:
+      "Income deemed to accrue or arise in India; double taxation relief",
+    issue:
+      "Are amounts recovered from group agents as their share of the cost of a common communication system in the nature of royalty or fees for technical services?",
+    held:
+      "No. A pro-rata recovery of the actual cost of a shared facility, without any mark-up or profit element, is a reimbursement and not income. It is neither royalty nor a fee for technical services.",
+    facts:
+      "The assessee, a Danish shipping company, operated a global telecommunication and tracking system that its agents worldwide, including agents in India, used to book cargo, track containers and communicate within the network. The cost of maintaining the system was shared among the agents in proportion to their use, and the Indian agents were charged their pro-rata share of the actual cost with no mark-up. The Revenue treated these recoveries as fees for technical services or royalty for the use of a system and process, and sought to tax them in the assessee's hands.",
+    proceduralHistory:
+      "The Bombay High Court held the recoveries to be reimbursements not chargeable to tax. The Revenue appealed to the Supreme Court, which affirmed.",
+    contentions: {
+      assessee:
+        "The shipping income itself was exempt under the treaty, and the communication system was an integral part of conducting that shipping business rather than a separate service offered for profit. What was recovered was the actual cost apportioned among users, with no element of income, and a recovery of cost cannot be income at all.",
+      revenue:
+        "The agents obtained the use of a sophisticated system and paid for it. Payment for the use of a process or for services of a technical nature falls within the definitions of royalty and fees for technical services, and the absence of a mark-up does not change the character of the receipt.",
+    },
+    summary:
+      "The Court held that no income arose at all. It found as a fact that the system was maintained for the purpose of the assessee's own shipping business and that its cost was simply distributed among the agents who used it, without any mark-up or profit element. A payment that does no more than restore to the payee the expenditure it has incurred on the payer's behalf is a reimbursement; there is no profit, and therefore no income, embedded in it. The Court held that since the receipts contained no income element, the characterisation debate over royalty and fees for technical services did not arise. It further observed that the system was an integral part of the shipping operation whose profits were protected by the treaty, so recoveries connected with that operation could not be carved out and taxed separately under a different article. The Court also relied on consistency, noting that the position had been accepted in earlier years without challenge.",
+    principles: [
+      "A pro-rata recovery of actual cost without mark-up is a reimbursement and contains no income element.",
+      "Where no income arises, questions of characterisation as royalty or technical service fees do not arise.",
+      "A facility integral to an operation protected by a treaty article cannot be carved out and taxed under another.",
+      "Consistency of treatment across years carries weight where facts are unchanged.",
+    ],
+    relevance:
+      "Applied under Sections 9 and 159 of the IT Act 2025, and the leading authority on cost-sharing and reimbursement arrangements within multinational groups — shared IT systems, global communication platforms, centralised services and cost contribution arrangements. The decisive facts are the absence of mark-up and clear evidence of actual cost, which makes contemporaneous allocation documentation essential in practice.",
+    keywords: [
+      "reimbursement",
+      "cost sharing",
+      "no mark-up",
+      "royalty",
+      "fees for technical services",
+      "shipping",
+      "global system",
+    ],
+  },
+  {
+    slug: "new-skies-satellite",
+    caseName: "DIT v. New Skies Satellite BV",
+    citation: "(2016) 382 ITR 114 (Del)",
+    court: "Delhi High Court",
+    year: 2016,
+    category: "International Tax",
+    section1961: "Sections 9(1)(vi) & 90",
+    section2025: "Sections 9 & 159",
+    sectionTopic:
+      "Income deemed to accrue or arise in India; double taxation relief",
+    issue:
+      "Can a retrospective amendment widening the domestic definition of royalty alter the meaning of that term in a tax treaty?",
+    held:
+      "No. A treaty is a bilateral instrument and its terms cannot be amended by unilateral domestic legislation. Where the treaty definition is narrower, it prevails regardless of a later domestic expansion.",
+    facts:
+      "The assessees were foreign satellite operators which provided transponder capacity to Indian broadcasters and telecom companies. The Revenue sought to tax the payments as royalty, relying on explanations inserted into the domestic definition with retrospective effect, which expanded the concept of royalty to cover consideration for the use of transmission by satellite and for a process whether or not it is secret or the payer has possession or control of it. The applicable treaties contained their own, narrower, definitions of royalty which had not been amended.",
+    proceduralHistory:
+      "The matter came before the Delhi High Court, which had earlier held on the unamended law that such payments were not royalty. The Revenue contended that the retrospective explanations altered the position, including for treaty purposes.",
+    contentions: {
+      assessee:
+        "A treaty represents a bargain between two sovereign states and its terms can be altered only by agreement between them or by the procedure the treaty itself provides. A domestic amendment, however worded and whatever its retrospective reach, binds only domestic law and cannot rewrite a defined term in a bilateral instrument.",
+      revenue:
+        "The explanations were declaratory of what the law had always meant and merely clarified the existing definition. Where the treaty does not itself define a term exhaustively, the domestic meaning may be imported, and the clarified domestic meaning should therefore apply.",
+    },
+    summary:
+      "The Court held that a treaty cannot be amended unilaterally. The definitions contained in a treaty are the product of negotiation between two states, and altering the domestic statute does not and cannot alter what the parties agreed. Where the treaty supplies its own definition of royalty, that definition governs for the purpose of applying the treaty, and the domestic definition is not imported. The Court rejected the characterisation of the explanations as merely clarificatory, observing that they substantially expanded the concept and that a real change in the law cannot be given effect in the treaty sphere by labelling it a clarification. It held that if a state wishes to enlarge a treaty term it must renegotiate the treaty or follow the amendment procedure the treaty prescribes. Applying the unamended treaty definition, payments for transponder capacity did not constitute royalty, since what the customer obtained was a standard service using the operator's equipment rather than the use of, or the right to use, any secret process or equipment placed at its disposal.",
+    principles: [
+      "A treaty is a bilateral instrument and cannot be amended by unilateral domestic legislation.",
+      "Where a treaty supplies its own definition of a term, that definition governs its application.",
+      "An amendment that substantially expands a concept is not clarificatory merely because it is so described.",
+      "Enlarging a treaty term requires renegotiation or the amendment procedure the treaty provides.",
+    ],
+    relevance:
+      "The reasoning was expressly approved by the Supreme Court in Engineering Analysis, which applied the same principle to software payments. Under the IT Act 2025 the analysis runs through Section 9 for the domestic charge and Section 159 for treaty relief. It is directly relevant to satellite, bandwidth, transponder and data transmission payments, and more broadly to any case where a retrospective domestic amendment is invoked against a treaty-protected taxpayer.",
+    keywords: [
+      "royalty",
+      "transponder",
+      "retrospective amendment",
+      "treaty override",
+      "bilateral instrument",
+      "process",
+      "satellite",
+    ],
+  },
+
+  // ══════════════════════════════════════════════════════════════════════════
+  // ASSESSMENT & REASSESSMENT — further judgments
+  // ══════════════════════════════════════════════════════════════════════════
+  {
+    slug: "gkn-driveshafts-objections",
+    caseName: "GKN Driveshafts (India) Ltd v. ITO",
+    citation: "(2003) 259 ITR 19 (SC)",
+    court: "Supreme Court",
+    year: 2003,
+    category: "Assessment & Reassessment",
+    section1961: "Sections 147 & 148",
+    section2025: "Sections 279 & 280",
+    sectionTopic:
+      "Income escaping assessment; issue of reassessment notice",
+    issue:
+      "What procedure must be followed when a taxpayer objects to a reassessment notice — is it obliged to litigate immediately, or may it require the Assessing Officer to deal with its objections first?",
+    held:
+      "On receiving a notice the taxpayer may seek the reasons recorded, which the officer is bound to furnish. The taxpayer may then file objections, and the officer must dispose of them by a speaking order before proceeding with the reassessment.",
+    facts:
+      "The assessee received a notice reopening a completed assessment. It was not told the basis on which the officer had formed the belief that income had escaped assessment, and it challenged the notice directly by writ petition. The High Court declined to entertain the challenge, leaving the assessee to participate in the reassessment and pursue its remedies afterwards. The assessee appealed, and the Supreme Court took the opportunity to lay down the procedure to be followed in such cases generally.",
+    proceduralHistory:
+      "The appeal was disposed of by a short but consequential order which has governed reassessment practice throughout the country ever since.",
+    contentions: {
+      assessee:
+        "A taxpayer cannot meaningfully contest a reopening without knowing the grounds on which it rests. Requiring it to undergo a full reassessment before learning the reasons, and only then to challenge the jurisdictional foundation, is both unfair and wasteful of everyone's time.",
+      revenue:
+        "The recorded reasons are an internal record supporting the formation of belief, and the statute does not require them to be supplied at the notice stage. The taxpayer's remedies lie in the appellate process once the reassessment has been completed.",
+    },
+    summary:
+      "The Court laid down a clear sequence. When a notice is issued, the taxpayer should file its return and may then seek the reasons recorded for reopening; the Assessing Officer is bound to furnish them within a reasonable time. On receiving the reasons, the taxpayer is entitled to file objections to the issuance of the notice, and the officer is obliged to dispose of those objections by passing a speaking order before proceeding with the reassessment. The rationale is that the existence of a valid reason to believe is a jurisdictional precondition: if that foundation is absent, the entire proceeding is without authority, and it is in everyone's interest for the point to be addressed at the threshold rather than after a complete reassessment. The requirement of a speaking order ensures that the officer applies his mind to the objections and creates a record capable of review. Although expressed briefly, the direction has been treated as mandatory, and reassessments completed without disposing of objections by a separate reasoned order are routinely set aside.",
+    principles: [
+      "The taxpayer is entitled to the reasons recorded for reopening, and the officer must furnish them.",
+      "The taxpayer may file objections to the issuance of the notice.",
+      "The officer must dispose of the objections by a speaking order before proceeding with the reassessment.",
+      "A valid reason to believe is a jurisdictional precondition to be addressed at the threshold.",
+    ],
+    relevance:
+      "The procedure was subsequently given statutory form in the inquiry provision introduced in 2021, now reflected in Sections 279 to 281 of the IT Act 2025, under which the material relied on must be supplied and the taxpayer heard before a reassessment notice issues. GKN Driveshafts remains the source of the principle and is still invoked wherever objections are not disposed of by a separate reasoned order, a failure that continues to vitiate reassessments.",
+    keywords: [
+      "reassessment procedure",
+      "reasons recorded",
+      "objections",
+      "speaking order",
+      "jurisdictional precondition",
+      "148",
+      "writ remedy",
+    ],
+  },
+  {
+    slug: "kelvinator-change-of-opinion",
+    caseName: "CIT v. Kelvinator of India Ltd",
+    citation: "(2010) 320 ITR 561 (SC)",
+    court: "Supreme Court",
+    year: 2010,
+    category: "Assessment & Reassessment",
+    section1961: "Sections 147 & 148",
+    section2025: "Sections 279 & 280",
+    sectionTopic:
+      "Income escaping assessment; issue of reassessment notice",
+    issue:
+      "After the 1989 amendment, may an Assessing Officer reopen a completed assessment simply because he takes a different view of material already on record?",
+    held:
+      "No. Reopening requires tangible material indicating escapement of income. A mere change of opinion confers no power to reassess, which would amount to a power of review the statute does not grant.",
+    facts:
+      "A regular assessment had been completed after scrutiny, in which the material relevant to the issue in question had been placed before the Assessing Officer and considered. The officer subsequently formed a different view on the same material and issued a notice reopening the assessment. The Revenue contended that the 1989 amendment, which replaced the earlier requirement of failure to disclose with the simpler formulation of reason to believe that income had escaped assessment, had widened the power and removed the change of opinion restriction.",
+    proceduralHistory:
+      "The Delhi High Court, sitting in a Full Bench, held that a mere change of opinion did not justify reopening. The Revenue appealed to the Supreme Court, which affirmed.",
+    contentions: {
+      assessee:
+        "The amended provision still requires a reason to believe that income has escaped assessment, which imports an objective foundation. Where all material was disclosed and considered, nothing has escaped; the officer has simply changed his mind, and permitting reopening on that basis would make every completed assessment permanently vulnerable.",
+      revenue:
+        "The amendment deliberately removed the precondition of failure to disclose, leaving the officer free to reopen whenever he has reason to believe income has escaped assessment. The formation of that belief is a subjective matter, and the fact that the material was previously on record does not preclude it.",
+    },
+    summary:
+      "The Court traced the legislative history and held that the 1989 amendment did not confer an unfettered power. Although the precondition of failure to disclose was removed for certain situations, the requirement of a reason to believe was retained, and that expression imports an objective foundation rather than a mere subjective satisfaction. The Court held that the officer must have tangible material coming to his notice which indicates that income has escaped assessment; reopening cannot rest on a reappraisal of material already considered. It emphasised that the distinction between the power to reassess and the power to review is fundamental: the statute confers the former and not the latter, and permitting reopening on a change of opinion would collapse the distinction and confer review powers by the back door. The Court also referred to the Board's own circular explaining the amendment, which stated that the object was to remove ambiguity and not to enable reopening on the basis of a mere change of opinion. Since the material had been before the officer at the original assessment and no fresh tangible material had come to light, the reopening was held bad.",
+    principles: [
+      "Reason to believe imports an objective foundation, not mere subjective satisfaction.",
+      "Reopening requires tangible material coming to the officer's notice indicating escapement.",
+      "A mere change of opinion on material already considered does not justify reopening.",
+      "The power to reassess is distinct from a power to review, which the statute does not confer.",
+    ],
+    relevance:
+      "The single most cited authority on reassessment, applying to Sections 279 and 280 of the IT Act 2025. The statutory framework has since been recast to require an inquiry and information-based trigger before a notice issues, which in substance codifies the tangible material requirement. Kelvinator remains the reference point for the change of opinion objection, particularly where the issue was examined in the original scrutiny.",
+    keywords: [
+      "change of opinion",
+      "tangible material",
+      "reason to believe",
+      "power of review",
+      "reopening",
+      "147",
+      "scrutiny assessment",
+    ],
+  },
+  {
+    slug: "rajesh-jhaveri-intimation",
+    caseName: "ACIT v. Rajesh Jhaveri Stock Brokers (P) Ltd",
+    citation: "(2007) 291 ITR 500 (SC)",
+    court: "Supreme Court",
+    year: 2007,
+    category: "Assessment & Reassessment",
+    section1961: "Sections 143(1) & 147",
+    section2025: "Sections 277 & 279",
+    sectionTopic:
+      "Summary processing of return — intimation; income escaping assessment",
+    issue:
+      "Where a return has only been processed summarily and an intimation issued, does the change of opinion bar apply to prevent reopening?",
+    held:
+      "No. An intimation on summary processing is not an assessment and involves no formation of opinion, so there is no opinion capable of being changed. Reopening remains subject to the reason to believe requirement.",
+    facts:
+      "The assessee's return was processed summarily and an intimation was issued accepting the return as filed, without any scrutiny. The Assessing Officer subsequently issued a notice reopening the matter in respect of a claim made in that return. The assessee resisted, contending that since the return had been accepted, reopening amounted to a change of opinion which Kelvinator forbids.",
+    proceduralHistory:
+      "The High Court decided in the assessee's favour, treating the intimation as equivalent to an assessment. The Revenue appealed to the Supreme Court.",
+    contentions: {
+      assessee:
+        "An intimation accepting the return determines the tax payable and is appealable. It should be treated as an assessment, with the consequence that reopening to re-examine the same claim is a change of opinion and impermissible.",
+      revenue:
+        "Summary processing is a mechanical exercise involving arithmetical checks and prima facie adjustments. No officer applies his mind to the merits of any claim, so no opinion is formed. Treating the intimation as an assessment would confer immunity on returns that were never examined at all.",
+    },
+    summary:
+      "The Court drew a sharp distinction between an intimation on summary processing and an assessment made after scrutiny. Summary processing, it held, is essentially a mechanical exercise: the return is checked for arithmetical accuracy and prima facie adjustments, and an intimation follows. No enquiry is made into the correctness of any claim, no material is examined, and the officer forms no opinion on the merits. An intimation is therefore not an assessment, and the expressions are not interchangeable even though an intimation is deemed to be a notice of demand for recovery purposes. Since no opinion was formed, there is no opinion capable of being changed, and the change of opinion bar has no application. The Court was careful to add that this does not leave the power at large: reopening in such a case still requires a reason to believe that income has escaped assessment, founded on some material, and the officer cannot issue a notice on mere suspicion or to make a fishing enquiry. The safeguard is the reason to believe requirement, not the change of opinion doctrine.",
+    principles: [
+      "Summary processing is mechanical and involves no application of mind to the merits.",
+      "An intimation is not an assessment, and the two are not interchangeable.",
+      "Where no opinion has been formed, the change of opinion bar cannot apply.",
+      "Reopening still requires a reason to believe founded on material; suspicion is not enough.",
+    ],
+    relevance:
+      "Summary processing is Section 277 and the reassessment trigger Section 279 under the IT Act 2025. The distinction remains important because most returns are processed summarily rather than scrutinised, so the change of opinion defence is unavailable in the majority of reopenings — the taxpayer must instead attack the sufficiency of the material, which the current inquiry procedure now requires to be disclosed.",
+    keywords: [
+      "intimation",
+      "143(1)",
+      "summary processing",
+      "change of opinion",
+      "assessment distinguished",
+      "reason to believe",
+      "fishing enquiry",
+    ],
+  },
+  {
+    slug: "calcutta-discount",
+    caseName: "Calcutta Discount Co Ltd v. ITO",
+    citation: "(1961) 41 ITR 191 (SC)",
+    court: "Supreme Court",
+    year: 1961,
+    category: "Assessment & Reassessment",
+    section1961: "Section 147 (and its predecessor)",
+    section2025: "Section 279",
+    sectionTopic: "Income escaping assessment",
+    issue:
+      "How far does a taxpayer's duty of disclosure extend — must it disclose only the primary facts, or also the inferences the Assessing Officer should draw from them?",
+    held:
+      "The duty is to disclose fully and truly all primary facts. Drawing inferences from those facts is the officer's function, and a failure by him to draw the correct inference does not constitute a failure to disclose by the taxpayer.",
+    facts:
+      "The assessee had disclosed in its returns and accompanying accounts the particulars of transactions in shares, including the relevant entries and figures. The Assessing Officer completed the assessments on the footing that these were capital transactions. He subsequently formed the view that the transactions were in the nature of trade and that the profits should have been taxed as business income, and sought to reopen the assessments on the ground that there had been a failure to disclose fully and truly all material facts.",
+    proceduralHistory:
+      "The assessee challenged the reopening by writ petition. The matter reached the Supreme Court, which examined both the scope of the disclosure obligation and the availability of writ relief against a notice issued without jurisdiction.",
+    contentions: {
+      assessee:
+        "Every primary fact concerning the transactions had been placed before the officer. The characterisation of those transactions as trading or investment is an inference of law and fact to be drawn by the officer from the material before him. A change in the inference he chooses to draw is not a failure of disclosure by the taxpayer.",
+      revenue:
+        "The assessee, knowing the true nature of its activity, ought to have disclosed that the transactions were in the nature of trade. Withholding that characterisation deprived the officer of a material fact and justified reopening.",
+    },
+    summary:
+      "The Court held that the taxpayer's duty is to disclose fully and truly all primary facts — the raw material relevant to the assessment. Once those facts are placed before the officer, it is for him to decide what inferences of fact and law should be drawn from them; that is the essence of the assessing function. The taxpayer is under no obligation to instruct the officer on the conclusions he ought to reach, and a failure by the officer to draw the correct inference from facts fully disclosed cannot be converted into a failure to disclose by the taxpayer. The Court held that any other view would allow every assessment to be reopened whenever the Revenue later formed a different opinion, which the provision does not permit. On the procedural question, it held that where the jurisdictional precondition is absent, the taxpayer is not confined to the statutory appellate route: a writ may issue to restrain proceedings founded on a notice issued without jurisdiction, since requiring the taxpayer to undergo the entire process first is no adequate remedy.",
+    principles: [
+      "The duty of disclosure extends to primary facts, not to the inferences to be drawn from them.",
+      "Drawing inferences of fact and law from disclosed material is the assessing officer's function.",
+      "A failure by the officer to draw the correct inference is not a failure to disclose by the taxpayer.",
+      "Where the jurisdictional precondition is absent, a writ may issue against the notice itself.",
+    ],
+    relevance:
+      "The foundational authority on the disclosure obligation, applying to reopening under Section 279 of the IT Act 2025. It continues to govern reopenings beyond the ordinary period, which typically require a failure to disclose fully and truly, and its holding on writ jurisdiction underpins the practice of challenging reassessment notices directly rather than waiting for the assessment to be completed.",
+    keywords: [
+      "primary facts",
+      "full and true disclosure",
+      "inference",
+      "jurisdictional fact",
+      "writ jurisdiction",
+      "reopening",
+      "extended period",
+    ],
+  },
+  {
+    slug: "lakhmani-mewal-das",
+    caseName: "ITO v. Lakhmani Mewal Das",
+    citation: "(1976) 103 ITR 437 (SC)",
+    court: "Supreme Court",
+    year: 1976,
+    category: "Assessment & Reassessment",
+    section1961: "Sections 147 & 148",
+    section2025: "Sections 279 & 280",
+    sectionTopic:
+      "Income escaping assessment; issue of reassessment notice",
+    issue:
+      "What connection must exist between the material relied on and the belief that income has escaped assessment?",
+    held:
+      "There must be a live link or close nexus between the material and the formation of belief. The belief must be that of a reasonable person acting on relevant grounds, and cannot rest on vague, remote or irrelevant material.",
+    facts:
+      "An assessment was reopened on the basis of information said to have been received that a creditor appearing in the assessee's books was a name-lender who had confessed to lending his name for accommodation entries. The recorded reasons referred to the confession in general terms, without indicating that it related to the particular loan transaction with the assessee or to the relevant year, and without linking the material to the specific entries in the assessee's accounts.",
+    proceduralHistory:
+      "The Calcutta High Court quashed the reopening for want of a proper foundation. The Revenue appealed to the Supreme Court, which affirmed and laid down the test governing the formation of belief.",
+    contentions: {
+      assessee:
+        "The reasons must disclose a rational connection between the material and the conclusion that income has escaped assessment in the assessee's case for the year in question. A general confession by a third party, not tied to the particular transaction, provides no such connection and amounts to suspicion.",
+      revenue:
+        "The sufficiency of the material is not for the court to examine. Once the officer has recorded that he has reason to believe, the court's enquiry is at an end, and the correctness of the belief can be tested only in the reassessment itself.",
+    },
+    summary:
+      "The Court accepted that it is not for the court to sit in judgment on the sufficiency of the material or to substitute its own view for that of the officer. But it held that the existence of a belief founded on relevant material is a jurisdictional requirement, and the court may examine whether there was material on which a reasonable person could have formed that belief and whether the material bears a rational connection to it. There must be, in the Court's words, a live link or close nexus between the material before the officer and the belief that income has escaped assessment. A belief founded on material that is vague, indefinite, remote or irrelevant, or that does not relate to the assessee or to the year in question, is no belief at all in the sense the statute requires. Applying that test, the Court found that the recorded reasons did not show that the confession related to the particular transaction with this assessee or to the relevant year, and the necessary link was therefore missing. The reopening was accordingly bad in law.",
+    principles: [
+      "The court does not examine the sufficiency of the material, but may examine whether relevant material existed.",
+      "There must be a live link or close nexus between the material and the belief formed.",
+      "Material that is vague, remote or irrelevant cannot found a valid belief.",
+      "The material must relate to the particular assessee and the particular year.",
+    ],
+    relevance:
+      "Applied to reopening under Sections 279 and 280 of the IT Act 2025. The live link test remains the standard against which recorded reasons are tested, and is particularly important where reopening rests on third-party information, search material or data from external databases — situations in which the connection to the specific taxpayer and year is often the weakest point in the Revenue's case.",
+    keywords: [
+      "live link",
+      "close nexus",
+      "reason to believe",
+      "borrowed satisfaction",
+      "third party information",
+      "recorded reasons",
+      "accommodation entries",
+    ],
+  },
+  {
+    slug: "ndtv-reassessment",
+    caseName: "New Delhi Television Ltd v. DCIT",
+    citation: "(2020) 424 ITR 607 (SC)",
+    court: "Supreme Court",
+    year: 2020,
+    category: "Assessment & Reassessment",
+    section1961: "Sections 147, 148 & 149",
+    section2025: "Sections 279, 280 & 282",
+    sectionTopic:
+      "Income escaping assessment; reassessment notice; time limit for notice",
+    issue:
+      "May the Revenue support a reassessment notice on a ground not stated in it, in order to bring the case within an extended limitation period?",
+    held:
+      "No. The taxpayer must be told the provision and the basis on which the extended period is invoked. A notice cannot be sustained on a ground never put to the taxpayer, though on the facts the reopening survived within the ordinary period.",
+    facts:
+      "The assessee had raised funds through a step-down subsidiary incorporated abroad, and the Revenue formed the view that the arrangement had been used to bring undisclosed funds into the group. A reassessment notice was issued beyond the ordinary period. In the proceedings the Revenue sought to justify the notice by reference to the extended limitation available where income in relation to an asset located outside India has escaped assessment, although the notice itself had not invoked that provision or put the taxpayer on notice of it.",
+    proceduralHistory:
+      "The Delhi High Court upheld the reopening. The assessee appealed to the Supreme Court, which examined both the validity of the reasons and the Revenue's attempt to rely on the extended period.",
+    contentions: {
+      assessee:
+        "A notice invoking an extended limitation period must say so and must state the basis, because the taxpayer must know the case it has to meet on limitation, which is a jurisdictional matter. Permitting the Revenue to invoke a different provision for the first time in argument deprives the taxpayer of the opportunity to respond.",
+      revenue:
+        "The material disclosed that income relating to an asset abroad had escaped assessment, and the extended period was available on the facts. A notice ought not to fail merely because the provision was not expressly cited, where the substance is made out.",
+    },
+    summary:
+      "The Court examined the recorded reasons and held that they disclosed sufficient material for the officer to form the belief that income had escaped assessment, so the reopening was valid within the ordinary period. On the attempt to rely on the extended limitation, however, it held firmly against the Revenue. Limitation is a jurisdictional matter, and a taxpayer is entitled to know not merely that its assessment is being reopened but the period relied on and the basis for invoking it. The notice and the reasons had not put the assessee on notice that the extended period relating to foreign assets was being invoked, and the Revenue could not supply that foundation for the first time in argument. The Court held that the assessee must be given an opportunity to meet the case on that footing, and that a notice cannot be sustained by reference to a ground never communicated. It accordingly upheld the reopening only to the extent it was sustainable on the grounds actually stated.",
+    principles: [
+      "Limitation in reassessment is a jurisdictional matter, not a procedural formality.",
+      "A taxpayer must be told the period relied on and the basis for invoking an extended period.",
+      "A notice cannot be sustained on a ground never communicated to the taxpayer.",
+      "Reasons disclosing sufficient material may sustain reopening within the ordinary period.",
+    ],
+    relevance:
+      "Applies to Sections 279, 280 and 282 of the IT Act 2025. The procedural protection it insists on has been reinforced by the inquiry procedure, under which the information relied on must be supplied to the taxpayer before a notice issues. The decision is regularly invoked where the Revenue seeks to justify a time-barred notice on grounds developed after the event.",
+    keywords: [
+      "extended limitation",
+      "foreign asset",
+      "16 years",
+      "jurisdictional fact",
+      "grounds not stated",
+      "opportunity to meet",
+      "recorded reasons",
+    ],
+  },
+  {
+    slug: "malabar-industrial-revision",
+    caseName: "Malabar Industrial Co Ltd v. CIT",
+    citation: "(2000) 243 ITR 83 (SC)",
+    court: "Supreme Court",
+    year: 2000,
+    category: "Assessment & Reassessment",
+    section1961: "Section 263",
+    section2025: "Section 377",
+    sectionTopic:
+      "Revision of orders by the Principal Commissioner or Commissioner",
+    issue:
+      "What must be established before an assessment order may be revised — is it enough that the order is erroneous, or that it is prejudicial to the Revenue?",
+    held:
+      "Both conditions must be satisfied cumulatively. The order must be erroneous and prejudicial to the interests of the Revenue. Where the officer has taken one of two views permissible in law, the order is not erroneous merely because the Commissioner prefers the other.",
+    facts:
+      "The Assessing Officer had accepted the assessee's treatment of a receipt after considering the matter in the assessment. The Commissioner, taking a different view of the character of the receipt, invoked the revisionary power, set aside the assessment and directed that the amount be brought to tax. The assessee contended that the officer's view was a legally permissible one reached after enquiry, and that a difference of opinion does not make an order erroneous.",
+    proceduralHistory:
+      "The Tribunal and the High Court differed in their approach to the revisionary power. The Supreme Court settled the test to be applied.",
+    contentions: {
+      assessee:
+        "The revisionary power requires two conditions, each of which must be independently satisfied. An order passed after enquiry, adopting a view that the law permits, is not erroneous. If it were otherwise, the Commissioner could substitute his opinion for that of the officer in every case and the power would become one of general supervision.",
+      revenue:
+        "The receipt was taxable and the officer's failure to tax it caused a loss to the exchequer. An order that results in tax not being collected that ought to have been collected is both erroneous and prejudicial.",
+    },
+    summary:
+      "The Court held that the revisionary power is conditioned on the satisfaction of two requirements which must co-exist: the order must be erroneous, and it must be prejudicial to the interests of the Revenue. An order is not erroneous merely because it results in a lower tax, and it is not open to revision merely because the Commissioner would have reached a different conclusion. The Court identified the situations in which an order will be erroneous — where it proceeds on an incorrect assumption of fact or an incorrect application of law, where it is passed without applying the mind, or where it is made in breach of the principles of natural justice. Crucially, it held that where two views are possible on the point and the Assessing Officer has adopted one of them after due consideration, the order cannot be treated as erroneous simply because the Commissioner prefers the other view. As to prejudice, the Court explained that the expression means prejudice to the interests of the Revenue in the sense of a lawful loss of tax; every loss of revenue is not prejudicial if the officer's view is sustainable in law.",
+    principles: [
+      "The two conditions — erroneous and prejudicial to the interests of the Revenue — must both be satisfied.",
+      "An order is erroneous where it rests on incorrect facts or law, lacks application of mind, or breaches natural justice.",
+      "Where two views are possible and the officer adopts one, the order is not erroneous.",
+      "Every loss of revenue is not prejudicial where the officer's view is sustainable in law.",
+    ],
+    relevance:
+      "Revision is dealt with in Section 377 of the IT Act 2025. The twin-condition test is the first line of defence in every revision proceeding, and the two-views principle is the most frequently invoked limb. Note that the statute has since been supplemented by a deeming explanation treating certain orders passed without enquiry as erroneous, so the current provision must be read alongside this decision rather than in place of it.",
+    keywords: [
+      "revision",
+      "263",
+      "erroneous and prejudicial",
+      "twin conditions",
+      "two views possible",
+      "application of mind",
+      "lack of enquiry",
+    ],
+  },
+  {
+    slug: "amitabh-bachchan-revision",
+    caseName: "CIT v. Amitabh Bachchan",
+    citation: "(2016) 384 ITR 200 (SC)",
+    court: "Supreme Court",
+    year: 2016,
+    category: "Assessment & Reassessment",
+    section1961: "Section 263",
+    section2025: "Section 377",
+    sectionTopic:
+      "Revision of orders by the Principal Commissioner or Commissioner",
+    issue:
+      "In exercising the revisionary power, must the Commissioner confine himself to the grounds set out in the show cause notice, and is a separate opportunity of hearing required on each ground?",
+    held:
+      "The Commissioner is not confined to the grounds in the notice and may consider other aspects that emerge, provided the assessee is given a reasonable opportunity of being heard on them. What is required is opportunity, not a separate notice for every ground.",
+    facts:
+      "The assessee had filed a revised return withdrawing a claim for expenses that had been made in the original return. The Assessing Officer completed the assessment without making enquiries into certain aspects of the claim and the circumstances of its withdrawal. The Commissioner initiated revision proceedings, issued a show cause notice, and in the course of the proceedings examined aspects beyond those specifically enumerated in the notice, ultimately setting aside the assessment for lack of enquiry.",
+    proceduralHistory:
+      "The Tribunal and the High Court held the revision bad, partly on the footing that the Commissioner had travelled beyond the show cause notice. The Revenue appealed to the Supreme Court, which reversed.",
+    contentions: {
+      assessee:
+        "Revision is a serious power with significant consequences, and its exercise must be confined to the case put to the assessee. Considering grounds outside the notice denies the assessee the opportunity to meet them and offends the principles of natural justice.",
+      revenue:
+        "The revisionary jurisdiction is directed at the correctness of the assessment as a whole. The statute requires the assessee to be given an opportunity of being heard, which was done; it does not require a fresh notice each time a further aspect of the same assessment comes under consideration.",
+    },
+    summary:
+      "The Court held that the statute requires the Commissioner to give the assessee an opportunity of being heard and to make or cause to be made such enquiry as he considers necessary, but does not confine him to the grounds stated in the show cause notice. The revisionary jurisdiction is concerned with the correctness of the assessment order, and it would be artificial to prevent the Commissioner from considering an aspect that emerges during the proceedings merely because it was not enumerated at the outset. What the principles of natural justice require is that the assessee should have a reasonable opportunity to meet whatever is being held against it; they do not require a particular form or a fresh notice for each ground. The Court therefore held that the test is whether the assessee was in fact given an opportunity to respond to the matters on which the order was ultimately founded, and that prejudice must be shown rather than assumed. On the merits, the Court held that the failure of the Assessing Officer to make enquiries that the circumstances plainly called for rendered the assessment erroneous and prejudicial, and the revision was upheld.",
+    principles: [
+      "The Commissioner is not confined to the grounds enumerated in the show cause notice.",
+      "What is required is a reasonable opportunity of being heard, not a fresh notice for each ground.",
+      "Natural justice requires opportunity in substance; prejudice must be shown, not assumed.",
+      "Failure to make enquiries the circumstances plainly call for renders an assessment erroneous and prejudicial.",
+    ],
+    relevance:
+      "Applies to revision under Section 377 of the IT Act 2025. Read with Malabar Industrial it marks the boundaries of the revisionary power: the twin conditions and the two-views principle constrain it, while this decision confirms that procedural objections based on the scope of the notice will rarely succeed absent demonstrated prejudice. The lack of enquiry ground it endorses is now the most common basis on which revision is exercised.",
+    keywords: [
+      "revision",
+      "263",
+      "show cause notice",
+      "scope of grounds",
+      "opportunity of hearing",
+      "lack of enquiry",
+      "natural justice",
+    ],
+  },
+
+  // ══════════════════════════════════════════════════════════════════════════
+  // CHARITABLE TRUSTS & NPOs — further judgments
+  // ══════════════════════════════════════════════════════════════════════════
+  {
+    slug: "gujarat-maritime-board",
+    caseName: "CIT v. Gujarat Maritime Board",
+    citation: "(2007) 295 ITR 561 (SC)",
+    court: "Supreme Court",
+    year: 2007,
+    category: "Charitable Trusts & NPOs",
+    section1961: "Sections 2(15) & 12A",
+    section2025: "Sections 332, 346 & 355",
+    sectionTopic:
+      "Registration of NPOs; restriction on commercial activities by GPU NPOs; interpretations",
+    issue:
+      "Is a statutory port authority, constituted to develop and manage ports and required to apply its income to those purposes, entitled to registration as a charitable institution?",
+    held:
+      "Yes. Developing and managing ports for the benefit of trade and the public is an object of general public utility, and a body whose income is statutorily committed to those purposes and cannot be distributed qualifies.",
+    facts:
+      "The assessee was a board constituted under state legislation to administer, control and manage minor ports in the state. Its functions included developing port infrastructure and regulating port activity, and it levied charges for the use of port facilities. The governing statute required its funds to be applied to the purposes of the Act and made no provision for distributing any surplus to the state or to any private person. It applied for registration as a charitable institution, which the Revenue refused on the footing that it was engaged in commercial port operations from which it derived substantial receipts.",
+    proceduralHistory:
+      "The Tribunal and the Gujarat High Court held the board entitled to registration. The Revenue appealed to the Supreme Court, which affirmed.",
+    contentions: {
+      assessee:
+        "The board exists to discharge a public function entrusted by statute — the development and management of ports — which benefits trade, commerce and the public at large. Its income is committed by law to those purposes and no part of it can reach any private hand. Charging for the use of facilities is the means by which the function is discharged, not a commercial object.",
+      revenue:
+        "The board earns substantial revenue from port charges and operates in a manner indistinguishable from a commercial port operator. An entity carrying on activity of that scale and character is not a charitable institution merely because it was created by statute.",
+    },
+    summary:
+      "The Court held that the development and maintenance of ports, and the regulation of port activity, are objects of general public utility: they serve trade and commerce and through them the community at large, and the benefit is not confined to any private group. It laid weight on the statutory framework governing the board's funds, under which the income was required to be applied to the purposes of the Act and could not be distributed as profit to the state or to any individual. That commitment of income, the Court held, distinguishes such a body from a commercial undertaking, since the absence of any profit motive and of any beneficiary entitled to the surplus is the hallmark of a charitable purpose. Charging for the use of port facilities was held to be the means by which the statutory function was performed rather than evidence of a business object. The Court accordingly upheld the grant of registration, noting that registration concerns the objects and genuineness of the institution and that questions about particular receipts fall to be examined in assessment.",
+    principles: [
+      "Development and management of ports is an object of general public utility benefiting trade and the public.",
+      "Statutory commitment of income to public purposes, with no distributable surplus, indicates charitable purpose.",
+      "Charging for the use of facilities may be the means of discharging a statutory function rather than a business object.",
+      "Registration concerns objects and genuineness; particular receipts are examined in assessment.",
+    ],
+    relevance:
+      "Registration is Section 332 of the IT Act 2025, with the commercial activity restriction in Section 346 and interpretations in Section 355. This decision was considered at length in Ahmedabad Urban Development Authority, which affirmed the position of statutory bodies discharging public functions on a cost basis while subjecting fee-charging activity to the quantitative ceiling. Read the two together: Gujarat Maritime Board establishes entitlement in principle, and the later decision governs how far receipts may go before it is imperilled.",
+    keywords: [
+      "statutory authority",
+      "port trust",
+      "general public utility",
+      "no distributable surplus",
+      "registration",
+      "12A",
+      "public function",
+    ],
+  },
+  {
+    slug: "rajasthan-gujarati-charitable-depreciation",
+    caseName: "CIT v. Rajasthan & Gujarati Charitable Foundation",
+    citation: "(2018) 402 ITR 441 (SC)",
+    court: "Supreme Court",
+    year: 2018,
+    category: "Charitable Trusts & NPOs",
+    section1961: "Sections 11 & 32",
+    section2025: "Sections 335, 341 & 33",
+    sectionTopic:
+      "Regular income of a registered NPO; application of income; depreciation on assets",
+    issue:
+      "Where a charitable trust has treated the cost of a capital asset as an application of income, may it also claim depreciation on that asset in later years?",
+    held:
+      "Yes, on the law as it stood. Claiming the acquisition cost as application and claiming depreciation are not double deduction: the first determines whether income was applied in the year of acquisition, the second is a step in computing income in later years.",
+    facts:
+      "The assessee trusts had acquired capital assets and, in the year of acquisition, treated the cost as an application of income towards their charitable objects, which is how the statutory scheme requires capital expenditure by trusts to be dealt with. In subsequent years they claimed depreciation on the same assets in computing their income. The Revenue disallowed the depreciation, contending that since the entire cost had already been allowed as application, permitting depreciation as well amounted to a double deduction of the same expenditure.",
+    proceduralHistory:
+      "High Courts across the country had overwhelmingly decided in favour of the trusts. The Revenue's appeals were heard together by the Supreme Court, which affirmed the High Court view and noted the number of decisions taking the same position.",
+    contentions: {
+      assessee:
+        "The two claims operate at different levels and serve different purposes. Application of income is a test of whether the trust has spent its income on its objects in the year of acquisition. Depreciation is a step in computing the income of later years, recognising the consumption of the asset. Neither claim duplicates the other.",
+      revenue:
+        "The whole cost of the asset has already been allowed once, as application in the year of acquisition. Allowing depreciation on the same cost in later years permits the trust to deduct the same expenditure twice, which no scheme of taxation contemplates.",
+    },
+    summary:
+      "The Court held that the two claims are conceptually distinct and do not overlap. The computation of income and the application of income are separate exercises in the scheme governing charitable trusts: income is first computed on commercial principles, and the question of whether it has been applied to charitable purposes is then addressed. Depreciation belongs to the first exercise, being a charge recognising the consumption of a capital asset in the course of the trust's activities, while treating the acquisition cost as application belongs to the second, testing whether the trust spent its income on its objects in the year it was acquired. Because the two operate at different stages and answer different questions, allowing both does not result in the same expenditure being deducted twice in the sense that the double deduction doctrine forbids. The Court noted that almost every High Court to consider the question had reached the same conclusion, and it declined to disturb that settled position.",
+    principles: [
+      "Computation of income and application of income are distinct exercises for charitable trusts.",
+      "Depreciation belongs to the computation of income; capital cost as application belongs to the second stage.",
+      "Allowing both does not amount to a double deduction of the same expenditure.",
+      "A long-settled position accepted by nearly every High Court will not lightly be disturbed.",
+    ],
+    relevance:
+      "Important to note the sequel: Parliament enacted a provision expressly denying depreciation on an asset whose acquisition cost has been claimed as application, so for years governed by that provision the outcome no longer follows. The IT Act 2025 regime for NPOs lies in Sections 332 to 355, with depreciation generally in Section 33. Read this case for the conceptual distinction between computation and application, which remains sound and matters elsewhere in the scheme, and check the current provision for the depreciation entitlement itself.",
+    keywords: [
+      "depreciation",
+      "application of income",
+      "double deduction",
+      "charitable trust",
+      "computation of income",
+      "legislative reversal",
+      "capital asset",
+    ],
+  },
+
+  // ══════════════════════════════════════════════════════════════════════════
+  // PENALTIES
+  // ══════════════════════════════════════════════════════════════════════════
+  {
+    slug: "reliance-petroproducts-penalty",
+    caseName: "CIT v. Reliance Petroproducts Pvt Ltd",
+    citation: "(2010) 322 ITR 158 (SC)",
+    court: "Supreme Court",
+    year: 2010,
+    category: "Penalties",
+    section1961: "Section 271(1)(c)",
+    section2025: "Sections 439 & 440",
+    sectionTopic:
+      "Penalty for under-reporting and misreporting; penalty for concealment and other failures",
+    issue:
+      "Does the disallowance of a claim, made openly in the return and supported by full disclosure, by itself attract penalty for furnishing inaccurate particulars of income?",
+    held:
+      "No. A claim that is not sustainable in law does not amount to furnishing inaccurate particulars. Penalty requires the particulars supplied to be inaccurate — a wrong claim, fully disclosed, is not the same thing.",
+    facts:
+      "The assessee had borrowed funds and used them to acquire shares in another company by way of investment. It claimed a deduction for the interest on that borrowing. All the relevant facts were set out in the return and the accompanying accounts, and nothing was concealed or misstated. The Assessing Officer disallowed the interest on the footing that the borrowing had been applied to acquire an investment yielding exempt dividend, and proceeded to levy penalty for furnishing inaccurate particulars of income.",
+    proceduralHistory:
+      "The Commissioner (Appeals), the Tribunal and the High Court all deleted the penalty. The Revenue appealed to the Supreme Court, which affirmed and took the opportunity to state the principle generally.",
+    contentions: {
+      assessee:
+        "Every particular furnished in the return was accurate. The dispute concerned the legal characterisation of the interest, on which the assessee took a view that the Assessing Officer did not accept. A difference of legal opinion, on facts fully disclosed, cannot amount to furnishing inaccurate particulars.",
+      revenue:
+        "The claim was not sustainable, and a return carrying an unsustainable claim contains particulars that are inaccurate. Otherwise a taxpayer could advance any claim without risk, leaving the Revenue to detect and disallow it with no consequence.",
+    },
+    summary:
+      "The Court approached the question through the language of the provision, which requires either concealment of particulars of income or the furnishing of inaccurate particulars of income. It held that 'inaccurate particulars' means details supplied in the return that are not accurate, not exact or correct, or that are erroneous or false. Where every detail is truthfully stated and the only issue is whether a claim founded on those details is sustainable in law, the particulars are not inaccurate. The Court held that merely because a claim is not accepted, or is not accepted in law, penalty does not follow — otherwise every disallowance would automatically attract a penalty, which is plainly not the scheme. It emphasised that a penalty provision must be construed strictly and cannot be extended by implication, and that the assessee must not be visited with a penalty merely for taking a legal position that fails. The Court did note that the position would differ if the claim rested on facts that were themselves false or concealed.",
+    principles: [
+      "Penalty requires concealment of particulars or the furnishing of inaccurate particulars.",
+      "'Inaccurate particulars' means details that are not accurate, exact, correct, or that are erroneous or false.",
+      "A claim that is unsustainable in law, made on fully disclosed facts, is not inaccurate particulars.",
+      "Disallowance of a claim does not automatically attract penalty.",
+      "Penalty provisions are construed strictly and not extended by implication.",
+    ],
+    relevance:
+      "The penalty regime has been restructured — Section 439 of the IT Act 2025 deals with under-reporting and misreporting, with Section 440 covering concealment and other failures — and the new framework turns on defined categories rather than the older concealment language. The underlying principle, that a bona fide claim on disclosed facts is not penal, carries forward through the exclusions for bona fide explanations, and this remains the most cited authority against penalty founded on a mere disallowance.",
+    keywords: [
+      "penalty",
+      "inaccurate particulars",
+      "concealment",
+      "unsustainable claim",
+      "full disclosure",
+      "271(1)(c)",
+      "strict construction",
+    ],
+  },
+  {
+    slug: "dharamendra-textile-penalty",
+    caseName: "Union of India v. Dharamendra Textile Processors",
+    citation: "(2008) 306 ITR 277 (SC)",
+    court: "Supreme Court",
+    year: 2008,
+    category: "Penalties",
+    section1961: "Section 271(1)(c)",
+    section2025: "Sections 439 & 440",
+    sectionTopic:
+      "Penalty for under-reporting and misreporting; penalty for concealment and other failures",
+    issue:
+      "Must the Revenue establish a guilty mind before a penalty for concealment may be imposed, or is the liability civil in character?",
+    held:
+      "The liability is civil. Penalty is a statutory consequence of the conditions in the provision being met, and mens rea in the criminal sense need not be established.",
+    facts:
+      "The question arose in the context of statutory penalties in the indirect tax field, with the Court considering the nature of penalty provisions generally and the extent to which principles drawn from criminal law apply to them. Earlier authority had suggested that a penalty could not be imposed unless the authority found a deliberate defiance of law or contumacious conduct, importing a requirement akin to mens rea, and the correctness of that approach was referred to a larger Bench.",
+    proceduralHistory:
+      "The matter was heard by a larger Bench of the Supreme Court to resolve the conflict on whether mens rea is an essential ingredient of a statutory penalty, and its reasoning was applied to income tax penalty provisions.",
+    contentions: {
+      assessee:
+        "A penalty is a punitive imposition and should not be visited on a person who has acted without any intention to evade. Absent deliberate or contumacious conduct, the imposition is disproportionate and the authority should retain a discretion to decline it.",
+      revenue:
+        "The provision sets out objective conditions. Where those conditions are satisfied the penalty follows as a statutory consequence, and importing a requirement of guilty intent would add an ingredient the legislature did not enact and would make enforcement impracticable.",
+    },
+    summary:
+      "The Court held that the object of a penalty of this character is to provide a remedy for loss of revenue, and that such a penalty is a civil liability rather than a criminal sanction. Where a statute imposes a penalty on the satisfaction of specified conditions, those conditions govern, and the authority is not required to find a guilty mind in the sense criminal law requires. The Court held that the earlier line of authority requiring deliberate defiance or contumacious conduct did not correctly state the position for a provision framed in these terms, and that wilful concealment is not an essential ingredient where the statute does not make it one. It reasoned that importing mens rea into a civil penalty would add an element the legislature had not enacted. The decision was subsequently read in a measured way: later authority, including Reliance Petroproducts and Price Waterhouse Coopers, confirmed that it does not make penalty automatic on every addition, since the statutory conditions must still be satisfied and any statutory explanation or defence remains available.",
+    principles: [
+      "A penalty of this character is a civil liability, not a criminal sanction.",
+      "Where the statutory conditions are satisfied the penalty follows as a statutory consequence.",
+      "Mens rea in the criminal sense need not be established unless the statute requires it.",
+      "The decision does not make penalty automatic; the statutory conditions and defences still apply.",
+    ],
+    relevance:
+      "Under the IT Act 2025 penalties are dealt with in Sections 439 and 440, with under-reporting and misreporting distinguished and carrying different rates. That structure makes the character of the default central once more, since misreporting attracts a substantially higher penalty. Dharamendra Textile continues to be cited for the civil nature of the liability, but must be read with Reliance Petroproducts and Price Waterhouse Coopers, which preserve the bona fide explanation defence.",
+    keywords: [
+      "civil liability",
+      "mens rea",
+      "strict liability",
+      "concealment penalty",
+      "statutory consequence",
+      "271(1)(c)",
+      "misreporting",
+    ],
+  },
+  {
+    slug: "mak-data-surrender",
+    caseName: "MAK Data P Ltd v. CIT",
+    citation: "(2013) 358 ITR 593 (SC)",
+    court: "Supreme Court",
+    year: 2013,
+    category: "Penalties",
+    section1961: "Section 271(1)(c)",
+    section2025: "Sections 439 & 440",
+    sectionTopic:
+      "Penalty for under-reporting and misreporting; penalty for concealment and other failures",
+    issue:
+      "Does a surrender of income made during assessment, said to be voluntary and to buy peace, preclude the levy of penalty?",
+    held:
+      "No. A surrender made after the Revenue has confronted the taxpayer with incriminating material is not voluntary. The statutory presumption applies unless the taxpayer offers a bona fide explanation, and a plea of buying peace is not such an explanation.",
+    facts:
+      "During assessment proceedings the Assessing Officer came into possession of documents, found in the course of a survey on another entity, which indicated that share application money recorded in the assessee's books did not represent genuine subscriptions. When confronted with this material, the assessee offered an additional sum to tax, stating that the surrender was made voluntarily to buy peace and to avoid protracted litigation, and on the express condition that no penalty be levied. The Assessing Officer accepted the surrender and levied penalty.",
+    proceduralHistory:
+      "The penalty was upheld by the appellate authorities and the Delhi High Court. The assessee appealed to the Supreme Court.",
+    contentions: {
+      assessee:
+        "The additional income was offered voluntarily and in good faith to end the dispute and cooperate with the Department. Where a taxpayer comes forward and offers income, penalising it discourages settlement and cooperation. The surrender was made on the footing that no penalty would follow.",
+      revenue:
+        "The offer came only after the assessee was confronted with material showing the entries to be bogus. A surrender extracted in those circumstances is not voluntary in any meaningful sense, and the assessee never explained the source of the money or the nature of the entries.",
+    },
+    summary:
+      "The Court held that the surrender was not voluntary. The assessee had offered the amount only when confronted with material gathered by the Department indicating that the share application money was not genuine, and an offer made at that stage is a response to detection rather than a voluntary disclosure. The Court held that the statute raises a presumption against the assessee once an addition is made, and that the burden lies on the assessee to offer an explanation that is bona fide and to substantiate it. A statement that the amount is offered to buy peace or to avoid litigation is not an explanation at all: it says nothing about the source of the money or the nature of the entries, and leaves the material unanswered. The Court rejected the suggestion that the Assessing Officer must establish concealment independently, holding that the statutory presumption operates unless displaced. It also held that a condition attached by the assessee that no penalty should be levied has no legal effect, since the levy is governed by statute and cannot be bargained away.",
+    principles: [
+      "A surrender made after being confronted with incriminating material is not voluntary.",
+      "The statutory presumption operates once an addition is made, and the burden lies on the assessee.",
+      "An explanation must be bona fide and substantiated; buying peace is not an explanation.",
+      "A condition that no penalty be levied has no legal effect on a statutory levy.",
+    ],
+    relevance:
+      "Under the IT Act 2025 the penalty structure in Sections 439 and 440 distinguishes under-reporting from misreporting, and a surrender following detection will ordinarily fall on the misreporting side with its higher rate. The practical lesson survives the restructuring: an offer of additional income should be accompanied by a substantiated explanation of the source and circumstances, since a bare surrender leaves the taxpayer without a defence.",
+    keywords: [
+      "voluntary surrender",
+      "buy peace",
+      "bona fide explanation",
+      "statutory presumption",
+      "share application money",
+      "detection",
+      "burden of proof",
+    ],
+  },
+  {
+    slug: "pwc-inadvertent-error",
+    caseName: "Price Waterhouse Coopers Pvt Ltd v. CIT",
+    citation: "(2012) 348 ITR 306 (SC)",
+    court: "Supreme Court",
+    year: 2012,
+    category: "Penalties",
+    section1961: "Section 271(1)(c)",
+    section2025: "Sections 439 & 440",
+    sectionTopic:
+      "Penalty for under-reporting and misreporting; penalty for concealment and other failures",
+    issue:
+      "Does a genuine clerical oversight in preparing the return, apparent from the accompanying documents, attract penalty for furnishing inaccurate particulars?",
+    held:
+      "No. Where the error is inadvertent and the correct position is apparent from the audited accounts and the tax audit report filed with the return, the mistake is bona fide and penalty is not warranted.",
+    facts:
+      "The assessee, a firm of chartered accountants, claimed a deduction for a provision for leave encashment in computing its income. The tax audit report filed with the return correctly recorded that the provision was not allowable, and the audited accounts disclosed the provision clearly. Through an oversight in preparing the computation, the amount was not added back. The Assessing Officer disallowed the provision and levied penalty, observing pointedly that the assessee was a firm of accountants from whom such an error was not to be expected.",
+    proceduralHistory:
+      "The penalty was upheld by the appellate authorities and the Calcutta High Court, which laid weight on the professional standing of the assessee. The assessee appealed to the Supreme Court.",
+    contentions: {
+      assessee:
+        "The tax audit report accompanying the return itself stated that the provision was not allowable. No attempt was made to conceal anything; had there been an intention to claim the deduction improperly, the accompanying report would not have disclosed the contrary position. The error was a human oversight in transcription and was bona fide.",
+      revenue:
+        "A firm of chartered accountants is expected to know that a provision of this kind is not deductible. Claiming it in the return furnished inaccurate particulars, and the professional standing of the assessee makes the error less excusable rather than more.",
+    },
+    summary:
+      "The Court held that the assessee had committed an inadvertent and bona fide error rather than furnished inaccurate particulars in the sense the provision requires. It laid decisive weight on the fact that the tax audit report filed along with the return itself stated that the provision was not allowable: an assessee intending to make a false claim would hardly file, with the very same return, a document contradicting it. That circumstance demonstrated that there was no intention to conceal and that the mistake was one of transcription in preparing the computation. The Court declined to treat the assessee's professional standing as an aggravating factor, observing that the assessee is a large company and that such an error can occur in any organisation notwithstanding its expertise; the calibre of the taxpayer does not convert an inadvertent mistake into a deliberate one. It held that the imposition of penalty was not justified and deleted it, while making clear that the conclusion rested on the particular facts and the disclosure made in the accompanying documents.",
+    principles: [
+      "An inadvertent and bona fide error is not the furnishing of inaccurate particulars.",
+      "Disclosure of the correct position in accompanying documents negates an intention to conceal.",
+      "The professional standing of the taxpayer does not convert an oversight into a deliberate act.",
+      "The conclusion is fact-specific and turns on what was disclosed with the return.",
+    ],
+    relevance:
+      "Under Sections 439 and 440 of the IT Act 2025 the distinction between under-reporting and misreporting makes the character of the error decisive, since misreporting attracts a materially higher penalty. This remains the leading authority for resisting penalty on a genuine computational oversight, and it underscores a practical point: the tax audit report and accompanying schedules are the evidence on which the bona fide defence is built.",
+    keywords: [
+      "inadvertent error",
+      "bona fide mistake",
+      "tax audit report",
+      "leave encashment provision",
+      "no intention to conceal",
+      "computation error",
+      "misreporting",
+    ],
+  },
+
+  // ══════════════════════════════════════════════════════════════════════════
+  // CASH CREDITS & UNEXPLAINED INCOME
+  // ══════════════════════════════════════════════════════════════════════════
+  {
+    slug: "sumati-dayal-human-probabilities",
+    caseName: "Sumati Dayal v. CIT",
+    citation: "(1995) 214 ITR 801 (SC)",
+    court: "Supreme Court",
+    year: 1995,
+    category: "Cash Credits & Unexplained Income",
+    section1961: "Section 68",
+    section2025: "Section 102",
+    sectionTopic: "Unexplained cash credits",
+    issue:
+      "May the Revenue reject an explanation supported by documents where the surrounding circumstances make the story inherently improbable?",
+    held:
+      "Yes. The taxing authorities are entitled to look at the surrounding circumstances and apply the test of human probabilities, and are not obliged to accept an explanation merely because it is supported by documents.",
+    facts:
+      "The assessee claimed to have won substantial sums in a series of horse race jackpots over a short period, and produced winning tickets and certificates from the race clubs in support. The amounts had been credited in her books as racing winnings, which at the relevant time were exempt. The Revenue found the pattern improbable — an extraordinary run of wins across different races and clubs by a person with no history of racing activity and no record of losing bets — and treated the credits as undisclosed income from other sources.",
+    proceduralHistory:
+      "The Settlement Commission rejected the explanation, drawing on the improbability of the claimed pattern. The matter reached the Supreme Court, where the question was whether the authorities could go behind apparently genuine documents.",
+    contentions: {
+      assessee:
+        "The winnings were evidenced by tickets and by certificates issued by the race clubs themselves. Unless those documents are shown to be forged or the issuing bodies are discredited, the explanation stands proved, and the authorities cannot substitute suspicion for evidence.",
+      revenue:
+        "The documents establish at most that the tickets were presented and paid. They do not establish that the assessee placed the bets or that the winnings were hers. The pattern claimed is so improbable that it cannot be accepted at face value, and the surrounding circumstances point to the purchase of winning tickets to launder undisclosed money.",
+    },
+    summary:
+      "The Court held that the question whether an explanation is satisfactory is one of fact, to be decided on a consideration of all the material and not by mechanically accepting documents produced. It endorsed the approach that the authorities are entitled to consider the surrounding circumstances and to apply the test of human probabilities: an apparent state of affairs may be rejected where the totality of circumstances makes it inherently improbable. On the facts, the Court considered the claimed run of jackpot wins, the absence of any evidence of losing bets or of habitual racing activity, and the concentration of the wins in a short period, and held that the Commission was entitled to conclude that the explanation was not genuine. It emphasised that this does not permit the Revenue to act on suspicion alone; the conclusion must be drawn from the material as a whole, and the taxpayer must be given an opportunity to meet the circumstances relied on. But where the material, viewed realistically, does not support the story, documentary formality will not save it.",
+    principles: [
+      "Whether an explanation is satisfactory is a question of fact decided on all the material.",
+      "Authorities may consider surrounding circumstances and apply the test of human probabilities.",
+      "Documentary support does not compel acceptance where the story is inherently improbable.",
+      "The conclusion must rest on the material as a whole, not on suspicion, with opportunity to the taxpayer.",
+    ],
+    relevance:
+      "Unexplained cash credits are dealt with in Section 102 of the IT Act 2025, taxed at the special rate in Section 195. The human probabilities test is the Revenue's principal answer to formally documented but commercially implausible transactions, and is central to disputes over accommodation entries, bogus capital gains from penny stocks, and share capital from shell entities. Read with Durga Prasad More, which supplies the apparent-versus-real framing.",
+    keywords: [
+      "human probabilities",
+      "surrounding circumstances",
+      "cash credit",
+      "68",
+      "apparent state of affairs",
+      "racing winnings",
+      "accommodation entries",
+    ],
+  },
+  {
+    slug: "durga-prasad-more",
+    caseName: "CIT v. Durga Prasad More",
+    citation: "(1971) 82 ITR 540 (SC)",
+    court: "Supreme Court",
+    year: 1971,
+    category: "Cash Credits & Unexplained Income",
+    section1961: "Section 68",
+    section2025: "Section 102",
+    sectionTopic: "Unexplained cash credits",
+    issue:
+      "Where a transaction is recorded in formal documents, is the taxing authority bound by the apparent state of affairs those documents disclose?",
+    held:
+      "No. Though an apparent state of affairs is to be treated as real unless shown otherwise, the onus of showing that the apparent is not the real lies on the party asserting it, and the authorities may test the story against ordinary human conduct.",
+    facts:
+      "The assessee claimed that property standing in his name had in fact been purchased with funds belonging to his wife, which she was said to have received from a trust and held in cash over a long period. Formal documents were produced in support of the claimed arrangement. The Revenue did not accept the account, considering it improbable that funds of that magnitude would have been held in cash for years and that the arrangement was in substance a means of explaining the assessee's own money.",
+    proceduralHistory:
+      "The matter reached the Supreme Court, which considered how far the taxing authorities may go behind documents in assessing the genuineness of a claimed state of affairs.",
+    contentions: {
+      assessee:
+        "The transactions were evidenced by documents which the Revenue had not shown to be fabricated. In the absence of evidence displacing them, the apparent state of affairs must be taken as real and the authorities cannot proceed on conjecture.",
+      revenue:
+        "Documents record what the parties chose to record. The account given was contrary to ordinary human conduct, and the authorities are entitled to examine whether the recitals reflect reality rather than accepting them because they exist.",
+    },
+    summary:
+      "The Court accepted the general proposition that an apparent state of affairs is to be treated as the real state of affairs, but held that the party asserting that the apparent is not the real bears the onus of establishing it — and that the Revenue may discharge that onus by reference to the improbability of the account rather than by direct evidence, which will rarely be available. It held that taxing authorities are not required to put on blinkers and look only at the documents produced; they are entitled to look into the surrounding circumstances to find out the reality, and must act on a test of human probabilities. The Court observed that self-serving recitals in documents are of limited value where the story they support runs contrary to ordinary conduct, and that an assessee who advances an improbable account must expect it to be scrutinised. It cautioned that the authorities must not act on mere suspicion and must confront the assessee with the circumstances relied on, but held that a claim which no reasonable person would accept does not become acceptable because it has been reduced to writing.",
+    principles: [
+      "An apparent state of affairs is treated as real, but the onus of showing otherwise may be discharged by improbability.",
+      "Taxing authorities may look into surrounding circumstances to find the reality behind documents.",
+      "Self-serving recitals carry limited weight where the account runs contrary to ordinary conduct.",
+      "Authorities must not act on suspicion alone and must confront the assessee with the circumstances relied on.",
+    ],
+    relevance:
+      "Applied under Section 102 of the IT Act 2025 and across the Act wherever genuineness is in issue. Together with Sumati Dayal it forms the evidentiary framework for cash credit and unexplained income disputes, and the reasoning extends well beyond that context — to sham transactions, benami arrangements and the substance-over-form analysis in avoidance cases.",
+    keywords: [
+      "apparent versus real",
+      "surrounding circumstances",
+      "human probabilities",
+      "self-serving recitals",
+      "genuineness",
+      "onus",
+      "benami",
+    ],
+  },
+  {
+    slug: "nra-iron-steel-share-capital",
+    caseName: "PCIT v. NRA Iron & Steel Pvt Ltd",
+    citation: "(2019) 412 ITR 161 (SC)",
+    court: "Supreme Court",
+    year: 2019,
+    category: "Cash Credits & Unexplained Income",
+    section1961: "Section 68",
+    section2025: "Section 102",
+    sectionTopic: "Unexplained cash credits",
+    issue:
+      "What must a company establish to discharge its burden in respect of share capital received at a premium from investor entities?",
+    held:
+      "Identity alone is not enough. The company must establish the identity of the investors, their creditworthiness, and the genuineness of the transaction. Where investors are non-existent or lack means, the credits may be assessed as the company's income.",
+    facts:
+      "The assessee company received substantial share capital at a high premium from a number of investor companies. It produced their names, addresses, permanent account numbers, incorporation particulars, bank statements showing the payments, and confirmations. On enquiry the Assessing Officer found that several investors could not be located at the addresses given, that others had negligible income and no creditworthiness to support investments of the size claimed, and that in some cases funds had been deposited in the investors' accounts immediately before being transferred to the assessee. No justification was offered for the high premium at which shares in a company of the assessee's standing had been subscribed.",
+    proceduralHistory:
+      "The Commissioner (Appeals), the Tribunal and the High Court all decided in the assessee's favour, holding the initial burden discharged by the documents produced. The Revenue appealed to the Supreme Court, which reversed.",
+    contentions: {
+      assessee:
+        "The identity of each investor was established by incorporation and tax records, and the payments were made through banking channels and confirmed. Once that material is produced the initial burden is discharged, and if the Revenue doubts the investors it must proceed against them rather than against the recipient company.",
+      revenue:
+        "Producing names and bank entries establishes only that money moved. Where investors cannot be found, have no means to invest, and their accounts are funded immediately before the transfer, the material does not establish creditworthiness or genuineness, which the provision separately requires.",
+    },
+    summary:
+      "The Court restated the three requirements the assessee must satisfy: the identity of the creditor or investor, the creditworthiness of that person, and the genuineness of the transaction. It held that these are cumulative, and that establishing identity through incorporation and tax records does not by itself discharge the burden. On creditworthiness, the Court held that the assessee must show that the investors had the financial capacity to make investments of the size in question, and that entities with negligible income or assets do not acquire capacity merely because money passed through their accounts. On genuineness, it held that routing funds through banking channels is not conclusive, particularly where accounts are credited immediately before the transfer in a manner suggesting that the source lies elsewhere. The Court laid weight on the failure to explain the high premium, observing that an unexplained premium in a company without a commensurate record is itself a circumstance calling for scrutiny. It held that the appellate authorities had erred in treating the documentary material as sufficient without examining these elements, and restored the addition.",
+    principles: [
+      "The assessee must establish identity, creditworthiness and genuineness cumulatively.",
+      "Incorporation and tax records establish identity but not creditworthiness.",
+      "Payment through banking channels is not conclusive of genuineness.",
+      "Investors with negligible means do not acquire capacity because funds passed through their accounts.",
+      "An unexplained share premium is a circumstance calling for scrutiny.",
+    ],
+    relevance:
+      "Unexplained credits are dealt with in Section 102 of the IT Act 2025 and taxed at the special rate in Section 195, without the benefit of any deduction or set off. Note that the statutory burden in relation to share capital received by a closely held company has been tightened, requiring the source of the investor's own funds to be explained as well. NRA Iron & Steel is the leading authority on the standard of proof and is applied extensively to share capital, premium and unsecured loan additions.",
+    keywords: [
+      "share capital",
+      "share premium",
+      "creditworthiness",
+      "genuineness",
+      "identity",
+      "68",
+      "shell companies",
+      "source of source",
+    ],
+  },
+
+  // ══════════════════════════════════════════════════════════════════════════
+  // GENERAL PRINCIPLES
+  // ══════════════════════════════════════════════════════════════════════════
+  {
+    slug: "vatika-township-retrospectivity",
+    caseName: "CIT v. Vatika Township Pvt Ltd",
+    citation: "(2014) 367 ITR 466 (SC)",
+    court: "Supreme Court",
+    year: 2014,
+    category: "General Principles",
+    section1961: "Principle of statutory interpretation — applies across the Act",
+    section2025: "Applies across the IT Act 2025",
+    sectionTopic:
+      "Prospective and retrospective operation of fiscal legislation",
+    issue:
+      "When does an amendment to a fiscal statute operate retrospectively, and who bears the burden of showing that it does?",
+    held:
+      "The presumption is against retrospectivity. An amendment imposing a new burden operates prospectively unless the legislature clearly provides otherwise; only a clarificatory or beneficial provision that creates no new liability may be applied to earlier periods.",
+    facts:
+      "The dispute concerned whether a surcharge introduced by an amendment applied to a period before the amendment took effect. The Revenue contended that the amendment merely clarified the existing position and therefore governed earlier years. Because conflicting approaches to retrospectivity had emerged in a number of decisions, the matter was placed before a Constitution Bench, which took the opportunity to restate the governing principles comprehensively.",
+    proceduralHistory:
+      "A five-judge Constitution Bench of the Supreme Court heard the matter and reconsidered an earlier decision that had been read as supporting retrospective application.",
+    contentions: {
+      assessee:
+        "Legislation is presumed to operate prospectively. A provision that increases the burden on the taxpayer cannot be applied to transactions already completed, since taxpayers arrange their affairs by reference to the law in force at the time. Describing an amendment as clarificatory does not make it so.",
+      revenue:
+        "The amendment did not create a new levy but removed doubt about what the law had always required. A clarificatory provision is declaratory in nature and takes effect from the date the provision it clarifies was introduced.",
+    },
+    summary:
+      "The Constitution Bench grounded the presumption against retrospectivity in fairness. Legislation that affects vested rights or imposes new obligations is presumed to be prospective because people regulate their affairs on the basis of the law as it stands, and it would be unjust to alter the consequences of completed transactions after the event. The Court held that this presumption is displaced only where the legislature has made its intention clear, either expressly or by necessary implication, and that the burden of establishing retrospective operation lies on the party asserting it. It drew a distinction between two categories: provisions that impose a new liability or enlarge an existing one, which must be prospective unless clearly stated otherwise; and provisions that are genuinely clarificatory or that confer a benefit while creating no new burden, which may be applied to earlier periods. Crucially, the Court held that the label the legislature or the Revenue attaches is not decisive — whether a provision is clarificatory is determined by examining what it actually does, and a provision that changes the law cannot be made retrospective by calling it a clarification.",
+    principles: [
+      "Legislation is presumed to operate prospectively; the presumption rests on fairness.",
+      "A provision imposing or enlarging a liability operates prospectively unless clearly stated otherwise.",
+      "The burden of establishing retrospective operation lies on the party asserting it.",
+      "A genuinely clarificatory or beneficial provision creating no new burden may apply to earlier periods.",
+      "The label attached is not decisive; what the provision actually does determines its character.",
+    ],
+    relevance:
+      "A principle of general application rather than a provision-specific holding, and directly relevant to the transition to the IT Act 2025, where the characterisation of changes as clarifying or altering the earlier position will arise repeatedly. It is the authority relied on in every dispute over retrospective amendments, and it underpins decisions such as New Skies Satellite, which refused to let a retrospective domestic amendment rewrite a treaty term.",
+    keywords: [
+      "retrospectivity",
+      "prospective operation",
+      "clarificatory amendment",
+      "declaratory provision",
+      "vested rights",
+      "Constitution Bench",
+      "fairness",
+    ],
+  },
+  {
+    slug: "mcdowell-colourable-device",
+    caseName: "McDowell & Co Ltd v. Commercial Tax Officer",
+    citation: "(1985) 154 ITR 148 (SC)",
+    court: "Supreme Court",
+    year: 1985,
+    category: "General Principles",
+    section1961: "Principle concerning tax avoidance — applies across the Act",
+    section2025: "Applies across the IT Act 2025",
+    sectionTopic: "Tax planning, avoidance and colourable devices",
+    issue:
+      "How far may a taxpayer arrange its affairs to reduce tax, and when will the courts decline to give effect to the arrangement?",
+    held:
+      "Legitimate tax planning within the law is permissible, but colourable devices and dubious methods adopted to avoid tax are not. The substance of an arrangement may be examined rather than accepting its form.",
+    facts:
+      "The case arose in the context of excise duty on liquor and whether duty paid directly by buyers to the authorities formed part of the assessee manufacturer's turnover for sales tax. The arrangement had been structured so that the duty was discharged by purchasers rather than by the manufacturer, with the object of keeping it outside the taxable turnover. The Court considered the arrangement and, in doing so, addressed the broader question of how the law should regard schemes designed to reduce tax.",
+    proceduralHistory:
+      "The matter was decided by a Constitution Bench of the Supreme Court. The leading judgment and a separate concurring judgment expressed the position on avoidance in different terms, which has shaped the debate ever since.",
+    contentions: {
+      assessee:
+        "A taxpayer is entitled to arrange its affairs so that the tax attaching is less than it otherwise would be, and there is no obligation to structure transactions so as to maximise the revenue. So long as the arrangement is lawful, the authorities must give effect to it as made.",
+      revenue:
+        "The arrangement had no commercial purpose beyond reducing the tax burden, and its form did not reflect its substance. The authorities should be entitled to look at what was actually achieved rather than the structure adopted to describe it.",
+    },
+    summary:
+      "The Court held that the arrangement in question did not succeed on its own terms, and went on to address avoidance more broadly. The leading judgment held that tax planning may be legitimate provided it is within the framework of the law, but that colourable devices cannot be part of tax planning, and it is wrong to encourage the belief that it is honourable to avoid payment of tax by resorting to dubious methods. The separate concurring judgment went further in criticising avoidance schemes and urged that they be judged by their substance rather than their form. The relationship between the two judgments, and the extent to which they displaced the older principle that a taxpayer may lawfully arrange its affairs, generated extensive debate in later cases. That debate was substantially settled in Vodafone, where the Court clarified that McDowell does not condemn legitimate tax planning: the distinction is between a genuine arrangement having commercial substance, which must be respected, and a preordained scheme inserted with no purpose other than avoidance, which may be disregarded.",
+    principles: [
+      "Legitimate tax planning within the framework of the law is permissible.",
+      "Colourable devices and dubious methods adopted to avoid tax are not tax planning.",
+      "The substance of an arrangement may be examined rather than its form accepted at face value.",
+      "As clarified in Vodafone, genuine arrangements with commercial substance are respected; preordained schemes without purpose are not.",
+    ],
+    relevance:
+      "The foundation of India's judicial approach to avoidance, and the backdrop against which the general anti-avoidance rules were enacted. Those statutory rules now supply the operative test — impermissible avoidance arrangements, main purpose, lack of commercial substance — so McDowell is the origin of the doctrine rather than the current mechanism. It must be read with Vodafone and Azadi Bachao, which mark the boundary between planning and avoidance.",
+    keywords: [
+      "tax avoidance",
+      "tax planning",
+      "colourable device",
+      "substance over form",
+      "GAAR",
+      "commercial substance",
+      "preordained scheme",
+    ],
+  },
+  {
+    slug: "radhasoami-satsang-consistency",
+    caseName: "Radhasoami Satsang v. CIT",
+    citation: "(1992) 193 ITR 321 (SC)",
+    court: "Supreme Court",
+    year: 1992,
+    category: "General Principles",
+    section1961: "Principle of consistency — applies across the Act",
+    section2025: "Applies across the IT Act 2025",
+    sectionTopic:
+      "Consistency of treatment across assessment years",
+    issue:
+      "Where a fundamental position has been accepted by the Revenue over many years, may it be departed from in a later year without any change in facts or law?",
+    held:
+      "Ordinarily not. Although each assessment year is a separate unit and res judicata does not strictly apply, a fundamental aspect permeating different years that has been accepted should not be changed absent a material alteration in facts or law.",
+    facts:
+      "The assessee was a religious institution whose income had been treated as exempt for a long series of assessment years, the Revenue having accepted in earlier proceedings that the properties were held under trust for religious and charitable purposes. In the years in question the Revenue sought to depart from that settled treatment and tax the income, without pointing to any change in the constitution of the institution, the nature of its activities, or the governing law.",
+    proceduralHistory:
+      "The matter reached the Supreme Court, which examined how far the principle that each assessment year is a separate unit permits the Revenue to unsettle a position consistently accepted.",
+    contentions: {
+      assessee:
+        "The character of the institution and the basis on which its income was held exempt had been examined and accepted, and nothing had changed. Reopening a settled foundational position after many years, without any alteration in facts or law, produces uncertainty and is unfair to a taxpayer who has ordered its affairs accordingly.",
+      revenue:
+        "Each assessment year is a separate unit of assessment and the doctrine of res judicata does not apply to tax proceedings. An erroneous view taken in earlier years cannot bind the authorities for all time, and they are entitled to apply the correct legal position in any year.",
+    },
+    summary:
+      "The Court accepted the settled proposition that each assessment year is a separate unit and that the strict rule of res judicata does not apply to income tax proceedings, so a decision in one year does not operate as a binding adjudication for another. It held, however, that this does not mean that a position may be unsettled at will. Where a fundamental aspect permeating through different assessment years has been found as a fact one way or the other, and parties have allowed that position to be sustained by not challenging it over a period, it is not appropriate to allow the position to be changed in a subsequent year unless there is a material change in the facts or in the law. The Court reasoned that consistency and certainty are values of importance in the administration of a fiscal statute, and that taxpayers order their affairs on the footing of positions the Revenue has accepted. It confined the principle carefully: it does not prevent the Revenue from correcting its approach where circumstances have altered or where a superior court has laid down a different legal position, and it operates on fundamental aspects rather than on every item of computation.",
+    principles: [
+      "Each assessment year is a separate unit and res judicata does not strictly apply.",
+      "A fundamental aspect permeating different years, once accepted, should not be changed without cause.",
+      "A material change in facts or law is required before a settled position is departed from.",
+      "Consistency and certainty are values of importance in administering a fiscal statute.",
+      "The principle applies to fundamental aspects, not to every item of computation.",
+    ],
+    relevance:
+      "A principle of general application, invoked across the IT Act 2025 wherever the Revenue departs from a treatment it has long accepted — the characterisation of an activity, the head under which income falls, the status of an entity, or the method of accounting followed. It carries particular weight in transfer pricing and in charitable trust matters, where the same fundamental characterisation recurs year after year, and it was applied in Excel Industries to resist a change in the year of taxability.",
+    keywords: [
+      "consistency",
+      "res judicata",
+      "fundamental aspect",
+      "separate assessment year",
+      "settled position",
+      "certainty",
+      "change in facts or law",
     ],
   },
 ];

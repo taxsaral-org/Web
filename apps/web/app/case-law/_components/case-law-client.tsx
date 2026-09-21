@@ -14,6 +14,10 @@ const CATEGORY_BADGE: Record<CaseCategory, string> = {
   "Business & Profession": "bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300",
   "Assessment & Reassessment": "bg-rose-100 text-rose-800 dark:bg-rose-900/30 dark:text-rose-300",
   "TDS & TCS": "bg-pink-100 text-pink-800 dark:bg-pink-900/30 dark:text-pink-300",
+  "Penalties": "bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300",
+  "Cash Credits & Unexplained Income":
+    "bg-lime-100 text-lime-800 dark:bg-lime-900/30 dark:text-lime-300",
+  "General Principles": "bg-slate-200 text-slate-800 dark:bg-slate-700/40 dark:text-slate-200",
 };
 
 const CATEGORY_ACCENT: Record<CaseCategory, string> = {
@@ -24,6 +28,9 @@ const CATEGORY_ACCENT: Record<CaseCategory, string> = {
   "Business & Profession": "border-l-amber-400",
   "Assessment & Reassessment": "border-l-rose-400",
   "TDS & TCS": "border-l-pink-400",
+  "Penalties": "border-l-orange-400",
+  "Cash Credits & Unexplained Income": "border-l-lime-400",
+  "General Principles": "border-l-slate-400",
 };
 
 const CATEGORY_FILTER_ACTIVE: Record<CaseCategory, string> = {
@@ -34,6 +41,9 @@ const CATEGORY_FILTER_ACTIVE: Record<CaseCategory, string> = {
   "Business & Profession": "bg-amber-100 text-amber-800 border-amber-300",
   "Assessment & Reassessment": "bg-rose-100 text-rose-800 border-rose-300",
   "TDS & TCS": "bg-pink-100 text-pink-800 border-pink-300",
+  "Penalties": "bg-orange-100 text-orange-800 border-orange-300",
+  "Cash Credits & Unexplained Income": "bg-lime-100 text-lime-800 border-lime-300",
+  "General Principles": "bg-slate-200 text-slate-800 border-slate-400",
 };
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
