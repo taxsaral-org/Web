@@ -4,7 +4,8 @@ export type CaseCategory =
   | "Transfer Pricing"
   | "International Tax"
   | "Business & Profession"
-  | "Assessment & Reassessment";
+  | "Assessment & Reassessment"
+  | "TDS & TCS";
 
 export const CASE_CATEGORIES: CaseCategory[] = [
   "Capital Gains",
@@ -13,10 +14,12 @@ export const CASE_CATEGORIES: CaseCategory[] = [
   "International Tax",
   "Business & Profession",
   "Assessment & Reassessment",
+  "TDS & TCS",
 ];
 
 export type Court =
   | "Supreme Court"
+  | "Privy Council"
   | "Bombay High Court"
   | "Delhi High Court"
   | "Madras High Court"
@@ -2076,6 +2079,243 @@ export const CASE_LAWS: CaseLaw[] = [
       "distinguished Maruti Suzuki",
       "search assessment",
       "suppression",
+    ],
+  },
+
+  // ══════════════════════════════════════════════════════════════════════════
+  // TDS & TCS
+  // ══════════════════════════════════════════════════════════════════════════
+  {
+    slug: "itc-tips-tds-salary",
+    caseName: "ITC Ltd v. CIT (TDS)",
+    citation: "(2016) 384 ITR 14 (SC)",
+    court: "Supreme Court",
+    year: 2016,
+    category: "TDS & TCS",
+    section1961: "Sections 15, 17 & 192",
+    section2025: "Sections 15, 16, 18 & 392",
+    sectionTopic:
+      "Salaries — charging section; definition of salary and profits in lieu of salary; TDS on salaries",
+    issue:
+      "Where a hotel collects tips from customers on credit card bills and disburses them to its staff, is the employer obliged to deduct tax at source as though the tips were salary?",
+    held:
+      "No. Tips are payments voluntarily made by customers, not by the employer, and do not arise from the contract of employment. They are not salary, so the withholding obligation on salary is not attracted. The employer acts only as a conduit.",
+    facts:
+      "ITC Ltd operated hotels at which customers frequently added a tip when settling their bills by credit card. Because the amount reached the hotel through the card settlement rather than the customer's hand, the hotel collected those sums and later distributed them among its staff. The Revenue treated the disbursements as salary paid by the employer, held the hotel to be an assessee in default for failing to deduct tax at source on them under Section 192, and raised demands for tax and interest across several years. The same pattern arose for a number of hotel companies and the appeals were heard together.",
+    proceduralHistory:
+      "The Assessing Officer's orders were confirmed in part through the appellate stages, and the Delhi High Court decided against the hotels, holding the tips to be income under the head salary in the employees' hands with a consequent obligation to withhold. The hotels appealed to the Supreme Court.",
+    contentions: {
+      assessee:
+        "The tips were paid by customers, not by the employer, out of their own volition and in recognition of service. They form no part of the contract of employment, the employee has no enforceable right against the employer to receive them, and the hotel merely collects and passes them on. Since the sums are not paid by the employer as salary, the obligation to deduct under Section 192 cannot arise. At most the receipt is income in the employee's hands from another source, on which the employee is assessable.",
+      revenue:
+        "The money reached the employees through the employer, who determined how it was apportioned and disbursed it with the wages. The definition of salary is wide and includes profits in lieu of salary and any payment received from an employer in connection with employment. Once the amounts pass through the employer's hands to the employee, the withholding obligation attaches.",
+    },
+    summary:
+      "The Court examined the source and character of the payment rather than the route it travelled. It held that a tip is a voluntary payment by a customer, made out of the customer's own satisfaction with the service, and is in no sense a payment by the employer. The contract of employment creates no right in the employee to receive tips and imposes no obligation on the employer to pay them; whether any tip is received at all depends entirely on the customer. The employer, in collecting amounts settled by credit card and distributing them, performs the function of a conduit or trustee for money that was never its own. Since the charge under the head of salary, and the corresponding withholding obligation, rest on a payment made by the employer to the employee arising out of the employment relationship, neither was attracted. The Court was careful to add that its conclusion did not place the receipt outside the tax net altogether: the tips remain income in the hands of the employees, chargeable under the appropriate head, and the employees are assessable on them in the ordinary way. What fails is the attempt to cast the collection burden on the employer. The orders treating the hotels as assessees in default were accordingly set aside.",
+    principles: [
+      "A tip is a voluntary payment by the customer, not a payment by the employer.",
+      "Salary presupposes a payment arising out of the contract of employment; tips create no such entitlement.",
+      "An employer who collects and passes on customer tips acts as a conduit, not as a payer of salary.",
+      "The withholding obligation on salary is not attracted where the sum is not salary in the recipient's hands.",
+      "The tips remain taxable in the employees' own hands under the appropriate head.",
+    ],
+    relevance:
+      "The leading authority on service charges, tips and similar customer-funded payments routed through an employer, now falling under Sections 15 to 18 for the charge and Section 392 for salary withholding under the IT Act 2025. It is directly relevant to hotels, restaurants, salons and delivery platforms wherever customer gratuities are pooled and distributed. Note the distinction the case turns on: a mandatory service charge levied by the establishment and paid to staff out of its own funds stands on a different footing from a voluntary tip, and this decision should not be read as covering it.",
+    keywords: [
+      "tips",
+      "service charge",
+      "salary",
+      "section 192",
+      "assessee in default",
+      "hotel industry",
+      "conduit",
+      "voluntary payment",
+    ],
+  },
+  {
+    slug: "tata-chemicals-refund-interest",
+    caseName: "Union of India v. Tata Chemicals Ltd",
+    citation: "(2014) 363 ITR 658 (SC)",
+    court: "Supreme Court",
+    year: 2014,
+    category: "TDS & TCS",
+    section1961: "Sections 195, 240 & 244A",
+    section2025: "Sections 393 & 437",
+    sectionTopic:
+      "TDS on specified payments; interest on delayed refund of excess tax",
+    issue:
+      "Where a resident deductor withholds and deposits tax on a payment to a non-resident, and that tax is later found not to have been payable, is the deductor entitled to interest on the refund?",
+    held:
+      "Yes. The State, having received and retained money without right, must refund it with interest. Interest under Section 244A is payable to the deductor from the date the tax was paid to the date of refund.",
+    facts:
+      "The respondent had made payments to a non-resident and, acting on a determination by the Assessing Officer as to the rate at which tax should be withheld, deducted and deposited tax accordingly. In subsequent proceedings it was established that the sums were not chargeable to the extent assumed, and the tax deducted had therefore been deposited in excess of what was due. The deductor sought refund of the excess together with interest. The Revenue refunded the principal but declined interest, contending that the statutory provision for interest on refunds applies to an assessee who has paid tax on its own account and not to a deductor recovering tax it had withheld on another's behalf.",
+    proceduralHistory:
+      "The claim to interest was rejected by the Revenue and the matter travelled through the appellate stages to the High Court, which decided in favour of the deductor. The Union appealed to the Supreme Court, where the question was whether the refund provisions extend to a deductor at all.",
+    contentions: {
+      assessee:
+        "The money was collected by the State without authority of law, since the underlying sum was not chargeable to the extent assumed. A person who has been deprived of the use of money that the State had no right to retain is entitled to be compensated for that deprivation. The refund and interest provisions are general in their terms and are not confined to tax paid by an assessee on its own income.",
+      revenue:
+        "The interest provision is framed by reference to an assessee and to tax paid by way of advance tax, self-assessment tax or tax deducted on the assessee's own income. A deductor is not the assessee in respect of the deducted sum; it pays over money belonging to the payee. There is no express provision entitling a deductor to interest, and interest cannot be awarded in the absence of a statutory foundation.",
+    },
+    summary:
+      "The Court proceeded from the principle that the State may retain money only under authority of law. Where tax has been collected without such authority, the obligation to refund carries with it an obligation to compensate the person from whom it was taken for the period during which the State had the use of the money. The Court held that the refund provisions are not confined to an assessee paying tax on its own income: the expression must be read in the context of a scheme that contemplates refund to the person who paid, and a deductor who has deposited tax out of its own funds on a determination later found to be wrong is such a person. It rejected the argument that the absence of an express provision was fatal, observing that the obligation to pay interest on money wrongly retained is not a matter of concession but flows from the character of the receipt. The Court held that interest runs from the date on which the tax was paid to the State until the date on which the refund is granted, and that the resident deductor was entitled to it accordingly. It emphasised that this is compensation for deprivation of the use of money rather than a penalty on the Revenue.",
+    principles: [
+      "The State may retain money only under authority of law; tax collected without such authority must be refunded.",
+      "An obligation to refund carries with it an obligation to compensate for the period the money was retained.",
+      "The refund and interest provisions are not confined to tax paid by an assessee on its own income.",
+      "A resident deductor who deposits excess tax out of its own funds is entitled to interest on the refund.",
+      "Interest runs from the date of payment to the State until the date of refund.",
+    ],
+    relevance:
+      "Governs every claim for interest on refund of excess withholding, a recurring issue where tax is deducted on a conservative view of chargeability and the position is later resolved in the payer's favour. Under the IT Act 2025 the withholding provisions are consolidated in Section 393 and interest on delayed refund sits in Section 437. Read alongside GE India Technology, which establishes that withholding is required only where the sum is chargeable, this decision supplies the remedy when tax has nonetheless been deducted and deposited.",
+    keywords: [
+      "interest on refund",
+      "244A",
+      "excess TDS",
+      "resident deductor",
+      "unjust retention",
+      "compensation",
+      "section 195",
+    ],
+  },
+
+  // ══════════════════════════════════════════════════════════════════════════
+  // TATA — BUSINESS, TRANSFER PRICING AND SOFTWARE
+  // ══════════════════════════════════════════════════════════════════════════
+  {
+    slug: "tata-iron-steel-actual-cost",
+    caseName: "Tata Iron & Steel Co Ltd v. CIT",
+    citation: "(1998) 231 ITR 285 (SC)",
+    court: "Supreme Court",
+    year: 1998,
+    category: "Business & Profession",
+    section1961: "Sections 43(1) & 43A",
+    section2025: "Sections 39 & 42",
+    sectionTopic:
+      "Computation of actual cost of assets; capitalising the impact of change in foreign exchange rates",
+    issue:
+      "Does a loss arising on repayment of a foreign currency loan, taken to acquire plant, increase the actual cost of that plant for depreciation and related purposes?",
+    held:
+      "No. The cost of an asset and the manner in which the purchase price is raised and repaid are two distinct matters. Fluctuation in the exchange rate on repaying the loan does not alter the actual cost of the asset.",
+    facts:
+      "The company had acquired plant and machinery, funding the acquisition through borrowings denominated in foreign currency. The rupee subsequently depreciated, so that repaying the loan required a larger rupee outlay than the amount originally reflected when the asset was acquired. The company sought to add that additional rupee burden to the actual cost of the plant, which would have increased the base on which depreciation and other allowances were computed. The Revenue declined, holding that the cost of the asset was fixed at acquisition and that the terms on which the purchase price had been financed were a separate matter.",
+    proceduralHistory:
+      "The claim was rejected in assessment and the matter proceeded by reference to the High Court, which decided against the company. The appeal came before the Supreme Court, which considered the relationship between the cost of an asset and the financing arrangements used to acquire it.",
+    contentions: {
+      assessee:
+        "The true economic cost of acquiring the plant is what the company ultimately had to part with, and that figure was increased by the exchange movement on the borrowing raised for the purchase. Confining the cost to the rupee figure recorded at acquisition understates what the asset actually cost the business.",
+      revenue:
+        "The cost of an asset is what the assessee paid to acquire it. How that payment was funded — from reserves, from a rupee loan, or from a foreign currency loan — is a matter between the assessee and its lenders. A loss on repaying a loan is a consequence of the financing arrangement, not an addition to the price of the asset.",
+    },
+    summary:
+      "The Court held that the cost of an asset and the liability to repay the money borrowed to acquire it are distinct and must not be conflated. When the plant was acquired, the price was ascertained and the asset entered the business at that cost. The loan raised to fund the purchase created a separate obligation between the company and its lender, and the rupee burden of discharging that obligation varied with the exchange rate. That variation affected the cost of servicing the borrowing; it did not retrospectively change what the plant had cost. The Court observed that the position would be otherwise only where the statute expressly so provides — as the legislature had done by enacting a specific provision dealing with the capitalisation of exchange differences on liabilities incurred for acquiring assets from outside India — and that such a provision, being a departure from the general principle, operates within its own terms and cannot be extended by analogy. Absent such a provision applying on the facts, the general rule governed and the actual cost stood unchanged.",
+    principles: [
+      "The cost of an asset and the liability to repay borrowings used to acquire it are distinct matters.",
+      "Exchange fluctuation on repaying a loan does not retrospectively alter the actual cost of the asset.",
+      "The manner of financing an acquisition is a matter between the assessee and its lender.",
+      "A statutory provision capitalising exchange differences is a departure from the general rule and operates within its own terms.",
+    ],
+    relevance:
+      "The IT Act 2025 continues the same structure: Section 39 computes the actual cost of assets and Section 42 provides expressly for capitalising the impact of exchange rate changes, with Section 43 governing foreign exchange fluctuation gains and losses more generally. This decision remains the statement of the general principle against which those specific provisions operate, and is the starting point whenever a taxpayer seeks to build financing costs into the cost base of an asset.",
+    keywords: [
+      "actual cost",
+      "foreign exchange fluctuation",
+      "depreciation base",
+      "43A",
+      "capitalisation",
+      "financing cost",
+      "plant and machinery",
+    ],
+  },
+  {
+    slug: "tata-autocomp-libor",
+    caseName: "CIT v. Tata Autocomp Systems Ltd",
+    citation: "(2015) 374 ITR 516 (Bom)",
+    court: "Bombay High Court",
+    year: 2015,
+    category: "Transfer Pricing",
+    section1961: "Sections 92B & 92C",
+    section2025: "Sections 163 & 165",
+    sectionTopic:
+      "Meaning of international transaction; determination of arm's length price",
+    issue:
+      "When an Indian company lends in foreign currency to its overseas associated enterprise, should the arm's length interest rate be the Indian lending rate or the rate prevailing in the country where the loan is received?",
+    held:
+      "The rate prevailing where the loan is received and used. Benchmarking a foreign currency loan against Indian rupee lending rates is inappropriate, because the two are not comparable.",
+    facts:
+      "The Indian company advanced a loan in foreign currency to its wholly owned subsidiary in Germany, charging interest at a rate that reflected European market conditions. The Transfer Pricing Officer rejected that rate and substituted the Indian prime lending rate, which was substantially higher, on the footing that the funds had been provided by an Indian enterprise and that the opportunity cost to be measured was what the Indian company could have earned by lending in India. An adjustment was made for the difference.",
+    proceduralHistory:
+      "The Tribunal held that the comparable rate was the one prevailing in the country where the loan was received, following the approach taken in other cases involving foreign currency advances to overseas subsidiaries. The Revenue appealed to the Bombay High Court.",
+    contentions: {
+      assessee:
+        "The comparison required is with what an independent lender would have charged the borrower for a loan of the same currency, tenor and risk in the market where the borrower operates. A loan denominated in euros and used in Germany bears European rates. The Indian prime lending rate reflects rupee lending in Indian conditions and has no bearing on the pricing of a euro loan abroad.",
+      revenue:
+        "The lender is an Indian enterprise which has parted with funds it could otherwise have deployed in India. The appropriate measure of what the transaction should have yielded is the return available domestically, and the domestic prime lending rate supplies that measure.",
+    },
+    summary:
+      "The Court upheld the Tribunal. It held that the arm's length enquiry asks what independent parties would have agreed for a comparable transaction, and comparability must be judged by reference to the currency in which the loan is denominated, the market in which it is placed, the tenor and the credit risk. A loan advanced and repayable in foreign currency, made available to a borrower operating abroad, is comparable to other foreign currency lending in that market, and its price is set by the interest rates prevailing there. The Indian prime lending rate reflects an entirely different set of conditions — rupee funding, Indian inflation and Indian credit conditions — and provides no proper comparison. The Court rejected the opportunity cost argument, observing that the transfer pricing provisions ask what price the transaction would have commanded between independent parties, not what alternative return the taxpayer might have earned by doing something else with its money. The adjustment founded on the domestic rate was accordingly deleted.",
+    principles: [
+      "Comparability for a loan is judged by currency, market, tenor and credit risk.",
+      "A foreign currency loan to an overseas associated enterprise is benchmarked against rates prevailing in the borrower's market.",
+      "The domestic prime lending rate is not a comparable for foreign currency lending abroad.",
+      "The arm's length enquiry asks what the transaction would have commanded, not what alternative return was forgone.",
+    ],
+    relevance:
+      "The settled position on outbound intra-group lending, applying under Sections 163 and 165 of the IT Act 2025. It governs the choice of benchmark for foreign currency loans to overseas subsidiaries and is routinely applied to guarantee fees and other cross-border financing arrangements. The reference rate itself has moved on with the retirement of LIBOR in favour of successor rates, but the principle — benchmark in the currency and market of the loan — is unaffected.",
+    keywords: [
+      "outbound loan",
+      "LIBOR",
+      "interest benchmarking",
+      "foreign currency loan",
+      "overseas subsidiary",
+      "prime lending rate",
+      "comparability",
+    ],
+  },
+  {
+    slug: "tcs-software-goods",
+    caseName: "Tata Consultancy Services v. State of Andhra Pradesh",
+    citation: "(2005) 271 ITR 401 (SC)",
+    court: "Supreme Court",
+    year: 2005,
+    category: "International Tax",
+    section1961:
+      "Andhra Pradesh General Sales Tax Act — applied to Sections 9(1)(vi) & 90",
+    section2025: "Sections 9 & 159 (by application)",
+    sectionTopic:
+      "Income deemed to accrue or arise in India; double taxation relief — software characterisation",
+    issue:
+      "Is packaged or canned computer software sold on a medium 'goods', or is it intangible property outside the concept of goods?",
+    held:
+      "Canned software sold off the shelf is goods. Once a programme is put on a medium and marketed, it becomes a marketable commodity capable of being bought, sold, transmitted and stored, notwithstanding that copyright subsists in the underlying programme.",
+    facts:
+      "The appellant sold both software developed to a customer's specification and standardised packaged software supplied on discs and similar media. The State treated the packaged software as goods liable to sales tax on its full value. The appellant contended that what the customer paid for was intellectual property and the right to use it, and that an intangible of that kind could not answer the description of goods, the medium being merely incidental. The dispute therefore turned on the characterisation of software supplied in standardised form.",
+    proceduralHistory:
+      "The Andhra Pradesh High Court held the software to be goods. The matter came before the Supreme Court, which examined the concept of goods and its application to a copyrighted work supplied on a medium. Although decided under sales tax legislation, the judgment is reported in the income tax reports and has been relied on extensively in income tax disputes over software payments.",
+    contentions: {
+      assessee:
+        "What is supplied is the intellectual content of a programme in which copyright subsists. The disc is a mere vehicle. Intellectual property is not a tangible commodity and cannot be goods; the transaction is properly characterised as the grant of a right to use, not a sale of an article.",
+      revenue:
+        "Once a programme is recorded on a medium and offered for sale over the counter, it has all the attributes of merchandise — it can be bought, sold, transferred, delivered, stored and possessed. The presence of copyright in the underlying work does not prevent the copy from being a marketable commodity.",
+    },
+    summary:
+      "The Court held that a computer programme recorded on a medium and marketed in standardised form is goods. It reasoned that the test is whether the item has the attributes of utility, capability of being bought and sold, and capability of being transmitted, transferred, delivered, stored and possessed. Canned software satisfies each of these: it is produced, packaged, priced and sold like any other article of commerce. The Court held that the subsistence of copyright in the underlying programme does not alter the character of the copy that changes hands, drawing the distinction between the intellectual property itself and the medium-borne copy in which it is embodied. It acknowledged that software developed specifically for a customer may stand differently, since what passes there may be the fruit of a service rather than a commodity off the shelf. The judgment thus separated the copyrighted work from the copy of it that is sold — the very distinction later carried into income tax law.",
+    principles: [
+      "Canned or packaged software supplied on a medium is goods, having the attributes of a marketable commodity.",
+      "Subsistence of copyright in the underlying programme does not prevent the copy from being goods.",
+      "The intellectual property and the medium-borne copy embodying it are distinct.",
+      "Software written to a customer's specification may stand on a different footing from off-the-shelf software.",
+    ],
+    relevance:
+      "Decided under sales tax legislation rather than the Income Tax Act, so it determines no income tax question directly. Its importance here is the distinction it draws between a copyright and a copy of the copyrighted work — the reasoning the Supreme Court carried into Engineering Analysis to hold that payments for software licences are not royalty. Where a cross-border software payment is characterised under Section 9 and treaty relief under Section 159 of the IT Act 2025, this is the foundation on which that analysis rests.",
+    keywords: [
+      "canned software",
+      "packaged software",
+      "goods",
+      "copyright",
+      "copyrighted article",
+      "software characterisation",
+      "sales tax",
     ],
   },
 ];

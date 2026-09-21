@@ -13,6 +13,7 @@ const CATEGORY_BADGE: Record<CaseCategory, string> = {
   "International Tax": "bg-sky-100 text-sky-800 dark:bg-sky-900/30 dark:text-sky-300",
   "Business & Profession": "bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300",
   "Assessment & Reassessment": "bg-rose-100 text-rose-800 dark:bg-rose-900/30 dark:text-rose-300",
+  "TDS & TCS": "bg-pink-100 text-pink-800 dark:bg-pink-900/30 dark:text-pink-300",
 };
 
 const CATEGORY_ACCENT: Record<CaseCategory, string> = {
@@ -22,6 +23,7 @@ const CATEGORY_ACCENT: Record<CaseCategory, string> = {
   "International Tax": "border-l-sky-400",
   "Business & Profession": "border-l-amber-400",
   "Assessment & Reassessment": "border-l-rose-400",
+  "TDS & TCS": "border-l-pink-400",
 };
 
 const CATEGORY_FILTER_ACTIVE: Record<CaseCategory, string> = {
@@ -31,6 +33,7 @@ const CATEGORY_FILTER_ACTIVE: Record<CaseCategory, string> = {
   "International Tax": "bg-sky-100 text-sky-800 border-sky-300",
   "Business & Profession": "bg-amber-100 text-amber-800 border-amber-300",
   "Assessment & Reassessment": "bg-rose-100 text-rose-800 border-rose-300",
+  "TDS & TCS": "bg-pink-100 text-pink-800 border-pink-300",
 };
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
