@@ -31,7 +31,8 @@ export type Court =
   | "Bombay High Court"
   | "Delhi High Court"
   | "Madras High Court"
-  | "Karnataka High Court";
+  | "Karnataka High Court"
+  | "Andhra Pradesh High Court";
 
 export interface CaseLaw {
   slug: string;
@@ -4923,6 +4924,237 @@ export const CASE_LAWS: CaseLaw[] = [
       "maximum marginal rate",
       "115U",
       "AIF",
+    ],
+  },
+
+  // ══════════════════════════════════════════════════════════════════════════
+  // INTERNATIONAL TAXATION — indirect transfers, treaty benefits and PE
+  // ══════════════════════════════════════════════════════════════════════════
+  {
+    slug: "tiger-global-mauritius-grandfathering",
+    caseName:
+      "Tiger Global International II Holdings v. Authority for Advance Rulings",
+    citation: "(2024) 464 ITR 1 (Del)",
+    court: "Delhi High Court",
+    year: 2024,
+    category: "International Tax",
+    section1961: "Sections 9(1)(i), 90 & 96",
+    section2025: "Sections 9, 159 & 178",
+    sectionTopic:
+      "Income deemed to accrue or arise in India; double taxation relief; applicability of the General Anti-Avoidance Rule",
+    issue:
+      "Can treaty grandfathering for investments made before 1 April 2017 be denied on the footing that the Mauritius holding structure was designed to obtain treaty benefits, and may the authority look behind a valid tax residency certificate to do so?",
+    held:
+      "No. Grandfathering under the protocol protects investments acquired before the cut-off date and cannot be withheld by characterising the structure as designed for treaty benefit. A valid residency certificate cannot be brushed aside, and avoidance must be established through the proper statutory route.",
+    facts:
+      "Mauritius-incorporated entities within the Tiger Global group held shares in a Singapore company which in turn held the Indian operating business. In 2018 those shares were sold as part of the acquisition of the group by a large retailer. The entities applied to the Authority for Advance Rulings for a determination that the gains were exempt, relying on the capital gains article of the India–Mauritius treaty together with the protocol grandfathering investments acquired before 1 April 2017. They held valid tax residency certificates issued by the Mauritius authorities. The Authority declined relief, taking the view that the Mauritius entities were interposed without commercial substance, that real control lay with the group's United States management, and that the arrangement was designed prima facie for the avoidance of tax.",
+    proceduralHistory:
+      "The applicants challenged the Authority's ruling by writ petition before the Delhi High Court, which set the ruling aside and held the applicants entitled to the treaty benefit.",
+    contentions: {
+      assessee:
+        "The shares had been acquired well before the cut-off date and the protocol expressly grandfathers such investments; that protection was the very assurance on which the investment was made. Valid residency certificates had been issued, and the Board's own circulars direct that such certificates be accepted. If the Revenue considers the arrangement abusive, the statute supplies a general anti-avoidance mechanism with its own safeguards and approval process, which was not invoked.",
+      revenue:
+        "The Mauritius entities had no employees, no independent decision-making and negligible presence, and every commercial decision was taken by the group's principals abroad. Treaty benefits are intended for genuine residents, and an arrangement whose only purpose is to access the treaty may be denied relief on the footing that it is prima facie designed for avoidance.",
+    },
+    summary:
+      "The Court held that the Authority had approached the matter incorrectly at several levels. On grandfathering, it held that the protocol's protection for investments acquired before the cut-off date is a deliberate and negotiated assurance, extended so that investors who committed capital under the earlier regime would not be affected by the renegotiation. To deny that protection by reasoning that the structure exists to obtain treaty benefits would deprive the grandfathering clause of content, since every investment it protects was made through the treaty jurisdiction. On the residency certificate, the Court applied the established line of authority holding that such a certificate is sufficient evidence of residence and beneficial ownership, that Board circulars to that effect bind the Revenue, and that an authority cannot go behind it on an impressionistic assessment of substance. On avoidance, the Court held that where the Revenue considers an arrangement impermissible, the statute provides a general anti-avoidance mechanism subject to defined conditions, a specified approval process and prescribed safeguards; a finding of avoidance cannot be arrived at outside that framework merely by invoking the language of design and purpose. The ruling was accordingly quashed.",
+    principles: [
+      "Treaty grandfathering for pre-cut-off investments is a negotiated assurance and cannot be withheld by characterising the structure as treaty-motivated.",
+      "A valid tax residency certificate is sufficient evidence of residence and beneficial ownership and binds the Revenue through its own circulars.",
+      "Substance cannot be assessed impressionistically to defeat an express treaty protection.",
+      "Where avoidance is alleged, the general anti-avoidance mechanism with its conditions and safeguards is the route, not a finding made outside it.",
+    ],
+    relevance:
+      "The leading recent authority on Mauritius and Singapore treaty structures holding grandfathered investments, which remain substantial in Indian private equity and venture capital. Under the IT Act 2025 the analysis runs through Section 9 for the indirect transfer charge, Section 159 for treaty relief, and Sections 178 to 184 for the general anti-avoidance rule. Its most practically important holding is the insistence that avoidance be pursued through the statutory anti-avoidance machinery rather than asserted at large. Read with Azadi Bachao and Blackstone Capital on residency certificates.",
+    keywords: [
+      "Tiger Global",
+      "Mauritius treaty",
+      "grandfathering",
+      "tax residency certificate",
+      "GAAR",
+      "indirect transfer",
+      "private equity",
+      "advance ruling",
+    ],
+  },
+  {
+    slug: "hyatt-international-fixed-place-pe",
+    caseName: "Hyatt International Southwest Asia Ltd v. ADIT",
+    citation: "Supreme Court (2025)",
+    court: "Supreme Court",
+    year: 2025,
+    category: "International Tax",
+    section1961: "Sections 9 & 90",
+    section2025: "Sections 9 & 159",
+    sectionTopic:
+      "Income deemed to accrue or arise in India; double taxation relief",
+    issue:
+      "Does a foreign hotel operator providing strategic oversight and operational services to Indian hotels have a fixed place permanent establishment, and can profits be attributed to it where the enterprise as a whole is loss-making?",
+    held:
+      "Yes on both counts. Continuous and pervasive operational control exercised through the hotel premises establishes a fixed place permanent establishment, and attribution to a profitable Indian establishment does not depend on the global profitability of the enterprise.",
+    facts:
+      "A UAE-resident company within an international hotel group entered into strategic oversight services agreements with Indian hotel owners. Under those agreements it was responsible for the strategic planning and operational policy of the hotels, including brand standards, pricing policy, marketing, procurement norms and the appointment and supervision of key personnel, in return for fees linked to revenue and profit. Its personnel visited India regularly and had access to the hotel premises in performing these functions, though the hotels themselves were owned by the Indian parties. The Revenue held that the company had a permanent establishment in India and attributed profits to it; the company contended that it merely rendered advisory services from abroad and that, in any event, it had incurred losses at the enterprise level.",
+    proceduralHistory:
+      "The matter was considered by a Full Bench of the Delhi High Court, which held that a permanent establishment existed, and came before the Supreme Court on appeal. The Supreme Court affirmed.",
+    contentions: {
+      assessee:
+        "The hotels were owned and operated by the Indian parties, and the company had no premises of its own in India and no right of occupation. Its role was to provide strategic advice and brand standards, largely from outside India. Visits by personnel were periodic rather than continuous. Separately, where the enterprise as a whole has incurred a loss, there is no profit capable of being attributed to any establishment.",
+      revenue:
+        "The agreements gave the company pervasive control over how the hotels were run — from pricing and personnel to operating standards — and its personnel had continuous access to the premises to exercise that control. That is carrying on business through a place at its disposal. Attribution concerns the profits of the Indian operations, which were profitable, and is not governed by results elsewhere in the group.",
+    },
+    summary:
+      "The Court examined the substance of the arrangements rather than their description as advisory services. It found that the agreements conferred on the company comprehensive authority over the conduct of the hotels — control over strategic and operational policy, the ability to direct staffing and standards, and a continuing right of access exercised by its personnel — and that the company earned its remuneration by reference to the revenues and profits generated. On that footing the hotel premises were a place through which the company carried on its own business, satisfying the disposal test for a fixed place permanent establishment. The Court held that the regularity and continuity of the presence, taken with the degree of control, was sufficient, and that the absence of exclusive possession or ownership of premises does not preclude a permanent establishment. On attribution, the Court held that once a permanent establishment exists and the Indian operations are profitable, the profits attributable to that establishment are taxable in India irrespective of losses incurred by the enterprise globally. The permanent establishment is treated as a distinct and separate enterprise, and its results are not netted against the worldwide position of the head office.",
+    principles: [
+      "Pervasive control over operations, exercised through premises with continuing access, establishes a fixed place permanent establishment.",
+      "Exclusive possession or ownership of premises is not required for the disposal test to be satisfied.",
+      "Regularity and continuity of presence, taken with the degree of control, may suffice even without a permanent office.",
+      "Profits attributable to a profitable permanent establishment are taxable regardless of losses at the enterprise level globally.",
+      "The permanent establishment is treated as a distinct and separate enterprise for attribution.",
+    ],
+    relevance:
+      "A recent and significant addition to permanent establishment law under Sections 9 and 159 of the IT Act 2025, and the natural counterpoint to E-Funds and Morgan Stanley, where outsourcing and stewardship arrangements were held not to create one. The distinction lies in the degree of operational control: advisory input does not create a permanent establishment, but directing how a business is run, from premises to which the foreign enterprise has continuing access, does. It bears directly on hotel, retail and franchise management arrangements. Verify the citation before relying on it, as the decision is very recent.",
+    keywords: [
+      "fixed place PE",
+      "hotel management",
+      "strategic oversight",
+      "operational control",
+      "disposal test",
+      "attribution",
+      "global losses",
+    ],
+  },
+  {
+    slug: "sanofi-pasteur-indirect-transfer",
+    caseName: "Sanofi Pasteur Holding SA v. Department of Revenue",
+    citation: "(2013) 354 ITR 316 (AP)",
+    court: "Andhra Pradesh High Court",
+    year: 2013,
+    category: "International Tax",
+    section1961: "Sections 9(1)(i) & 90",
+    section2025: "Sections 9 & 159",
+    sectionTopic:
+      "Income deemed to accrue or arise in India; double taxation relief",
+    issue:
+      "Where a French company acquires another French company whose principal asset is shares in an Indian company, is the gain taxable in India, and do retrospective amendments override the treaty?",
+    held:
+      "Not taxable in India. Under the treaty, gains from the alienation of shares are taxable only in the state of residence of the transferor. A genuine holding company with real investment purpose is not a device, and retrospective domestic amendments cannot override a treaty.",
+    facts:
+      "Two French shareholders held the entire capital of a French company which had been incorporated as a vehicle to hold and develop an investment in an Indian vaccine manufacturer. They sold their shares in the French holding company to another French pharmaceutical group. The Revenue treated the sale as an indirect transfer of the underlying Indian company, asserting that the French holding vehicle was interposed without substance and that the real subject matter of the sale was the Indian business. It relied additionally on retrospective amendments enacted after the Vodafone decision, which extended the deeming provision to shares deriving their value substantially from Indian assets.",
+    proceduralHistory:
+      "The transaction was challenged by writ petition before the High Court, which examined both the treaty position and the effect of the retrospective amendments, and decided in the taxpayer's favour.",
+    contentions: {
+      assessee:
+        "What was sold was shares in a French company by French residents to a French buyer. The treaty allocates the right to tax gains from the alienation of shares to the state of residence of the transferor, so the gains were taxable in France alone. The holding company had been established years earlier for genuine investment reasons, had made and managed the investment, and was not a shell inserted for the transaction.",
+      revenue:
+        "The value of the French holding company lay wholly in the Indian business, and the commercial reality of the transaction was the acquisition of that business. The retrospective amendments placed such indirect transfers expressly within the deeming provision, and the treaty does not prevent India from taxing what its own law deems to arise here.",
+    },
+    summary:
+      "The Court examined the genesis and conduct of the French holding company and found it to be a genuine investment vehicle rather than a device: it had been incorporated well before the sale, for the purpose of making and holding the investment, and had functioned as an investment holding company with real decision-making. There being no artificiality, there was no basis to disregard its separate existence and treat the transaction as a transfer of the Indian shares. On the treaty, the Court held that the capital gains article allocated the right to tax gains from the alienation of shares to the state of residence of the alienator, which was France, and that India therefore had no taxing right over the gain. On the retrospective amendments, it held that a unilateral change to domestic law cannot alter the allocation of taxing rights agreed in a bilateral treaty; the treaty prevails where it is more favourable, and an amendment to the deeming provision does not amend the treaty. The Court also observed that the arrangement predated the transaction by years and could not be characterised as a scheme to avoid Indian tax.",
+    principles: [
+      "A genuine holding company with real investment purpose is not to be disregarded as a device.",
+      "Where the treaty allocates taxing rights over share alienation to the state of residence, India has no taxing right.",
+      "Retrospective domestic amendments cannot alter the allocation of taxing rights agreed in a treaty.",
+      "The longevity and commercial function of a holding structure are material to whether it is genuine.",
+    ],
+    relevance:
+      "Part of the post-Vodafone indirect transfer story. The retrospective amendments it declined to apply through the treaty were themselves withdrawn for pre-2021 transactions by later legislation, following adverse investment treaty arbitration awards. Under the IT Act 2025 the indirect transfer charge sits in Section 9 and treaty relief in Section 159, so the treaty-prevails reasoning continues to govern where a favourable treaty applies. Read with Vodafone, Copal Research and Tiger Global.",
+    keywords: [
+      "indirect transfer",
+      "France treaty",
+      "holding company",
+      "retrospective amendment",
+      "treaty override",
+      "alienation of shares",
+      "genuine structure",
+    ],
+  },
+  {
+    slug: "copal-research-indirect-transfer-threshold",
+    caseName: "DIT v. Copal Research Ltd",
+    citation: "(2014) 371 ITR 114 (Del)",
+    court: "Delhi High Court",
+    year: 2014,
+    category: "International Tax",
+    section1961: "Section 9(1)(i)",
+    section2025: "Section 9",
+    sectionTopic: "Income deemed to accrue or arise in India",
+    issue:
+      "Does the indirect transfer provision reach every transfer of foreign shares that derive some value from Indian assets, or only those where the Indian element is substantial?",
+    held:
+      "Only where the Indian element is substantial. Shares must derive their value substantially from assets in India, which the Court read as requiring the Indian assets to represent at least half of the total value.",
+    facts:
+      "Shares of foreign companies within a research services group were transferred as part of a global acquisition. The group had Indian subsidiaries, so a portion of the value of the shares transferred was referable to Indian assets, but that portion fell well short of half the total. The Revenue contended that the deeming provision, as extended by the retrospective amendments following Vodafone, applied to any transfer of foreign shares deriving value from assets situated in India, without any threshold, and sought to tax a proportionate part of the gain.",
+    proceduralHistory:
+      "The matter came before the Delhi High Court, which considered the meaning of the word 'substantially' in the amended deeming provision at a time when the statute itself prescribed no numerical threshold.",
+    contentions: {
+      assessee:
+        "The provision applies where shares derive their value substantially from Indian assets. 'Substantially' imports a requirement of predominance, and on any view the Indian component here was a minority of the total value. Reading the provision without a threshold would bring within the Indian charge every global transaction involving a group with any Indian presence, which cannot have been intended.",
+      revenue:
+        "The amendment deliberately used broad language to capture indirect transfers of Indian assets. No threshold is prescribed in the provision, and the Court should not read one in. Where value is derived from Indian assets, a proportionate part of the gain is chargeable.",
+    },
+    summary:
+      "The Court held that the word 'substantially' must be given meaning and cannot be treated as surplusage. Examining international practice and the material explaining the amendment, including the recommendations of expert committees that had considered the provision and the approach taken in other jurisdictions and in model conventions, it concluded that a share derives its value substantially from assets in India where those assets represent the principal part of its value. It adopted a threshold of at least half the total value, holding that where the Indian assets account for less than that, the provision is not attracted at all. The Court reasoned that an unlimited reading would expose every cross-border transaction involving a group with any Indian operations to Indian tax, producing results that would be unworkable in practice and inconsistent with the evident purpose of the amendment, which was to reach transactions whose real subject matter is an Indian business. Since the Indian component fell below the threshold, the gains were held not chargeable.",
+    principles: [
+      "'Substantially' in the indirect transfer provision imports a requirement of predominance and cannot be ignored.",
+      "Shares derive value substantially from Indian assets where those assets are at least half the total value.",
+      "Below that threshold the deeming provision is not attracted at all.",
+      "An unlimited reading would reach every cross-border transaction involving any Indian presence and is not the purpose of the provision.",
+    ],
+    relevance:
+      "The threshold this decision read into the provision was subsequently adopted in the statute itself, together with valuation rules and reporting obligations, and carries into the indirect transfer regime in Section 9 of the IT Act 2025. The case therefore explains where the current threshold came from and remains useful on the interpretive approach. Read with Vodafone, Sanofi Pasteur and Tiger Global for the full arc of the indirect transfer story.",
+    keywords: [
+      "indirect transfer",
+      "substantially",
+      "50 per cent threshold",
+      "value derived from Indian assets",
+      "retrospective amendment",
+      "cross-border acquisition",
+    ],
+  },
+  {
+    slug: "linde-ag-consortium-aop",
+    caseName: "Linde AG v. DIT",
+    citation: "(2014) 365 ITR 1 (Del)",
+    court: "Delhi High Court",
+    year: 2014,
+    category: "International Tax",
+    section1961: "Sections 2(31), 4 & 9",
+    section2025: "Sections 2, 4 & 9",
+    sectionTopic:
+      "Definition of person; charge of income-tax; income deemed to accrue or arise in India",
+    issue:
+      "Does a consortium formed by two companies to bid jointly for and execute a single turnkey project constitute an association of persons assessable as a separate taxable entity?",
+    held:
+      "No, where the scope of work, responsibilities and remuneration of each member are separate and each bears its own risk and earns its own profit. A joint bid and joint liability to the customer do not by themselves create an association of persons.",
+    facts:
+      "A German company and a Korean company formed a consortium to bid for a large turnkey project for an Indian public sector undertaking. The consortium submitted a single bid and the members accepted joint and several liability to the customer for performance of the contract as a whole. Internally, however, the contract and the consortium agreement divided the work between them: each member was responsible for a defined and separate scope, was remunerated separately for that scope, executed its portion with its own resources, and bore its own costs, risks and profit or loss. The Revenue assessed the consortium as an association of persons, which would have taxed the combined profits as those of a single entity.",
+    proceduralHistory:
+      "The matter came before the Delhi High Court, which examined what is required before parties who cooperate on a project are treated as a single taxable association.",
+    contentions: {
+      assessee:
+        "An association of persons requires the members to join in a common purpose to produce income jointly, sharing in the venture's overall result. Here the members simply divided the work and each earned its own remuneration for its own scope, with no pooling of profit and no joint management. Joint and several liability was assumed for the customer's protection and says nothing about how the members related to each other.",
+      revenue:
+        "The members bid jointly, contracted jointly, assumed joint liability for the whole and cooperated in delivering a single integrated facility. That is a common enterprise carried on together, and the profits of that enterprise should be assessed in the hands of the association rather than divided between the members.",
+    },
+    summary:
+      "The Court held that the essential element of an association of persons is that two or more persons join in a common purpose or common action with the object of producing income jointly, in which each has an interest in the combined result. Where parties come together only to the extent of presenting a single face to the customer, while internally dividing the work so that each performs a separate scope for separate remuneration and bears its own risk, they are not carrying on a joint enterprise for profit in the relevant sense. The Court held that joint and several liability to the employer is a feature commonly required in large infrastructure contracts for the customer's protection and does not convert separate performances into a common venture. Nor does the existence of coordination between members, which any integrated project requires. It examined the consortium agreement and the division of scope and consideration, found that each member's profit depended on its own performance and costs alone, and held that the consortium was not an association of persons. The members were therefore assessable separately on their own income, with their treaty positions determined individually.",
+    principles: [
+      "An association of persons requires a common purpose to produce income jointly, with each member interested in the combined result.",
+      "Dividing scope and consideration so that each member bears its own risk and earns its own profit negates a joint enterprise.",
+      "Joint and several liability to the customer does not by itself create an association of persons.",
+      "Coordination necessary to deliver an integrated project is not evidence of a common venture.",
+      "Where no association exists, members are assessed separately and their treaty positions determined individually.",
+    ],
+    relevance:
+      "Governs consortium bidding on infrastructure, energy and engineering projects, which is the standard structure for large Indian contracts. The question matters a great deal in practice: association status would consolidate the members' profits, disturb their separate treaty entitlements and alter the permanent establishment analysis for each. Under the IT Act 2025 the definition of person is in Section 2 and the deeming provisions in Section 9. Read with Ishikawajima-Harima and Hyundai Heavy Industries on splitting offshore and onshore elements of the same project.",
+    keywords: [
+      "consortium",
+      "association of persons",
+      "AOP",
+      "turnkey project",
+      "joint and several liability",
+      "separate scope",
+      "EPC",
     ],
   },
 ];
