@@ -22,6 +22,8 @@ const CATEGORY_BADGE: Record<CaseCategory, string> = {
   "General Principles": "bg-slate-200 text-slate-800 dark:bg-slate-700/40 dark:text-slate-200",
   "Trusts, Funds & Pass-Through Vehicles":
     "bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300",
+  "GAAR & Anti-Avoidance":
+    "bg-fuchsia-100 text-fuchsia-800 dark:bg-fuchsia-900/30 dark:text-fuchsia-300",
 };
 
 export function generateStaticParams() {

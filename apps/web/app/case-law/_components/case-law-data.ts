@@ -9,7 +9,8 @@ export type CaseCategory =
   | "Penalties"
   | "Cash Credits & Unexplained Income"
   | "General Principles"
-  | "Trusts, Funds & Pass-Through Vehicles";
+  | "Trusts, Funds & Pass-Through Vehicles"
+  | "GAAR & Anti-Avoidance";
 
 export const CASE_CATEGORIES: CaseCategory[] = [
   "Capital Gains",
@@ -23,6 +24,7 @@ export const CASE_CATEGORIES: CaseCategory[] = [
   "Cash Credits & Unexplained Income",
   "General Principles",
   "Trusts, Funds & Pass-Through Vehicles",
+  "GAAR & Anti-Avoidance",
 ];
 
 export type Court =
@@ -32,7 +34,8 @@ export type Court =
   | "Delhi High Court"
   | "Madras High Court"
   | "Karnataka High Court"
-  | "Andhra Pradesh High Court";
+  | "Andhra Pradesh High Court"
+  | "Telangana High Court";
 
 export interface CaseLaw {
   slug: string;
@@ -4601,7 +4604,7 @@ export const CASE_LAWS: CaseLaw[] = [
     citation: "(1985) 154 ITR 148 (SC)",
     court: "Supreme Court",
     year: 1985,
-    category: "General Principles",
+    category: "GAAR & Anti-Avoidance",
     section1961: "Principle concerning tax avoidance — applies across the Act",
     section2025: "Applies across the IT Act 2025",
     sectionTopic: "Tax planning, avoidance and colourable devices",
@@ -5155,6 +5158,113 @@ export const CASE_LAWS: CaseLaw[] = [
       "joint and several liability",
       "separate scope",
       "EPC",
+    ],
+  },
+
+  // ══════════════════════════════════════════════════════════════════════════
+  // GAAR & ANTI-AVOIDANCE
+  //
+  // The General Anti-Avoidance Rule became operative only from assessment
+  // year 2018-19, and invoking it requires clearance through a three-tier
+  // process ending with an Approving Panel chaired by a High Court judge.
+  // Very few matters have been invoked, and fewer still have reached
+  // judgment, so the jurisprudence is nascent. The judgments here trace the
+  // line from the judicial doctrine that preceded the rule, through the gaps
+  // that made a general rule necessary, to its first significant application.
+  // Tiger Global, Vodafone and Azadi Bachao, filed under other heads, carry
+  // closely related holdings.
+  // ══════════════════════════════════════════════════════════════════════════
+  {
+    slug: "walfort-dividend-stripping",
+    caseName: "CIT v. Walfort Share and Stock Brokers P Ltd",
+    citation: "(2010) 326 ITR 1 (SC)",
+    court: "Supreme Court",
+    year: 2010,
+    category: "GAAR & Anti-Avoidance",
+    section1961: "Sections 14A & 94(7)",
+    section2025: "Sections 14 & 175",
+    sectionTopic:
+      "Expenditure relating to exempt income; avoidance of tax by certain transactions in securities",
+    issue:
+      "Where a taxpayer buys mutual fund units cum-dividend, receives a tax-free dividend and sells the units ex-dividend at a loss, may the loss be disallowed in the absence of a provision saying so?",
+    held:
+      "No. The loss was real and arose on an actual transaction. The disallowance for expenditure relating to exempt income does not reach a loss on sale, and the court will not supply an anti-avoidance provision the legislature has not enacted.",
+    facts:
+      "The assessee purchased units of a mutual fund shortly before the record date at a price that reflected the dividend about to be declared. It received the dividend, which was exempt from tax, and then sold the units shortly afterwards at the reduced ex-dividend price, realising a loss roughly equal to the dividend received. It claimed that loss in computing its business income. The Revenue disallowed it, contending that the loss was in substance the cost of obtaining exempt income and fell within the provision disallowing expenditure incurred in relation to income not forming part of total income. The transaction took place before the specific provision addressing dividend stripping was enacted.",
+    proceduralHistory:
+      "The Tribunal and the Bombay High Court decided in the assessee's favour. The Revenue appealed to the Supreme Court, which affirmed and examined the scope of the disallowance provision as well as the significance of the later anti-stripping amendment.",
+    contentions: {
+      assessee:
+        "The disallowance provision speaks of expenditure incurred in relation to exempt income. A loss suffered on the sale of an asset is not expenditure; it is the result of a real purchase and a real sale at market prices. The price paid for the units was for the units themselves, not for the dividend, and the whole of it was applied in acquiring a capital asset that was subsequently sold.",
+      revenue:
+        "Viewed commercially, the assessee laid out money and got back the same money in two parts — an exempt dividend and a reduced sale price. The loss is the price of obtaining the exempt dividend and is expenditure in relation to it. Allowing the loss lets the taxpayer convert exempt income into a deduction.",
+    },
+    summary:
+      "The Court held that the disallowance provision is directed at expenditure, and that the words used cannot be stretched to cover a loss arising on the sale of an asset. Expenditure implies a paying out or away of money; the assessee had paid for units and received units, and the subsequent fall in their value on going ex-dividend produced a loss, not an outgoing referable to the dividend. The Court further held that the purchase price was applied wholly to acquiring the units, and that it could not be dissected into a component attributable to the dividend and a component attributable to the units themselves. On the wider point, the Court observed that Parliament had subsequently enacted a specific provision to deal with dividend stripping, restricting the loss to the extent of the exempt dividend, and that the enactment of that provision was itself an indication that no such restriction existed before. Where the legislature has identified a form of avoidance and legislated against it prospectively, the court will not achieve the same result for earlier years by straining the language of a different provision. The loss was accordingly allowable.",
+    principles: [
+      "The disallowance for expenditure relating to exempt income does not extend to a loss on the sale of an asset.",
+      "Expenditure implies a paying out; a fall in the value of an asset acquired is not expenditure.",
+      "The purchase price of a security is not dissected between the asset and the income it carries.",
+      "Enactment of a specific anti-avoidance provision indicates the restriction did not exist before.",
+      "Courts will not supply an anti-avoidance provision the legislature has not enacted.",
+    ],
+    relevance:
+      "The reason the specific anti-stripping rule exists, now in Section 175 of the IT Act 2025, with the exempt income disallowance in Section 14. Its wider importance is as the counterpoint to a general anti-avoidance rule: for as long as India relied on specific provisions alone, a form of avoidance not yet legislated against succeeded, and the courts declined to fill the gap. That limitation is what the general rule in Sections 178 to 184 was designed to overcome, and Ayodhya Rami Reddy Alla shows the general rule being used to reach precisely the kind of stripping arrangement a specific provision had left uncovered.",
+    keywords: [
+      "dividend stripping",
+      "94(7)",
+      "section 14A",
+      "expenditure versus loss",
+      "specific anti-avoidance rule",
+      "legislative gap",
+      "mutual fund units",
+    ],
+  },
+  {
+    slug: "ayodhya-rami-reddy-gaar",
+    caseName: "Ayodhya Rami Reddy Alla v. PCIT",
+    citation: "Telangana High Court (2024)",
+    court: "Telangana High Court",
+    year: 2024,
+    category: "GAAR & Anti-Avoidance",
+    section1961: "Sections 95 to 102 and 94(8)",
+    section2025: "Sections 178, 181, 183, 184 and 175",
+    sectionTopic:
+      "Applicability of the General Anti-Avoidance Rule; consequences of an impermissible avoidance arrangement; avoidance of tax by certain transactions in securities",
+    issue:
+      "Can the general anti-avoidance rule be invoked against a bonus stripping arrangement, where the specific anti-avoidance provision then in force did not cover shares, and may the taxpayer challenge the invocation by writ before the Approving Panel has ruled?",
+    held:
+      "Yes to the first and no to the second. A specific anti-avoidance provision does not oust the general rule; where the specific provision does not cover the arrangement, the general rule may still apply. The statutory process must run its course before the court will interfere.",
+    facts:
+      "The assessee held shares in a company. A scheme of amalgamation was carried through, followed by the issue of bonus shares. The original shares, whose market value had fallen because of the bonus issue, were then sold at a substantial loss, while the bonus shares carrying the value were retained. The short-term capital loss so generated was set off against a large long-term capital gain arising from an unrelated transaction. The Assessing Officer took the view that the steps together constituted an impermissible avoidance arrangement whose main purpose was to obtain a tax benefit, and initiated the general anti-avoidance procedure by making a reference for approval. At the relevant time the specific provision addressing stripping applied to units of mutual funds and not to shares.",
+    proceduralHistory:
+      "The assessee challenged the invocation by writ petition before the Telangana High Court, before the Approving Panel had considered the reference. The High Court declined to interfere and dismissed the petition.",
+    contentions: {
+      assessee:
+        "Parliament had enacted a specific provision to deal with stripping and had deliberately confined it to units, leaving shares outside. Where the legislature has addressed a subject and drawn the boundary, the general rule cannot be used to extend that boundary; to do so would rewrite the specific provision. Each step in the arrangement was lawful and independently valid, and the general rule cannot be applied to a series of lawful transactions merely because their combined effect is a reduced tax liability.",
+      revenue:
+        "The general rule was enacted precisely because specific provisions cannot anticipate every device. It operates where an arrangement's main purpose is to obtain a tax benefit and it lacks commercial substance or is not at arm's length, and nothing in it is displaced by the existence of a specific provision covering a different situation. The steps here produced a loss that was wholly artificial, the value having simply migrated to the bonus shares that were retained.",
+    },
+    summary:
+      "The Court held that the general and specific anti-avoidance provisions operate in different registers and can coexist. A specific provision addresses a defined transaction on defined conditions; the general rule addresses arrangements whose main purpose is a tax benefit and which bear the hallmarks the statute identifies. The existence of the former does not, by implication, immunise everything falling outside it, and the Court declined to read the confinement of the stripping provision to units as a legislative decision that stripping through shares should be permitted. It held that the general rule is available where the specific provision does not apply, and that this is the very function a general rule performs. On the arrangement itself, the Court noted that each step viewed alone was lawful but that the general rule directs attention to the arrangement as a whole and its main purpose, and that the Revenue was entitled to form a prima facie view that the steps together produced an artificial loss. On the procedural challenge, the Court held that the statute establishes a graded process culminating in an Approving Panel headed by a judge, that the assessee would be heard at that stage, and that it was not appropriate to short-circuit the process by writ before the Panel had applied its mind.",
+    principles: [
+      "The general anti-avoidance rule and specific anti-avoidance provisions can coexist.",
+      "A specific provision does not by implication immunise arrangements falling outside its boundary.",
+      "The general rule may be invoked where the specific provision does not cover the arrangement.",
+      "The enquiry is directed at the arrangement as a whole and its main purpose, not at the legality of each step.",
+      "The statutory approval process, ending with the Approving Panel, must run before a court will interfere by writ.",
+    ],
+    relevance:
+      "The first significant Indian judgment applying the general anti-avoidance rule, now in Sections 178 to 184 of the IT Act 2025, with the specific securities provision in Section 175. Its holding that the general rule survives alongside specific provisions is the most consequential point, since the contrary view would have confined it to ground no specific provision had reached. Read with Walfort, which shows what happened before a general rule existed, and with Tiger Global, which holds that where avoidance is alleged the statutory machinery is the route rather than an assertion made outside it. Verify the citation before relying on it; the decision is recent and the reported reference should be checked.",
+    keywords: [
+      "GAAR",
+      "bonus stripping",
+      "impermissible avoidance arrangement",
+      "main purpose test",
+      "SAAR and GAAR",
+      "Approving Panel",
+      "writ jurisdiction",
+      "commercial substance",
     ],
   },
 ];

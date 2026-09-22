@@ -21,6 +21,8 @@ const CATEGORY_BADGE: Record<CaseCategory, string> = {
   "General Principles": "bg-slate-200 text-slate-800 dark:bg-slate-700/40 dark:text-slate-200",
   "Trusts, Funds & Pass-Through Vehicles":
     "bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300",
+  "GAAR & Anti-Avoidance":
+    "bg-fuchsia-100 text-fuchsia-800 dark:bg-fuchsia-900/30 dark:text-fuchsia-300",
 };
 
 const CATEGORY_ACCENT: Record<CaseCategory, string> = {
@@ -35,6 +37,7 @@ const CATEGORY_ACCENT: Record<CaseCategory, string> = {
   "Cash Credits & Unexplained Income": "border-l-lime-400",
   "General Principles": "border-l-slate-400",
   "Trusts, Funds & Pass-Through Vehicles": "border-l-cyan-400",
+  "GAAR & Anti-Avoidance": "border-l-fuchsia-400",
 };
 
 const CATEGORY_FILTER_ACTIVE: Record<CaseCategory, string> = {
@@ -49,6 +52,7 @@ const CATEGORY_FILTER_ACTIVE: Record<CaseCategory, string> = {
   "Cash Credits & Unexplained Income": "bg-lime-100 text-lime-800 border-lime-300",
   "General Principles": "bg-slate-200 text-slate-800 border-slate-400",
   "Trusts, Funds & Pass-Through Vehicles": "bg-cyan-100 text-cyan-800 border-cyan-300",
+  "GAAR & Anti-Avoidance": "bg-fuchsia-100 text-fuchsia-800 border-fuchsia-300",
 };
 
 export function CaseLawClient({ index }: { index: CaseIndexEntry[] }) {
