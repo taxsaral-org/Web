@@ -65,6 +65,42 @@ export interface CaseLaw {
   keywords: string[];
 }
 
+/**
+ * The subset of a judgment shown on the listing page.
+ *
+ * The listing is a client component, so whatever it imports is shipped to the
+ * browser. Sending only these fields keeps the full facts, reasoning and
+ * principles of 100+ judgments on the server, where the detail pages render
+ * them. Build this with `toCaseIndex` in a server component and pass it down.
+ */
+export interface CaseIndexEntry {
+  slug: string;
+  caseName: string;
+  citation: string;
+  court: Court;
+  year: number;
+  category: CaseCategory;
+  section1961: string;
+  section2025: string;
+  held: string;
+  keywords: string[];
+}
+
+export function toCaseIndex(cases: CaseLaw[]): CaseIndexEntry[] {
+  return cases.map((c) => ({
+    slug: c.slug,
+    caseName: c.caseName,
+    citation: c.citation,
+    court: c.court,
+    year: c.year,
+    category: c.category,
+    section1961: c.section1961,
+    section2025: c.section2025,
+    held: c.held,
+    keywords: c.keywords,
+  }));
+}
+
 export const CASE_LAWS: CaseLaw[] = [
   // ══════════════════════════════════════════════════════════════════════════
   // CAPITAL GAINS

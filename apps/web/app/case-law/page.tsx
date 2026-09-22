@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Scale, Landmark, TrendingUp } from "lucide-react";
-import { CASE_LAWS, CASE_CATEGORIES } from "./_components/case-law-data";
+import { CASE_LAWS, CASE_CATEGORIES, toCaseIndex } from "./_components/case-law-data";
 import { CaseLawClient } from "./_components/case-law-client";
 
 const BASE = "https://taxsaral.org";
@@ -138,7 +138,7 @@ export default function CaseLawPage() {
 
       {/* Listing */}
       <section className="container mx-auto max-w-4xl px-4 py-8">
-        <CaseLawClient />
+        <CaseLawClient index={toCaseIndex(CASE_LAWS)} />
 
         <div className="mt-10 rounded-xl border bg-muted/20 px-5 py-4 text-xs leading-relaxed text-muted-foreground">
           <span className="font-medium text-foreground">Note on section references: </span>

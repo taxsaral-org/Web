@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { SECTIONS } from "@/app/section-explainer/_components/sections-data";
 import { DETAILED_ENTRIES } from "@/app/detailed-explainer/_components/detailed-data";
 import { QUIZ_CHAPTERS } from "@/app/quiz/_components/quiz-data";
+import { CASE_LAWS } from "@/app/case-law/_components/case-law-data";
 
 const BASE = "https://taxsaral.org";
 const NOW = new Date();
@@ -49,5 +50,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...detailedPages, ...sectionPages, ...quizPages];
+  const caseLawPages: MetadataRoute.Sitemap = CASE_LAWS.map((c) => ({
+    url: `${BASE}/case-law/${c.slug}`,
+    lastModified: NOW,
+    changeFrequency: "yearly",
+    priority: 0.6,
+  }));
+
+  return [
+    ...staticPages,
+    ...detailedPages,
+    ...sectionPages,
+    ...quizPages,
+    ...caseLawPages,
+  ];
 }
