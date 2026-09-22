@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Terms of Use — TaxSaral",
   description: "Terms and conditions for using TaxSaral's free income tax calculators and guides.",
+  alternates: { canonical: "https://taxsaral.org/terms" },
 };
 
 const EFFECTIVE_DATE = "1 July 2026";

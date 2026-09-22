@@ -27,6 +27,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/quiz/detailed-explainer`,           lastModified: NOW, changeFrequency: "weekly",  priority: 0.7 },
     { url: `${BASE}/quiz/icai`,                         lastModified: NOW, changeFrequency: "weekly",  priority: 0.7 },
     { url: `${BASE}/ask`,                               lastModified: NOW, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/about`,                             lastModified: NOW, changeFrequency: "yearly",  priority: 0.4 },
+    { url: `${BASE}/privacy`,                           lastModified: NOW, changeFrequency: "yearly",  priority: 0.2 },
+    { url: `${BASE}/terms`,                             lastModified: NOW, changeFrequency: "yearly",  priority: 0.2 },
   ];
 
   const sectionPages: MetadataRoute.Sitemap = SECTIONS.map((s) => ({

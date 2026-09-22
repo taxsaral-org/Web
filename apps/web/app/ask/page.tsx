@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Ask Our Tax Team — TaxSaral",
   description:
     "Have an Income Tax Act 2025 question? Submit your query and our team will email you a personalised response. Free, private, and confidential.",
+  alternates: { canonical: "https://taxsaral.org/ask" },
 };
 
 const TRUST_POINTS = [

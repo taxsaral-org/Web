@@ -1,5 +1,22 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Calculator, ShieldCheck, Database, Zap, Lock, BookOpen } from "lucide-react";
+
+export const metadata: Metadata = {
+  title:
+    "TaxSaral — Income Tax Act 2025: Case Law, Section Guide & Calculators",
+  description:
+    "The Income Tax Act 2025 in one place — 112 landmark judgments mapped to the new sections, a 536-section guide, 1961-to-2025 mapping, detailed explainers, practice quizzes and free calculators for Tax Year 2026-27. No login, no ads.",
+  alternates: { canonical: "https://taxsaral.org" },
+  openGraph: {
+    title: "TaxSaral — Income Tax Act 2025: Case Law, Guide & Calculators",
+    description:
+      "112 landmark judgments mapped to IT Act 2025 sections, a 536-section guide, explainers, quizzes and free calculators. No login, no ads.",
+    url: "https://taxsaral.org",
+    type: "website",
+    siteName: "TaxSaral",
+  },
+};
 
 const CALCULATORS = [
   {

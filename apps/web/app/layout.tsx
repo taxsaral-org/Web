@@ -9,36 +9,57 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://taxsaral.org"),
-  title: "TaxSaral — Income Tax Calculators & Guide (IT Act 2025)",
+  // No title.template here: pages already carry "| TaxSaral" in their own
+  // titles, so a template would brand them twice.
+  title: "TaxSaral — Income Tax Act 2025: Case Law, Guide & Calculators",
   description:
-    "Free Indian income tax calculators for Tax Year 2026-27 built on the Income Tax Act 2025. Regime optimizer, HRA, house property, advance tax — no login, no data stored.",
+    "Everything on the Income Tax Act 2025 in one place — 112 landmark judgments mapped to the new sections, a 536-section guide, 1961-to-2025 section mapping, detailed explainers, practice quizzes and free calculators for Tax Year 2026-27.",
+  applicationName: "TaxSaral",
+  authors: [{ name: "TaxSaral" }],
+  creator: "TaxSaral",
+  publisher: "TaxSaral",
+  category: "Finance",
   keywords: [
-    "income tax calculator India 2025",
-    "IT Act 2025 calculator",
+    "Income Tax Act 2025",
+    "IT Act 2025 sections",
+    "income tax case law India",
+    "1961 to 2025 section mapping",
     "tax year 2026-27",
+    "income tax calculator India",
     "regime optimizer",
     "HRA calculator",
-    "advance tax calculator",
     "section explainer IT Act 2025",
-    "income tax India free",
+    "CA final direct tax",
   ],
   verification: {
     google: "TG2OfaxVEkco3BQJd7LcvLPlLYT8fXHqE2P1WO_ENz8",
+  },
+  // Let Google show full-length previews and large image thumbnails.
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   openGraph: {
     siteName: "TaxSaral",
     type: "website",
     locale: "en_IN",
-    title: "TaxSaral — Income Tax Calculators & Guide (IT Act 2025)",
+    title: "TaxSaral — Income Tax Act 2025: Case Law, Guide & Calculators",
     description:
-      "Free Indian income tax calculators for Tax Year 2026-27 built on the Income Tax Act 2025. No login, no data stored.",
+      "112 landmark judgments mapped to IT Act 2025 sections, a 536-section guide, detailed explainers, quizzes and free calculators. No login, no ads.",
     url: "https://taxsaral.org",
   },
   twitter: {
     card: "summary_large_image",
-    title: "TaxSaral — Income Tax Calculators (IT Act 2025)",
+    title: "TaxSaral — Income Tax Act 2025",
     description:
-      "Free Indian income tax calculators built on the Income Tax Act 2025. No login, no data stored.",
+      "Landmark case law mapped to the new sections, a full section guide, explainers and free calculators. No login, no ads.",
   },
   alternates: {
     canonical: "https://taxsaral.org",

@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Income Tax Section Mapping: 1961 Act → 2025 Act | TaxSaral",
   description:
     "Searchable mapping of every section from the Income Tax Act 1961 to its equivalent in the Income Tax Act 2025. Find the new section number for any old provision.",
+  alternates: { canonical: "https://taxsaral.org/section-mapping" },
 };
 
 export default function SectionMappingPage() {

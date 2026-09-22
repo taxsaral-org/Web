@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Privacy Policy — TaxSaral",
   description: "How TaxSaral collects, uses, and protects information when you use our free income tax calculators and guide.",
+  alternates: { canonical: "https://taxsaral.org/privacy" },
 };
 
 const EFFECTIVE_DATE = "1 July 2026";
