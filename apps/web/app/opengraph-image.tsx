@@ -64,8 +64,8 @@ export default function OpengraphImage() {
             maxWidth: 940,
           }}
         >
-          Landmark case law mapped to the new sections, a 536-section guide,
-          explainers and free calculators.
+          Landmark case law mapped to the new sections, a full 1961-to-2025
+          section mapping, explainers and free calculators.
         </div>
 
         <div
@@ -95,7 +95,7 @@ export default function OpengraphImage() {
               padding: "8px 24px",
             }}
           >
-            536 sections
+            536 section mappings
           </div>
           <div
             style={{
