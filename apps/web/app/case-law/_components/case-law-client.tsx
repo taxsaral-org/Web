@@ -18,6 +18,8 @@ const CATEGORY_BADGE: Record<CaseCategory, string> = {
   "Cash Credits & Unexplained Income":
     "bg-lime-100 text-lime-800 dark:bg-lime-900/30 dark:text-lime-300",
   "General Principles": "bg-slate-200 text-slate-800 dark:bg-slate-700/40 dark:text-slate-200",
+  "Trusts, Funds & Pass-Through Vehicles":
+    "bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300",
 };
 
 const CATEGORY_ACCENT: Record<CaseCategory, string> = {
@@ -31,6 +33,7 @@ const CATEGORY_ACCENT: Record<CaseCategory, string> = {
   "Penalties": "border-l-orange-400",
   "Cash Credits & Unexplained Income": "border-l-lime-400",
   "General Principles": "border-l-slate-400",
+  "Trusts, Funds & Pass-Through Vehicles": "border-l-cyan-400",
 };
 
 const CATEGORY_FILTER_ACTIVE: Record<CaseCategory, string> = {
@@ -44,6 +47,7 @@ const CATEGORY_FILTER_ACTIVE: Record<CaseCategory, string> = {
   "Penalties": "bg-orange-100 text-orange-800 border-orange-300",
   "Cash Credits & Unexplained Income": "bg-lime-100 text-lime-800 border-lime-300",
   "General Principles": "bg-slate-200 text-slate-800 border-slate-400",
+  "Trusts, Funds & Pass-Through Vehicles": "bg-cyan-100 text-cyan-800 border-cyan-300",
 };
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {

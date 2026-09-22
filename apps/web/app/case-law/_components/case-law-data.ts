@@ -8,7 +8,8 @@ export type CaseCategory =
   | "TDS & TCS"
   | "Penalties"
   | "Cash Credits & Unexplained Income"
-  | "General Principles";
+  | "General Principles"
+  | "Trusts, Funds & Pass-Through Vehicles";
 
 export const CASE_CATEGORIES: CaseCategory[] = [
   "Capital Gains",
@@ -21,6 +22,7 @@ export const CASE_CATEGORIES: CaseCategory[] = [
   "Penalties",
   "Cash Credits & Unexplained Income",
   "General Principles",
+  "Trusts, Funds & Pass-Through Vehicles",
 ];
 
 export type Court =
@@ -4644,6 +4646,247 @@ export const CASE_LAWS: CaseLaw[] = [
       "settled position",
       "certainty",
       "change in facts or law",
+    ],
+  },
+
+  // ══════════════════════════════════════════════════════════════════════════
+  // TRUSTS, FUNDS & PASS-THROUGH VEHICLES
+  //
+  // Business trusts (REITs and InvITs), investment funds (AIFs),
+  // securitisation trusts and venture capital funds are taxed under a
+  // statutory pass-through regime — Sections 221 to 224 of the IT Act 2025.
+  // That regime is recent and has attracted little direct litigation. The
+  // judgments below supply the trust-taxation law on which these vehicles
+  // are built, and which continues to govern questions the pass-through
+  // provisions do not answer.
+  // ══════════════════════════════════════════════════════════════════════════
+  {
+    slug: "nizam-family-trust-representative",
+    caseName:
+      "CWT v. Trustees of HEH Nizam's Family (Remainder Wealth) Trust",
+    citation: "(1977) 108 ITR 555 (SC)",
+    court: "Supreme Court",
+    year: 1977,
+    category: "Trusts, Funds & Pass-Through Vehicles",
+    section1961: "Sections 160 & 161 (and the wealth tax analogue)",
+    section2025: "Sections 303 & 304",
+    sectionTopic:
+      "Representative assessees; liability of a representative assessee",
+    issue:
+      "When a trustee is assessed in respect of trust property, is the assessment made on the trustee in its own right, or in a representative capacity standing in the shoes of the beneficiary?",
+    held:
+      "In a representative capacity. The liability of the trustee is coextensive with, and no greater or less than, that of the beneficiary. The trustee is assessed in the same manner and to the same extent as the person represented.",
+    facts:
+      "Trusts had been created by the Nizam under which trustees held property for the benefit of identified beneficiaries whose interests arose at different times, some being in possession and others holding remainder interests. The Revenue assessed the trustees, and questions arose as to the basis on which that assessment should proceed — in particular whether the trustees were to be taxed as a separate taxable entity on the whole of the trust property, or whether the assessment had to be made by reference to the individual beneficiaries and their respective interests.",
+    proceduralHistory:
+      "The matter reached the Supreme Court, which examined the scheme of representative assessment and its application where multiple beneficiaries hold interests of differing character in the same trust property.",
+    contentions: {
+      assessee:
+        "A trustee holds property for others and has no beneficial interest of its own. The statutory scheme makes the trustee a representative assessee, and an assessment in that capacity must mirror what could have been made on the beneficiary — same measure, same rate, same exemptions. It cannot become a means of taxing the fund as a single entity at a higher burden than the beneficiaries would bear.",
+      revenue:
+        "The trustees hold and manage the property as a single fund and are the persons in whom it is vested. Assessing them on the fund as a whole is administratively straightforward and is what the charging provisions contemplate where the property is held by them.",
+    },
+    summary:
+      "The Court held that the scheme of representative assessment does not create a new or independent charge. A trustee assessed in respect of trust property is assessed in a representative capacity, standing in the place of the beneficiary, and the assessment must be made in the same manner and to the same extent as it would be on the beneficiary directly. The liability of the representative assessee is therefore coextensive with that of the person represented — neither greater nor less. It follows that the character of the beneficiary's interest, the exemptions and reliefs available to that beneficiary, and the rate applicable to that beneficiary all carry through to the assessment on the trustee. The Court held that where several beneficiaries hold distinct interests, the assessment must reflect those separate interests rather than treating the fund as a single undifferentiated whole, because each assessment on the trustee is in substance an assessment referable to a particular beneficiary. The representative machinery is a means of collection directed at the person in whose hands the property lies; it is not a device for taxing the fund as an entity in its own right.",
+    principles: [
+      "A trustee assessed in respect of trust property is assessed in a representative capacity.",
+      "The liability of a representative assessee is coextensive with that of the person represented.",
+      "The assessment must be made in the same manner and to the same extent as on the beneficiary.",
+      "Exemptions, reliefs and rates available to the beneficiary carry through to the representative assessment.",
+      "Representative assessment is a mode of collection, not a separate charge on the fund as an entity.",
+    ],
+    relevance:
+      "The foundation of the pass-through concept, now in Sections 303 and 304 of the IT Act 2025. The statutory regimes for business trusts, investment funds, securitisation trusts and venture capital funds in Sections 221 to 224 codify a similar idea — that income is taxed in the hands of the unit holder or contributor rather than being trapped in the vehicle. Where those provisions leave a gap, this coextensive-liability principle is the default against which the position is assessed.",
+    keywords: [
+      "representative assessee",
+      "trustee",
+      "coextensive liability",
+      "pass-through",
+      "beneficiary",
+      "160",
+      "161",
+    ],
+  },
+  {
+    slug: "marsons-beneficiary-trust",
+    caseName: "Marsons Beneficiary Trust v. CIT",
+    citation: "(1990) 188 ITR 224 (Bom)",
+    court: "Bombay High Court",
+    year: 1990,
+    category: "Trusts, Funds & Pass-Through Vehicles",
+    section1961: "Sections 161 & 164",
+    section2025: "Sections 304 & 307",
+    sectionTopic:
+      "Liability of a representative assessee; charge of tax where the share of beneficiaries is unknown",
+    issue:
+      "When is a trust determinate, so that income is taxed at the rates applicable to the beneficiaries, rather than indeterminate and taxed at the maximum marginal rate?",
+    held:
+      "A trust is determinate where the beneficiaries and their shares are capable of being ascertained from the trust deed at the date it takes effect. It is not necessary that they be named, nor that the shares be quantified in money terms.",
+    facts:
+      "The trust deed identified the persons who were to benefit and set out the basis on which the trust fund and its income were to be divided among them. The beneficiaries were described by reference to a class and a formula rather than being individually named with rupee amounts against each. The Revenue took the view that because the deed did not name each beneficiary and specify a fixed share, the shares were indeterminate or unknown, and assessed the trust at the maximum marginal rate under the provision applicable to such trusts.",
+    proceduralHistory:
+      "The matter came before the Bombay High Court, which examined what degree of specificity the statutory test requires before a trust will be treated as determinate.",
+    contentions: {
+      assessee:
+        "The deed enabled the beneficiaries and their respective shares to be worked out with certainty. The law requires that the shares be capable of being ascertained, not that they be spelled out in figures. A requirement of individual naming and rupee quantification would defeat the ordinary working of trusts, where beneficiaries are commonly described by class and shares by proportion.",
+      revenue:
+        "The provision charging tax at the maximum marginal rate applies wherever the individual shares of the beneficiaries are indeterminate or unknown. Unless the deed identifies each beneficiary and states that beneficiary's share, the condition is satisfied and the higher rate follows.",
+    },
+    summary:
+      "The Court held that the statutory question is whether the beneficiaries and their shares are capable of being ascertained, not whether the trust deed happens to state them expressly. If the deed supplies the material from which the beneficiaries can be identified and their shares worked out — by describing a class with sufficient precision, or by prescribing a formula or proportion — the trust is determinate, and the fact that ascertainment requires a computation does not make the shares unknown. The Court emphasised that certainty is tested as at the date the trust deed takes effect, by reference to the deed itself, and that a trust does not become indeterminate merely because the identity of the persons falling within a described class may change over time or because the monetary value of a share depends on the size of the fund. It held that the provision charging the maximum marginal rate is directed at genuinely discretionary or unascertainable arrangements, where it cannot be said who is entitled to what, and is not to be applied to a trust whose terms permit the entitlements to be determined.",
+    principles: [
+      "The test is whether beneficiaries and their shares are capable of being ascertained, not whether they are expressly stated.",
+      "Beneficiaries may be described by class and shares by proportion or formula.",
+      "Certainty is tested as at the date the trust deed takes effect, by reference to the deed.",
+      "A need to compute the share does not make it unknown.",
+      "The maximum marginal rate is directed at genuinely discretionary or unascertainable arrangements.",
+    ],
+    relevance:
+      "The determinate-versus-indeterminate distinction, now reflected in Sections 304 and 307 of the IT Act 2025, is the central question for every pooled vehicle constituted as a trust. Venture capital funds, alternative investment funds and securitisation trusts are routinely tested against it, since a finding that the trust is indeterminate would tax the fund at the maximum marginal rate and defeat the pass-through. Fund documentation is drafted with this test squarely in view.",
+    keywords: [
+      "determinate trust",
+      "indeterminate trust",
+      "maximum marginal rate",
+      "beneficiaries ascertainable",
+      "164",
+      "trust deed",
+      "class of beneficiaries",
+    ],
+  },
+  {
+    slug: "kamalini-khatau-discretionary-trust",
+    caseName: "CIT v. Kamalini Khatau",
+    citation: "(1994) 209 ITR 101 (SC)",
+    court: "Supreme Court",
+    year: 1994,
+    category: "Trusts, Funds & Pass-Through Vehicles",
+    section1961: "Sections 161 & 164",
+    section2025: "Sections 304 & 307",
+    sectionTopic:
+      "Liability of a representative assessee; charge of tax where the share of beneficiaries is unknown",
+    issue:
+      "Where a discretionary trust distributes income to a beneficiary, may the Revenue assess that beneficiary, or must it assess the trustee alone?",
+    held:
+      "The Revenue may assess either. Where income of a discretionary trust has in fact been distributed to a beneficiary, it may be assessed in that beneficiary's hands, and the provision charging the trustee does not confer immunity on the recipient.",
+    facts:
+      "Income arising to a discretionary trust was distributed by the trustees to a beneficiary in exercise of their discretion. The Revenue assessed the beneficiary on the amount received. The beneficiary contended that the statutory scheme for discretionary trusts places the charge on the trustee, to be levied at the maximum marginal rate, and that once the statute has designated the trustee as the person chargeable, the same income cannot be assessed in the hands of the recipient.",
+    proceduralHistory:
+      "The question reached the Supreme Court, which decided it by majority, with a dissenting opinion taking the view that the charge on the trustee was exclusive.",
+    contentions: {
+      assessee:
+        "The provision dealing with trusts whose beneficiaries' shares are unknown makes the tax leviable on the trustee, and prescribes the rate. That is a complete code for discretionary trusts. Permitting assessment of the beneficiary as well leaves the taxpayer exposed to assessment at two ends on the same income and is not what the scheme contemplates.",
+      revenue:
+        "The representative assessment provisions are machinery for collecting tax from the person in whose hands income lies; they do not displace the ordinary charge on the person who actually receives and enjoys the income. Where a beneficiary has in fact received a distribution, that receipt is income in the beneficiary's hands and is chargeable.",
+    },
+    summary:
+      "The majority held that the provisions dealing with representative assessment are machinery provisions and do not exhaust the Revenue's power to assess the person who actually receives the income. Where the trustees of a discretionary trust have exercised their discretion and distributed income to a beneficiary, that beneficiary has received income which is chargeable in the ordinary way, and the existence of a provision permitting the trustee to be assessed does not confer immunity on the recipient. The Court reasoned that the representative machinery exists for the Revenue's benefit, to enable collection where income is held by one person for another, and that it would be an odd result if machinery designed to assist collection operated to exclude assessment of the person who has actually enjoyed the income. The majority accordingly held that the Revenue has an option in such a case. It was careful to record that the same income cannot be taxed twice: assessment of one forecloses recovery from the other, and the option is as to whom the Revenue proceeds against, not a licence to collect the tax twice over.",
+    principles: [
+      "Representative assessment provisions are machinery and do not displace the ordinary charge on the recipient.",
+      "Income of a discretionary trust actually distributed may be assessed in the beneficiary's hands.",
+      "The provision charging the trustee does not confer immunity on the recipient.",
+      "The Revenue has an option as to whom it assesses, but the same income cannot be taxed twice.",
+    ],
+    relevance:
+      "Relevant to Sections 304 and 307 of the IT Act 2025 and to every discretionary pooling structure. Read against Ch. Atchaiah, which holds that the Assessing Officer must tax the right person and has no general option: the two are reconciled on the footing that the representative provisions create a specific statutory alternative for trusts, which the general rule does not override. Where a fund's documentation confers genuine discretion on the manager, this line of authority governs who bears the charge.",
+    keywords: [
+      "discretionary trust",
+      "option to assess",
+      "trustee or beneficiary",
+      "machinery provision",
+      "distribution",
+      "164",
+      "double taxation",
+    ],
+  },
+  {
+    slug: "ch-atchaiah-right-person",
+    caseName: "ITO v. Ch. Atchaiah",
+    citation: "(1996) 218 ITR 239 (SC)",
+    court: "Supreme Court",
+    year: 1996,
+    category: "Trusts, Funds & Pass-Through Vehicles",
+    section1961: "Sections 4 & 160",
+    section2025: "Sections 4 & 303",
+    sectionTopic:
+      "Charge of income-tax; representative assessees",
+    issue:
+      "Where income may arguably be assessed either in the hands of an association or in the hands of its members, does the Assessing Officer have an option as to whom to tax?",
+    held:
+      "No. Under the 1961 Act the Assessing Officer must tax the right person, and only the right person. The option that existed under the 1922 Act was deliberately removed, so an assessment on the wrong person is not saved by the availability of an alternative.",
+    facts:
+      "Income had arisen from an activity carried on jointly by several persons. The question was whether it fell to be assessed in the hands of the association formed by them or in the hands of the individual members according to their shares. Under the predecessor legislation the Assessing Officer had an express option to assess either the association or its members. The successor legislation did not carry that language forward, and the Revenue nonetheless proceeded on the footing that the option survived.",
+    proceduralHistory:
+      "The matter came before the Supreme Court, which compared the language of the two statutes and resolved a conflict on whether the option had been preserved by implication.",
+    contentions: {
+      assessee:
+        "The words conferring an option in the earlier statute were dropped when the present Act was enacted. That omission must be given effect: Parliament having removed a power expressly conferred earlier, it cannot be read back in. The officer must determine who is properly chargeable and assess that person.",
+      revenue:
+        "The change in language was not intended to alter the substance. Where income is genuinely capable of being assessed in either set of hands, the officer should retain the flexibility to choose, and nothing in the new Act expressly forbids it.",
+    },
+    summary:
+      "The Court compared the two statutes and held that the omission of the words conferring an option was deliberate and decisive. Under the earlier Act the Assessing Officer was expressly empowered to assess either the association or its members; the present Act contains no such words, and the Court held that the power cannot be restored by construction. The officer is therefore required to determine who is the right person to be taxed in respect of the income in question, and to assess that person and no other. The Court held that assessing the wrong person is not cured by the fact that the income was in some sense assessable elsewhere; an assessment on a person not properly chargeable is simply bad. It observed that the scheme requires the officer to apply his mind to the correct identification of the taxable entity rather than to choose whichever assessment is administratively convenient or produces more revenue, and that this discipline is an important protection for taxpayers where income passes through intermediate entities.",
+    principles: [
+      "The Assessing Officer must tax the right person and only the right person.",
+      "The option expressly conferred by the earlier statute was deliberately omitted and cannot be read back.",
+      "An assessment on the wrong person is not saved because the income was assessable elsewhere.",
+      "The officer must identify the correct taxable entity rather than choose for convenience.",
+    ],
+    relevance:
+      "Directly relevant to pooled vehicles, where the recurring question is whether income is chargeable in the vehicle or in the hands of unit holders and contributors. Under the IT Act 2025 that question is largely answered by the pass-through regime in Sections 221 to 224, which designates who is chargeable. Where a vehicle falls outside those provisions — a fund not registered in the required category, for instance — this decision requires the correct person to be identified rather than the more convenient one assessed. Reconcile with Kamalini Khatau, which recognises a specific statutory alternative for trusts.",
+    keywords: [
+      "right person",
+      "no option",
+      "association of persons",
+      "members",
+      "correct taxable entity",
+      "wrong assessment",
+      "pass-through",
+    ],
+  },
+  {
+    slug: "india-advantage-fund-vcf",
+    caseName: "CIT v. India Advantage Fund-VII",
+    citation: "Karnataka High Court (2015)",
+    court: "Karnataka High Court",
+    year: 2015,
+    category: "Trusts, Funds & Pass-Through Vehicles",
+    section1961: "Sections 10(23FB), 115U, 161 & 164",
+    section2025: "Sections 222, 304 & 307",
+    sectionTopic:
+      "Tax on income in the case of a venture capital undertaking; liability of a representative assessee; charge where shares are unknown",
+    issue:
+      "Is a SEBI-registered venture capital fund constituted as a trust, whose contributors are identifiable from its records, a determinate trust whose income is taxable in the contributors' hands?",
+    held:
+      "Yes. Where the contributors and their proportionate interests can be ascertained, the trust is determinate. Income is assessable in the contributors' hands and the fund is not chargeable at the maximum marginal rate.",
+    facts:
+      "The assessee was a venture capital fund registered with the securities regulator and constituted as a contributory trust. Investors subscribed to units and their contributions, and the proportion each bore to the total, were recorded in the fund's registers and in the contribution agreements, though the trust deed itself did not name them. The Revenue took the view that because the beneficiaries were not named in the deed and could change as units were issued and transferred, their shares were indeterminate, and assessed the fund at the maximum marginal rate as an indeterminate trust rather than treating the income as passing through to the contributors.",
+    proceduralHistory:
+      "The Tribunal decided in the fund's favour, holding the trust to be determinate. The Revenue appealed to the Karnataka High Court, which affirmed. Similar questions arose across a number of funds in the same group and were decided on the same reasoning.",
+    contentions: {
+      assessee:
+        "Every contributor was identifiable and each one's proportionate interest in the fund was ascertainable from the contribution agreements and the register of unit holders. The statutory test asks whether the beneficiaries and their shares are capable of being ascertained, and they plainly were. The regulatory framework governing venture capital funds and the pass-through provision both proceed on the footing that income reaches the investors.",
+      revenue:
+        "The trust deed did not name the beneficiaries or state their shares, and the composition of the investor body could change over the life of the fund. On the face of the constituting instrument, therefore, the shares were indeterminate, and the provision charging the maximum marginal rate applied.",
+    },
+    summary:
+      "The Court applied the settled test of whether the beneficiaries and their shares were capable of being ascertained, and held that they were. The contributors were identified in the contribution agreements and the fund's records, and the proportion of each investor's interest followed arithmetically from the amount contributed relative to the total. That the trust deed did not name them individually was held not to matter, since the deed together with the documents it contemplated supplied the means of ascertainment. The Court held that the possibility of the investor body changing over time does not render a trust indeterminate, because the test is one of ascertainability rather than immutability, and at any given time the entitlements could be worked out with precision. It also had regard to the statutory and regulatory scheme for venture capital funds, which is built on the premise that income earned by the fund is passed through to and taxed in the hands of investors, and held that treating such a fund as an indeterminate trust would be inconsistent with that premise. The income was accordingly assessable in the contributors' hands.",
+    principles: [
+      "Contributors identifiable from contribution agreements and registers satisfy the ascertainability test.",
+      "Beneficiaries need not be named in the trust deed itself if the deed supplies the means of ascertainment.",
+      "A changing investor body does not make a trust indeterminate; the test is ascertainability, not immutability.",
+      "The statutory pass-through scheme for venture capital funds assumes income is taxed in investors' hands.",
+    ],
+    relevance:
+      "The most directly relevant judicial authority on pooled fund vehicles, applying to Section 222 of the IT Act 2025 for venture capital undertakings and, by the same reasoning, to investment funds under Section 224 and business trusts under Section 223. The statutory pass-through provisions have since reduced the scope for this dispute by designating who is chargeable, but the determinate-trust analysis remains the fallback wherever a vehicle falls outside the conditions those provisions impose. Verify the precise citation before relying on it in a filing.",
+    keywords: [
+      "venture capital fund",
+      "VCF",
+      "determinate trust",
+      "contributors",
+      "pass-through",
+      "maximum marginal rate",
+      "115U",
+      "AIF",
     ],
   },
 ];
