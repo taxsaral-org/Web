@@ -150,7 +150,7 @@ const RESOURCES = [
     href: "/quiz",
     title: "Practice Quiz",
     description:
-      "Concept-check questions paired with each explainer, plus harder application-level case studies from ICAI study material. Every answer is explained.",
+      "Drill the new section numbers chapter by chapter, check your grasp of each explainer, or take on harder ICAI case studies. Every answer is explained.",
     cta: "Test yourself",
     accent: "border-l-4 border-l-rose-500",
     badge: "Explained answers",

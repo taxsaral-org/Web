@@ -1,3 +1,5 @@
+import { SECTION_QUIZ_CHAPTERS } from "./section-quiz";
+
 export type Difficulty = "Easy" | "Medium" | "Hard";
 
 export interface QuizQuestion {
@@ -9,7 +11,7 @@ export interface QuizQuestion {
   section?: string;                  // e.g. "Section 38(1)(a)"
 }
 
-export type QuizSource = "detailed-explainer" | "icai";
+export type QuizSource = "detailed-explainer" | "icai" | "section-identifier";
 
 export interface QuizChapter {
   slug: string;
@@ -25,7 +27,9 @@ export interface QuizChapter {
 
 // ─── Chapters ────────────────────────────────────────────────────────────────
 
-export const QUIZ_CHAPTERS: QuizChapter[] = [
+// Hand-written quizzes. The Section Identifier quizzes are generated from the
+// section mapping in ./section-quiz and merged in below.
+const CURATED_CHAPTERS: QuizChapter[] = [
   {
     slug: "deemed-pgbp-income-section-38",
     source: "detailed-explainer",
@@ -1253,6 +1257,11 @@ export const QUIZ_CHAPTERS: QuizChapter[] = [
     ],
     lastUpdated: "2026-08-16",
   },
+];
+
+export const QUIZ_CHAPTERS: QuizChapter[] = [
+  ...CURATED_CHAPTERS,
+  ...SECTION_QUIZ_CHAPTERS,
 ];
 
 export const DIFFICULTY_ORDER: Difficulty[] = ["Easy", "Medium", "Hard"];

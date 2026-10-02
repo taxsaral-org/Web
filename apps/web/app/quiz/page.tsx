@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Brain, BookOpen, GraduationCap, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Brain, BookOpen, GraduationCap, ArrowRight, CheckCircle2, Hash } from "lucide-react";
 import { QUIZ_CHAPTERS } from "./_components/quiz-data";
 
 const BASE     = "https://taxsaral.org";
@@ -34,6 +34,7 @@ export const metadata: Metadata = {
 
 const explainerChapters = QUIZ_CHAPTERS.filter((c) => c.source === "detailed-explainer");
 const icaiChapters      = QUIZ_CHAPTERS.filter((c) => c.source === "icai");
+const sectionChapters   = QUIZ_CHAPTERS.filter((c) => c.source === "section-identifier");
 
 export default function QuizPage() {
   const totalQuestions = QUIZ_CHAPTERS.reduce((s, c) => s + c.questions.length, 0);
@@ -58,8 +59,9 @@ export default function QuizPage() {
           </div>
 
           <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground mb-5">
-            Choose a track based on where you are in your preparation — concept-check questions
-            paired with each Detailed Explainer, or harder ICAI case studies for exam practice.
+            Choose a track based on where you are in your preparation — learn the new section
+            numbers chapter by chapter, check your understanding of each Detailed Explainer, or
+            take on harder ICAI case studies for exam practice.
           </p>
 
           <div className="flex flex-wrap gap-3">
@@ -79,7 +81,7 @@ export default function QuizPage() {
 
       {/* Category cards */}
       <section className="container mx-auto max-w-4xl px-4 py-10">
-        <div className="grid gap-5 sm:grid-cols-2">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
 
           {/* Detailed Explainer track */}
           <Link
@@ -161,6 +163,46 @@ export default function QuizPage() {
 
             <div className="mt-auto flex items-center gap-1.5 text-sm font-semibold text-orange-600 dark:text-orange-400">
               Browse quizzes
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </div>
+          </Link>
+
+          {/* Section Identifier track */}
+          <Link
+            href="/quiz/section-identifier"
+            className="group flex flex-col gap-4 rounded-2xl border bg-card p-6 transition-all hover:shadow-lg hover:border-emerald-300 dark:hover:border-emerald-700"
+          >
+            <div className="flex items-center gap-3">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-emerald-200 bg-emerald-50 dark:border-emerald-800 dark:bg-emerald-900/30 group-hover:bg-emerald-100 dark:group-hover:bg-emerald-900/50 transition-colors">
+                <Hash className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
+              </div>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-emerald-500 dark:text-emerald-400">
+                  Track 3
+                </p>
+                <h2 className="text-base font-bold leading-tight group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                  Section Identifier
+                </h2>
+              </div>
+            </div>
+
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              See a section number, pick what it deals with — chapter by chapter through the
+              whole Act. Built for CA Final students getting to grips with the new numbering.
+              Every answer shows the old 1961 section too.
+            </p>
+
+            <div className="flex flex-wrap gap-2 text-xs">
+              <span className="rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-0.5 font-semibold text-emerald-700 dark:border-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300">
+                {sectionChapters.length} chapters
+              </span>
+              <span className="rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-0.5 font-semibold text-emerald-700 dark:border-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300">
+                {sectionChapters.reduce((s, c) => s + c.questions.length, 0)} sections
+              </span>
+            </div>
+
+            <div className="mt-auto flex items-center gap-1.5 text-sm font-semibold text-emerald-600 dark:text-emerald-400">
+              Start drilling
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </div>
           </Link>
