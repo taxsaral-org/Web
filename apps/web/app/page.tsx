@@ -6,7 +6,7 @@ import {
 import { CASE_LAWS } from "./case-law/_components/case-law-data";
 import { SECTIONS } from "./section-explainer/_components/sections-data";
 import { DETAILED_ENTRIES } from "./detailed-explainer/_components/detailed-data";
-import { MAPPINGS } from "./section-mapping/_components/mapping-data";
+import { SECTIONS_IN_FORCE } from "./section-mapping/_components/mapping-data";
 
 export const metadata: Metadata = {
   title:
@@ -99,7 +99,7 @@ const TRUST_BADGES = [
 const HERO_STATS = [
   { value: `${CASE_LAWS.length}`,        label: "Landmark judgments" },
   { value: `${SECTIONS.length}`,         label: "Sections explained" },
-  { value: `${MAPPINGS.length}`,         label: "1961 → 2025 mappings" },
+  { value: `${SECTIONS_IN_FORCE}`,       label: "1961 → 2025 mappings" },
   { value: `${DETAILED_ENTRIES.length}`, label: "Detailed explainers" },
 ];
 
@@ -143,7 +143,7 @@ const RESOURCES = [
       "Know the old section but not the new one? Search any provision of the 1961 Act and find its equivalent under the Income Tax Act 2025.",
     cta: "Find a section",
     accent: "border-l-4 border-l-amber-500",
-    badge: `${MAPPINGS.length} mappings`,
+    badge: `${SECTIONS_IN_FORCE} mappings`,
     badgeColor: "bg-amber-50 text-amber-700",
   },
   {

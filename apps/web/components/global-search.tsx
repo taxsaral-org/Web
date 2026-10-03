@@ -217,7 +217,7 @@ export function GlobalSearch() {
                   <Search className="mx-auto mb-3 h-8 w-8 text-muted-foreground/25" />
                   <p className="text-sm text-muted-foreground">
                     Search across{" "}
-                    <span className="font-medium text-foreground">536+ sections</span>,{" "}
+                    <span className="font-medium text-foreground">{SECTIONS.length} section explainers</span>,{" "}
                     <span className="font-medium text-foreground">detailed analyses</span>, and{" "}
                     <span className="font-medium text-foreground">calculators</span>
                   </p>

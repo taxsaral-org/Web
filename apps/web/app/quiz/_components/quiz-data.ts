@@ -24,7 +24,7 @@ export interface QuizChapter {
   questions: QuizQuestion[];
   lastUpdated: string;               // ISO date
   /** Section Identifier quizzes: the part of the Act covered. */
-  coverage?: { label: string; title: string; from: number; to: number; set?: string };
+  coverage?: { label: string; title: string; from: string; to: string; set?: string };
 }
 
 // ─── Chapters ────────────────────────────────────────────────────────────────

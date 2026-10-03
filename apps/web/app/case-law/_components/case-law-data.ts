@@ -4239,7 +4239,7 @@ export const CASE_LAWS: CaseLaw[] = [
     section1961: "Section 271(1)(c) (replaced by Section 270A from AY 2017-18)",
     section2025: "Sections 439 & 440",
     sectionTopic:
-      "Penalty for under-reporting and misreporting of income; immunity from penalty",
+      "Penalty for under-reporting and misreporting of income; waiver of penalty",
     issue:
       "Does the disallowance of a claim, made openly in the return and supported by full disclosure, by itself attract penalty for furnishing inaccurate particulars of income?",
     held:
@@ -4264,7 +4264,7 @@ export const CASE_LAWS: CaseLaw[] = [
       "Penalty provisions are construed strictly and not extended by implication.",
     ],
     relevance:
-      "The penalty regime has been restructured — Section 439 of the IT Act 2025 levies penalty for under-reporting and misreporting of income, and Section 440 offers immunity from it in under-reporting cases — and the new framework turns on defined categories rather than the older concealment language. The underlying principle, that a bona fide claim on disclosed facts is not penal, carries forward through the exclusions for bona fide explanations, and this remains the most cited authority against penalty founded on a mere disallowance.",
+      "The penalty regime has been restructured — Section 439 of the IT Act 2025 levies penalty for under-reporting and misreporting of income, and Section 440, as amended by the Finance Act, 2026, allows that penalty to be waived where the tax and interest are paid and no appeal is filed (with additional tax where the default is misreporting) — and the new framework turns on defined categories rather than the older concealment language. The underlying principle, that a bona fide claim on disclosed facts is not penal, carries forward through the exclusions for bona fide explanations, and this remains the most cited authority against penalty founded on a mere disallowance.",
     keywords: [
       "penalty",
       "inaccurate particulars",
@@ -4285,7 +4285,7 @@ export const CASE_LAWS: CaseLaw[] = [
     section1961: "Section 271(1)(c) (replaced by Section 270A from AY 2017-18)",
     section2025: "Sections 439 & 440",
     sectionTopic:
-      "Penalty for under-reporting and misreporting of income; immunity from penalty",
+      "Penalty for under-reporting and misreporting of income; waiver of penalty",
     issue:
       "Must the Revenue establish a guilty mind before a penalty for concealment may be imposed, or is the liability civil in character?",
     held:
@@ -4309,7 +4309,7 @@ export const CASE_LAWS: CaseLaw[] = [
       "The decision does not make penalty automatic; the statutory conditions and defences still apply.",
     ],
     relevance:
-      "Under the IT Act 2025 the penalty for under-reporting and misreporting of income is in Section 439, which distinguishes the two and charges them at different rates, with immunity for under-reporting available under Section 440. That structure makes the character of the default central once more, since misreporting attracts a substantially higher penalty. Dharamendra Textile continues to be cited for the civil nature of the liability, but must be read with Reliance Petroproducts and Price Waterhouse Coopers, which preserve the bona fide explanation defence.",
+      "Under the IT Act 2025 the penalty for under-reporting and misreporting of income is in Section 439, which distinguishes the two and charges them at different rates; Section 440, as amended by the Finance Act, 2026, allows waiver once the tax and interest are paid without an appeal, with additional tax for misreporting. That structure makes the character of the default central once more, since misreporting attracts a substantially higher penalty. Dharamendra Textile continues to be cited for the civil nature of the liability, but must be read with Reliance Petroproducts and Price Waterhouse Coopers, which preserve the bona fide explanation defence.",
     keywords: [
       "civil liability",
       "mens rea",
@@ -4330,7 +4330,7 @@ export const CASE_LAWS: CaseLaw[] = [
     section1961: "Section 271(1)(c) (replaced by Section 270A from AY 2017-18)",
     section2025: "Sections 439 & 440",
     sectionTopic:
-      "Penalty for under-reporting and misreporting of income; immunity from penalty",
+      "Penalty for under-reporting and misreporting of income; waiver of penalty",
     issue:
       "Does a surrender of income made during assessment, said to be voluntary and to buy peace, preclude the levy of penalty?",
     held:
@@ -4354,7 +4354,7 @@ export const CASE_LAWS: CaseLaw[] = [
       "A condition that no penalty be levied has no legal effect on a statutory levy.",
     ],
     relevance:
-      "Under the IT Act 2025 the penalty in Section 439 distinguishes under-reporting from misreporting, and a surrender following detection will ordinarily fall on the misreporting side, with its higher rate and no access to the immunity in Section 440. The practical lesson survives the restructuring: an offer of additional income should be accompanied by a substantiated explanation of the source and circumstances, since a bare surrender leaves the taxpayer without a defence.",
+      "Under the IT Act 2025 the penalty in Section 439 distinguishes under-reporting from misreporting, and a surrender following detection will ordinarily fall on the misreporting side, with its higher rate. Since the Finance Act, 2026, waiver under Section 440 is still possible in such a case, but only if the assessee does not appeal and also pays additional income-tax — 120% of the tax on the under-reported income where, as with unexplained share application money, the income is taxed under Section 195 (100% in other misreporting cases). The practical lesson survives the restructuring: an offer of additional income should be accompanied by a substantiated explanation of the source and circumstances, since a bare surrender leaves the taxpayer without a defence.",
     keywords: [
       "voluntary surrender",
       "buy peace",
@@ -4375,7 +4375,7 @@ export const CASE_LAWS: CaseLaw[] = [
     section1961: "Section 271(1)(c) (replaced by Section 270A from AY 2017-18)",
     section2025: "Sections 439 & 440",
     sectionTopic:
-      "Penalty for under-reporting and misreporting of income; immunity from penalty",
+      "Penalty for under-reporting and misreporting of income; waiver of penalty",
     issue:
       "Does a genuine clerical oversight in preparing the return, apparent from the accompanying documents, attract penalty for furnishing inaccurate particulars?",
     held:
@@ -4399,7 +4399,7 @@ export const CASE_LAWS: CaseLaw[] = [
       "The conclusion is fact-specific and turns on what was disclosed with the return.",
     ],
     relevance:
-      "Under Section 439 of the IT Act 2025 the distinction between under-reporting and misreporting makes the character of the error decisive, since misreporting attracts a materially higher penalty and rules out the immunity in Section 440. This remains the leading authority for resisting penalty on a genuine computational oversight, and it underscores a practical point: the tax audit report and accompanying schedules are the evidence on which the bona fide defence is built.",
+      "Under Section 439 of the IT Act 2025 the distinction between under-reporting and misreporting makes the character of the error decisive, since misreporting attracts a materially higher penalty and, since the Finance Act, 2026, a costlier route to waiver under Section 440. This remains the leading authority for resisting penalty on a genuine computational oversight, and it underscores a practical point: the tax audit report and accompanying schedules are the evidence on which the bona fide defence is built.",
     keywords: [
       "inadvertent error",
       "bona fide mistake",

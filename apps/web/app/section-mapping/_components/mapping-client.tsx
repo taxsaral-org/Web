@@ -69,6 +69,30 @@ function chapterTitle(m: SectionMap) {
   return part ? `${chapter} — Part ${m.part}: ${part}` : chapter;
 }
 
+const AMENDMENT_LABEL: Record<NonNullable<SectionMap["amended"]>, string> = {
+  substituted: "Substituted",
+  inserted: "Inserted",
+  heading: "Heading amended",
+  omitted: "Omitted",
+};
+
+/** The section heading, with a note where the Finance Act, 2026 changed it. */
+function Topic({ m }: { m: SectionMap }) {
+  return (
+    <>
+      <span className={cn(m.amended === "omitted" && "text-muted-foreground line-through")}>{m.topic}</span>
+      {m.amended && (
+        <span
+          className="ml-2 inline-block whitespace-nowrap rounded bg-amber-100 px-1.5 py-px align-middle text-[10px] font-medium text-amber-800 dark:bg-amber-900/40 dark:text-amber-300"
+          title={m.asEnacted ? `Heading as enacted: ${m.asEnacted}` : "Finance Act, 2026"}
+        >
+          {AMENDMENT_LABEL[m.amended]} · Finance Act 2026
+        </span>
+      )}
+    </>
+  );
+}
+
 function OldSection({ m }: { m: SectionMap }) {
   if (m.old === "—") {
     return <span className="italic">New provision</span>;
@@ -117,6 +141,7 @@ export function MappingClient() {
         squash(m.old).includes(q) ||
         squash(m.new).includes(q) ||
         squash(m.topic).includes(q) ||
+        (m.asEnacted !== undefined && squash(m.asEnacted).includes(q)) ||
         squash(m.category).includes(q)
       );
     });
@@ -209,7 +234,7 @@ export function MappingClient() {
       {/* Results count */}
       <p className="mb-3 text-xs text-muted-foreground">
         Showing <span className="font-semibold text-foreground">{filtered.length}</span> of{" "}
-        {MAPPINGS.length} sections
+        {MAPPINGS.length} entries
         {activeQuickFilter && QUICK_FILTERS[activeQuickFilter] && (
           <> — <span className="font-semibold text-emerald-700 dark:text-emerald-400">{QUICK_FILTERS[activeQuickFilter]!.label}</span></>
         )}
@@ -253,7 +278,7 @@ export function MappingClient() {
                       Sec. {m.new}
                     </td>
                     <td className="px-4 py-3 text-sm text-foreground leading-relaxed">
-                      {m.topic}
+                      <Topic m={m} />
                     </td>
                     <td className="px-4 py-3">
                       <span className={cn("rounded-full px-2 py-0.5 text-xs font-medium whitespace-nowrap", CATEGORY_COLORS[m.category])}>
@@ -280,7 +305,7 @@ export function MappingClient() {
                   <ArrowRight className="mt-0.5 h-3 w-3 shrink-0 text-muted-foreground" />
                   <span className="shrink-0 font-mono text-xs font-semibold text-primary">Sec. {m.new}</span>
                 </div>
-                <p className="text-sm text-foreground leading-relaxed">{m.topic}</p>
+                <p className="text-sm text-foreground leading-relaxed"><Topic m={m} /></p>
                 <div className="mt-2 flex items-center gap-2">
                   <span className={cn("rounded-full px-2 py-0.5 text-xs font-medium", CATEGORY_COLORS[m.category])}>
                     {m.category}

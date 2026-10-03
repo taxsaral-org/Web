@@ -2762,7 +2762,7 @@ export const SECTIONS: SectionEntry[] = [
         calculation:
           "Date of conversion:                    1 April 2027\n\nFMV of all assets:                     ₹8,00,00,000\nLess: Total liabilities:               ₹1,50,00,000\nAccreted income:                       ₹6,50,00,000\n\nExit tax @ 30%:                        ₹1,95,00,000\nAdd: 4% cess:                          ₹    7,80,000\nTotal exit tax payable:                ₹2,02,80,000\nDue date:                              15 April 2027\n\nAlternative — Transfer to another NPO:\n  Exit tax:                            ₹           0",
         result:
-          "Converting to a company triggers ₹2.03 crore in exit tax. The trust should instead merge with another charitable education trust — this avoids exit tax entirely and preserves assets for charitable purposes.",
+          "Converting to a company triggers ₹2.03 crore in exit tax. The trust should instead merge with another registered charitable education trust — under Section 354A (inserted by the Finance Act, 2026) such a merger, with same or similar objects and meeting the prescribed conditions, does not attract the exit tax, and the assets stay devoted to charitable purposes.",
       },
     ],
     relatedSlugs: [

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ExternalLink, Info } from "lucide-react";
 import { MappingClient } from "./_components/mapping-client";
-import { MAPPINGS } from "./_components/mapping-data";
+import { SECTIONS_IN_FORCE } from "./_components/mapping-data";
 
 export const metadata: Metadata = {
   title: "Income Tax Section Mapping: 1961 Act → 2025 Act | TaxSaral",
@@ -22,7 +22,7 @@ export default function SectionMappingPage() {
             Reference
           </span>
           <span className="text-xs text-muted-foreground">
-            IT Act 1961 → IT Act 2025 · all {MAPPINGS.length} sections with official headings
+            IT Act 1961 → IT Act 2025 · all {SECTIONS_IN_FORCE} sections in force, with official headings
           </span>
         </div>
         <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">
@@ -41,11 +41,12 @@ export default function SectionMappingPage() {
         <div className="flex-1 text-sm text-blue-800 leading-relaxed">
           <span className="font-semibold">Sources: </span>
           Section numbers, chapters and headings are taken from the Income-tax Act, 2025 as published
-          in the Gazette of India. The corresponding 1961 sections follow ICAI&rsquo;s tabular mapping of the Act (first
-          edition, September 2025). Both reflect the Act as enacted, so later amendments such as those
-          made by the Finance Act, 2026 are not shown here. The Income Tax Department also maintains an
-          official cross-reference utility — verify critical section numbers there before filing or
-          advising.
+          in the Gazette of India (21 August 2025), updated for the Finance Act, 2026 (Gazette, 30 March
+          2026), which substituted sections 150, 217, 218, 283, 427, 428, 446, 454, 480, 481 and 522,
+          inserted section 354A, omitted sections 443 and 447, and amended the headings of sections
+          440, 467, 473 and 474. The corresponding 1961 sections follow ICAI&rsquo;s tabular mapping of the
+          Act (September 2025). The Income Tax Department also maintains an official cross-reference
+          utility — verify critical section numbers there before filing or advising.
           <br />
           <a
             href="https://www.incometaxindia.gov.in/utility-to-check-provisions-of-income-tax-act-1961-vis-a-vis-income-tax-act-2025"
@@ -105,8 +106,8 @@ export default function SectionMappingPage() {
       </div>
 
       <p className="mt-6 text-xs text-muted-foreground text-center leading-relaxed">
-        Sections and headings: Income-tax Act, 2025 (No. 30 of 2025), {MAPPINGS.length} sections.
-        Corresponding 1961 provisions: ICAI&rsquo;s tabular mapping. Many provisions were consolidated,
+        Sections and headings: Income-tax Act, 2025 (No. 30 of 2025) as amended by the Finance Act, 2026 —
+        {SECTIONS_IN_FORCE} sections in force. Corresponding 1961 provisions: ICAI&rsquo;s tabular mapping. Many provisions were consolidated,
         split or restructured; where ICAI maps a group of sections together (marked &ldquo;group&rdquo;),
         the reference applies to the group as a whole. Verify with the official utility or a Chartered
         Accountant for legal accuracy.

@@ -7,6 +7,8 @@
 // together with their neighbours, large ones part by part, and a unit that is
 // still long is split into sets. The build fails if a unit starts or ends in
 // the middle of a chapter or part, or if any section is left uncovered.
+// Headings are those of the Act as amended by the Finance Act, 2026; sections
+// it omitted (443 and 447) are not asked, and section 354A, which it inserted, is.
 
 import { MAPPINGS, type SectionMap } from "@/app/section-mapping/_components/mapping-data";
 import type { QuizChapter, QuizQuestion } from "./quiz-data";
@@ -68,12 +70,16 @@ const QUIZ_HEADINGS: Record<string, string> = {
 const LAST_UPDATED = "2026-10-02";
 
 interface Row {
+  /** Ordering key: 354 → 354, 354A → 354.01. */
   n: number;
+  /** The section number as printed, e.g. "354A". */
+  id: string;
   old: string;
   topic: string;
   chapter: string;
   part: string;
   groupRef: boolean;
+  amended?: SectionMap["amended"];
 }
 
 // Small seeded PRNG so options and their order are identical on every build.
@@ -88,16 +94,31 @@ function rng(seed: number) {
   };
 }
 
+function sectionOrder(id: string): number {
+  const m = id.match(/^(\d+)([A-Z]?)$/);
+  if (!m) throw new Error(`section-quiz: unexpected section number "${id}"`);
+  return parseInt(m[1]!, 10) + (m[2] ? (m[2].charCodeAt(0) - 64) / 100 : 0);
+}
+
 const toRow = (m: SectionMap): Row => ({
-  n: parseInt(m.new, 10),
+  n: sectionOrder(m.new),
+  id: m.new,
   old: m.old,
   topic: QUIZ_HEADINGS[m.new] ?? m.topic,
   chapter: m.chapter,
   part: m.part ?? "",
   groupRef: m.groupRef === true,
+  amended: m.amended,
 });
 
-const ROWS: Row[] = MAPPINGS.map(toRow).sort((a, b) => a.n - b.n);
+const ROWS: Row[] = MAPPINGS.filter((m) => m.amended !== "omitted").map(toRow).sort((a, b) => a.n - b.n);
+
+const AMENDMENT_NOTE: Record<NonNullable<Row["amended"]>, string> = {
+  substituted: "This section was substituted by the Finance Act, 2026.",
+  inserted: "This section was inserted by the Finance Act, 2026.",
+  heading: "Its heading was amended by the Finance Act, 2026.",
+  omitted: "",
+};
 
 function earlierReference(row: Row): string {
   const o = row.old.trim();
@@ -109,15 +130,15 @@ function earlierReference(row: Row): string {
   if (row.groupRef) {
     // ICAI maps the whole group to these provisions together.
     const group = ROWS.filter((r) => r.groupRef && r.old === row.old);
-    const first = group[0]!.n;
-    const last = group[group.length - 1]!.n;
+    const first = group[0]!.id;
+    const last = group[group.length - 1]!.id;
     return `Sections ${first} to ${last} of the 2025 Act together correspond to ${refs} of the Income Tax Act 1961.`;
   }
   return `Under the Income Tax Act 1961 this was ${refs}.`;
 }
 
 function buildQuestion(row: Row, pool: Row[], label: string): QuizQuestion {
-  const rand = rng(row.n * 2654435761);
+  const rand = rng(Math.round(row.n * 100) * 2654435761);
 
   // Distractors come from the same unit, two of them from the nearest
   // sections — the ones genuinely confused in an exam — and one from further
@@ -148,11 +169,13 @@ function buildQuestion(row: Row, pool: Row[], label: string): QuizQuestion {
   }
 
   return {
-    id: `sec-${row.n}`,
-    question: `What does Section ${row.n} of the Income Tax Act 2025 deal with?`,
+    id: `sec-${row.id}`,
+    question: `What does Section ${row.id} of the Income Tax Act 2025 deal with?`,
     options: options as [string, string, string, string],
     correct: options.indexOf(row.topic) as 0 | 1 | 2 | 3,
-    explanation: `Section ${row.n} deals with: ${row.topic}. ${earlierReference(row)}`,
+    explanation: [`Section ${row.id} deals with: ${row.topic}.`, row.amended ? AMENDMENT_NOTE[row.amended] : "", earlierReference(row)]
+      .filter(Boolean)
+      .join(" "),
     section: label,
   };
 }
@@ -222,8 +245,8 @@ function buildChapters(): QuizChapter[] {
       const first = slice[0];
       const last = slice[slice.length - 1];
       if (!first || !last) continue;
-      const a = first.n;
-      const b = last.n;
+      const a = first.id;
+      const b = last.id;
       const set = sets > 1 ? `Set ${s + 1} of ${sets}` : undefined;
 
       chapters.push({

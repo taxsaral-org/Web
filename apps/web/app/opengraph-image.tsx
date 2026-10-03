@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { SECTIONS_IN_FORCE } from "./section-mapping/_components/mapping-data";
 
 // Social share card, generated at build time. Without this every link
 // shared to LinkedIn, X or WhatsApp renders as a blank card.
@@ -95,7 +96,7 @@ export default function OpengraphImage() {
               padding: "8px 24px",
             }}
           >
-            536 section mappings
+            {SECTIONS_IN_FORCE} sections mapped
           </div>
           <div
             style={{

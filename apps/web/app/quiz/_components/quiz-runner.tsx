@@ -7,7 +7,8 @@ import {
   BookOpen, Trophy, ChevronRight, ArrowLeft,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import type { QuizChapter } from "./quiz-data";
+import type { QuizChapter, QuizQuestion } from "./quiz-data";
+import { newAttempt } from "./quiz-shuffle";
 
 const OPTION_LABELS = ["A", "B", "C", "D"] as const;
 
@@ -28,12 +29,16 @@ export function QuizRunner({ chapter }: Props) {
   const [index, setIndex]           = useState(0);
   const [selected, setSelected]     = useState<number | null>(null);
   const [answers, setAnswers]       = useState<Answer[]>([]);
+  // Reshuffled on every Start / Retry. The click happens in the browser, so
+  // the server-rendered start screen never depends on the random order.
+  const [deck, setDeck]             = useState<QuizQuestion[]>(chapter.questions);
 
-  const q   = chapter.questions[index]!;
-  const total = chapter.questions.length;
+  const q   = deck[index]!;
+  const total = deck.length;
   const score = answers.filter((a) => a.correct).length;
 
   function start() {
+    setDeck(newAttempt(chapter.questions));
     setPhase("question");
     setIndex(0);
     setSelected(null);
@@ -87,6 +92,9 @@ export function QuizRunner({ chapter }: Props) {
             <span><span className="font-semibold text-foreground">No time limit</span></span>
             <span><span className="font-semibold text-foreground">Explained</span> answers</span>
           </div>
+          <p className="mt-3 text-xs text-muted-foreground">
+            Questions and answer options are shuffled every time you start.
+          </p>
 
           <button
             type="button"
@@ -160,7 +168,7 @@ export function QuizRunner({ chapter }: Props) {
         <div className="rounded-xl border bg-card overflow-hidden">
           <div className="border-b px-5 py-3 text-sm font-semibold">Answer breakdown</div>
           <div className="divide-y">
-            {chapter.questions.map((question, i) => {
+            {deck.map((question, i) => {
               const ans = answers[i];
               const isCorrect = ans?.correct ?? false;
               return (
