@@ -18,14 +18,22 @@ const FIFTH_AMENDMENT = {
   url: "https://www.incometax.gov.in/iec/foportal/sites/default/files/2026-09/Notification-no-121-2026.pdf",
 };
 
+/** Income-tax (Third Amendment) Rules, 2026 — Notification No. 97/2026 (24 July 2026); Appendix IV is Form ITR-BN. */
+export const THIRD_AMENDMENT_2026_PDF =
+  "https://www.incometax.gov.in/iec/foportal/sites/default/files/2026-07/Notification-97-2026.pdf";
+
 /** Link to the official Rules PDF, opened at the given page. */
 export const formPdfUrl = (page: number) => `${RULES_2026_PDF}#page=${page}`;
 
+/** Where a form's link points: its own notification if it has one, else the Rules PDF at `pdfPage`. */
+export const formLink = (f: FormEntry) => f.pdfUrl ?? formPdfUrl(f.pdfPage);
+
 /**
  * Same — the form keeps its name; Renumbered — one old form became one new form;
- * Merged — several old forms were combined into one new form.
+ * Merged — several old forms were combined into one new form; Renamed — the
+ * form keeps its role under a new name (ITR-B → ITR-BN, ITR-U → ITR-UN).
  */
-export type FormStatus = "Same" | "Renumbered" | "Merged";
+export type FormStatus = "Same" | "Renumbered" | "Merged" | "Renamed";
 
 export type FormCategory =
   | "Returns of Income (ITR)"
@@ -47,6 +55,8 @@ export interface FormEntry {
   newRule: string;
   /** Page of the official Rules PDF on which the new form begins. */
   pdfPage: number;
+  /** A form notified separately (outside the Rules PDF) links here instead. */
+  pdfUrl?: string;
   category: FormCategory;
   status: FormStatus;
   notes?: string;
@@ -139,6 +149,31 @@ export const FORMS: FormEntry[] = [
     ...RETURN_RULE,
     category: "Returns of Income (ITR)",
     status: "Same",
+  },
+  {
+    oldForm: "ITR-U",
+    newForm: "ITR-UN",
+    purpose: "Updated return — to report omitted income or correct under-reporting after the time for a belated or revised return, on payment of additional tax",
+    oldSection: "Sections 139(8A), 140B",
+    newSection: "Sections 263(6), 267",
+    newRule: "Rule 165",
+    pdfPage: 132,
+    category: "Returns of Income (ITR)",
+    status: "Renamed",
+    notes: "Rule 165 prescribes Form ITR-UN; the form layout itself had not been published when checked (October 2026), so the link opens rule 165. Updated returns for years up to Tax Year 2025-26 continue in ITR-U under the 1961 Act.",
+  },
+  {
+    oldForm: "ITR-B",
+    newForm: "ITR-BN",
+    purpose: "Return of undisclosed income for the block period, furnished in response to a notice after a search or requisition (block assessment)",
+    oldSection: "Section 158BC(1)(a)",
+    newSection: "Section 294(1)(a)",
+    newRule: "Rule 180",
+    pdfPage: 139,
+    pdfUrl: `${THIRD_AMENDMENT_2026_PDF}#page=1`,
+    category: "Returns of Income (ITR)",
+    status: "Renamed",
+    notes: "Form ITR-BN was notified by the Income-tax (Third Amendment) Rules, 2026 (Notification No. 97/2026) for searches and requisitions on or after 1 April 2026; the link opens the notified form. ITR-B continues for searches under the 1961 Act from 1 September 2024.",
   },
   {
     oldForm: "ITR-V",

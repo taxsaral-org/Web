@@ -2,12 +2,13 @@
 
 import { useState, useMemo } from "react";
 import { Search, X, ExternalLink } from "lucide-react";
-import { FORMS, FORM_CATEGORIES, formPdfUrl, type FormCategory, type FormEntry, type FormStatus } from "./form-data";
+import { FORMS, FORM_CATEGORIES, formLink, type FormCategory, type FormEntry, type FormStatus } from "./form-data";
 
 const STATUS_STYLES: Record<FormStatus, string> = {
   "Same":       "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300",
   "Renumbered": "bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300",
   "Merged":     "bg-purple-100 text-purple-800 dark:bg-purple-900/40 dark:text-purple-300",
+  "Renamed":    "bg-sky-100 text-sky-800 dark:bg-sky-900/40 dark:text-sky-300",
 };
 
 /** The new form number, linked to the official form in the notified Rules. */
@@ -15,10 +16,10 @@ function NewForm({ f }: { f: FormEntry }) {
   return (
     <div>
       <a
-        href={formPdfUrl(f.pdfPage)}
+        href={formLink(f)}
         target="_blank"
         rel="noopener noreferrer"
-        title={`Open ${f.newForm} in the official Income-tax Rules, 2026 (PDF page ${f.pdfPage})`}
+        title={f.pdfUrl ? `Open the notified ${f.newForm} (official PDF)` : `Open ${f.newForm} in the official Income-tax Rules, 2026 (PDF page ${f.pdfPage})`}
         className="inline-flex items-center gap-1 font-medium text-primary underline-offset-2 hover:underline"
       >
         {f.newForm}
@@ -104,6 +105,7 @@ export function FormComparisonClient() {
           <option value="All">All statuses</option>
           <option value="Renumbered">Renumbered</option>
           <option value="Merged">Merged</option>
+          <option value="Renamed">Renamed</option>
           <option value="Same">Same name</option>
         </select>
       </div>

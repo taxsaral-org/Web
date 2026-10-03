@@ -65,6 +65,7 @@ const STATUS_COUNTS = {
   Renumbered: FORMS.filter((f) => f.status === "Renumbered").length,
   Merged:     FORMS.filter((f) => f.status === "Merged").length,
   Same:       FORMS.filter((f) => f.status === "Same").length,
+  Renamed:    FORMS.filter((f) => f.status === "Renamed").length,
 };
 
 export default function FormComparisonPage() {
@@ -112,6 +113,9 @@ export default function FormComparisonPage() {
               <span className="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 dark:border-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300">
                 {STATUS_COUNTS.Same} same name (ITRs)
               </span>
+              <span className="rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-xs font-semibold text-sky-700 dark:border-sky-800 dark:bg-sky-900/40 dark:text-sky-300">
+                {STATUS_COUNTS.Renamed} renamed (ITR-BN, ITR-UN)
+              </span>
               <span className="rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-700 dark:border-amber-800 dark:bg-amber-900/40 dark:text-amber-300">
                 {STATUS_COUNTS.Renumbered} renumbered
               </span>
@@ -132,7 +136,8 @@ export default function FormComparisonPage() {
               Income-tax Rules, 2026, notified by CBDT vide G.S.R. 198(E) dated 20 March 2026
               (forms in Appendix III). Each new form number links to that form in the official copy
               published on the e-filing portal; Forms 132 and 141 were later amended by the
-              Income-tax (Fifth Amendment) Rules, 2026 with effect from 1 October 2026. Old-to-new
+              Income-tax (Fifth Amendment) Rules, 2026 with effect from 1 October 2026, and the block
+              assessment return ITR-BN was notified by the Income-tax (Third Amendment) Rules, 2026. Old-to-new
               pairings follow the Income Tax Department&rsquo;s form documents and Form Mapping Guide.
               Forms under the 1962 Rules continue for years before Tax Year 2026-27.
             </p>

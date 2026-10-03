@@ -216,10 +216,10 @@ export const EVENTS: CalendarEvent[] = [
   {
     id: "updated-itr-ay2526",
     date: "2027-03-31",
-    title: "Updated ITR (ITR-U) — Last Date for AY 2025-26",
-    description: "Last date to file an Updated Return for Tax Year 2024-25 (AY 2025-26). Updated returns attract an additional tax of 25%–50% on the tax payable but allow disclosure of omitted income.",
+    title: "Updated Return (ITR-U) for AY 2025-26 — Last Date at 25% Additional Tax",
+    description: "An updated return in ITR-U for Tax Year 2024-25 (AY 2025-26) filed by 31 March 2027 pays additional tax of 25% of the tax and interest due. The rate rises to 50%, 60% and 70% in the following years, and the final date is 31 March 2030 (sections 139(8A) and 140B of the 1961 Act).",
     category: "ITR Filing",
-    section: "Section 263",
+    section: "Sections 139(8A), 140B (1961 Act)",
   },
 
   // ── AY 2027-28 — TY 2026-27 filing events ────────────────────────────────
@@ -306,9 +306,9 @@ export const EVENTS: CalendarEvent[] = [
   {
     id: "updated-itr-ay2728",
     date: "2029-03-31",
-    title: "Updated ITR (ITR-U) — Last Date for TY 2026-27",
-    description: "Last date to file an Updated Return for Tax Year 2026-27. ITR-U can be filed up to 2 years from the end of the Assessment Year, with additional tax of 25–50% on incremental liability.",
+    title: "Updated Return (ITR-UN) for TY 2026-27 — Last Date at 25% Additional Tax",
+    description: "An updated return for Tax Year 2026-27, in Form ITR-UN (rule 165), filed by 31 March 2029 pays additional tax of 25% of the tax and interest due. It can be filed until 31 March 2032 — 48 months from the end of the following financial year — with the rate rising to 50%, 60% and 70%, plus a further 10% if filed in response to a reassessment notice under section 280.",
     category: "ITR Filing",
-    section: "Section 263",
+    section: "Sections 263(6), 267(5)",
   },
 ];
