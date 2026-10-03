@@ -21,7 +21,7 @@ const HRA_FAQS = [
   },
   {
     q: "What counts as 'basic salary' for the HRA formula?",
-    a: "Under the Income Tax Act 2025, 'basic salary' for HRA purposes typically means basic pay plus dearness allowance (DA). Commission based on a fixed percentage of sales turnover is also included. Performance bonuses, HRA itself, and most allowances are excluded. Check your salary slip or Form 16 for the components your employer considers as basic for TDS purposes.",
+    a: "Under the Income Tax Act 2025, 'basic salary' for HRA purposes typically means basic pay plus dearness allowance (DA). Commission based on a fixed percentage of sales turnover is also included. Performance bonuses, HRA itself, and most allowances are excluded. Check your salary slip or Form 130 (earlier Form 16) for the components your employer considers as basic for TDS purposes.",
   },
   {
     q: "What are the 8 metro cities for the 50% rate?",
@@ -136,7 +136,7 @@ export default function HraPage() {
             <ol className="ml-4 space-y-2 list-decimal marker:text-muted-foreground">
               <li>
                 <span className="font-medium">Actual HRA received</span>
-                <span className="text-muted-foreground"> — as per your salary slip or Form 16</span>
+                <span className="text-muted-foreground"> — as per your salary slip or Form 130 (earlier Form 16)</span>
               </li>
               <li>
                 <span className="font-medium">50% of basic salary</span>

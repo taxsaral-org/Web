@@ -1652,7 +1652,7 @@ export const CASE_LAWS: CaseLaw[] = [
       "The provision is not a mechanism for collecting tax that is not ultimately due.",
     ],
     relevance:
-      "Foundational for every cross-border remittance and for Form 15CA and 15CB practice. The withholding provisions are consolidated in Section 393 of the IT Act 2025, and the chargeability precondition continues to govern. It underpins the outcome in Engineering Analysis and is cited in virtually every dispute about withholding on foreign payments.",
+      "Foundational for every cross-border remittance and for the practice on Forms 145 and 146 (the earlier Forms 15CA and 15CB). The withholding provisions are consolidated in Section 393 of the IT Act 2025, and the chargeability precondition continues to govern. It underpins the outcome in Engineering Analysis and is cited in virtually every dispute about withholding on foreign payments.",
     keywords: [
       "section 195",
       "chargeable to tax",

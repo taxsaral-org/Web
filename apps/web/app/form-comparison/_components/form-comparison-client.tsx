@@ -1,16 +1,43 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Search, X } from "lucide-react";
-import { FORMS, FORM_CATEGORIES, type FormCategory, type FormStatus } from "./form-data";
+import { Search, X, ExternalLink } from "lucide-react";
+import { FORMS, FORM_CATEGORIES, formPdfUrl, type FormCategory, type FormEntry, type FormStatus } from "./form-data";
 
 const STATUS_STYLES: Record<FormStatus, string> = {
-  "Same":          "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300",
-  "Renamed":       "bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300",
-  "New in 2025":   "bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300",
-  "Discontinued":  "bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-300",
-  "Merged":        "bg-purple-100 text-purple-800 dark:bg-purple-900/40 dark:text-purple-300",
+  "Same":       "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300",
+  "Renumbered": "bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300",
+  "Merged":     "bg-purple-100 text-purple-800 dark:bg-purple-900/40 dark:text-purple-300",
 };
+
+/** The new form number, linked to the official form in the notified Rules. */
+function NewForm({ f }: { f: FormEntry }) {
+  return (
+    <div>
+      <a
+        href={formPdfUrl(f.pdfPage)}
+        target="_blank"
+        rel="noopener noreferrer"
+        title={`Open ${f.newForm} in the official Income-tax Rules, 2026 (PDF page ${f.pdfPage})`}
+        className="inline-flex items-center gap-1 font-medium text-primary underline-offset-2 hover:underline"
+      >
+        {f.newForm}
+        <ExternalLink className="h-3 w-3 shrink-0" />
+      </a>
+      <p className="mt-0.5 text-xs text-muted-foreground">{f.newRule}</p>
+      {f.amendment && (
+        <a
+          href={f.amendment.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-0.5 block text-xs text-amber-700 underline-offset-2 hover:underline dark:text-amber-400"
+        >
+          {f.amendment.label}
+        </a>
+      )}
+    </div>
+  );
+}
 
 export function FormComparisonClient() {
   const [query, setQuery]       = useState("");
@@ -28,6 +55,7 @@ export function FormComparisonClient() {
         f.purpose.toLowerCase().includes(q) ||
         f.oldSection.toLowerCase().includes(q) ||
         f.newSection.toLowerCase().includes(q) ||
+        f.newRule.toLowerCase().includes(q) ||
         (f.notes ?? "").toLowerCase().includes(q);
       return matchesCategory && matchesStatus && matchesQuery;
     });
@@ -74,11 +102,9 @@ export function FormComparisonClient() {
           className="rounded-lg border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
         >
           <option value="All">All statuses</option>
-          <option value="Same">Same</option>
-          <option value="Renamed">Renamed</option>
-          <option value="New in 2025">New in 2025</option>
-          <option value="Discontinued">Discontinued</option>
+          <option value="Renumbered">Renumbered</option>
           <option value="Merged">Merged</option>
+          <option value="Same">Same name</option>
         </select>
       </div>
 
@@ -131,10 +157,10 @@ export function FormComparisonClient() {
                   <table className="w-full text-sm">
                     <thead>
                       <tr className="border-b bg-muted/40 text-xs text-muted-foreground">
-                        <th className="px-4 py-3 text-left font-semibold w-[180px]">IT Act 1961 (Old)</th>
-                        <th className="px-4 py-3 text-left font-semibold w-[180px]">IT Act 2025 (New)</th>
+                        <th className="px-4 py-3 text-left font-semibold w-[150px]">Old form (1962 Rules)</th>
+                        <th className="px-4 py-3 text-left font-semibold w-[200px]">New form (2026 Rules)</th>
                         <th className="px-4 py-3 text-left font-semibold">Purpose</th>
-                        <th className="px-4 py-3 text-left font-semibold w-[100px]">Status</th>
+                        <th className="px-4 py-3 text-left font-semibold w-[110px]">Status</th>
                         <th className="px-4 py-3 text-left font-semibold w-[130px]">Old Section</th>
                         <th className="px-4 py-3 text-left font-semibold w-[130px]">New Section</th>
                       </tr>
@@ -146,7 +172,7 @@ export function FormComparisonClient() {
                           className="border-b last:border-0 hover:bg-muted/20 transition-colors"
                         >
                           <td className="px-4 py-3 font-medium">{f.oldForm}</td>
-                          <td className="px-4 py-3 font-medium">{f.newForm}</td>
+                          <td className="px-4 py-3"><NewForm f={f} /></td>
                           <td className="px-4 py-3 text-muted-foreground leading-snug">
                             {f.purpose}
                             {f.notes && (
@@ -174,7 +200,7 @@ export function FormComparisonClient() {
                     <div className="flex items-start justify-between gap-2 mb-2">
                       <div>
                         <p className="text-xs text-muted-foreground mb-0.5">Old: <span className="font-semibold text-foreground">{f.oldForm}</span></p>
-                        <p className="text-xs text-muted-foreground">New: <span className="font-semibold text-foreground">{f.newForm}</span></p>
+                        <div className="flex items-start gap-1 text-xs text-muted-foreground"><span className="pt-px">New:</span> <NewForm f={f} /></div>
                       </div>
                       <span className={`shrink-0 inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${STATUS_STYLES[f.status]}`}>
                         {f.status}

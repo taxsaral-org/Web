@@ -111,7 +111,7 @@ export const SECTIONS: SectionEntry[] = [
       "Tax is on the amount that is 'due' OR 'paid', whichever comes first — arrears are taxed when due.",
       "Salary from a former employer (arrears, gratuity top-ups) is still taxable under this head.",
       "Perquisites like rent-free accommodation, ESOP vesting, and company car are also salary income.",
-      "Use Form 12BA (perquisite statement) and Form 16 to reconcile all salary components.",
+      "Use Form No. 123 (the perquisite statement, earlier Form 12BA) and Form No. 130 (earlier Form 16) to reconcile all salary components.",
     ],
     examples: [
       {
@@ -121,7 +121,7 @@ export const SECTIONS: SectionEntry[] = [
         calculation:
           "Taxable in the earlier of 'due' or 'paid':\n  Due date: December 31, 2026 (end of payroll month) → TY 2026-27\n  Payment date: January 15, 2027 → TY 2027-28\nEarlier = Due date (December 31, 2026)\n→ Taxable in TY 2026-27",
         result:
-          "The December salary is taxable in TY 2026-27 even though it was physically received in January 2027. Arun's employer should include it in the TY 2026-27 TDS computation and Form 16.",
+          "The December salary is taxable in TY 2026-27 even though it was physically received in January 2027. Arun's employer should include it in the TY 2026-27 TDS computation and Form No. 130.",
       },
       {
         title: "Bonus taxed in the year received, not the year earned",
@@ -130,7 +130,7 @@ export const SECTIONS: SectionEntry[] = [
         calculation:
           "Bonus becomes 'due' when the employer approves and commits to paying it.\nIf the employer's approval (and hence obligation) arises in May 2026 → TY 2026-27.",
         result:
-          "The bonus is taxable in TY 2026-27 (the year it became due and was paid), not TY 2025-26. This is correct — Shalini's Form 16 for TY 2026-27 will include this bonus.",
+          "The bonus is taxable in TY 2026-27 (the year it became due and was paid), not TY 2025-26. This is correct — Shalini's Form No. 130 for TY 2026-27 will include this bonus.",
       },
     ],
     relatedSlugs: [
@@ -979,13 +979,13 @@ export const SECTIONS: SectionEntry[] = [
     section1961: "Section 192",
     title: "TDS on Salary",
     explanation:
-      "Your employer deducts TDS from salary every month. The employer estimates your total annual income, applies the regime and deductions you declared, computes annual tax, and divides by 12. Form 16 is issued as the TDS certificate.",
+      "Your employer deducts TDS from salary every month. The employer estimates your total annual income, applies the regime and deductions you declared, computes annual tax, and divides by 12. Form No. 130 (earlier Form 16) is issued as the TDS certificate.",
     category: "TDS",
     keywords: [
       "TDS",
       "salary",
       "employer",
-      "Form 16",
+      "Form No. 130", "Form 16",
       "192",
       "tax deducted at source",
       "monthly deduction",
@@ -995,8 +995,8 @@ export const SECTIONS: SectionEntry[] = [
     keyPoints: [
       "You must declare your chosen regime (default or optional) and planned deductions (80C, 80D, HRA) to your employer each year.",
       "If you don't declare investments, employer deducts TDS assuming no deductions — you then claim refund at filing.",
-      "If you switch jobs mid-year, submit Form 12B to the new employer to avoid TDS shortfall.",
-      "Form 16 Part A shows TDS deducted; Part B shows salary computation — essential for filing ITR.",
+      "If you switch jobs mid-year, submit Form No. 122 (earlier Form 12B) to the new employer to avoid TDS shortfall.",
+      "Form No. 130 Part A shows TDS deducted; Part B shows salary computation — essential for filing ITR.",
     ],
     examples: [
       {
@@ -1017,15 +1017,15 @@ export const SECTIONS: SectionEntry[] = [
   },
   {
     slug: "multiple-employers-form-12b",
-    section2025: "Section 392 / Form 12B",
+    section2025: "Section 392(4) / Form No. 122",
     section1961: "Section 192(2)",
-    title: "Multiple Employers — Form 12B",
+    title: "Multiple Employers — Form No. 122 (earlier Form 12B)",
     explanation:
-      "If you change jobs during the year, you must submit Form 12B to your new employer disclosing salary and TDS from your previous employer, ensuring correct aggregate TDS.",
+      "If you change jobs during the year, you must submit Form No. 122 to your new employer disclosing salary and TDS from your previous employer, ensuring correct aggregate TDS.",
     category: "TDS",
     keywords: [
       "multiple employers",
-      "Form 12B",
+      "Form No. 122", "Form 12B",
       "job change",
       "previous employer",
       "TDS shortfall",
@@ -1033,20 +1033,20 @@ export const SECTIONS: SectionEntry[] = [
     ],
     whoItApplies: "Employees who switch jobs during a financial year.",
     keyPoints: [
-      "Without Form 12B, each employer computes TDS independently on their portion — the aggregate TDS may be too low.",
+      "Without Form No. 122, each employer computes TDS independently on their portion — the aggregate TDS may be too low.",
       "If the total tax at year-end exceeds TDS deducted, you must pay the shortfall as self-assessment tax + interest.",
-      "The new employer needs: salary paid by old employer, any perquisites, and TDS deducted — use your old Form 16 or salary slips.",
-      "Filing Form 12B is your legal obligation — concealing previous salary to reduce TDS is not permitted.",
+      "The new employer needs: salary paid by old employer, any perquisites, and TDS deducted — use your old Form No. 130 (earlier Form 16) or salary slips.",
+      "Filing Form No. 122 is your legal obligation — concealing previous salary to reduce TDS is not permitted.",
     ],
     examples: [
       {
         title: "Job change mid-year and TDS shortfall",
         scenario:
-          "Rajan leaves Company A after 6 months (April–September 2026) with salary ₹6L and TDS of ₹15,000. He joins Company B at a higher CTC. Company B pays ₹7L for October–March 2027. Rajan does NOT submit Form 12B.",
+          "Rajan leaves Company A after 6 months (April–September 2026) with salary ₹6L and TDS of ₹15,000. He joins Company B at a higher CTC. Company B pays ₹7L for October–March 2027. Rajan does NOT submit Form No. 122.",
         calculation:
           "Company A (Apr–Sep): Salary ₹6L, computed tax on ₹12L annualised → deducted ₹15,000\nCompany B (Oct–Mar): Sees only ₹7L, annualises to ₹14L → deducts ₹42,000\n\nActual total salary: ₹6L + ₹7L = ₹13L\nActual tax on ₹13L: approx ₹1,19,600 (incl cess)\nTotal TDS deducted: ₹15,000 + ₹42,000 = ₹57,000\nShortfall: ₹1,19,600 – ₹57,000 = ₹62,600\n\n+ Section 234B interest on shortfall",
         result:
-          "Rajan owes ₹62,600 more in tax plus interest for not paying advance tax. If he had submitted Form 12B to Company B, they would have computed TDS on the combined ₹13L and deducted the correct amount throughout.",
+          "Rajan owes ₹62,600 more in tax plus interest for not paying advance tax. If he had submitted Form No. 122 to Company B, they would have computed TDS on the combined ₹13L and deducted the correct amount throughout.",
       },
     ],
     relatedSlugs: [
@@ -1315,7 +1315,7 @@ export const SECTIONS: SectionEntry[] = [
         calculation:
           "VDA income: ₹2,00,000\nTax at 30%: ₹60,000\nAdd 4% cess: ₹62,400\n\nLess TDS credit: – ₹10,000\nBalance payable: ₹52,400",
         result:
-          "Priya has already 'pre-paid' ₹10,000 via TDS. She owes ₹52,400 more as advance/self-assessment tax. The TDS is visible in her Form 26AS / AIS for verification at ITR filing.",
+          "Priya has already 'pre-paid' ₹10,000 via TDS. She owes ₹52,400 more as advance/self-assessment tax. The TDS is visible in her Annual Information Statement (Form No. 168, earlier Form 26AS) for verification at ITR filing.",
       },
     ],
     relatedSlugs: [
@@ -1840,8 +1840,8 @@ export const SECTIONS: SectionEntry[] = [
     whoItApplies:
       "All charitable trusts, religious organisations, educational institutions, hospitals, and non-profit bodies seeking income tax exemption under IT Act 2025.",
     keyPoints: [
-      "New trusts: apply for provisional registration (Form 10A) BEFORE starting activities — valid for 3 years",
-      "After 3 years: apply for regular registration (Form 10AB) — valid for 5 years, renewable",
+      "New trusts: apply for provisional registration (Form No. 104, earlier Form 10A) BEFORE starting activities — valid for 3 years",
+      "After 3 years: apply for regular registration (Form No. 105, earlier Form 10AB) — valid for 5 years, renewable",
       "Existing 12A/12AB registered trusts must re-register every 5 years under the new scheme",
       "Without registration: entire income taxable at MMR (~30% + surcharge + cess)",
       "80G approval (for donors to get deduction) is a separate application but usually filed alongside",
@@ -1961,7 +1961,7 @@ export const SECTIONS: SectionEntry[] = [
     section1961: "Sections 11 & 12",
     title: "Regular Income of Registered NPO — The Exemption Provision",
     explanation:
-      "The primary exemption provision for charitable trusts: if at least 85% of the trust's 'regular income' is applied (spent) for charitable or religious objects in the same year, the entire income qualifies for exemption. The remaining 15% can be accumulated and still claimed as exempt if proper Form 10 filing is done before the ITR due date.",
+      "The primary exemption provision for charitable trusts: if at least 85% of the trust's 'regular income' is applied (spent) for charitable or religious objects in the same year, the entire income qualifies for exemption. The remaining 15% can be accumulated and still claimed as exempt if proper Form No. 109 (earlier Form 10) filing is done before the ITR due date.",
     category: "Charitable Trusts & NPOs",
     keywords: [
       "section 335",
@@ -1977,7 +1977,7 @@ export const SECTIONS: SectionEntry[] = [
     keyPoints: [
       "85% of regular income must be APPLIED (actually spent) for charitable objects in the SAME financial year",
       "Regular income includes: donations, grants, fees, interest, rent — any income from trust property",
-      "The remaining 15% can be accumulated (retained) without losing exemption if Form 10 is filed",
+      "The remaining 15% can be accumulated (retained) without losing exemption if Form No. 109 is filed",
       "Capital gains on sale of trust assets: exempt only if sale proceeds are reinvested in another capital asset within 1 year before or 3 years after the sale",
       "Income applied abroad (outside India) is NOT treated as applied to charitable objects (with narrow exceptions)",
     ],
@@ -2019,7 +2019,7 @@ export const SECTIONS: SectionEntry[] = [
     whoItApplies:
       "Registered NPOs whose income application falls below the 85% threshold or which apply income for disallowed purposes.",
     keyPoints: [
-      "Taxable regular income = total regular income minus 85% applied to objects minus amounts accumulated with Form 10",
+      "Taxable regular income = total regular income minus 85% applied to objects minus amounts accumulated with Form No. 109 (earlier Form 10)",
       "Any shortfall in the 85% application directly becomes taxable at MMR",
       "Administrative expenses of the trust are counted as applied to objects — but excessive admin costs attract scrutiny",
       "Deemed application rules allow certain set-asides to be treated as applied (e.g., repairs to trust property)",
@@ -2029,11 +2029,11 @@ export const SECTIONS: SectionEntry[] = [
       {
         title: "Computing Taxable Regular Income",
         scenario:
-          "A charitable trust has regular income of ₹50 lakh. It spends ₹38 lakh on programs, ₹3 lakh on admin, files Form 10 for ₹6 lakh accumulation, and retains ₹3 lakh without Form 10.",
+          "A charitable trust has regular income of ₹50 lakh. It spends ₹38 lakh on programs, ₹3 lakh on admin, files Form No. 109 for ₹6 lakh accumulation, and retains ₹3 lakh without Form No. 109.",
         calculation:
-          "Regular income:                        ₹50,00,000\nRequired 85%:                          ₹42,50,000\n\nActual application to objects:\n  Program expenses:                    ₹38,00,000\n  Admin expenses:                      ₹ 3,00,000\nAccumulated with Form 10:              ₹ 6,00,000\nTotal treated as applied:              ₹47,00,000  ✓ (94% > 85%)\n\nRetained without Form 10:              ₹ 3,00,000\n  → NOT treated as applied or accumulated\n  → Taxable at MMR\n  Tax (30%):                           ₹   90,000",
+          "Regular income:                        ₹50,00,000\nRequired 85%:                          ₹42,50,000\n\nActual application to objects:\n  Program expenses:                    ₹38,00,000\n  Admin expenses:                      ₹ 3,00,000\nAccumulated with Form No. 109:         ₹ 6,00,000\nTotal treated as applied:              ₹47,00,000  ✓ (94% > 85%)\n\nRetained without Form No. 109:         ₹ 3,00,000\n  → NOT treated as applied or accumulated\n  → Taxable at MMR\n  Tax (30%):                           ₹   90,000",
         result:
-          "The ₹3 lakh retained without Form 10 is taxable even though the overall 85% test is met. Filing Form 10 for that amount would have saved ₹93,600 in tax (including cess).",
+          "The ₹3 lakh retained without Form No. 109 is taxable even though the overall 85% test is met. Filing Form No. 109 for that amount would have saved ₹93,600 in tax (including cess).",
       },
     ],
     relatedSlugs: [
@@ -2245,8 +2245,8 @@ export const SECTIONS: SectionEntry[] = [
     keyPoints: [
       "85% of regular income must be APPLIED (spent) for charitable/religious objects in the SAME year",
       "'Applied' means actually paid or incurred — amounts payable but not yet paid may qualify if incurred during the year",
-      "The 15% balance can be accumulated (retained) without tax by filing Form 10 before the ITR due date",
-      "If Form 10 is not filed and less than 85% is spent: the shortfall is taxed at MMR",
+      "The 15% balance can be accumulated (retained) without tax by filing Form No. 109 (earlier Form 10) before the ITR due date",
+      "If Form No. 109 is not filed and less than 85% is spent: the shortfall is taxed at MMR",
       "Both revenue expenses AND capital expenditure on charitable objects count as 'applied'",
       "Voluntary donations given by the trust to other registered NPOs also count as application",
     ],
@@ -2254,11 +2254,11 @@ export const SECTIONS: SectionEntry[] = [
       {
         title: "Trust Just Below the 85% Threshold",
         scenario:
-          "Asha Foundation (registered) has regular income of ₹60 lakh in TY 2026-27. It spends ₹49 lakh on programs and ₹3 lakh on admin, retaining ₹8 lakh. It did NOT file Form 10.",
+          "Asha Foundation (registered) has regular income of ₹60 lakh in TY 2026-27. It spends ₹49 lakh on programs and ₹3 lakh on admin, retaining ₹8 lakh. It did NOT file Form No. 109.",
         calculation:
-          "Regular income:                        ₹60,00,000\n85% threshold:                         ₹51,00,000\n\nActual application:\n  Program expenses:                    ₹49,00,000\n  Admin expenses:                      ₹ 3,00,000\n  Total applied:                       ₹52,00,000  ✓ (86.7% > 85%)\n\nRetained (₹8 lakh) — No Form 10 filed:\n  Treated as unapplied income\n  Tax at MMR:                          ₹ 2,40,000\n\nIf Form 10 filed on time:\n  ₹8L accumulated → Exempt\n  Tax:                                 ₹         0",
+          "Regular income:                        ₹60,00,000\n85% threshold:                         ₹51,00,000\n\nActual application:\n  Program expenses:                    ₹49,00,000\n  Admin expenses:                      ₹ 3,00,000\n  Total applied:                       ₹52,00,000  ✓ (86.7% > 85%)\n\nRetained (₹8 lakh) — No Form No. 109 filed:\n  Treated as unapplied income\n  Tax at MMR:                          ₹ 2,40,000\n\nIf Form No. 109 filed on time:\n  ₹8L accumulated → Exempt\n  Tax:                                 ₹         0",
         result:
-          "Asha Foundation met the 85% test (86.7%) but still faces ₹2.49 lakh in tax on the ₹8 lakh retained — because it forgot to file Form 10. Setting a calendar reminder for Form 10 before 31 October every year prevents this.",
+          "Asha Foundation met the 85% test (86.7%) but still faces ₹2.49 lakh in tax on the ₹8 lakh retained — because it forgot to file Form No. 109. Setting a calendar reminder for Form No. 109 before 31 October every year prevents this.",
       },
     ],
     relatedSlugs: [
@@ -2275,7 +2275,7 @@ export const SECTIONS: SectionEntry[] = [
     section1961: "Sections 11 & 13",
     title: "Accumulation of Income — Beyond the 15%",
     explanation:
-      "Section 342 allows a registered NPO to accumulate (retain without spending) up to 15% of its regular income without losing exemption. For higher accumulations, the trust must file Form 10 before the ITR due date, specifying the purpose and time period (maximum 5 years). Unspent accumulated income after 5 years becomes taxable.",
+      "Section 342 allows a registered NPO to accumulate (retain without spending) up to 15% of its regular income without losing exemption. For higher accumulations, the trust must file Form No. 109 (earlier Form 10) before the ITR due date, specifying the purpose and time period (maximum 5 years). Unspent accumulated income after 5 years becomes taxable.",
     category: "Charitable Trusts & NPOs",
     keywords: [
       "section 342",
@@ -2290,11 +2290,11 @@ export const SECTIONS: SectionEntry[] = [
     whoItApplies:
       "Registered NPOs that wish to retain more than 15% of their income for future charitable projects or building reserves.",
     keyPoints: [
-      "Up to 15% of regular income can always be retained — no Form 10 filing needed",
-      "For more than 15%: file Form 10 BEFORE the ITR due date, specifying purpose and period (max 5 years)",
+      "Up to 15% of regular income can always be retained — no Form No. 109 filing needed",
+      "For more than 15%: file Form No. 109 BEFORE the ITR due date, specifying purpose and period (max 5 years)",
       "Accumulated amounts must be invested only in permitted modes (Section 350) — FDs, govt securities, etc.",
       "If not spent within the 5-year period: the unspent accumulated amount is taxed at MMR in Year 6",
-      "Form 10 must state a specific charitable purpose (e.g., 'to construct a library') — it is not a blank cheque",
+      "Form No. 109 must state a specific charitable purpose (e.g., 'to construct a library') — it is not a blank cheque",
       "Income accumulated for purchasing a capital asset is also eligible",
     ],
     examples: [
@@ -2303,9 +2303,9 @@ export const SECTIONS: SectionEntry[] = [
         scenario:
           "Navjeevan Trust (income ₹1 crore in TY 2026-27) plans to build a community hospital costing ₹5 crore over 5 years. It spends ₹88 lakh this year and wants to save ₹12 lakh for the project.",
         calculation:
-          "Regular income:                        ₹1,00,00,000\nApplied to current activities:         ₹  88,00,000  (88% > 85%) ✓\nWanted to accumulate:                  ₹  12,00,000\n\nAutomatic 15% retention allowed:       ₹  15,00,000\nSince ₹12L < ₹15L → Form 10 NOT needed\n\nAlternative scenario (accumulating ₹20L):\n  Automatic limit:                     ₹  15,00,000\n  Additional requiring Form 10:        ₹   5,00,000\n  Form 10 must state:\n    Purpose: Community hospital construction\n    Period: 5 years (by TY 2031-32)\n  Invested in: Nationalised bank FD",
+          "Regular income:                        ₹1,00,00,000\nApplied to current activities:         ₹  88,00,000  (88% > 85%) ✓\nWanted to accumulate:                  ₹  12,00,000\n\nAutomatic 15% retention allowed:       ₹  15,00,000\nSince ₹12L < ₹15L → Form No. 109 NOT needed\n\nAlternative scenario (accumulating ₹20L):\n  Automatic limit:                     ₹  15,00,000\n  Additional requiring Form No. 109:   ₹   5,00,000\n  Form No. 109 must state:\n    Purpose: Community hospital construction\n    Period: 5 years (by TY 2031-32)\n  Invested in: Nationalised bank FD",
         result:
-          "Filing Form 10 each year allows the trust to systematically build towards ₹5 crore over 5 years without any tax. Failure to spend by TY 2031-32 would make the unspent amount taxable at MMR with interest.",
+          "Filing Form No. 109 each year allows the trust to systematically build towards ₹5 crore over 5 years without any tax. Failure to spend by TY 2031-32 would make the unspent amount taxable at MMR with interest.",
       },
     ],
     relatedSlugs: [
@@ -2322,7 +2322,7 @@ export const SECTIONS: SectionEntry[] = [
     section1961: "Section 11(3)",
     title: "Deemed Accumulated Income — When Accumulation Goes Wrong",
     explanation:
-      "Section 343 specifies situations where income previously accumulated under Form 10 is retrospectively treated as income of an earlier year — triggering tax plus interest. This happens when accumulated funds are applied for purposes other than stated in Form 10, or remain unapplied after the 5-year period.",
+      "Section 343 specifies situations where income previously accumulated under Form No. 109 (earlier Form 10) is retrospectively treated as income of an earlier year — triggering tax plus interest. This happens when accumulated funds are applied for purposes other than stated in Form No. 109, or remain unapplied after the 5-year period.",
     category: "Charitable Trusts & NPOs",
     keywords: [
       "section 343",
@@ -2334,11 +2334,11 @@ export const SECTIONS: SectionEntry[] = [
       "trust income taxable",
     ],
     whoItApplies:
-      "Registered NPOs that filed Form 10 for accumulation but did not use the funds as specified, or used them for a different purpose.",
+      "Registered NPOs that filed Form No. 109 for accumulation but did not use the funds as specified, or used them for a different purpose.",
     keyPoints: [
-      "Accumulated income applied for a different purpose than stated in Form 10 becomes taxable in the year of mis-application",
+      "Accumulated income applied for a different purpose than stated in Form No. 109 becomes taxable in the year of mis-application",
       "Accumulated income not spent within the 5-year period is taxable in Year 6 at MMR",
-      "The tax is charged as if the income was received in the year when the Form 10 accumulation was made",
+      "The tax is charged as if the income was received in the year when the Form No. 109 accumulation was made",
       "Interest under Section 423 also applies from the original year of accumulation",
       "Genuine changes in project scope can be declared to the Assessing Officer with proper justification",
     ],
@@ -2346,11 +2346,11 @@ export const SECTIONS: SectionEntry[] = [
       {
         title: "Accumulated Income Used for Wrong Purpose",
         scenario:
-          "In TY 2026-27, a trust accumulated ₹20 lakh via Form 10 for 'building a computer lab.' In TY 2028-29, the trust spends this ₹20 lakh on salaries instead.",
+          "In TY 2026-27, a trust accumulated ₹20 lakh via Form No. 109 for 'building a computer lab.' In TY 2028-29, the trust spends this ₹20 lakh on salaries instead.",
         calculation:
           "TY 2026-27: Accumulated ₹20L for computer lab → Exempt at that time\n\nTY 2028-29: ₹20L spent on salaries (wrong purpose)\n\nDeemed income for TY 2026-27:          ₹20,00,000\nTax at MMR (30%):                      ₹ 6,00,000\nInterest u/s 423 (approx. 2 years):    ₹ 1,44,000\nTotal dues:                            ₹ 7,44,000",
         result:
-          "The ₹20 lakh is retroactively taxed in TY 2026-27 with interest. The trust should either maintain purpose discipline or formally amend the Form 10 with AO approval before changing the application.",
+          "The ₹20 lakh is retroactively taxed in TY 2026-27 with interest. The trust should either maintain purpose discipline or formally amend the Form No. 109 with AO approval before changing the application.",
       },
     ],
     relatedSlugs: [
@@ -2526,7 +2526,7 @@ export const SECTIONS: SectionEntry[] = [
         calculation:
           "Required books for EVERY registered NPO:\n\n1. Cash Book: All cash receipts (donations, fees)\n   and payments (salaries, rent, supplies)\n   Updated: Daily\n\n2. Ledger: Separate accounts for donors, expenses,\n   assets, corpus fund, accumulated funds\n\n3. Receipts & Payments Account:\n   Summary at year end of all money inflows/outflows\n\n4. Income & Expenditure Account:\n   (Like P&L — distinguishes capital and revenue)\n\n5. Balance Sheet:\n   Assets: Fixed assets + Corpus + Reserves\n   Liabilities: Creditors + Grants payable\n\nPreservation: 10 years minimum",
         result:
-          "A small trust can use free accounting software — manual books are also valid. These records allow the trust to prepare its ITR (ITR-7) and audit report (Form 10B) and respond to any assessment queries.",
+          "A small trust can use free accounting software — manual books are also valid. These records allow the trust to prepare its ITR (ITR-7) and audit report (Form No. 112, earlier Form 10B) and respond to any assessment queries.",
       },
     ],
     relatedSlugs: [
@@ -2543,7 +2543,7 @@ export const SECTIONS: SectionEntry[] = [
     section1961: "Section 12A, Rule 188, Form 112 (IT Rules 2026)",
     title: "Audit of Accounts — Mandatory for NPOs above ₹2.5 Lakh",
     explanation:
-      "Every registered NPO whose total income (before claiming exemption) exceeds ₹2.5 lakh in a year must get its accounts audited by a Chartered Accountant. The audit report in Form 10B (or 10BB for larger trusts) must be filed along with the income tax return.",
+      "Every registered NPO whose total income (before claiming exemption) exceeds ₹2.5 lakh in a year must get its accounts audited by a Chartered Accountant. The audit report in Form No. 112 (which replaces the earlier Forms 10B and 10BB) must be filed along with the income tax return.",
     category: "Charitable Trusts & NPOs",
     keywords: [
       "section 348",
@@ -2560,7 +2560,7 @@ export const SECTIONS: SectionEntry[] = [
     keyPoints: [
       "Threshold: audit mandatory if total income BEFORE exemption > ₹2.5 lakh",
       "Audit must be conducted by a practicing Chartered Accountant",
-      "Form 10B: standard audit report for most NPOs; Form 10BB: for trusts with receipts above ₹5 crore",
+      "Form No. 112 is now the single audit report for every registered NPO — it replaces the earlier Forms 10B and 10BB",
       "Audit report must be filed BEFORE the return due date (typically 31 October for trusts with mandatory audit)",
       "An audit report not furnished by the specified date puts the exemption at risk, and a return filed after the due date also attracts the late fee under Section 428",
       "The auditor verifies: proper books maintained, 85% application met, corpus properly invested, no benefit to specified persons",
@@ -2569,9 +2569,9 @@ export const SECTIONS: SectionEntry[] = [
       {
         title: "Consequences of Not Getting Accounts Audited",
         scenario:
-          "A charitable trust with income of ₹80 lakh skips the audit (Form 10B) and files its ITR claiming full exemption. The Assessing Officer notices the missing audit report.",
+          "A charitable trust with income of ₹80 lakh skips the audit (Form No. 112, earlier Form 10B) and files its ITR claiming full exemption. The Assessing Officer notices the missing audit report.",
         calculation:
-          "Trust income:                          ₹80,00,000\nClaiming exemption (Section 335):      ₹80,00,000\nAudit report (Form 10B):               NOT FILED ✗\n\nConsequences:\n1. Exemption DISALLOWED\n2. Income taxable at MMR (30%):         ₹24,00,000\n   Cess (4%):                           ₹    96,000\n   Total tax:                           ₹24,96,000\n3. Late fee:                            ₹     5,000\n4. Interest u/s 423/424:                ₹ 2,00,000+\n\nIf audit was done and Form 10B filed:\n  Tax:                                  ₹          0",
+          "Trust income:                          ₹80,00,000\nClaiming exemption (Section 335):      ₹80,00,000\nAudit report (Form No. 112):           NOT FILED ✗\n\nConsequences:\n1. Exemption DISALLOWED\n2. Income taxable at MMR (30%):         ₹24,00,000\n   Cess (4%):                           ₹    96,000\n   Total tax:                           ₹24,96,000\n3. Late fee:                            ₹     5,000\n4. Interest u/s 423/424:                ₹ 2,00,000+\n\nIf audit was done and Form No. 112 filed:\n  Tax:                                  ₹          0",
         result:
           "Skipping the audit costs the trust ₹25+ lakh. The CA's audit fee (typically ₹15,000–₹1 lakh depending on trust size) is negligible compared to the tax and penalty exposure.",
       },
@@ -2590,7 +2590,7 @@ export const SECTIONS: SectionEntry[] = [
     section1961: "Sections 12A & 139",
     title: "Filing Income Tax Return for Charitable Organisations",
     explanation:
-      "Every registered NPO must file an income tax return even if its total tax liability is zero. The return must be filed by 31 October of the assessment year, along with Form 10B (audit report). A late return leads to loss of accumulation benefits and penalties.",
+      "Every registered NPO must file an income tax return even if its total tax liability is zero. The return must be filed by 31 October of the assessment year, along with Form No. 112 (earlier Form 10B) (audit report). A late return leads to loss of accumulation benefits and penalties.",
     category: "Charitable Trusts & NPOs",
     keywords: [
       "section 349",
@@ -2607,8 +2607,8 @@ export const SECTIONS: SectionEntry[] = [
     keyPoints: [
       "Form ITR-7 is the applicable return form for trusts, NPOs, and political parties",
       "Due date: 31 October of the assessment year (for trusts with mandatory audit)",
-      "Form 10 (for accumulation beyond 15%) must be filed BEFORE the return due date",
-      "Late filing leads to: loss of Form 10 accumulation benefit (the accumulated amount becomes taxable)",
+      "Form No. 109 (earlier Form 10) (for accumulation beyond 15%) must be filed BEFORE the return due date",
+      "Late filing leads to: loss of Form No. 109 accumulation benefit (the accumulated amount becomes taxable)",
       "Penalty for late filing: up to ₹5,000 under Section 428 (equivalent to old 234F)",
       "Even zero-tax returns are mandatory — failure to file attracts notices and potential penalties",
     ],
@@ -2616,11 +2616,11 @@ export const SECTIONS: SectionEntry[] = [
       {
         title: "Impact of Late Return on Accumulation Benefit",
         scenario:
-          "A trust with ₹1 crore income wants to accumulate ₹13 lakh via Form 10. The CA audit is done on time. However, the trust misses the 31 October due date and files on 15 December.",
+          "A trust with ₹1 crore income wants to accumulate ₹13 lakh via Form No. 109. The CA audit is done on time. However, the trust misses the 31 October due date and files on 15 December.",
         calculation:
-          "Income:                                ₹1,00,00,000\nApplied to objects (87%):              ₹  87,00,000 → Exempt ✓\nWanted to accumulate (Form 10):        ₹  13,00,000\n\nReturn filed: 15 December — LATE\nForm 10 filed: 15 December — LATE\n\nConsequence of late Form 10:\n  ₹13L accumulation DISALLOWED\n  Treated as unapplied income\n  Tax at MMR (30%):                    ₹ 3,90,000\n  Late fee (Section 428):              ₹     5,000\n  Interest (Section 423):              ₹    23,400\n  Total additional cost:               ₹ 4,18,400",
+          "Income:                                ₹1,00,00,000\nApplied to objects (87%):              ₹  87,00,000 → Exempt ✓\nWanted to accumulate (Form No. 109):   ₹  13,00,000\n\nReturn filed: 15 December — LATE\nForm 10 filed: 15 December — LATE\n\nConsequence of late Form No. 109:\n  ₹13L accumulation DISALLOWED\n  Treated as unapplied income\n  Tax at MMR (30%):                    ₹ 3,90,000\n  Late fee (Section 428):              ₹     5,000\n  Interest (Section 423):              ₹    23,400\n  Total additional cost:               ₹ 4,18,400",
         result:
-          "Missing the 31 October deadline cost the trust ₹4.18 lakh. Set a calendar reminder for early October every year — file Form 10 at least two weeks before the return to avoid last-minute issues.",
+          "Missing the 31 October deadline cost the trust ₹4.18 lakh. Set a calendar reminder for early October every year — file Form No. 109 at least two weeks before the return to avoid last-minute issues.",
       },
     ],
     relatedSlugs: [
@@ -2649,11 +2649,11 @@ export const SECTIONS: SectionEntry[] = [
       "allowed investment NPO",
     ],
     whoItApplies:
-      "All registered NPOs — applies specifically to corpus funds, accumulated income set aside via Form 10, and any funds not immediately required for charitable activities.",
+      "All registered NPOs — applies specifically to corpus funds, accumulated income set aside via Form No. 109 (earlier Form 10), and any funds not immediately required for charitable activities.",
     keyPoints: [
       "Permitted modes: government securities, post office deposits, nationalised bank FDs, public financial institutions, listed debentures",
       "NOT permitted: shares of private companies, personal loans, speculative derivatives, unlisted securities",
-      "Corpus and Form 10 accumulations MUST be in permitted modes — violation makes income taxable",
+      "Corpus and Form No. 109 accumulations MUST be in permitted modes — violation makes income taxable",
       "Day-to-day working funds (to be spent within the year) are NOT required to be in permitted modes",
       "Trust can hold immovable property for use in charitable activities — not treated as 'investment' for this purpose",
       "Existing non-permitted investments must be converted within 1 year of the violation being noticed",
@@ -2793,7 +2793,7 @@ export const SECTIONS: SectionEntry[] = [
       "Registered NPOs that commit procedural non-compliance or apply funds for purposes not strictly within their trust deed objects.",
     keyPoints: [
       "Applying income for objects not stated in the trust deed — the relevant income becomes taxable",
-      "Failure to file audit report or return by due date — accumulation benefits under Form 10 are lost",
+      "Failure to file audit report or return by due date — accumulation benefits under Form No. 109 (earlier Form 10) are lost",
       "Using trust funds for activities in a different geographic area not covered by the trust deed — scrutiny risk",
       "Unlike specified violations (Section 351), these do not automatically cancel registration",
       "The AO can issue show-cause notices and give the trust an opportunity to rectify before imposing tax",
@@ -2839,7 +2839,7 @@ export const SECTIONS: SectionEntry[] = [
       "Registered NPOs that wish to issue 80G receipts to donors, enabling those donors to claim tax deductions on their contributions.",
     keyPoints: [
       "80G approval must be separately applied for — Section 332 registration alone does NOT give donors the 80G benefit",
-      "Application for 80G is typically filed simultaneously with Section 332 registration (Form 10A includes both)",
+      "Application for 80G is typically filed simultaneously with Section 332 registration (Form No. 104 (earlier Form 10A) includes both)",
       "Valid for 5 years and must be renewed along with the Section 332 registration renewal",
       "NPO must issue stamped receipts with its PAN and 80G registration number for each donation",
       "Cash donations above ₹2,000 cannot be accepted and still be eligible for 80G deduction by donors",

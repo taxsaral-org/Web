@@ -12,7 +12,7 @@ const CALCULATORS = [
   { href: "/calculators/regime-optimizer", label: "Regime Optimizer", desc: "Find your best tax regime" },
   { href: "/calculators/hra", label: "HRA Exemption", desc: "Calculate HRA tax exemption" },
   { href: "/calculators/house-property-income", label: "House Property", desc: "Rental income & loan interest" },
-  { href: "/calculators/multiple-employer", label: "Multiple Employer", desc: "Form 12B & TDS reconciliation" },
+  { href: "/calculators/multiple-employer", label: "Multiple Employer", desc: "Form 122 (12B) & TDS reconciliation" },
   { href: "/calculators/advance-tax", label: "Advance Tax", desc: "Quarterly installment amounts" },
   { href: "/calculators/residential-status", label: "Residential Status", desc: "ROR, RNOR or Non-Resident" },
 ];

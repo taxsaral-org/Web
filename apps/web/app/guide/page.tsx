@@ -363,7 +363,7 @@ export default function GuidePage() {
               "Your employer annualises your salary, applies the regime you chose, deducts eligible claims, and computes estimated annual tax.",
               "This annual tax is divided by 12 and deducted from your monthly salary.",
               "If you don't declare anything, your employer defaults to the default regime — only ₹75,000 standard deduction applied.",
-              "At year-end, your employer issues Form 16 — a TDS certificate showing total salary paid and TDS deducted.",
+              "At year-end, your employer issues Form 130 (earlier Form 16) — a TDS certificate showing total salary paid and TDS deducted.",
             ].map((step, i) => (
               <div key={i} className="flex gap-3 items-start">
                 <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-xs font-bold text-primary">{i + 1}</span>
@@ -384,8 +384,8 @@ export default function GuidePage() {
             ]}
           />
 
-          <Callout icon={Lightbulb} variant="tip" title="Check your Form 26AS / AIS">
-            The Annual Information Statement (AIS) on the income tax portal (incometax.gov.in) shows all income and TDS reported against your PAN by banks, employers, brokers, and others. Review it before filing — it&apos;s what the tax department sees.
+          <Callout icon={Lightbulb} variant="tip" title="Check your Annual Information Statement (Form 168)">
+            The Annual Information Statement — Form 168 from Tax Year 2026-27, replacing Form 26AS — on the income tax portal (incometax.gov.in) shows all income and TDS reported against your PAN by banks, employers, brokers, and others. Review it before filing — it&apos;s what the tax department sees.
           </Callout>
 
           {/* ── 7. Advance Tax ── */}
@@ -477,7 +477,7 @@ export default function GuidePage() {
               ["Co-owned properties", "Section 26", "Section 24"],
               ["Deemed ownership", "Section 27", "Section 25"],
               ["TDS on salary", "Section 192", "Section 392"],
-              ["TDS — multiple employers (Form 12B)", "Section 192(2)", "Section 392(4)"],
+              ["TDS — multiple employers (Form 12B → Form 122)", "Section 192(2)", "Section 392(4)"],
               ["HRA exemption", "Section 10(13A)", "Schedule III"],
               ["Advance tax obligation / instalment schedule", "Sections 207–211", "Sections 403–408"],
               ["Interest — default in advance tax payment", "Section 234B", "Section 424"],
@@ -507,9 +507,9 @@ export default function GuidePage() {
                 heading: "Documents to collect",
                 icon: FileText,
                 items: [
-                  "Form 16 (Part A and Part B) from every employer you worked for in TY 2026-27",
-                  "Bank statements showing FD interest credited (or Form 16A from the bank)",
-                  "Form 26AS and Annual Information Statement (AIS) downloaded from incometax.gov.in",
+                  "Form 130 (earlier Form 16) from every employer you worked for in TY 2026-27",
+                  "Bank statements showing FD interest credited (or Form 131, earlier Form 16A, from the bank)",
+                  "Annual Information Statement — Form 168 (earlier Form 26AS) — downloaded from incometax.gov.in",
                   "Home loan interest certificate from your bank (for the period April 2026 – March 2027)",
                   "Property tax payment receipts (if you own let-out property)",
                   "Rent receipts and rent agreement (if claiming HRA under optional regime)",
@@ -517,7 +517,7 @@ export default function GuidePage() {
                   "Investment proofs: PPF passbook, ELSS statements, LIC premium receipts, EPF statement",
                   "Health insurance premium payment receipts (for Section 126 deduction)",
                   "Capital gains statements from your broker or demat provider (if you sold equity/MF/property)",
-                  "Salary slips or letters confirming salary from any employer not issuing Form 16",
+                  "Salary slips or letters confirming salary from any employer not issuing Form 130",
                 ],
               },
               {
@@ -526,8 +526,8 @@ export default function GuidePage() {
                 items: [
                   "Do you want to file under the default regime or optional regime for TY 2026-27?",
                   "How many properties do you own? Which are self-occupied, let-out, or vacant?",
-                  "Did you switch employers during the year? Did you submit Form 12B to the new employer?",
-                  "Do you have any income not reflected in Form 16 — freelance, interest, dividends, rent?",
+                  "Did you switch employers during the year? Did you submit Form 122 (earlier Form 12B) to the new employer?",
+                  "Do you have any income not reflected in Form 130 — freelance, interest, dividends, rent?",
                   "Did you sell any asset — property, shares, mutual funds, gold — during the year?",
                   "Did you receive any gifts above ₹50,000 from non-relatives?",
                   "Do you have any losses from previous years to carry forward?",

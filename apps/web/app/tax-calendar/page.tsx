@@ -41,7 +41,7 @@ export default function TaxCalendarPage() {
 
           <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground">
             Every income tax deadline for Tax Year 2026-27 in one place — advance tax
-            instalments, TDS/TCS return dates, ITR filing deadlines, Form 16 issuance,
+            instalments, TDS/TCS return dates, ITR filing deadlines, Form No. 130 (earlier Form 16) issuance,
             and audit report submissions. Countdowns update automatically.
           </p>
 

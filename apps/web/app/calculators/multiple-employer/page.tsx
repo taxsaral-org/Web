@@ -7,7 +7,7 @@ const PAGE_URL = `${BASE}/calculators/multiple-employer`;
 
 export const metadata: Metadata = {
   title: "Multiple Employer Tax Calculator 2026-27 — Job Change TDS | TaxSaral",
-  description: "Calculate total tax liability when you have changed jobs or have multiple employers in Tax Year 2026-27. Aggregate salary, check TDS shortfall, and file Form 12B. IT Act 2025.",
+  description: "Calculate total tax liability when you have changed jobs or have multiple employers in Tax Year 2026-27. Aggregate salary, check TDS shortfall, and submit Form 122 (earlier Form 12B). IT Act 2025.",
   keywords: ["multiple employer calculator", "job change tax", "form 12B", "TDS shortfall", "salary aggregation", "IT Act 2025", "tax year 2026-27"],
   alternates: { canonical: PAGE_URL },
   openGraph: { title: "Multiple Employer Tax Calculator 2026-27 | TaxSaral", description: "Free calculator for multiple employer salary aggregation and TDS under IT Act 2025.", url: PAGE_URL, type: "website", siteName: "TaxSaral" },
@@ -20,12 +20,12 @@ const ME_FAQS = [
     a: "Each employer deducts TDS (Tax Deducted at Source) independently based only on the salary and declarations they know about. Employer A assumes you earned nothing before joining; Employer B may similarly not know about Employer A. Both may grant you the full ₹75,000 standard deduction, the Section 156 rebate threshold, and any other declared deductions — resulting in under-deduction when your combined income is higher.",
   },
   {
-    q: "What is Form 12B and am I required to submit it?",
-    a: "Form 12B is a declaration you must submit to your new employer containing your salary earned and TDS deducted by all previous employers in the same financial year. Under Section 392(4) of the Income Tax Act 2025 (formerly Section 192(2)), your new employer is then required to factor this information into their TDS calculations going forward. Failing to submit Form 12B often leads to under-deduction of TDS.",
+    q: "What is Form 122 (earlier Form 12B) and am I required to submit it?",
+    a: "Form 122 (called Form 12B until March 2026) is a declaration you must submit to your new employer containing your salary earned and TDS deducted by all previous employers in the same financial year. Under Section 392(4) of the Income Tax Act 2025 (formerly Section 192(2)), your new employer is then required to factor this information into their TDS calculations going forward. Failing to submit Form 122 often leads to under-deduction of TDS.",
   },
   {
     q: "What if my previous employer didn't provide the details in time?",
-    a: "Even if you couldn't submit Form 12B, your overall tax liability is calculated on your total annual income — not per-employer. If TDS falls short, the shortfall must be paid as advance tax by March 15 or as self-assessment tax before filing. Interest under Sections 424 and 425 of the IT Act 2025 applies on late or short payment.",
+    a: "Even if you couldn't submit Form 122, your overall tax liability is calculated on your total annual income — not per-employer. If TDS falls short, the shortfall must be paid as advance tax by March 15 or as self-assessment tax before filing. Interest under Sections 424 and 425 of the IT Act 2025 applies on late or short payment.",
   },
   {
     q: "Do I get the standard deduction from each employer?",
@@ -33,7 +33,7 @@ const ME_FAQS = [
   },
   {
     q: "How do I reconcile TDS from multiple employers in my return?",
-    a: "Use your Form 26AS or Annual Information Statement (AIS) from the income tax portal to see all TDS credits against your PAN. Include all salary income and all TDS amounts in your ITR. The net tax payable (or refund due) is computed on the total. This calculator helps you estimate that net position before you file.",
+    a: "Use your Annual Information Statement (Form 168, which replaces Form 26AS from Tax Year 2026-27) from the income tax portal to see all TDS credits against your PAN. Include all salary income and all TDS amounts in your ITR. The net tax payable (or refund due) is computed on the total. This calculator helps you estimate that net position before you file.",
   },
   {
     q: "What form do I use to file if I had multiple employers?",
@@ -44,7 +44,7 @@ const ME_FAQS = [
 const KEY_POINTS = [
   {
     label: "TDS gap risk",
-    desc: "Each employer deducts TDS only on what they know. If you don't disclose prior employer's salary via Form 12B, each employer under-deducts, leaving you with a tax shortfall at filing time.",
+    desc: "Each employer deducts TDS only on what they know. If you don't disclose prior employer's salary via Form 122, each employer under-deducts, leaving you with a tax shortfall at filing time.",
   },
   {
     label: "One standard deduction",
@@ -102,7 +102,7 @@ export default function MultipleEmployerPage() {
           <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-amber-600 dark:text-amber-400" />
           <p className="text-amber-800 dark:text-amber-200">
             <span className="font-semibold">For guidance only.</span> Computed under the default
-            regime with standard deduction only. Include Form 16 from each employer. Verify with a
+            regime with standard deduction only. Include Form 130 (earlier Form 16) from each employer. Verify with a
             CA before filing.
           </p>
         </div>
@@ -143,7 +143,7 @@ export default function MultipleEmployerPage() {
               {
                 step: "Jul",
                 title: "You join Employer B",
-                body: "Employer B also annualises your salary with them and starts fresh. If you don't submit Form 12B with your Employer A details, B may apply the full standard deduction again and project a much lower annual income.",
+                body: "Employer B also annualises your salary with them and starts fresh. If you don't submit Form 122 with your Employer A details, B may apply the full standard deduction again and project a much lower annual income.",
               },
               {
                 step: "Mar–Jul",
@@ -168,11 +168,11 @@ export default function MultipleEmployerPage() {
         <div className="rounded-lg border bg-emerald-50 border-emerald-200 p-5 text-sm">
           <p className="font-semibold text-emerald-900 mb-2">What you should do</p>
           <ol className="ml-4 list-decimal space-y-1.5 text-emerald-800 text-xs">
-            <li>Get your final payslip and TDS certificate (Form 16 Part B or monthly TDS statements) from Employer A.</li>
-            <li>Submit Form 12B to Employer B with Employer A&apos;s salary and TDS figures immediately after joining.</li>
-            <li>If it&apos;s too late for Form 12B (you&apos;ve already left Employer B), use this calculator to estimate your shortfall.</li>
+            <li>Get your final payslip and TDS certificate (Form 130, earlier Form 16, or monthly TDS statements) from Employer A.</li>
+            <li>Submit Form 122 to Employer B with Employer A&apos;s salary and TDS figures immediately after joining.</li>
+            <li>If it&apos;s too late for Form 122 (you&apos;ve already left Employer B), use this calculator to estimate your shortfall.</li>
             <li>If the shortfall exceeds ₹10,000, pay advance tax before March 15 to avoid interest.</li>
-            <li>File your ITR using data from both Form 16 certificates, and verify your 26AS to ensure all TDS credits are reflected.</li>
+            <li>File your ITR using data from both Form 130 certificates, and verify your Annual Information Statement (Form 168) to ensure all TDS credits are reflected.</li>
           </ol>
         </div>
 
@@ -194,7 +194,7 @@ export default function MultipleEmployerPage() {
 
         <div className="rounded-lg border bg-muted/30 p-4 text-xs text-muted-foreground">
           <span className="font-semibold text-foreground">Legal reference: </span>
-          Section 392 (TDS on salary) · Section 392(4) (Form 12B — salary from previous employers) · Section 424 (interest for default in advance tax) · Section 425 (interest for deferment of instalments) — Income Tax Act 2025, Tax Year 2026-27.
+          Section 392 (TDS on salary) · Section 392(4) (Form 122, earlier 12B — salary from previous employers) · Section 424 (interest for default in advance tax) · Section 425 (interest for deferment of instalments) — Income Tax Act 2025, Tax Year 2026-27.
         </div>
       </div>
     </div>
