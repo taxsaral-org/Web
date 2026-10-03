@@ -15,7 +15,7 @@ export interface CompareResult {
  * Computes tax under both regimes and returns a comparison with recommendation.
  *
  * `deductions` should contain itemised optional-regime deduction amounts keyed by
- * section (e.g. { section123: 150000, section130: 25000 }). Standard deduction
+ * section (e.g. { section123: 150000, section126: 25000 }). Standard deduction
  * for each regime is added automatically.
  *
  * @param income      Gross income (excluding special-rate income)

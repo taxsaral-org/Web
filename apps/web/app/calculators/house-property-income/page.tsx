@@ -29,7 +29,7 @@ const HP_FAQS = [
   },
   {
     q: "Can I claim both HRA and home loan interest?",
-    a: "Yes, in certain situations. If you own a property (and pay home loan interest) in one city but live in rented accommodation in another city where you work, you can claim both HRA exemption (under optional regime) and deduction for home loan interest under Section 71. Both claims in the same city for the same property are generally scrutinised more carefully.",
+    a: "Yes, in certain situations. If you own a property (and pay home loan interest) in one city but live in rented accommodation in another city where you work, you can claim both HRA exemption (under optional regime) and deduction for home loan interest under Section 22. Both claims in the same city for the same property are generally scrutinised more carefully.",
   },
   {
     q: "What is unrealised rent and how is it treated?",

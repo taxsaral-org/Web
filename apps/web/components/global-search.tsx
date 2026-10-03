@@ -12,7 +12,7 @@ const CALC_DATA = [
   { title: "HRA Exemption",        href: "/calculators/hra",                   badge: "Schedule III",    desc: "House Rent Allowance exemption calculator" },
   { title: "House Property Income",href: "/calculators/house-property-income",  badge: "Sections 20–25", desc: "Rental income and loan interest deductions" },
   { title: "Multiple Employer",    href: "/calculators/multiple-employer",      badge: "Section 392",    desc: "Form 12B & TDS reconciliation" },
-  { title: "Advance Tax",          href: "/calculators/advance-tax",            badge: "Section 425",    desc: "Quarterly advance tax instalments" },
+  { title: "Advance Tax",          href: "/calculators/advance-tax",            badge: "Sections 403–408", desc: "Quarterly advance tax instalments" },
   { title: "Residential Status",   href: "/calculators/residential-status",     badge: "Section 6",      desc: "ROR, RNOR or Non-Resident determination" },
 ];
 

@@ -50,7 +50,7 @@ export const SECTIONS: SectionEntry[] = [
   // ── Income Heads ──────────────────────────────────────────────────────────
   {
     slug: "heads-of-income",
-    section2025: "Section 14",
+    section2025: "Section 13",
     section1961: "Section 14",
     title: "Heads of Income",
     explanation:
@@ -142,7 +142,7 @@ export const SECTIONS: SectionEntry[] = [
   },
   {
     slug: "standard-deduction-salary",
-    section2025: "Section 17",
+    section2025: "Section 19",
     section1961: "Section 16(ia)",
     title: "Standard Deduction from Salary",
     explanation:
@@ -312,7 +312,7 @@ export const SECTIONS: SectionEntry[] = [
   },
   {
     slug: "home-loan-interest-limit",
-    section2025: "Section 71",
+    section2025: "Section 22",
     section1961: "Section 24(b)",
     title: "Home Loan Interest — Deduction Limit",
     explanation:
@@ -422,7 +422,7 @@ export const SECTIONS: SectionEntry[] = [
   },
   {
     slug: "nps-additional-contribution",
-    section2025: "Section 127",
+    section2025: "Section 124",
     section1961: "Section 80CCD(1B)",
     title: "Additional NPS Contribution (₹50,000)",
     explanation:
@@ -446,11 +446,11 @@ export const SECTIONS: SectionEntry[] = [
     ],
     examples: [
       {
-        title: "Stacking Section 123 + Section 127 for maximum benefit",
+        title: "Stacking Section 123 + Section 124 for maximum benefit",
         scenario:
           "Preethi earns ₹20L salary and is in the 30% slab. She maxes out Section 123 (₹1.5L) and also contributes ₹50,000 to NPS Tier-I voluntarily.",
         calculation:
-          "Section 123 deduction:  ₹1,50,000\nSection 127 deduction:  ₹50,000\nTotal deductions:       ₹2,00,000\n\nTax saved at 30% slab:\n  ₹2,00,000 × 30% = ₹60,000\n  Add 4% cess: ₹60,000 × 1.04 = ₹62,400 total tax saved",
+          "Section 123 deduction:  ₹1,50,000\nSection 124 deduction:  ₹50,000\nTotal deductions:       ₹2,00,000\n\nTax saved at 30% slab:\n  ₹2,00,000 × 30% = ₹60,000\n  Add 4% cess: ₹60,000 × 1.04 = ₹62,400 total tax saved",
         result:
           "Preethi saves ₹62,400 in taxes by investing ₹2L across Section 123 instruments and NPS. The NPS also builds a retirement corpus she cannot touch prematurely — ensuring disciplined retirement savings.",
       },
@@ -463,11 +463,11 @@ export const SECTIONS: SectionEntry[] = [
   },
   {
     slug: "pension-fund-premium",
-    section2025: "Section 128",
+    section2025: "Section 123",
     section1961: "Section 80CCC",
     title: "Pension Fund Premium",
     explanation:
-      "Deduction for premium paid toward any annuity plan of LIC or other insurer for receiving pension. The deduction is included within the overall ₹1.5L limit of Section 123.",
+      "Deduction for premium paid toward any annuity plan of LIC or other insurer for receiving pension. In the IT Act 2025 this deduction (formerly Section 80CCC) forms part of Section 123 itself and shares its overall ₹1.5L limit.",
     category: "Deductions",
     keywords: [
       "pension fund",
@@ -490,9 +490,9 @@ export const SECTIONS: SectionEntry[] = [
         scenario:
           "Sunder pays ₹60,000/year premium for an LIC Jeevan Shanti pension plan. He also contributes ₹1,10,000 to EPF.",
         calculation:
-          "EPF contribution:       ₹1,10,000\nLIC pension premium:    ₹60,000\nTotal eligible:         ₹1,70,000\n\nCap under Section 123: ₹1,50,000\nDeduction allowed:     ₹1,50,000\n\n(Section 128 premium is absorbed within the same ₹1.5L limit — no additional benefit)",
+          "EPF contribution:       ₹1,10,000\nLIC pension premium:    ₹60,000\nTotal eligible:         ₹1,70,000\n\nCap under Section 123: ₹1,50,000\nDeduction allowed:     ₹1,50,000\n\n(The pension premium is part of Section 123 and shares the same ₹1.5L limit — no additional benefit)",
         result:
-          "Sunder gets ₹1.5L deduction, not ₹2.1L. His LIC pension plan is counted toward the 80C bucket, not separately. He should verify whether redirecting the LIC premium to Section 127 (NPS — which gives a separate ₹50,000) would be more tax efficient.",
+          "Sunder gets ₹1.5L deduction, not ₹2.1L. His LIC pension plan is counted toward the 80C bucket, not separately. He should verify whether redirecting the LIC premium to Section 124 (NPS — which gives a separate ₹50,000) would be more tax efficient.",
       },
     ],
     relatedSlugs: [
@@ -502,7 +502,7 @@ export const SECTIONS: SectionEntry[] = [
   },
   {
     slug: "health-insurance-premium",
-    section2025: "Section 130",
+    section2025: "Section 126",
     section1961: "Section 80D",
     title: "Health Insurance Premium",
     explanation:
@@ -554,7 +554,7 @@ export const SECTIONS: SectionEntry[] = [
   },
   {
     slug: "education-loan-interest",
-    section2025: "Section 133",
+    section2025: "Section 129",
     section1961: "Section 80E",
     title: "Education Loan Interest",
     explanation:
@@ -582,7 +582,7 @@ export const SECTIONS: SectionEntry[] = [
         scenario:
           "Anand took a ₹30L education loan for his MBA in the UK. Repayment started in TY 2025-26. In TY 2026-27 (year 2 of repayment), he paid ₹2,80,000 in interest and ₹1,20,000 in principal.",
         calculation:
-          "Interest component: ₹2,80,000 → Fully deductible under Section 133\nPrincipal component: ₹1,20,000 → NOT deductible\n\nDeduction in TY 2026-27: ₹2,80,000\n\nTax saved at 30% slab:\n  ₹2,80,000 × 30% = ₹84,000\n  Plus cess: ₹84,000 × 1.04 ≈ ₹87,360",
+          "Interest component: ₹2,80,000 → Fully deductible under Section 129\nPrincipal component: ₹1,20,000 → NOT deductible\n\nDeduction in TY 2026-27: ₹2,80,000\n\nTax saved at 30% slab:\n  ₹2,80,000 × 30% = ₹84,000\n  Plus cess: ₹84,000 × 1.04 ≈ ₹87,360",
         result:
           "Anand saves ₹87,360 in tax purely from his education loan interest — with no cap. He can continue claiming this deduction for 6 more years (TY 2027-28 through 2032-33).",
       },
@@ -634,11 +634,11 @@ export const SECTIONS: SectionEntry[] = [
   },
   {
     slug: "savings-account-interest",
-    section2025: "Section 149",
+    section2025: "Section 153",
     section1961: "Section 80TTA",
     title: "Savings Account Interest (₹10,000)",
     explanation:
-      "Deduction up to ₹10,000 on interest earned from savings bank accounts with banks, co-operative societies, and post offices. Not for FDs. Not available to senior citizens (use Section 150 instead).",
+      "Deduction up to ₹10,000 on interest earned from savings bank accounts with banks, co-operative societies, and post offices. Not for FDs. Not available to senior citizens, who claim the higher senior-citizen deduction in the same Section 153 instead.",
     category: "Deductions",
     keywords: [
       "savings account interest",
@@ -652,7 +652,7 @@ export const SECTIONS: SectionEntry[] = [
     keyPoints: [
       "Only savings account interest qualifies — FD, RD, and other deposit interest do NOT.",
       "Deduction is up to ₹10,000 — even if your savings interest is ₹25,000, only ₹10,000 is deducted.",
-      "Senior citizens (60+) should use Section 150 instead — it covers all deposits and gives up to ₹50,000.",
+      "Senior citizens (60+) get the senior-citizen deduction in Section 153 instead — it covers all deposits and gives up to ₹50,000.",
       "Not available under the default (new) regime.",
     ],
     examples: [
@@ -661,9 +661,9 @@ export const SECTIONS: SectionEntry[] = [
         scenario:
           "Aryan has ₹15,000 savings bank interest and ₹45,000 FD interest in TY 2026-27. He is in the 10% slab and uses the optional regime.",
         calculation:
-          "Savings interest: ₹15,000 → deduction capped at ₹10,000\nFD interest: ₹45,000 → NOT covered by Section 149, fully taxable\n\nDeduction under Section 149: ₹10,000\nTaxable interest income:\n  Savings: ₹15,000 – ₹10,000 = ₹5,000\n  FD: ₹45,000\n  Total taxable: ₹50,000\n\nTax at 10%: ₹5,000",
+          "Savings interest: ₹15,000 → deduction capped at ₹10,000\nFD interest: ₹45,000 → NOT covered by the savings-interest deduction, fully taxable\n\nDeduction under Section 153: ₹10,000\nTaxable interest income:\n  Savings: ₹15,000 – ₹10,000 = ₹5,000\n  FD: ₹45,000\n  Total taxable: ₹50,000\n\nTax at 10%: ₹5,000",
         result:
-          "Aryan saves ₹1,000 in tax (₹10,000 × 10%) from Section 149. His FD interest remains fully taxable. Senior citizens are better served by Section 150 which covers FD interest too.",
+          "Aryan saves ₹1,000 in tax (₹10,000 × 10%) from Section 153. His FD interest remains fully taxable. Senior citizens are better served by the senior-citizen deduction in Section 153, which covers FD interest too.",
       },
     ],
     relatedSlugs: [
@@ -673,11 +673,11 @@ export const SECTIONS: SectionEntry[] = [
   },
   {
     slug: "senior-citizen-deposit-interest",
-    section2025: "Section 150",
+    section2025: "Section 153",
     section1961: "Section 80TTB",
     title: "Senior Citizen Deposit Interest (₹50,000)",
     explanation:
-      "For taxpayers aged 60+, deduction up to ₹50,000 on interest from all deposits — savings accounts, FDs, and RDs — with banks and post offices. Replaces Section 149 for senior citizens.",
+      "For taxpayers aged 60+, deduction up to ₹50,000 on interest from all deposits — savings accounts, FDs, and RDs — with banks and post offices. For senior citizens it replaces the ₹10,000 savings-interest deduction in the same section.",
     category: "Deductions",
     keywords: [
       "senior citizen",
@@ -690,9 +690,9 @@ export const SECTIONS: SectionEntry[] = [
     whoItApplies:
       "Resident individuals aged 60 years or above using the optional tax regime.",
     keyPoints: [
-      "Covers ALL bank deposits — savings, FD, RD — unlike Section 149 which is savings-only.",
+      "Covers ALL bank deposits — savings, FD, RD — unlike the ₹10,000 savings-only deduction available to other taxpayers.",
       "Maximum deduction ₹50,000 per year regardless of actual interest earned.",
-      "Senior citizens cannot claim Section 149 — Section 150 replaces it entirely.",
+      "Senior citizens cannot claim the ₹10,000 savings-interest deduction — the ₹50,000 senior-citizen deduction replaces it entirely.",
       "Post office savings deposits also qualify. This gives significant relief to retirees living on FD income.",
     ],
     examples: [
@@ -701,7 +701,7 @@ export const SECTIONS: SectionEntry[] = [
         scenario:
           "Retired couple (both aged 68) have FDs totalling ₹50L earning ₹3.5L in annual interest. They file separately.",
         calculation:
-          "Per taxpayer deduction limit: ₹50,000\n\nHusband:\n  FD interest income: ₹1,75,000 (50% of joint FD)\n  Section 150 deduction: ₹50,000\n  Taxable interest: ₹1,25,000\n\nWife (same structure):\n  FD interest income: ₹1,75,000\n  Section 150 deduction: ₹50,000\n  Taxable interest: ₹1,25,000\n\nTax on ₹1,25,000 at 5% slab (after ₹4L nil slab): Nil (income below ₹4L threshold for each)",
+          "Per taxpayer deduction limit: ₹50,000\n\nHusband:\n  FD interest income: ₹1,75,000 (50% of joint FD)\n  Section 153 deduction: ₹50,000\n  Taxable interest: ₹1,25,000\n\nWife (same structure):\n  FD interest income: ₹1,75,000\n  Section 153 deduction: ₹50,000\n  Taxable interest: ₹1,25,000\n\nTax on ₹1,25,000 at 5% slab (after ₹4L nil slab): Nil (income below ₹4L threshold for each)",
         result:
           "By splitting FDs between husband and wife and each claiming ₹50,000 deduction, the couple eliminates their interest income tax entirely (both have total income ≤ ₹4L nil slab). Strategic joint deposit allocation is a key retirement tax planning tool.",
       },
@@ -888,7 +888,7 @@ export const SECTIONS: SectionEntry[] = [
       "Holding periods: Property — 24 months (changed from 36 months in 2024 Budget, verify current rules); Gold/jewellery — 24 months; Debt MFs — 24 months.",
       "Indexation benefit was removed from July 2024 — cost of acquisition is taken as-is, no inflation adjustment.",
       "No threshold exemption like LTCG on equity (Section 198's ₹1.25L). Full gain is taxable at 12.5%.",
-      "LTCG from property sale can be reinvested in another property (Section 54) or specified bonds to claim exemption.",
+      "LTCG from property sale can be reinvested in another property (Section 82, formerly 54) or specified bonds (Section 85, formerly 54EC) to claim exemption.",
     ],
     examples: [
       {
@@ -898,7 +898,7 @@ export const SECTIONS: SectionEntry[] = [
         calculation:
           "Sale consideration:     ₹90,00,000\nLess: Transfer costs:  – ₹2,00,000\nNet sale consideration: ₹88,00,000\n\nCost of acquisition:    ₹60,00,000\n(No indexation benefit post 2024)\n\nLTCG = ₹88,00,000 – ₹60,00,000 = ₹28,00,000\n\nTax at 12.5%: ₹28,00,000 × 12.5% = ₹3,50,000\nAdd 4% cess: ₹3,64,000",
         result:
-          "Suresh pays ₹3,64,000 in tax on his property sale profit. He can avoid this entirely by reinvesting the ₹28L LTCG into another residential property (Section 54) within 2 years, or into specified bonds within 6 months.",
+          "Suresh pays ₹3,64,000 in tax on his property sale profit. He can avoid this entirely by reinvesting the ₹28L LTCG into another residential property (Section 82) within 2 years, or into specified bonds within 6 months.",
       },
       {
         title: "Sale of inherited gold jewellery",
@@ -1060,7 +1060,7 @@ export const SECTIONS: SectionEntry[] = [
   {
     slug: "advance-tax-instalments",
     section2025: "Sections 403–408",
-    section1961: "Sections 208–211",
+    section1961: "Sections 207–211",
     title: "Advance Tax — Obligation and Instalments",
     explanation:
       "If net tax liability (after TDS) exceeds ₹10,000, you must pay advance tax in four instalments: 15% by June 15; 45% by September 15; 75% by December 15; 100% by March 15.",
@@ -1131,7 +1131,7 @@ export const SECTIONS: SectionEntry[] = [
         scenario:
           "Rajesh (68) and his wife Shobha (65) are retired. Their income: pension ₹3L each, FD interest ₹2L each, dividends ₹1L each. Total: ₹6L each. No business income.",
         calculation:
-          "Both qualify for senior citizen advance tax exemption (no business income, both 60+).\n\nFor each of them:\n  Total income (before deductions): ₹6,00,000\n  Section 150 deduction: – ₹50,000 (FD interest)\n  Net taxable income: ₹5,50,000\n  Tax: 5% × ₹1,50,000 = ₹7,500 (above ₹4L nil slab)\n  Plus cess: ₹7,800\n\nThey pay ₹7,800 each as self-assessment tax at ITR filing.\nNo quarterly payments, no Section 234B/234C interest.",
+          "Both qualify for senior citizen advance tax exemption (no business income, both 60+).\n\nFor each of them:\n  Total income (before deductions): ₹6,00,000\n  Section 153 deduction: – ₹50,000 (FD interest)\n  Net taxable income: ₹5,50,000\n  Tax: 5% × ₹1,50,000 = ₹7,500 (above ₹4L nil slab)\n  Plus cess: ₹7,800\n\nThey pay ₹7,800 each as self-assessment tax at ITR filing.\nNo quarterly payments, no Section 234B/234C interest.",
         result:
           "Rajesh and Shobha have no quarterly advance tax obligations. They simply pay ₹7,800 each when filing their ITR, typically by July 31. The exemption eliminates the cash flow burden of quarterly tax payments.",
       },
@@ -1772,7 +1772,7 @@ export const SECTIONS: SectionEntry[] = [
 
   {
     slug: "anonymous-donations-30-percent",
-    section2025: "Section 188",
+    section2025: "Sections 337 & 334",
     section1961: "Section 115BBC",
     title: "Tax on Anonymous Donations Received by Charitable Trusts — 30%",
     explanation:
@@ -1780,7 +1780,7 @@ export const SECTIONS: SectionEntry[] = [
     category: "Charitable Trusts & NPOs",
     keywords: [
       "anonymous donation",
-      "section 188",
+      "section 337",
       "115BBC",
       "30 percent tax",
       "charitable trust donation",
@@ -1932,7 +1932,7 @@ export const SECTIONS: SectionEntry[] = [
     keyPoints: [
       "Regular income (Section 335): exempt if 85% is applied to charitable objects and proper filing is done",
       "Specified income (Section 337): taxed at MMR if applied for non-charitable purposes or to benefit specified persons",
-      "Anonymous donations: excess over threshold taxed at flat 30% under Section 188",
+      "Anonymous donations: excess over threshold taxed at flat 30% as specified income (Sections 337 and 334)",
       "If registration is cancelled: ALL income of that year becomes taxable at MMR",
       "Total tax liability is the sum across all three income streams",
     ],
@@ -1942,7 +1942,7 @@ export const SECTIONS: SectionEntry[] = [
         scenario:
           "Hope Hospital Trust (registered) — TY 2026-27: Regular income ₹2 crore (applied ₹1.87 crore, accumulated ₹13 lakh). Anonymous donations ₹8 lakh. A trustee received ₹5 lakh personal benefit.",
         calculation:
-          "1. REGULAR INCOME (Section 335)\n   Total income:               ₹2,00,00,000\n   Applied (≥85%):             ₹1,87,00,000 → Exempt\n   Accumulated (with filing):  ₹  13,00,000 → Exempt\n   Tax:                        ₹           0\n\n2. ANONYMOUS DONATIONS (Section 188)\n   Received:                   ₹   8,00,000\n   Exemption (5% of ₹8L):      ₹     40,000\n   Taxable:                    ₹   7,60,000\n   Tax @ 30%:                  ₹   2,28,000\n\n3. SPECIFIED INCOME (Section 337)\n   Trustee personal benefit:   ₹   5,00,000\n   Tax @ MMR (30%):            ₹   1,50,000\n\nTotal before cess:             ₹   3,78,000\nCess (4%):                     ₹     15,120\nTotal tax:                     ₹   3,93,120",
+          "1. REGULAR INCOME (Section 335)\n   Total income:               ₹2,00,00,000\n   Applied (≥85%):             ₹1,87,00,000 → Exempt\n   Accumulated (with filing):  ₹  13,00,000 → Exempt\n   Tax:                        ₹           0\n\n2. ANONYMOUS DONATIONS (Section 337)\n   Received:                   ₹   8,00,000\n   Exemption (5% of ₹8L):      ₹     40,000\n   Taxable:                    ₹   7,60,000\n   Tax @ 30%:                  ₹   2,28,000\n\n3. SPECIFIED INCOME (Section 337)\n   Trustee personal benefit:   ₹   5,00,000\n   Tax @ MMR (30%):            ₹   1,50,000\n\nTotal before cess:             ₹   3,78,000\nCess (4%):                     ₹     15,120\nTotal tax:                     ₹   3,93,120",
         result:
           "The trust pays ₹3.93 lakh. Better governance — no personal benefits to trustees, recording all donors — would reduce this to zero.",
       },
@@ -2003,7 +2003,7 @@ export const SECTIONS: SectionEntry[] = [
   {
     slug: "npo-taxable-regular-income",
     section2025: "Section 336",
-    section1961: "IT Rules 2026 (Rule 182)",
+    section1961: "Sections 11, 12 & 13",
     title: "What Counts as Taxable Regular Income for an NPO",
     explanation:
       "Section 336 defines the components of an NPO's regular income that become subject to tax — essentially the portion that fails to meet the 85% application test or is applied for non-exempt purposes. This provision bridges Section 335 and Section 337 by specifying the taxable base calculation.",
@@ -2319,7 +2319,7 @@ export const SECTIONS: SectionEntry[] = [
   {
     slug: "deemed-accumulated-income",
     section2025: "Section 343",
-    section1961: "IT Rules 2026 (Rule 186, Forms 110/111)",
+    section1961: "Section 11(3)",
     title: "Deemed Accumulated Income — When Accumulation Goes Wrong",
     explanation:
       "Section 343 specifies situations where income previously accumulated under Form 10 is retrospectively treated as income of an earlier year — triggering tax plus interest. This happens when accumulated funds are applied for purposes other than stated in Form 10, or remain unapplied after the 5-year period.",
@@ -2363,7 +2363,7 @@ export const SECTIONS: SectionEntry[] = [
   {
     slug: "npo-business-undertaking",
     section2025: "Section 344",
-    section1961: "IT Rules 2026 (Rule 182)",
+    section1961: "Section 11(4)",
     title: "Business Undertaking Held as Property of an NPO",
     explanation:
       "When a business undertaking is part of the trust's assets — typically received through a bequest or donation — Section 344 governs how income from that business is treated. Profits from business undertakings incidental to charitable objects can remain exempt; purely commercial unconnected businesses lose the exemption.",
@@ -2562,7 +2562,7 @@ export const SECTIONS: SectionEntry[] = [
       "Audit must be conducted by a practicing Chartered Accountant",
       "Form 10B: standard audit report for most NPOs; Form 10BB: for trusts with receipts above ₹5 crore",
       "Audit report must be filed BEFORE the return due date (typically 31 October for trusts with mandatory audit)",
-      "Filing audit report after the return due date attracts late fees under Section 427",
+      "An audit report not furnished by the specified date puts the exemption at risk, and a return filed after the due date also attracts the late fee under Section 428",
       "The auditor verifies: proper books maintained, 85% application met, corpus properly invested, no benefit to specified persons",
     ],
     examples: [

@@ -68,30 +68,30 @@ export const RULES_TY_2026_27: TaxRule = {
     // Section 123 (was 80C): EPF, ELSS, LIC, PPF, NSC, home loan principal, etc.
     section123: 150_000,
 
-    // Section 127 (was 80CCD(1B)): additional NPS Tier-I contribution
-    section127: 50_000,
+    // Section 124 (was 80CCD(1B)): additional NPS Tier-I contribution
+    section124: 50_000,
 
-    // Section 130 (was 80D): health insurance premium
-    section130: {
+    // Section 126 (was 80D): health insurance premium
+    section126: {
       self: 25_000,
       parents: 25_000,
       seniorParents: 50_000, // where insured parent is senior citizen
     },
 
-    // Section 133 (was 80E): interest on education loan — full interest, max 8 years
-    section133: {
+    // Section 129 (was 80E): interest on education loan — full interest, max 8 years
+    section129: {
       type: "fullInterest",
       maxYears: 8,
     },
 
-    // Section 149 (was 80TTA): savings bank interest (non-senior citizens)
-    section149: 10_000,
+    // Section 153 (was 80TTA and 80TTB): interest on deposits
+    section153: {
+      savingsInterest: 10_000,       // savings bank interest — non-senior citizens (was 80TTA)
+      seniorCitizenDeposits: 50_000, // interest on deposits — senior citizens only (was 80TTB)
+    },
 
-    // Section 150 (was 80TTB): interest from deposits (senior citizens only)
-    section150: 50_000,
-
-    // Section 71 (was 24(b)): home loan interest
-    section71: {
+    // Section 22 (was 24(b)): home loan interest
+    section22: {
       selfOccupied: 200_000, // ₹2,00,000 cap for self-occupied property
       letOut: null,          // no upper cap for let-out property
     },
@@ -141,7 +141,7 @@ export const RULES_TY_2026_27: TaxRule = {
   houseProperty: {
     standardDeductionRate: 0.30,            // 30% of Net Annual Value (Section 22)
     maxSelfOccupied: 2,                     // Section 21(6)-(7): max 2 SO properties
-    selfOccupiedInterestCapOptional: 200_000, // ₹2L aggregate cap (Section 71, optional regime)
+    selfOccupiedInterestCapOptional: 200_000, // ₹2L aggregate cap (Section 22, optional regime)
     selfOccupiedInterestCapDefault: 0,        // no SO interest deduction in default regime
     builderInventoryWindowYears: 2,           // Section 21(5): nil AV for 2 years from CC date
     lossSetOffCapOptional: 200_000,           // ₹2L max set-off against other income (optional)
@@ -166,7 +166,11 @@ export const RULES_TY_2026_27: TaxRule = {
     rebate: "156",
     s80C: "123",
     tds: "393",
-    homeLoanInterest: "71",
+    homeLoanInterest: "22",
+    npsAdditional: "124",
+    healthInsurance: "126",
+    educationLoanInterest: "129",
+    depositInterest: "153",
     capitalGainsSTCG: "196",
     capitalGainsLTCG: "197",
     capitalGainsLTCGEquity: "198",

@@ -27,7 +27,7 @@ const REGIME_FAQS = [
   },
   {
     q: "What deductions are available only under the optional regime?",
-    a: "The optional regime allows: Section 123 (80C) — ₹1.5 lakh; Section 127 (NPS extra) — ₹50,000; Section 130 (80D health insurance) — up to ₹75,000 for senior parents; HRA exemption (Schedule III); home loan interest up to ₹2 lakh for self-occupied property (Section 71); Section 133 (education loan interest); savings/deposit interest exemptions (Sections 149/150). The default regime offers only the ₹75,000 standard deduction.",
+    a: "The optional regime allows: Section 123 (80C) — ₹1.5 lakh; Section 124 (80CCD(1B) NPS extra) — ₹50,000; Section 126 (80D health insurance) — up to ₹75,000 in all where parents are senior citizens; HRA exemption (Schedule III); home loan interest up to ₹2 lakh for self-occupied property (Section 22); Section 129 (80E education loan interest); savings/deposit interest deductions (Section 153, formerly 80TTA/80TTB). The default regime offers only the ₹75,000 standard deduction.",
   },
   {
     q: "Can I switch regime every year?",
@@ -176,12 +176,12 @@ export default function RegimeOptimizerPage({ searchParams }: Props) {
                 <tr>
                   <td className="px-4 py-3 font-medium">Home loan interest (SO)</td>
                   <td className="px-4 py-3 text-muted-foreground">Not available</td>
-                  <td className="px-4 py-3 text-emerald-700 font-medium">Up to ₹2L (Sec. 71)</td>
+                  <td className="px-4 py-3 text-emerald-700 font-medium">Up to ₹2L (Sec. 22)</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-medium">Health insurance (80D)</td>
                   <td className="px-4 py-3 text-muted-foreground">Not available</td>
-                  <td className="px-4 py-3 text-emerald-700 font-medium">Up to ₹75K (Sec. 130)</td>
+                  <td className="px-4 py-3 text-emerald-700 font-medium">Up to ₹75K (Sec. 126)</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-medium">HP loss set-off</td>

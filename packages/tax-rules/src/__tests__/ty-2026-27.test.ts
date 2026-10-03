@@ -213,7 +213,11 @@ describe("TY-2026-27 — sections map", () => {
     expect(sections["rebate"]).toBe("156");
     expect(sections["s80C"]).toBe("123");
     expect(sections["tds"]).toBe("393");
-    expect(sections["homeLoanInterest"]).toBe("71");
+    expect(sections["homeLoanInterest"]).toBe("22");
+    expect(sections["npsAdditional"]).toBe("124");
+    expect(sections["healthInsurance"]).toBe("126");
+    expect(sections["educationLoanInterest"]).toBe("129");
+    expect(sections["depositInterest"]).toBe("153");
     expect(sections["capitalGainsSTCG"]).toBe("196");
     expect(sections["capitalGainsLTCG"]).toBe("197");
     expect(sections["capitalGainsLTCGEquity"]).toBe("198");
@@ -242,16 +246,21 @@ describe("TY-2026-27 — deductions", () => {
     expect(deductions["section123"]).toBe(150_000);
   });
 
-  it("Section 127 (NPS extra) limit is ₹50,000", () => {
-    expect(deductions["section127"]).toBe(50_000);
+  it("Section 124 (NPS extra) limit is ₹50,000", () => {
+    expect(deductions["section124"]).toBe(50_000);
   });
 
-  it("Section 149 (savings interest) limit is ₹10,000", () => {
-    expect(deductions["section149"]).toBe(10_000);
+  it("Section 126 (health insurance) limits are ₹25,000 / ₹25,000 / ₹50,000", () => {
+    const s126 = deductions["section126"] as { self: number; parents: number; seniorParents: number };
+    expect(s126.self).toBe(25_000);
+    expect(s126.parents).toBe(25_000);
+    expect(s126.seniorParents).toBe(50_000);
   });
 
-  it("Section 150 (senior citizen interest) limit is ₹50,000", () => {
-    expect(deductions["section150"]).toBe(50_000);
+  it("Section 153 interest limits: ₹10,000 savings, ₹50,000 senior citizen deposits", () => {
+    const s153 = deductions["section153"] as { savingsInterest: number; seniorCitizenDeposits: number };
+    expect(s153.savingsInterest).toBe(10_000);
+    expect(s153.seniorCitizenDeposits).toBe(50_000);
   });
 
   it("VDA/crypto rate is 30% with no set-off", () => {

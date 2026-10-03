@@ -70,7 +70,7 @@ const CALCULATORS = [
     title: "Advance Tax",
     description:
       "Calculate quarterly instalment amounts (Q1–Q4) and check if your net liability crosses the ₹10,000 threshold.",
-    badge: "Section 425",
+    badge: "Sections 403–408",
     tip: null,
     accent: "border-l-4 border-l-rose-400",
     badgeColor: "bg-rose-50 text-rose-700",
@@ -192,7 +192,7 @@ const HOW_IT_WORKS = [
 const FAQS = [
   {
     q: "Which income tax act does TaxSaral cover?",
-    a: "The Income Tax Act 2025 exclusively — the new Act that replaces the Income Tax Act 1961 from Tax Year 2026-27 onwards. The section numbers are different throughout: the rebate is Section 156 (old 87A), the regime slabs sit in Section 202, and advance tax in Section 425. Every calculator, explainer and judgment on the site cites the 2025 section, and the case law pages show the old provision alongside the new one.",
+    a: "The Income Tax Act 2025 exclusively — the new Act that replaces the Income Tax Act 1961 from Tax Year 2026-27 onwards. The section numbers are different throughout: the rebate is Section 156 (old 87A), the regime slabs sit in Section 202, and advance tax in Sections 403 to 410. Every calculator, explainer and judgment on the site cites the 2025 section, and the case law pages show the old provision alongside the new one.",
   },
   {
     q: "I know the old section number. How do I find the new one?",
@@ -212,7 +212,7 @@ const FAQS = [
   },
   {
     q: "What is the difference between the default and optional regime?",
-    a: "Under IT Act 2025, the default regime has 7 slabs (0%–30%) with a full tax rebate up to ₹12 lakh income (Section 156) and a ₹75,000 standard deduction. Most deductions like 80C, HRA, and home loan interest are not available. The optional regime has 4 slabs (0%–30%) but allows most deductions — 80C (Section 123), HRA (Schedule III), home loan interest (Section 71), health insurance (Section 130), and more — with a ₹50,000 standard deduction. Use the Regime Optimizer above to compare both for your specific income.",
+    a: "Under IT Act 2025, the default regime has 7 slabs (0%–30%) with a full tax rebate up to ₹12 lakh income (Section 156) and a ₹75,000 standard deduction. Most deductions like 80C, HRA, and home loan interest are not available. The optional regime has 4 slabs (0%–30%) but allows most deductions — 80C (Section 123), HRA (Schedule III), home loan interest (Section 22), health insurance (Section 126), and more — with a ₹50,000 standard deduction. Use the Regime Optimizer above to compare both for your specific income.",
   },
   {
     q: "Do these calculators work for all income types?",

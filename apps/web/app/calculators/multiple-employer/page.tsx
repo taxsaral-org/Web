@@ -21,7 +21,7 @@ const ME_FAQS = [
   },
   {
     q: "What is Form 12B and am I required to submit it?",
-    a: "Form 12B is a declaration you must submit to your new employer containing your salary earned and TDS deducted by all previous employers in the same financial year. Under Section 192(2) of the Income Tax Act 2025, your new employer is then required to factor this information into their TDS calculations going forward. Failing to submit Form 12B often leads to under-deduction of TDS.",
+    a: "Form 12B is a declaration you must submit to your new employer containing your salary earned and TDS deducted by all previous employers in the same financial year. Under Section 392(4) of the Income Tax Act 2025 (formerly Section 192(2)), your new employer is then required to factor this information into their TDS calculations going forward. Failing to submit Form 12B often leads to under-deduction of TDS.",
   },
   {
     q: "What if my previous employer didn't provide the details in time?",
@@ -194,7 +194,7 @@ export default function MultipleEmployerPage() {
 
         <div className="rounded-lg border bg-muted/30 p-4 text-xs text-muted-foreground">
           <span className="font-semibold text-foreground">Legal reference: </span>
-          Section 392 (TDS on salary) · Section 192(2) (Form 12B obligation) · Section 424 (interest for default in advance tax) · Section 425 (interest for deferment of instalments) — Income Tax Act 2025, Tax Year 2026-27.
+          Section 392 (TDS on salary) · Section 392(4) (Form 12B — salary from previous employers) · Section 424 (interest for default in advance tax) · Section 425 (interest for deferment of instalments) — Income Tax Act 2025, Tax Year 2026-27.
         </div>
       </div>
     </div>

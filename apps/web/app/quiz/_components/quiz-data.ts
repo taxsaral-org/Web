@@ -23,6 +23,8 @@ export interface QuizChapter {
   difficulty: Difficulty;
   questions: QuizQuestion[];
   lastUpdated: string;               // ISO date
+  /** Section Identifier quizzes: the part of the Act covered. */
+  coverage?: { label: string; title: string; from: number; to: number; set?: string };
 }
 
 // ─── Chapters ────────────────────────────────────────────────────────────────
@@ -49,7 +51,7 @@ const CURATED_CHAPTERS: QuizChapter[] = [
         options: [
           "Capital receipt, not taxable",
           "Deemed Profits and Gains of Business or Profession",
-          "Exempt income under Section 10",
+          "Exempt income under Section 11",
           "Income from Other Sources",
         ],
         correct: 1,
@@ -123,19 +125,19 @@ const CURATED_CHAPTERS: QuizChapter[] = [
           "Under Section 38(1)(c), when a scientific research asset is sold without being put to business use, the amount deemed as PGBP income is:",
         options: [
           "The full sale consideration",
-          "The deduction claimed under Section 51 in full",
-          "The lower of (i) sale consideration or (ii) deduction claimed under Section 51",
-          "The higher of (i) sale consideration or (ii) deduction claimed under Section 51",
+          "The deduction claimed under Section 45 in full",
+          "The lower of (i) sale consideration or (ii) deduction claimed under Section 45",
+          "The higher of (i) sale consideration or (ii) deduction claimed under Section 45",
         ],
         correct: 2,
         explanation:
-          "Section 38(1)(c) deems PGBP income equal to the lower of (i) the selling price of the asset or (ii) the deduction claimed under Section 51. Any excess of the sale price over the original cost is separately taxable as capital gain (long-term or short-term depending on the holding period).",
+          "Section 38(1)(c) deems PGBP income equal to the lower of (i) the selling price of the asset or (ii) the deduction claimed under Section 45. Any excess of the sale price over the original cost is separately taxable as capital gain (long-term or short-term depending on the holding period).",
       },
       {
         id: "s38-07",
         section: "Section 38(1)(c)",
         question:
-          "XYZ Ltd. acquired a scientific research asset on 1 April 2023 for ₹15,00,000 and claimed the full deduction under Section 51. The asset was sold on 30 September 2026 for ₹18,50,000. What is the PGBP income under Section 38(1)(c)?",
+          "XYZ Ltd. acquired a scientific research asset on 1 April 2023 for ₹15,00,000 and claimed the full deduction under Section 45. The asset was sold on 30 September 2026 for ₹18,50,000. What is the PGBP income under Section 38(1)(c)?",
         options: [
           "₹18,50,000",
           "₹15,00,000",
@@ -964,7 +966,7 @@ const CURATED_CHAPTERS: QuizChapter[] = [
       },
       {
         id: "ss-06",
-        question: "What mandatory document must be filed under Section 63 to support the Net Worth computation in a slump sale?",
+        question: "What mandatory document must be filed under Section 77 to support the Net Worth computation in a slump sale?",
         options: [
           "Form 10-I signed by the Board of Directors",
           "Form 28 — a Chartered Accountant's certificate certifying the Net Worth",
@@ -972,8 +974,8 @@ const CURATED_CHAPTERS: QuizChapter[] = [
           "Form 15CA — the foreign remittance declaration",
         ],
         correct: 1,
-        explanation: "Under Section 63, the assessee must file Form 28 — a Chartered Accountant's certificate — certifying the correct computation of Net Worth for the slump sale. This is a mandatory statutory compliance requirement. Without it, the deduction of Net Worth from the Fair Value of Consideration can be challenged and disallowed by the Assessing Officer.",
-        section: "Section 63 — Form 28 Compliance",
+        explanation: "Under Section 77, the assessee must file Form 28 — a Chartered Accountant's certificate — by the specified date referred to in Section 63, certifying the correct computation of Net Worth for the slump sale. This is a mandatory statutory compliance requirement. Without it, the deduction of Net Worth from the Fair Value of Consideration can be challenged and disallowed by the Assessing Officer.",
+        section: "Section 77 — Form 28 Compliance",
       },
     ],
     lastUpdated: "2026-08-16",
@@ -1150,16 +1152,16 @@ const CURATED_CHAPTERS: QuizChapter[] = [
       },
       {
         id: "sb-06",
-        question: "What mandatory compliance condition must be satisfied before an assessee can claim the Section 46 deduction?",
+        question: "Which of the following is a condition under Section 46(3) for a specified business to be eligible for the deduction?",
         options: [
           "Filing Form 15CA with the Income Tax portal within 30 days",
           "Obtaining prior approval from CBDT before incurring the capital expenditure",
-          "Getting accounts audited under Section 63 — a mandatory audit requirement",
+          "The business must not be set up by splitting up, or reconstruction, of an existing business",
           "Filing Form 28 (Net Worth Certificate) with the Assessing Officer",
         ],
         correct: 2,
-        explanation: "Audit under Section 63 is mandatory for claiming deduction under Section 46. Without the Section 63 audit, the deduction claim can be rejected. Form 28 is for slump sales (Section 77), not Section 46. No prior CBDT approval is required. Form 15CA is for foreign remittances. The audit ensures the capital expenditure is properly documented and conditions are verified.",
-        section: "Section 46 — Mandatory Audit under Section 63",
+        explanation: "Section 46(3)(a) requires that the specified business is not set up by splitting up, or the reconstruction, of a business already in existence, and Section 46(3)(b) adds that it must not be set up by transferring to it machinery or plant previously used for any purpose. Form 28 is for slump sales (Section 77), not Section 46. No prior CBDT approval is required, and Form 15CA relates to payments to non-residents.",
+        section: "Section 46(3) — Conditions for a Specified Business",
       },
     ],
     lastUpdated: "2026-08-16",
@@ -1251,7 +1253,7 @@ const CURATED_CHAPTERS: QuizChapter[] = [
           "Form 5 — within 30 days of the end of the Tax Year",
         ],
         correct: 1,
-        explanation: "The assessee must furnish details of preliminary expenses in Form 5, one month prior to the date of filing the Return of Income under Section 263(1). This is a pre-filing requirement. Form 6 is the audit report filed under Section 63 for non-company and non-cooperative society assessees. Missing the Form 5 deadline can result in disallowance of the deduction.",
+        explanation: "The assessee must furnish details of preliminary expenses in Form 5, one month prior to the date of filing the Return of Income under Section 263(1). This is a pre-filing requirement. Form 6 is the audit report required by Section 44 for non-company and non-cooperative society assessees. Missing the Form 5 deadline can result in disallowance of the deduction.",
         section: "Section 44 — Form 5 Compliance",
       },
     ],

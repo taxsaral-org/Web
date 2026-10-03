@@ -63,15 +63,15 @@ export default function SectionIdentifierPage() {
 
           <p className="mb-5 max-w-2xl text-sm leading-relaxed text-muted-foreground">
             Each question shows a section number of the Income Tax Act 2025 — you choose what it
-            deals with. Work through the Act chapter by chapter, in the order the sections
-            appear. The wrong options come from neighbouring sections in the same chapter, so
+            deals with. Work through the Act chapter by chapter, following its official chapters
+            and parts. The wrong options come from neighbouring sections of the same chapter, so
             you learn to tell apart the ones that are easy to confuse. Every answer also gives
             the corresponding section of the Income Tax Act 1961.
           </p>
 
           <div className="flex flex-wrap gap-3">
             <span className="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 dark:border-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300">
-              {chapters.length} chapters
+              {chapters.length} quizzes · all 23 chapters
             </span>
             <span className="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 dark:border-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300">
               {totalQuestions} sections covered
@@ -88,9 +88,7 @@ export default function SectionIdentifierPage() {
       <section className="container mx-auto max-w-4xl px-4 py-8">
         <div className="grid gap-3 sm:grid-cols-2">
           {chapters.map((c) => {
-            // Title is "Sections 67–91: Capital Gains — Part 1 of 2".
-            const [range, rest = ""] = c.title.split(": ");
-            const [name, part] = rest.split(" — ");
+            const cov = c.coverage;
             return (
               <Link
                 key={c.slug}
@@ -98,14 +96,14 @@ export default function SectionIdentifierPage() {
                 className="group flex items-center justify-between gap-3 rounded-xl border bg-card px-4 py-3.5 transition-all hover:border-emerald-300 hover:shadow-md dark:hover:border-emerald-700"
               >
                 <div className="min-w-0">
-                  <p className="font-mono text-xs font-semibold text-emerald-700 dark:text-emerald-400">
-                    {range}
+                  <p className="text-xs font-semibold text-emerald-700 dark:text-emerald-400">
+                    {cov?.label}
                   </p>
                   <p className="mt-0.5 text-sm font-semibold leading-snug transition-colors group-hover:text-emerald-700 dark:group-hover:text-emerald-400">
-                    {name}
+                    {cov?.title ?? c.topic}
                   </p>
                   <p className="mt-0.5 text-xs text-muted-foreground">
-                    {c.questions.length} questions{part ? ` · ${part}` : ""}
+                    Sections {cov?.from}–{cov?.to} · {c.questions.length} questions{cov?.set ? ` · ${cov.set}` : ""}
                   </p>
                 </div>
                 <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground/50 transition-transform group-hover:translate-x-0.5 group-hover:text-emerald-600" />
@@ -115,13 +113,14 @@ export default function SectionIdentifierPage() {
         </div>
 
         <p className="mt-8 text-xs leading-relaxed text-muted-foreground">
-          Chapters follow the sequence of sections in the Income Tax Act 2025, grouped by
-          subject; larger chapters are split into parts. Section descriptions are drawn from
-          the{" "}
+          Quizzes follow the official chapters and parts of the Income Tax Act 2025: small
+          chapters are taken together and the longest are split into sets. Answers are the
+          official section headings, and the old 1961 sections follow ICAI&rsquo;s tabular
+          mapping — the same data as the{" "}
           <Link href="/section-mapping" className="text-primary hover:underline">
             1961 → 2025 section mapping
-          </Link>{" "}
-          used across this site.
+          </Link>
+          .
         </p>
       </section>
     </main>

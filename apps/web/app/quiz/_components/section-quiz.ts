@@ -1,59 +1,79 @@
-// Section Identifier quizzes — "Section 67 deals with…?" — generated from the
-// 1961→2025 section mapping so they always match the rest of the site.
+// Section Identifier quizzes — "Section 271 deals with…?" — generated from the
+// section mapping, which carries the official headings and chapter structure
+// of the Income Tax Act 2025, so the quizzes always match the rest of the site.
 //
-// Chapters are defined by contiguous section ranges, in the order the sections
-// appear in the Income Tax Act 2025. The mapping's own category labels are not
-// used for grouping because a few are misfiled (191–198 sit in the special
-// rates block but are labelled Capital Gains; 332–355 are the non-profit
-// sections but are labelled Collection & Recovery). Ranges follow the Act.
+// Quizzes follow the chapters of the Act. Every unit below covers whole
+// chapters or whole lettered parts of a chapter: small chapters are taken
+// together with their neighbours, large ones part by part, and a unit that is
+// still long is split into sets. The build fails if a unit starts or ends in
+// the middle of a chapter or part, or if any section is left uncovered.
 
-import { MAPPINGS } from "@/app/section-mapping/_components/mapping-data";
+import { MAPPINGS, type SectionMap } from "@/app/section-mapping/_components/mapping-data";
 import type { QuizChapter, QuizQuestion } from "./quiz-data";
 
-interface ChapterGroup {
+interface Unit {
   from: number;
   to: number;
   title: string;
-  /** Completes the sentence "…of the Income Tax Act 2025 — ___." */
+  /** Completes the sentence "Covers sections a to b of the Income Tax Act 2025 — ___." */
   covers: string;
+  /** Split into this many sets of near-equal size. */
+  sets?: number;
 }
 
-const GROUPS: ChapterGroup[] = [
-  { from: 1,   to: 14,  title: "Preliminary, Charge & Scope of Income", covers: "definitions, the charge of tax, residence, income deemed to accrue in India and exempt income" },
-  { from: 15,  to: 25,  title: "Salaries & House Property", covers: "the charge on salary, perquisites and deductions from salary, and income from house property" },
-  { from: 26,  to: 66,  title: "Profits & Gains of Business or Profession", covers: "the charging provision, allowable deductions, depreciation, disallowances and special computation rules" },
-  { from: 67,  to: 91,  title: "Capital Gains", covers: "the charge, transactions not regarded as transfer, computation, special valuation rules and reinvestment exemptions" },
-  { from: 92,  to: 107, title: "Other Sources, Clubbing & Aggregation", covers: "income from other sources, income of others included in the assessee's income, and unexplained credits, investments and expenditure" },
-  { from: 108, to: 121, title: "Set-off & Carry Forward of Losses", covers: "set-off of losses within and across heads and their carry forward" },
-  { from: 122, to: 154, title: "Deductions from Gross Total Income", covers: "the deductions allowed from gross total income" },
-  { from: 155, to: 160, title: "Rebates & Double Taxation Relief", covers: "rebates, relief for arrears and treaty and unilateral double taxation relief" },
-  { from: 161, to: 173, title: "Transfer Pricing", covers: "arm's length pricing, associated enterprises, safe harbours, advance pricing agreements and documentation" },
-  { from: 174, to: 206, title: "Anti-Avoidance, Special Rates, MAT & AMT", covers: "specific anti-avoidance rules, GAAR, special tax rates, concessional regimes, MAT and AMT" },
-  { from: 207, to: 235, title: "Non-Residents, Special Entities & Tonnage Tax", covers: "special rates for non-residents, the NRI provisions, pass-through vehicles and the tonnage tax scheme" },
-  { from: 236, to: 261, title: "Income-tax Authorities, Survey & Search", covers: "the authorities and their jurisdiction, powers, search and seizure, and survey" },
-  { from: 262, to: 301, title: "Returns & Assessment", covers: "filing of returns, scrutiny, reassessment, rectification, and search and block assessments" },
-  { from: 302, to: 310, title: "Representative Assessees & Special Cases", covers: "legal representatives, representative assessees, trusts and members of associations" },
-  { from: 311, to: 331, title: "Collection & Recovery of Tax", covers: "collection and recovery of tax and the liability of particular persons" },
-  { from: 332, to: 355, title: "Registered Non-Profit Organisations", covers: "registration, income, application and accumulation, and violations by registered NPOs" },
-  { from: 356, to: 389, title: "Appeals, Revision, Settlement & Advance Rulings", covers: "appeals to the Commissioner (Appeals) and Tribunal, revision, settlement and advance rulings" },
-  { from: 390, to: 407, title: "Deduction & Collection at Source", covers: "TDS and TCS" },
-  { from: 408, to: 418, title: "Advance Tax", covers: "liability for, computation of and instalments of advance tax" },
-  { from: 419, to: 437, title: "Refunds, Interest & Fees", covers: "refunds, and interest and fees for defaults" },
-  { from: 438, to: 472, title: "Penalties", covers: "penalties for under-reporting, misreporting and other defaults" },
-  { from: 473, to: 498, title: "Offences & Prosecution", covers: "offences and prosecution" },
-  { from: 499, to: 536, title: "Miscellaneous Provisions", covers: "miscellaneous and procedural provisions" },
+const UNITS: Unit[] = [
+  { from: 1,   to: 12,  title: "Preliminary, Basis of Charge & Excluded Incomes", covers: "definitions and the tax year, the charge of income-tax, scope of total income, residence, income deemed to accrue in India, and incomes that do not form part of total income" },
+  { from: 13,  to: 25,  title: "Heads of Income, Salaries & House Property", covers: "the heads of income, expenditure relating to exempt income, salary, perquisites and deductions from salary, and income from house property" },
+  { from: 26,  to: 66,  title: "Profits and Gains of Business or Profession", sets: 2, covers: "the charge on business income, allowable deductions, depreciation, disallowances, deemed profits, presumptive taxation, books of account and tax audit" },
+  { from: 67,  to: 95,  title: "Capital Gains & Income from Other Sources", covers: "the charge on capital gains, transactions not regarded as transfer, computation, special valuation rules, exemptions on reinvestment, and income from other sources" },
+  { from: 96,  to: 121, title: "Clubbing, Aggregation & Set-off of Losses", covers: "income of other persons included in total income, unexplained credits, investments and expenditure, and set-off and carry forward of losses" },
+  { from: 122, to: 137, title: "Deductions in respect of Certain Payments", covers: "the general rules for deductions, and deductions for payments such as insurance premia, provident and pension contributions, health insurance, interest on loans and donations" },
+  { from: 138, to: 154, title: "Deductions in respect of Certain Incomes", covers: "profit-linked deductions for undertakings and enterprises, deductions for other incomes such as interest on deposits, and other deductions" },
+  { from: 155, to: 177, title: "Rebates, Double Taxation Relief & Avoidance of Tax", covers: "rebates and reliefs, double taxation relief, transfer pricing, and the specific anti-avoidance provisions" },
+  { from: 178, to: 189, title: "GAAR & Mode of Payment", covers: "the general anti-avoidance rule, and the modes of taking or accepting and repaying loans, deposits and other sums" },
+  { from: 190, to: 206, title: "Special Rates, New Tax Regimes, MAT & AMT", covers: "tax on certain incomes at special rates, special rates on capital gains, the new tax regimes, and minimum alternate tax and alternate minimum tax" },
+  { from: 207, to: 235, title: "Non-Residents, Pass-through Entities & Tonnage Tax", covers: "special provisions for non-residents and foreign companies, pass-through entities, and the tonnage tax scheme for shipping companies" },
+  { from: 236, to: 261, title: "Tax Administration", covers: "income-tax authorities, their jurisdiction and functions, and their powers, including search, requisition and survey" },
+  { from: 262, to: 291, title: "Return of Income & Assessment", covers: "PAN, filing of returns, inquiry before assessment, assessment, best judgment assessment, income escaping assessment and time limits" },
+  { from: 292, to: 301, title: "Assessment of Search Cases", covers: "block assessment of undisclosed income found as a result of a search" },
+  { from: 302, to: 331, title: "AOPs, Firms, HUFs & Other Persons", covers: "legal representatives, representative assessees, associations of persons, executors, succession to business, partition, firms, private companies and other special cases" },
+  { from: 332, to: 355, title: "Registered Non-Profit Organisations", covers: "registration, income and its application, commercial activities, compliances and violations of registered non-profit organisations" },
+  { from: 356, to: 374, title: "Appeals", covers: "appeals to the Joint Commissioner (Appeals) and Commissioner (Appeals), the Appellate Tribunal, the High Court and the Supreme Court" },
+  { from: 375, to: 389, title: "Repetitive Appeals, Revision & Dispute Resolution", covers: "avoiding repetitive appeals, revision of orders by the Commissioner, the Dispute Resolution Committee and advance rulings" },
+  { from: 390, to: 410, title: "TDS, TCS & Advance Tax", covers: "deduction and collection of tax at source, and advance payment of tax" },
+  { from: 411, to: 438, title: "Recovery, Interest, Fees & Refunds", covers: "collection and recovery of tax, interest and fees for defaults, and refunds" },
+  { from: 439, to: 472, title: "Penalties", sets: 2, covers: "penalties for under-reporting and misreporting of income and for other defaults" },
+  { from: 473, to: 498, title: "Offences and Prosecution", covers: "offences and prosecution" },
+  { from: 499, to: 536, title: "Miscellaneous", sets: 2, covers: "miscellaneous provisions such as void transfers and provisional attachment, service of notices, reporting of financial and crypto-asset transactions, the annual information statement, the powers to frame schemes and make rules, and the repeal of the Income Tax Act 1961" },
 ];
 
-/** A group larger than this is split into parts so no single quiz is a slog. */
-const MAX_WHOLE = 30;
-const PART_SIZE = 25;
+/** Headings used more than once in the Act, told apart so every answer is distinct. */
+const QUIZ_HEADINGS: Record<string, string> = {
+  "25":  "Interpretation — income from house property",
+  "66":  "Interpretation — profits and gains of business or profession",
+  "184": "Interpretation — general anti-avoidance rule",
+  "189": "Interpretation — mode of payment in certain cases",
+  "212": "Interpretation — investment income of non-resident Indians",
+  "235": "Interpretation — tonnage tax scheme for shipping companies",
+  "261": "Interpretation — powers of income-tax authorities",
+  "301": "Interpretation — assessment of search cases",
+  "349": "Return of income — registered non-profit organisation",
+  "355": "Interpretation — registered non-profit organisations",
+  "380": "Interpretation — advance rulings",
+  "402": "Interpretation — collection and recovery of tax, including TDS and TCS",
+  "461": "Penalty for failure to furnish statements, etc — TDS and TCS statements",
+  "464": "Penalty for failure to furnish statements, etc — research associations and approved institutions or funds",
+};
+
 const LAST_UPDATED = "2026-10-02";
 
 interface Row {
   n: number;
-  label: string;
   old: string;
   topic: string;
+  chapter: string;
+  part: string;
+  groupRef: boolean;
 }
 
 // Small seeded PRNG so options and their order are identical on every build.
@@ -68,28 +88,38 @@ function rng(seed: number) {
   };
 }
 
-// "11 / Sch. II" → "11 (read with Schedule II)"; plain numbers pass through.
-function displayLabel(raw: string): string {
-  const m = raw.match(/^(\d+)\s*\/\s*Sch\.\s*(\w+)$/i);
-  return m ? `${m[1]} (read with Schedule ${m[2]})` : raw;
-}
+const toRow = (m: SectionMap): Row => ({
+  n: parseInt(m.new, 10),
+  old: m.old,
+  topic: QUIZ_HEADINGS[m.new] ?? m.topic,
+  chapter: m.chapter,
+  part: m.part ?? "",
+  groupRef: m.groupRef === true,
+});
 
-function earlierReference(old: string): string {
-  const o = old.trim();
+const ROWS: Row[] = MAPPINGS.map(toRow).sort((a, b) => a.n - b.n);
+
+function earlierReference(row: Row): string {
+  const o = row.old.trim();
   if (!o || o === "—" || o === "-") {
-    return "It has no direct equivalent in the Income Tax Act 1961.";
+    return "It is a new provision with no direct equivalent in the Income Tax Act 1961.";
   }
-  if (/^\d/.test(o)) {
-    const plural = /[/,&]|\band\b/.test(o);
-    return `Under the Income Tax Act 1961 this was ${plural ? "Sections" : "Section"} ${o}.`;
+  const plural = /[,&]|\band\b|\bto\b/.test(o);
+  const refs = `${plural ? "Sections" : "Section"} ${o}`;
+  if (row.groupRef) {
+    // ICAI maps the whole group to these provisions together.
+    const group = ROWS.filter((r) => r.groupRef && r.old === row.old);
+    const first = group[0]!.n;
+    const last = group[group.length - 1]!.n;
+    return `Sections ${first} to ${last} of the 2025 Act together correspond to ${refs} of the Income Tax Act 1961.`;
   }
-  return `Corresponding earlier reference: ${o}.`;
+  return `Under the Income Tax Act 1961 this was ${refs}.`;
 }
 
-function buildQuestion(row: Row, pool: Row[], groupTitle: string): QuizQuestion {
+function buildQuestion(row: Row, pool: Row[], label: string): QuizQuestion {
   const rand = rng(row.n * 2654435761);
 
-  // Distractors come from the same chapter, two of them from the nearest
+  // Distractors come from the same unit, two of them from the nearest
   // sections — the ones genuinely confused in an exam — and one from further
   // away, so options are plausible without being uniform.
   const others = pool
@@ -119,46 +149,73 @@ function buildQuestion(row: Row, pool: Row[], groupTitle: string): QuizQuestion 
 
   return {
     id: `sec-${row.n}`,
-    question: `What does Section ${row.label} of the Income Tax Act 2025 deal with?`,
+    question: `What does Section ${row.n} of the Income Tax Act 2025 deal with?`,
     options: options as [string, string, string, string],
     correct: options.indexOf(row.topic) as 0 | 1 | 2 | 3,
-    explanation: `Section ${row.label} deals with: ${row.topic}. ${earlierReference(row.old)}`,
-    section: groupTitle,
+    explanation: `Section ${row.n} deals with: ${row.topic}. ${earlierReference(row)}`,
+    section: label,
   };
 }
 
-function buildChapters(): QuizChapter[] {
-  const rows: Row[] = MAPPINGS.map((m) => ({
-    n: parseInt(m.new, 10),
-    label: displayLabel(m.new),
-    old: m.old,
-    topic: m.topic,
-  }))
-    .filter((r) => !Number.isNaN(r.n))
-    .sort((a, b) => a.n - b.n);
+const startsBlock = (i: number) => {
+  const prev = ROWS[i - 1];
+  const cur = ROWS[i]!;
+  return !prev || prev.chapter !== cur.chapter || prev.part !== cur.part;
+};
+const endsBlock = (i: number) => {
+  const next = ROWS[i + 1];
+  const cur = ROWS[i]!;
+  return !next || next.chapter !== cur.chapter || next.part !== cur.part;
+};
 
-  // Fail the build loudly if the mapping ever gains a section no group covers,
-  // rather than silently dropping it from the quiz.
-  const uncovered = rows.filter((r) => !GROUPS.some((g) => r.n >= g.from && r.n <= g.to));
-  if (uncovered.length) {
-    throw new Error(
-      `section-quiz: sections not covered by any chapter group: ${uncovered.map((r) => r.n).join(", ")}`
-    );
+/** "Chapter IV, Part D", "Chapters V–VII", "Chapter XV and Chapter XVI, Part A". */
+function coverageLabel(members: Row[]): string {
+  const chapters = members.map((r) => r.chapter).filter((c, i, a) => a.indexOf(c) === i);
+  const segments = chapters.map((ch) => {
+    const mine = members.filter((r) => r.chapter === ch);
+    const whole = mine.length === ROWS.filter((r) => r.chapter === ch).length;
+    if (whole) return { ch, whole, text: `Chapter ${ch}` };
+    const parts = mine.map((r) => r.part).filter((p, i, a) => a.indexOf(p) === i);
+    const p = parts.length === 1 ? `Part ${parts[0]}` : `Parts ${parts[0]}–${parts[parts.length - 1]}`;
+    return { ch, whole, text: `Chapter ${ch}, ${p}` };
+  });
+  if (segments.length > 1 && segments.every((s) => s.whole)) {
+    return `Chapters ${segments[0]!.ch}–${segments[segments.length - 1]!.ch}`;
+  }
+  return segments.map((s) => s.text).join(" and ");
+}
+
+function buildChapters(): QuizChapter[] {
+  // Units must tile the Act exactly, each on chapter or part boundaries, so a
+  // change to the mapping can never silently drop or misfile a section.
+  let expected = ROWS[0]!.n;
+  for (const u of UNITS) {
+    const i = ROWS.findIndex((r) => r.n === u.from);
+    const j = ROWS.findIndex((r) => r.n === u.to);
+    if (u.from !== expected || i < 0 || j < i) {
+      throw new Error(`section-quiz: unit ${u.from}–${u.to} does not continue from section ${expected}`);
+    }
+    if (!startsBlock(i) || !endsBlock(j)) {
+      throw new Error(`section-quiz: unit ${u.from}–${u.to} is not on chapter or part boundaries`);
+    }
+    expected = u.to + 1;
+  }
+  if (expected !== ROWS[ROWS.length - 1]!.n + 1) {
+    throw new Error(`section-quiz: sections from ${expected} onwards are not covered by any unit`);
   }
 
   const chapters: QuizChapter[] = [];
 
-  for (const g of GROUPS) {
-    const members = rows.filter((r) => r.n >= g.from && r.n <= g.to);
-    if (members.length === 0) continue;
-
-    const parts = members.length > MAX_WHOLE ? Math.ceil(members.length / PART_SIZE) : 1;
-    const base = Math.floor(members.length / parts);
-    const extra = members.length % parts;
+  for (const u of UNITS) {
+    const members = ROWS.filter((r) => r.n >= u.from && r.n <= u.to);
+    const label = coverageLabel(members);
+    const sets = u.sets ?? 1;
+    const base = Math.floor(members.length / sets);
+    const extra = members.length % sets;
 
     let cursor = 0;
-    for (let p = 0; p < parts; p++) {
-      const size = base + (p < extra ? 1 : 0);
+    for (let s = 0; s < sets; s++) {
+      const size = base + (s < extra ? 1 : 0);
       const slice = members.slice(cursor, cursor + size);
       cursor += size;
 
@@ -167,18 +224,19 @@ function buildChapters(): QuizChapter[] {
       if (!first || !last) continue;
       const a = first.n;
       const b = last.n;
-      const partLabel = parts > 1 ? ` — Part ${p + 1} of ${parts}` : "";
+      const set = sets > 1 ? `Set ${s + 1} of ${sets}` : undefined;
 
       chapters.push({
         slug: `sections-${a}-${b}`,
         source: "section-identifier",
-        title: `Sections ${a}–${b}: ${g.title}${partLabel}`,
-        chapter: "Section Identifier",
-        topic: g.title,
-        description: `See the section number, pick what it deals with. Covers sections ${a} to ${b} of the Income Tax Act 2025 — ${g.covers}. Every answer also shows the corresponding Income Tax Act 1961 section.`,
+        title: `${label}: ${u.title}${set ? ` — ${set}` : ""}`,
+        chapter: `Section Identifier · Sections ${a}–${b}`,
+        topic: u.title,
+        description: `See the section number, pick what it deals with. Covers sections ${a} to ${b} of the Income Tax Act 2025 (${label}) — ${u.covers}. Every answer also shows the corresponding Income Tax Act 1961 section.`,
         difficulty: "Medium",
-        questions: slice.map((r) => buildQuestion(r, members, g.title)),
+        questions: slice.map((r) => buildQuestion(r, members, label)),
         lastUpdated: LAST_UPDATED,
+        coverage: { label, title: u.title, from: a, to: b, set },
       });
     }
   }

@@ -41,7 +41,7 @@ export const EVENTS: CalendarEvent[] = [
     title: "TDS / TCS Return — Q1 (Apr–Jun 2026)",
     description: "File quarterly TDS/TCS statement (Form 24Q / 26Q / 27Q / 27EQ) for deductions/collections during April–June 2026.",
     category: "TDS / TCS",
-    section: "Section 392",
+    section: "Section 397(3)(b)",
     important: true,
   },
   {
@@ -59,7 +59,7 @@ export const EVENTS: CalendarEvent[] = [
     title: "TDS / TCS Payment — July 2026 Deductions",
     description: "Deposit TDS/TCS deducted/collected during July 2026 to the government account.",
     category: "TDS / TCS",
-    section: "Section 392",
+    section: "Section 397(3)(a)",
   },
   {
     id: "form16a-q1-2627",
@@ -67,7 +67,7 @@ export const EVENTS: CalendarEvent[] = [
     title: "Form 16A Issue — Q1 (Apr–Jun 2026)",
     description: "Issue Form 16A (non-salary TDS certificate) to deductees for Q1 of Tax Year 2026-27, within 15 days of the Q1 return due date.",
     category: "TDS / TCS",
-    section: "Section 392",
+    section: "Section 395",
   },
   {
     id: "tds-sep-2026",
@@ -75,15 +75,15 @@ export const EVENTS: CalendarEvent[] = [
     title: "TDS / TCS Payment — August 2026 Deductions",
     description: "Deposit TDS/TCS deducted/collected during August 2026.",
     category: "TDS / TCS",
-    section: "Section 392",
+    section: "Section 397(3)(a)",
   },
   {
     id: "adv-tax-q2-2627",
     date: "2026-09-15",
     title: "Advance Tax — 2nd Instalment (45% Cumulative)",
-    description: "Total advance tax paid so far must be at least 45% of your estimated full-year tax liability. Shortfall attracts interest under Section 431.",
+    description: "Total advance tax paid so far must be at least 45% of your estimated full-year tax liability. Shortfall attracts interest under Section 425.",
     category: "Advance Tax",
-    section: "Section 425",
+    section: "Section 408",
     important: true,
   },
   {
@@ -101,7 +101,7 @@ export const EVENTS: CalendarEvent[] = [
     title: "TDS / TCS Payment — September 2026 Deductions",
     description: "Deposit TDS/TCS deducted/collected during September 2026.",
     category: "TDS / TCS",
-    section: "Section 392",
+    section: "Section 397(3)(a)",
   },
   {
     id: "itr-audit-ay2627",
@@ -118,7 +118,7 @@ export const EVENTS: CalendarEvent[] = [
     title: "TDS / TCS Return — Q2 (Jul–Sep 2026)",
     description: "File quarterly TDS/TCS statement for deductions/collections during July–September 2026.",
     category: "TDS / TCS",
-    section: "Section 392",
+    section: "Section 397(3)(b)",
     important: true,
   },
   {
@@ -127,7 +127,7 @@ export const EVENTS: CalendarEvent[] = [
     title: "TDS / TCS Payment — October 2026 Deductions",
     description: "Deposit TDS/TCS deducted/collected during October 2026.",
     category: "TDS / TCS",
-    section: "Section 392",
+    section: "Section 397(3)(a)",
   },
   {
     id: "form16a-q2-2627",
@@ -135,7 +135,7 @@ export const EVENTS: CalendarEvent[] = [
     title: "Form 16A Issue — Q2 (Jul–Sep 2026)",
     description: "Issue Form 16A to deductees for Q2 of Tax Year 2026-27, within 15 days of the Q2 return due date.",
     category: "TDS / TCS",
-    section: "Section 392",
+    section: "Section 395",
   },
   {
     id: "tds-dec-2026",
@@ -143,7 +143,7 @@ export const EVENTS: CalendarEvent[] = [
     title: "TDS / TCS Payment — November 2026 Deductions",
     description: "Deposit TDS/TCS deducted/collected during November 2026.",
     category: "TDS / TCS",
-    section: "Section 392",
+    section: "Section 397(3)(a)",
   },
   {
     id: "adv-tax-q3-2627",
@@ -151,7 +151,7 @@ export const EVENTS: CalendarEvent[] = [
     title: "Advance Tax — 3rd Instalment (75% Cumulative)",
     description: "Total advance tax paid so far must be at least 75% of your estimated full-year tax liability. Three-quarters of the year has passed — check your liability carefully.",
     category: "Advance Tax",
-    section: "Section 425",
+    section: "Section 408",
     important: true,
   },
   {
@@ -169,7 +169,7 @@ export const EVENTS: CalendarEvent[] = [
     title: "TDS / TCS Payment — December 2026 Deductions",
     description: "Deposit TDS/TCS deducted/collected during December 2026.",
     category: "TDS / TCS",
-    section: "Section 392",
+    section: "Section 397(3)(a)",
   },
   {
     id: "tds-return-q3-2627",
@@ -177,7 +177,7 @@ export const EVENTS: CalendarEvent[] = [
     title: "TDS / TCS Return — Q3 (Oct–Dec 2026)",
     description: "File quarterly TDS/TCS statement for deductions/collections during October–December 2026.",
     category: "TDS / TCS",
-    section: "Section 392",
+    section: "Section 397(3)(b)",
     important: true,
   },
   {
@@ -186,7 +186,7 @@ export const EVENTS: CalendarEvent[] = [
     title: "TDS / TCS Payment — January 2027 Deductions",
     description: "Deposit TDS/TCS deducted/collected during January 2027.",
     category: "TDS / TCS",
-    section: "Section 392",
+    section: "Section 397(3)(a)",
   },
   {
     id: "form16a-q3-2627",
@@ -194,7 +194,7 @@ export const EVENTS: CalendarEvent[] = [
     title: "Form 16A Issue — Q3 (Oct–Dec 2026)",
     description: "Issue Form 16A to deductees for Q3 of Tax Year 2026-27, within 15 days of the Q3 return due date.",
     category: "TDS / TCS",
-    section: "Section 392",
+    section: "Section 395",
   },
   {
     id: "tds-mar-2027",
@@ -202,7 +202,7 @@ export const EVENTS: CalendarEvent[] = [
     title: "TDS / TCS Payment — February 2027 Deductions",
     description: "Deposit TDS/TCS deducted/collected during February 2027.",
     category: "TDS / TCS",
-    section: "Section 392",
+    section: "Section 397(3)(a)",
   },
   {
     id: "adv-tax-q4-2627",
@@ -210,7 +210,7 @@ export const EVENTS: CalendarEvent[] = [
     title: "Advance Tax — 4th & Final Instalment (100%)",
     description: "All remaining advance tax must be paid in full. 100% of estimated tax liability must be deposited. Also the single-instalment due date for taxpayers under the presumptive taxation scheme.",
     category: "Advance Tax",
-    section: "Section 425",
+    section: "Section 408",
     important: true,
   },
   {
@@ -230,7 +230,7 @@ export const EVENTS: CalendarEvent[] = [
     title: "TDS / TCS Payment — March 2027 (Extended Deadline)",
     description: "Extended deadline for depositing TDS/TCS on deductions/collections made during March 2027. Regular 7th-of-month rule is relaxed for March deductions.",
     category: "TDS / TCS",
-    section: "Section 392",
+    section: "Section 397(3)(a)",
     important: true,
   },
   {
@@ -239,7 +239,7 @@ export const EVENTS: CalendarEvent[] = [
     title: "TDS / TCS Return — Q4 (Jan–Mar 2027)",
     description: "File the final quarterly TDS/TCS statement for January–March 2027. This is the last return for Tax Year 2026-27.",
     category: "TDS / TCS",
-    section: "Section 392",
+    section: "Section 397(3)(b)",
     important: true,
   },
   {
@@ -248,7 +248,7 @@ export const EVENTS: CalendarEvent[] = [
     title: "SFT Filing — Statement of Financial Transactions",
     description: "File Statement of Financial Transactions for high-value transactions during Tax Year 2026-27. Applicable to banks, mutual funds, registrars of property, and other specified entities.",
     category: "Other",
-    section: "Section 471",
+    section: "Section 508",
   },
   {
     id: "form16-ay2728",
@@ -256,7 +256,7 @@ export const EVENTS: CalendarEvent[] = [
     title: "Form 16 Issue to Employees (TY 2026-27)",
     description: "Employers must issue Form 16 (Parts A & B — annual salary TDS certificate) to all employees for Tax Year 2026-27. Employees need this to file their ITR.",
     category: "TDS / TCS",
-    section: "Section 392",
+    section: "Section 395",
     important: true,
   },
   {
@@ -265,7 +265,7 @@ export const EVENTS: CalendarEvent[] = [
     title: "Form 16A Issue — Q4 (Jan–Mar 2027)",
     description: "Issue Form 16A to deductees for Q4 of Tax Year 2026-27. This is the final quarterly TDS certificate for TY 2026-27.",
     category: "TDS / TCS",
-    section: "Section 392",
+    section: "Section 395",
   },
   {
     id: "itr-non-audit-ay2728",

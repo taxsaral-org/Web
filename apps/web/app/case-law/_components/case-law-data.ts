@@ -1817,7 +1817,7 @@ export const CASE_LAWS: CaseLaw[] = [
     category: "Business & Profession",
     section1961: "Section 14A",
     section2025: "Section 14",
-    sectionTopic: "Heads of income; expenditure relating to exempt income",
+    sectionTopic: "Income not forming part of total income and expenditure relating to it",
     issue:
       "Where shares are acquired to obtain control rather than to earn dividends, does the dominant purpose of the investment take the expenditure outside the disallowance for exempt income?",
     held:
@@ -1863,7 +1863,7 @@ export const CASE_LAWS: CaseLaw[] = [
     category: "Business & Profession",
     section1961: "Section 14A",
     section2025: "Section 14",
-    sectionTopic: "Heads of income; expenditure relating to exempt income",
+    sectionTopic: "Income not forming part of total income and expenditure relating to it",
     issue:
       "Where a taxpayer has both interest-free funds and borrowings, and its own funds exceed the tax-free investments, can interest expenditure still be disallowed as relatable to exempt income?",
     held:
@@ -2002,8 +2002,8 @@ export const CASE_LAWS: CaseLaw[] = [
     year: 2023,
     category: "Assessment & Reassessment",
     section1961: "Sections 153A & 147",
-    section2025: "Sections 285 & 279",
-    sectionTopic: "Assessment in case of search; income escaping assessment",
+    section2025: "Sections 292–301 (block assessment) & 279",
+    sectionTopic: "Assessment of search cases; income escaping assessment",
     issue:
       "In a search assessment for a year that was already completed and not pending, can additions be made without any incriminating material found during the search?",
     held:
@@ -2027,7 +2027,7 @@ export const CASE_LAWS: CaseLaw[] = [
       "Where no incriminating material is found, the ordinary reassessment route remains available subject to its own conditions.",
     ],
     relevance:
-      "Governs a large volume of search assessment appeals. The search assessment provision is Section 285 in the IT Act 2025 and the reassessment trigger is Section 279, so both the limitation on additions and the preserved alternative remedy continue to apply. The practical consequence is that the abated-versus-unabated status of each year must be established at the outset of any search assessment dispute.",
+      "Governs a large volume of search assessment appeals under the 1961 Act. The IT Act 2025 has no direct counterpart to Section 153A: search cases are assessed under the block assessment scheme in Sections 292 to 301, which taxes the undisclosed income found as a result of the search — the same evidence-based limit the judgment read into Section 153A — while reassessment under Section 279 remains the route for other income that has escaped assessment. The practical consequence is that the abated-versus-unabated status of each year must be established at the outset of any search assessment dispute.",
     keywords: [
       "search assessment",
       "153A",
@@ -2730,7 +2730,7 @@ export const CASE_LAWS: CaseLaw[] = [
     year: 1997,
     category: "Business & Profession",
     section1961: "Sections 37(1) & 145",
-    section2025: "Sections 34 & 272",
+    section2025: "Sections 34 & 276",
     sectionTopic:
       "General conditions for revenue expenditure; method of accounting",
     issue:
@@ -2756,7 +2756,7 @@ export const CASE_LAWS: CaseLaw[] = [
       "Matching the cost to the period benefited gives a truer picture of each year's profits.",
     ],
     relevance:
-      "Applied under Section 34 of the IT Act 2025, with the method of accounting governed by Section 272. The matching approach it endorses is routinely applied to upfront borrowing costs, premium on redemption, and lease premia. It should be read alongside Taparia Tools, which confirms that spreading is not compulsory where the assessee has actually paid the sum and claims it in that year.",
+      "Applied under Section 34 of the IT Act 2025, with the method of accounting governed by Section 276. The matching approach it endorses is routinely applied to upfront borrowing costs, premium on redemption, and lease premia. It should be read alongside Taparia Tools, which confirms that spreading is not compulsory where the assessee has actually paid the sum and claims it in that year.",
     keywords: [
       "debenture discount",
       "deferred revenue expenditure",
@@ -2864,7 +2864,7 @@ export const CASE_LAWS: CaseLaw[] = [
     year: 2013,
     category: "Business & Profession",
     section1961: "Sections 28 & 145",
-    section2025: "Sections 26 & 272",
+    section2025: "Sections 26 & 276",
     sectionTopic:
       "Profits and gains of business — charging section; method of accounting",
     issue:
@@ -2890,7 +2890,7 @@ export const CASE_LAWS: CaseLaw[] = [
       "Where only the year of taxability is in dispute and the effect is revenue neutral, consistency carries weight.",
     ],
     relevance:
-      "Business income is charged under Section 26 of the IT Act 2025 with the method of accounting in Section 272. The real income principle it applies is invoked wherever the Revenue seeks to tax an entitlement, incentive, subsidy or credit before it has been realised, and is frequently paired with Balbir Singh Maini, which applies the same principle to capital gains.",
+      "Business income is charged under Section 26 of the IT Act 2025 with the method of accounting in Section 276. The real income principle it applies is invoked wherever the Revenue seeks to tax an entitlement, incentive, subsidy or credit before it has been realised, and is frequently paired with Balbir Singh Maini, which applies the same principle to capital gains.",
     keywords: [
       "real income",
       "accrual",
@@ -3134,7 +3134,7 @@ export const CASE_LAWS: CaseLaw[] = [
     category: "Business & Profession",
     section1961: "Section 14A",
     section2025: "Section 14",
-    sectionTopic: "Heads of income; expenditure relating to exempt income",
+    sectionTopic: "Income not forming part of total income and expenditure relating to it",
     issue:
       "Does the disallowance for expenditure relating to exempt income apply to dividends on which the company has already paid distribution tax, and from when does the prescribed computation method operate?",
     held:
@@ -3181,7 +3181,7 @@ export const CASE_LAWS: CaseLaw[] = [
     year: 2007,
     category: "TDS & TCS",
     section1961: "Sections 194-I & 201",
-    section2025: "Sections 393 & 399",
+    section2025: "Sections 393 & 398",
     sectionTopic:
       "TDS on specified payments; consequences of failure to deduct or pay",
     issue:
@@ -3208,7 +3208,7 @@ export const CASE_LAWS: CaseLaw[] = [
       "Board circulars directing this approach bind the Revenue.",
     ],
     relevance:
-      "Withholding is consolidated in Section 393 of the IT Act 2025, with the consequences of default in Section 399. This remains the primary defence to a demand for tax raised on a deductor, though it requires evidence that the recipient returned the income and paid the tax — typically a certificate from the payee's accountant, which the statute now contemplates in terms. Interest exposure survives, so the relief is partial.",
+      "Withholding is consolidated in Section 393 of the IT Act 2025, with the consequences of default in Section 398. This remains the primary defence to a demand for tax raised on a deductor, though it requires evidence that the recipient returned the income and paid the tax — typically a certificate from the payee's accountant, which the statute now contemplates in terms. Interest exposure survives, so the relief is partial.",
     keywords: [
       "assessee in default",
       "short deduction",
@@ -3227,7 +3227,7 @@ export const CASE_LAWS: CaseLaw[] = [
     year: 2009,
     category: "TDS & TCS",
     section1961: "Sections 192 & 201",
-    section2025: "Sections 392 & 399",
+    section2025: "Sections 392 & 398",
     sectionTopic:
       "TDS on salaries; consequences of failure to deduct or pay",
     issue:
@@ -3254,7 +3254,7 @@ export const CASE_LAWS: CaseLaw[] = [
       "A bona fide belief on an unsettled question may constitute reasonable cause against penalty.",
     ],
     relevance:
-      "Salary withholding sits in Section 392 of the IT Act 2025, with default consequences in Section 399. The decision governs secondment and expatriate arrangements, which remain common in multinational groups, and is closely connected with the separate question whether a secondment creates a service permanent establishment or a taxable service fee — issues that are analysed together in practice.",
+      "Salary withholding sits in Section 392 of the IT Act 2025, with default consequences in Section 398. The decision governs secondment and expatriate arrangements, which remain common in multinational groups, and is closely connected with the separate question whether a secondment creates a service permanent establishment or a taxable service fee — issues that are analysed together in practice.",
     keywords: [
       "expatriate salary",
       "secondment",
@@ -3870,7 +3870,7 @@ export const CASE_LAWS: CaseLaw[] = [
     year: 2007,
     category: "Assessment & Reassessment",
     section1961: "Sections 143(1) & 147",
-    section2025: "Sections 277 & 279",
+    section2025: "Sections 270 & 279",
     sectionTopic:
       "Summary processing of return — intimation; income escaping assessment",
     issue:
@@ -3896,7 +3896,7 @@ export const CASE_LAWS: CaseLaw[] = [
       "Reopening still requires a reason to believe founded on material; suspicion is not enough.",
     ],
     relevance:
-      "Summary processing is Section 277 and the reassessment trigger Section 279 under the IT Act 2025. The distinction remains important because most returns are processed summarily rather than scrutinised, so the change of opinion defence is unavailable in the majority of reopenings — the taxpayer must instead attack the sufficiency of the material, which the current inquiry procedure now requires to be disclosed.",
+      "Summary processing is part of Section 270 (assessment) and the reassessment trigger is Section 279 under the IT Act 2025. The distinction remains important because most returns are processed summarily rather than scrutinised, so the change of opinion defence is unavailable in the majority of reopenings — the taxpayer must instead attack the sufficiency of the material, which the current inquiry procedure now requires to be disclosed.",
     keywords: [
       "intimation",
       "143(1)",
@@ -4236,10 +4236,10 @@ export const CASE_LAWS: CaseLaw[] = [
     court: "Supreme Court",
     year: 2010,
     category: "Penalties",
-    section1961: "Section 271(1)(c)",
+    section1961: "Section 271(1)(c) (replaced by Section 270A from AY 2017-18)",
     section2025: "Sections 439 & 440",
     sectionTopic:
-      "Penalty for under-reporting and misreporting; penalty for concealment and other failures",
+      "Penalty for under-reporting and misreporting of income; immunity from penalty",
     issue:
       "Does the disallowance of a claim, made openly in the return and supported by full disclosure, by itself attract penalty for furnishing inaccurate particulars of income?",
     held:
@@ -4264,7 +4264,7 @@ export const CASE_LAWS: CaseLaw[] = [
       "Penalty provisions are construed strictly and not extended by implication.",
     ],
     relevance:
-      "The penalty regime has been restructured — Section 439 of the IT Act 2025 deals with under-reporting and misreporting, with Section 440 covering concealment and other failures — and the new framework turns on defined categories rather than the older concealment language. The underlying principle, that a bona fide claim on disclosed facts is not penal, carries forward through the exclusions for bona fide explanations, and this remains the most cited authority against penalty founded on a mere disallowance.",
+      "The penalty regime has been restructured — Section 439 of the IT Act 2025 levies penalty for under-reporting and misreporting of income, and Section 440 offers immunity from it in under-reporting cases — and the new framework turns on defined categories rather than the older concealment language. The underlying principle, that a bona fide claim on disclosed facts is not penal, carries forward through the exclusions for bona fide explanations, and this remains the most cited authority against penalty founded on a mere disallowance.",
     keywords: [
       "penalty",
       "inaccurate particulars",
@@ -4282,10 +4282,10 @@ export const CASE_LAWS: CaseLaw[] = [
     court: "Supreme Court",
     year: 2008,
     category: "Penalties",
-    section1961: "Section 271(1)(c)",
+    section1961: "Section 271(1)(c) (replaced by Section 270A from AY 2017-18)",
     section2025: "Sections 439 & 440",
     sectionTopic:
-      "Penalty for under-reporting and misreporting; penalty for concealment and other failures",
+      "Penalty for under-reporting and misreporting of income; immunity from penalty",
     issue:
       "Must the Revenue establish a guilty mind before a penalty for concealment may be imposed, or is the liability civil in character?",
     held:
@@ -4309,7 +4309,7 @@ export const CASE_LAWS: CaseLaw[] = [
       "The decision does not make penalty automatic; the statutory conditions and defences still apply.",
     ],
     relevance:
-      "Under the IT Act 2025 penalties are dealt with in Sections 439 and 440, with under-reporting and misreporting distinguished and carrying different rates. That structure makes the character of the default central once more, since misreporting attracts a substantially higher penalty. Dharamendra Textile continues to be cited for the civil nature of the liability, but must be read with Reliance Petroproducts and Price Waterhouse Coopers, which preserve the bona fide explanation defence.",
+      "Under the IT Act 2025 the penalty for under-reporting and misreporting of income is in Section 439, which distinguishes the two and charges them at different rates, with immunity for under-reporting available under Section 440. That structure makes the character of the default central once more, since misreporting attracts a substantially higher penalty. Dharamendra Textile continues to be cited for the civil nature of the liability, but must be read with Reliance Petroproducts and Price Waterhouse Coopers, which preserve the bona fide explanation defence.",
     keywords: [
       "civil liability",
       "mens rea",
@@ -4327,10 +4327,10 @@ export const CASE_LAWS: CaseLaw[] = [
     court: "Supreme Court",
     year: 2013,
     category: "Penalties",
-    section1961: "Section 271(1)(c)",
+    section1961: "Section 271(1)(c) (replaced by Section 270A from AY 2017-18)",
     section2025: "Sections 439 & 440",
     sectionTopic:
-      "Penalty for under-reporting and misreporting; penalty for concealment and other failures",
+      "Penalty for under-reporting and misreporting of income; immunity from penalty",
     issue:
       "Does a surrender of income made during assessment, said to be voluntary and to buy peace, preclude the levy of penalty?",
     held:
@@ -4354,7 +4354,7 @@ export const CASE_LAWS: CaseLaw[] = [
       "A condition that no penalty be levied has no legal effect on a statutory levy.",
     ],
     relevance:
-      "Under the IT Act 2025 the penalty structure in Sections 439 and 440 distinguishes under-reporting from misreporting, and a surrender following detection will ordinarily fall on the misreporting side with its higher rate. The practical lesson survives the restructuring: an offer of additional income should be accompanied by a substantiated explanation of the source and circumstances, since a bare surrender leaves the taxpayer without a defence.",
+      "Under the IT Act 2025 the penalty in Section 439 distinguishes under-reporting from misreporting, and a surrender following detection will ordinarily fall on the misreporting side, with its higher rate and no access to the immunity in Section 440. The practical lesson survives the restructuring: an offer of additional income should be accompanied by a substantiated explanation of the source and circumstances, since a bare surrender leaves the taxpayer without a defence.",
     keywords: [
       "voluntary surrender",
       "buy peace",
@@ -4372,10 +4372,10 @@ export const CASE_LAWS: CaseLaw[] = [
     court: "Supreme Court",
     year: 2012,
     category: "Penalties",
-    section1961: "Section 271(1)(c)",
+    section1961: "Section 271(1)(c) (replaced by Section 270A from AY 2017-18)",
     section2025: "Sections 439 & 440",
     sectionTopic:
-      "Penalty for under-reporting and misreporting; penalty for concealment and other failures",
+      "Penalty for under-reporting and misreporting of income; immunity from penalty",
     issue:
       "Does a genuine clerical oversight in preparing the return, apparent from the accompanying documents, attract penalty for furnishing inaccurate particulars?",
     held:
@@ -4399,7 +4399,7 @@ export const CASE_LAWS: CaseLaw[] = [
       "The conclusion is fact-specific and turns on what was disclosed with the return.",
     ],
     relevance:
-      "Under Sections 439 and 440 of the IT Act 2025 the distinction between under-reporting and misreporting makes the character of the error decisive, since misreporting attracts a materially higher penalty. This remains the leading authority for resisting penalty on a genuine computational oversight, and it underscores a practical point: the tax audit report and accompanying schedules are the evidence on which the bona fide defence is built.",
+      "Under Section 439 of the IT Act 2025 the distinction between under-reporting and misreporting makes the character of the error decisive, since misreporting attracts a materially higher penalty and rules out the immunity in Section 440. This remains the leading authority for resisting penalty on a genuine computational oversight, and it underscores a practical point: the tax audit report and accompanying schedules are the evidence on which the bona fide defence is built.",
     keywords: [
       "inadvertent error",
       "bona fide mistake",
@@ -4942,9 +4942,9 @@ export const CASE_LAWS: CaseLaw[] = [
     year: 2024,
     category: "International Tax",
     section1961: "Sections 9(1)(i), 90 & 96",
-    section2025: "Sections 9, 159 & 178",
+    section2025: "Sections 9, 159, 178 & 179",
     sectionTopic:
-      "Income deemed to accrue or arise in India; double taxation relief; applicability of the General Anti-Avoidance Rule",
+      "Income deemed to accrue or arise in India; double taxation relief; applicability of the General Anti-Avoidance Rule; impermissible avoidance arrangement",
     issue:
       "Can treaty grandfathering for investments made before 1 April 2017 be denied on the footing that the Mauritius holding structure was designed to obtain treaty benefits, and may the authority look behind a valid tax residency certificate to do so?",
     held:

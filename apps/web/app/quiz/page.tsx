@@ -194,7 +194,7 @@ export default function QuizPage() {
 
             <div className="flex flex-wrap gap-2 text-xs">
               <span className="rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-0.5 font-semibold text-emerald-700 dark:border-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300">
-                {sectionChapters.length} chapters
+                {sectionChapters.length} quizzes
               </span>
               <span className="rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-0.5 font-semibold text-emerald-700 dark:border-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300">
                 {sectionChapters.reduce((s, c) => s + c.questions.length, 0)} sections

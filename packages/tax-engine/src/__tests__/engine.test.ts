@@ -266,7 +266,7 @@ describe("computeTaxResult — regime comparison at fixed income", () => {
   });
 
   it("at 20 L, max deductions (425 K optional): default still cheaper", () => {
-    // Optional: std (50K) + s123 (150K) + s127 (50K) + s130-self (25K) + s71 (200K) = 475K
+    // Optional: std (50K) + s123 (150K) + s124 (50K) + s126-self (25K) + s22 (200K) = 475K
     const totalOptional = rule.standardDeduction.optional + 150_000 + 50_000 + 25_000 + 200_000;
 
     const def = computeTaxResult(2_000_000, 75_000, "default", rule);
@@ -320,7 +320,7 @@ describe("compareRegimes", () => {
 
   it("saving = default.totalTax − optional.totalTax", () => {
     const income = 3_000_000;
-    const deductions = { section123: 150_000, section127: 50_000 };
+    const deductions = { section123: 150_000, section124: 50_000 };
     const result = compareRegimes(income, deductions, rule);
     expect(result.saving).toBeCloseTo(
       result.default.totalTax - result.optional.totalTax,

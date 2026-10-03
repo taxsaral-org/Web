@@ -19,13 +19,13 @@ const rule = getRuleForYear("TY-2026-27");
 const hpLossSetOffCap = rule.houseProperty.lossSetOffCapOptional;
 
 const s123Max = rule.deductions["section123"] as number;
-const s127Max = rule.deductions["section127"] as number;
-const s130 = rule.deductions["section130"] as {
+const s124Max = rule.deductions["section124"] as number;
+const s126 = rule.deductions["section126"] as {
   self: number;
   parents: number;
   seniorParents: number;
 };
-const s71 = rule.deductions["section71"] as {
+const s22 = rule.deductions["section22"] as {
   selfOccupied: number;
   letOut: number | null;
 };
@@ -283,10 +283,10 @@ export function OptimizerClient({
 }) {
   const [grossRaw, setGrossRaw] = useState("");
   const [s123, setS123] = useState(0);
-  const [s130Self, setS130Self] = useState(0);
-  const [s130Parents, setS130Parents] = useState(0);
-  const [s127NPS, setS127NPS] = useState(0);
-  const [s71HomeLoan, setS71HomeLoan] = useState(0);
+  const [s126Self, setS126Self] = useState(0);
+  const [s126Parents, setS126Parents] = useState(0);
+  const [s124NPS, setS124NPS] = useState(0);
+  const [s22HomeLoan, setS22HomeLoan] = useState(0);
   const [hraExemption, setHraExemption] = useState(initialHra);
   const [hraPrefilled, setHraPrefilled] = useState(initialHra > 0);
   const [hpAbsIncome, setHpAbsIncome] = useState(Math.abs(initialHpIncome));
@@ -300,8 +300,8 @@ export function OptimizerClient({
   const hpIncome = hpIsLoss ? -hpAbsIncome : hpAbsIncome;
 
   const totalItemised = useMemo(
-    () => s123 + s130Self + s130Parents + s127NPS + s71HomeLoan + hraExemption + other,
-    [s123, s130Self, s130Parents, s127NPS, s71HomeLoan, hraExemption, other]
+    () => s123 + s126Self + s126Parents + s124NPS + s22HomeLoan + hraExemption + other,
+    [s123, s126Self, s126Parents, s124NPS, s22HomeLoan, hraExemption, other]
   );
 
   const comparison = useMemo(() => {
@@ -338,7 +338,7 @@ export function OptimizerClient({
           ? ("default" as const)
           : ("optional" as const),
     };
-  }, [income, hpIncome, s123, s130Self, s130Parents, s127NPS, s71HomeLoan, hraExemption, other, totalItemised]);
+  }, [income, hpIncome, s123, s126Self, s126Parents, s124NPS, s22HomeLoan, hraExemption, other, totalItemised]);
 
   // Breakeven only meaningful when no HP income adjustment
   const deductionBreakeven = useMemo(
@@ -482,7 +482,7 @@ export function OptimizerClient({
 
               <SliderWithInput
                 label="Investments & Savings"
-                sectionLabel="Section 123"
+                sectionLabel={`Section ${rule.sections.s80C}`}
                 value={s123}
                 onChange={setS123}
                 max={s123Max}
@@ -491,40 +491,40 @@ export function OptimizerClient({
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
                   <Label>Health Insurance Premium</Label>
-                  <span className="text-xs text-muted-foreground">Section 130</span>
+                  <span className="text-xs text-muted-foreground">Section {rule.sections.healthInsurance}</span>
                 </div>
                 <div className="grid grid-cols-2 gap-3">
                   <CurrencyField
                     label="Self / Family"
-                    value={s130Self}
-                    onChange={setS130Self}
-                    max={s130.self}
-                    hint={`Max ${fmt(s130.self)}`}
+                    value={s126Self}
+                    onChange={setS126Self}
+                    max={s126.self}
+                    hint={`Max ${fmt(s126.self)}`}
                   />
                   <CurrencyField
                     label="Parents"
-                    value={s130Parents}
-                    onChange={setS130Parents}
-                    max={s130.seniorParents}
-                    hint={`${fmt(s130.parents)} / ${fmt(s130.seniorParents)} senior`}
+                    value={s126Parents}
+                    onChange={setS126Parents}
+                    max={s126.seniorParents}
+                    hint={`${fmt(s126.parents)} / ${fmt(s126.seniorParents)} senior`}
                   />
                 </div>
               </div>
 
               <SliderWithInput
                 label="NPS Contribution"
-                sectionLabel="Section 127"
-                value={s127NPS}
-                onChange={setS127NPS}
-                max={s127Max}
+                sectionLabel={`Section ${rule.sections.npsAdditional}`}
+                value={s124NPS}
+                onChange={setS124NPS}
+                max={s124Max}
               />
 
               <CurrencyField
                 label="Home Loan Interest (Self-Occupied)"
-                value={s71HomeLoan}
-                onChange={setS71HomeLoan}
-                max={s71.selfOccupied}
-                hint={`Section 71 · Max ${fmt(s71.selfOccupied)}`}
+                value={s22HomeLoan}
+                onChange={setS22HomeLoan}
+                max={s22.selfOccupied}
+                hint={`Section ${rule.sections.homeLoanInterest} · Max ${fmt(s22.selfOccupied)}`}
               />
 
               {/* HRA exemption — can be pre-filled from HRA calculator */}

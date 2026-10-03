@@ -1088,7 +1088,7 @@ const BUILT_IN_ENTRIES: DetailedEntry[] = [
         type: "bullets",
         items: [
           "No profit under Business & Profession (PGBP) arises from a slump sale, even if closing stock or other business items are transferred as part of the undertaking",
-          "The assessee must furnish a CA certificate in Form 28 under Section 63, certifying the correct computation of net worth",
+          "The assessee must furnish a CA certificate in Form 28 under Section 77, by the specified date referred to in Section 63, certifying the correct computation of net worth",
         ],
       },
       {
@@ -1136,7 +1136,7 @@ const BUILT_IN_ENTRIES: DetailedEntry[] = [
           { cells: ["Net Worth — depreciable assets", "WDV"] },
           { cells: ["Net Worth — other assets", "Book value"] },
           { cells: ["Negative net worth treatment", "COA = Nil"] },
-          { cells: ["Compliance filing", "Form 28 (CA report) under Section 63"] },
+          { cells: ["Compliance filing", "Form 28 (CA report) under Section 77"] },
         ],
       },
     ],
@@ -1411,7 +1411,7 @@ const BUILT_IN_ENTRIES: DetailedEntry[] = [
           "The plant and machinery deployed in the specified business must be new. Exceptions: (a) Imported plant and machinery need not be new; (b) Up to 20% of the total plant and machinery can consist of old equipment.",
           "The deduction should be evaluated carefully — once deduction under Section 46 is claimed on a capital expenditure, depreciation on that expenditure is not available in any subsequent year. This is a permanent restriction, not a deferral.",
           "For the purposes of this section, 'infrastructure facility' means: (a) Road including toll road, bridge, or a railway system; (b) Water supply, water treatment, irrigation, sanitation, sewage, and waste management; (c) Port, airport, inland waterway, and sea navigational project; (d) Highway project.",
-          "Audit under Section 63 is mandatory in order to claim deduction under Section 46.",
+          "Section 46 does not prescribe a separate audit — the accounts need a tax audit under Section 63 only if the turnover or other conditions of that section are met.",
           "The asset must be used exclusively for specified business purposes for a period of 8 years from the date of its acquisition or installation.",
         ],
       },
@@ -1524,7 +1524,7 @@ const BUILT_IN_ENTRIES: DetailedEntry[] = [
       },
       {
         type: "paragraph",
-        text: "Section 46 can be highly beneficial for eligible businesses because it permits an immediate 100% deduction of qualifying capital expenditure — effectively a full write-off in the year of incurrence or commencement. However, the benefit comes with important restrictions, particularly in relation to depreciation, cash payment limits, asset holding period, and loss set-off rules. For taxpayers engaged in specified businesses, Section 46 may offer significant tax planning opportunities when used judiciously. Before claiming the deduction, it is important to verify whether the business qualifies as a specified business, whether the expenditure falls within the eligible categories, and whether all prescribed statutory conditions have been fulfilled — including mandatory audit under Section 63.",
+        text: "Section 46 can be highly beneficial for eligible businesses because it permits an immediate 100% deduction of qualifying capital expenditure — effectively a full write-off in the year of incurrence or commencement. However, the benefit comes with important restrictions, particularly in relation to depreciation, cash payment limits, asset holding period, and loss set-off rules. For taxpayers engaged in specified businesses, Section 46 may offer significant tax planning opportunities when used judiciously. Before claiming the deduction, it is important to verify whether the business qualifies as a specified business, whether the expenditure falls within the eligible categories, and whether all prescribed statutory conditions have been fulfilled — including the Section 46(3) conditions on how the business is set up.",
       },
     ],
   },
@@ -1602,7 +1602,7 @@ const BUILT_IN_ENTRIES: DetailedEntry[] = [
           "Deduction is allowed in 5 equal instalments in 5 successive tax years, from the tax year in which the business commences or the extension of business / setting up of new business gets completed.",
           "Cost of Project is the amount that has been invested in the fixed assets of the project.",
           "Capital Employed meaning: Capital employed includes share capital, debentures, and long-term borrowings for a new project or extension of an existing project. It does not include reserves and surplus including securities premium. If long-term borrowings have been taken from a foreign country for purchase of plant and machinery, the tenure of such long-term borrowings shall not be less than 7 years.",
-          "Audit is mandatory for the expenses that are being incurred, except for companies and cooperative societies, and the audit report in Form 6 is to be submitted as per Section 63.",
+          "Audit is mandatory for the expenses that are being incurred, except for companies and cooperative societies, and the audit report in Form 6 is to be submitted under Section 44, by the specified date referred to in Section 63.",
           "The assessee has to furnish the details of the preliminary expenses in Form 5, one month prior to the date of Return of Income under Section 263(1).",
           "Deduction under Section 44 will be available to the amalgamated company and the resulting company in case of amalgamation and demerger of companies.",
         ],
@@ -1869,7 +1869,7 @@ const BUILT_IN_ENTRIES: DetailedEntry[] = [
         headers: ["Situation", "Tax Treatment"],
         rows: [
           { cells: ["Asset transferred to another business unit of the same assessee", "The asset is added to the block of assets at nil value as per Section 39(4). No immediate tax consequence."] },
-          { cells: ["Asset sold without being put to business use after scientific research", "Lower of (i) selling price or (ii) deduction claimed under Section 51 is taxable as PGBP income under Section 38(1)(c). Any excess of sale price over original cost is treated as Capital Gain."] },
+          { cells: ["Asset sold without being put to business use after scientific research", "Lower of (i) selling price or (ii) deduction claimed under Section 45 is taxable as PGBP income under Section 38(1)(c). Any excess of sale price over original cost is treated as Capital Gain."] },
         ],
       },
       {
@@ -1878,13 +1878,13 @@ const BUILT_IN_ENTRIES: DetailedEntry[] = [
       },
       {
         type: "paragraph",
-        text: "XYZ Ltd. acquired a scientific research asset on 1 April 2023 for ₹15,00,000 and claimed a deduction of the entire amount under Section 51. The asset was used exclusively for scientific research and was never put to use in regular business. On 30 September 2026, the company sold the asset for ₹18,50,000.",
+        text: "XYZ Ltd. acquired a scientific research asset on 1 April 2023 for ₹15,00,000 and claimed a deduction of the entire amount under Section 45. The asset was used exclusively for scientific research and was never put to use in regular business. On 30 September 2026, the company sold the asset for ₹18,50,000.",
       },
       {
         type: "calculation",
         rows: [
           { label: "Sale Consideration", amount: "₹18,50,000" },
-          { label: "Deduction Claimed under Section 51", amount: "₹15,00,000" },
+          { label: "Deduction Claimed under Section 45", amount: "₹15,00,000" },
           { label: "PGBP Income [Section 38(1)(c)] — Lower of above two", amount: "₹15,00,000", total: true },
           { label: "Capital Gain = Sale Consideration − Original Cost", amount: "" },
           { label: "₹18,50,000 − ₹15,00,000", amount: "₹3,50,000", total: true },
@@ -1950,7 +1950,7 @@ const BUILT_IN_ENTRIES: DetailedEntry[] = [
         rows: [
           { cells: ["38(1)(a)", "Recovery of expenditure / reversal of liability earlier deducted", "Amount recovered or written back"] },
           { cells: ["38(1)(b)", "Sale of SLM-depreciated asset above WDV", "Excess of sale value over WDV, capped at total depreciation claimed"] },
-          { cells: ["38(1)(c)", "Sale of scientific research asset not put to business use", "Lower of sale consideration or deduction claimed under Section 51"] },
+          { cells: ["38(1)(c)", "Sale of scientific research asset not put to business use", "Lower of sale consideration or deduction claimed under Section 45"] },
           { cells: ["38(1)(d)", "Recovery of bad debt earlier allowed as deduction under Section 31", "Amount recovered corresponding to the earlier allowed deduction"] },
           { cells: ["38(1)(e)", "Withdrawal from special reserve (Section 32(e))", "Amount withdrawn"] },
         ],

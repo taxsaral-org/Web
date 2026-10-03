@@ -99,7 +99,7 @@ export default function AdvanceTaxPage({ searchParams }: Props) {
           <span>·</span>
           <span>Income Tax Act 2025</span>
           <span>·</span>
-          <span>Section 425</span>
+          <span>Sections 403–408</span>
         </div>
         <h1 className="text-3xl font-bold tracking-tight">Advance Tax Calculator</h1>
         <p className="mt-2 text-muted-foreground">
@@ -143,7 +143,7 @@ export default function AdvanceTaxPage({ searchParams }: Props) {
         {/* Instalment schedule */}
         <div>
           <h2 className="mb-4 text-lg font-semibold">
-            Tax Year 2026-27 — Instalment Schedule (Section 425)
+            Tax Year 2026-27 — Instalment Schedule (Section 408)
           </h2>
           <div className="overflow-x-auto rounded-lg border">
             <table className="w-full text-sm">
@@ -225,7 +225,7 @@ export default function AdvanceTaxPage({ searchParams }: Props) {
             </div>
             <div className="flex items-start gap-2">
               <span className="font-medium text-slate-500 w-8 shrink-0">NO</span>
-              <span>You are a senior citizen (age 60+) with no business or professional income (Section 425 exemption)</span>
+              <span>You are a senior citizen (age 60+) with no business or professional income (Section 403 exemption)</span>
             </div>
           </div>
         </div>

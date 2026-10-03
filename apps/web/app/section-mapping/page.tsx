@@ -22,7 +22,7 @@ export default function SectionMappingPage() {
             Reference
           </span>
           <span className="text-xs text-muted-foreground">
-            IT Act 1961 → IT Act 2025 · {MAPPINGS.length}+ section mappings
+            IT Act 1961 → IT Act 2025 · all {MAPPINGS.length} sections with official headings
           </span>
         </div>
         <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">
@@ -39,9 +39,13 @@ export default function SectionMappingPage() {
       <div className="mb-6 flex flex-col gap-2 rounded-xl border border-blue-200 bg-blue-50/60 px-5 py-4 sm:flex-row sm:items-start sm:gap-4">
         <Info className="mt-0.5 h-4 w-4 shrink-0 text-blue-600" />
         <div className="flex-1 text-sm text-blue-800 leading-relaxed">
-          <span className="font-semibold">Authoritative source: </span>
-          The official cross-reference utility is maintained by the Income Tax Department of India.
-          Always verify critical section numbers against the official source before filing or advising.
+          <span className="font-semibold">Sources: </span>
+          Section numbers, chapters and headings are taken from the Income-tax Act, 2025 as published
+          in the Gazette of India. The corresponding 1961 sections follow ICAI&rsquo;s tabular mapping of the Act (first
+          edition, September 2025). Both reflect the Act as enacted, so later amendments such as those
+          made by the Finance Act, 2026 are not shown here. The Income Tax Department also maintains an
+          official cross-reference utility — verify critical section numbers there before filing or
+          advising.
           <br />
           <a
             href="https://www.incometaxindia.gov.in/utility-to-check-provisions-of-income-tax-act-1961-vis-a-vis-income-tax-act-2025"
@@ -59,15 +63,15 @@ export default function SectionMappingPage() {
       <div className="mb-6 grid grid-cols-1 gap-3 sm:grid-cols-3">
         <div className="rounded-lg border bg-card px-4 py-3">
           <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">1961 Act Column</p>
-          <p className="text-sm text-muted-foreground leading-relaxed">The old section number from the Income Tax Act 1961 that practitioners are familiar with.</p>
+          <p className="text-sm text-muted-foreground leading-relaxed">The corresponding section(s) of the Income Tax Act 1961. Where one new section consolidates several old ones, all of them are listed.</p>
         </div>
         <div className="rounded-lg border bg-card px-4 py-3">
           <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-1">2025 Act Column</p>
-          <p className="text-sm text-muted-foreground leading-relaxed">The new section number in the Income Tax Act 2025, applicable from Tax Year 2026-27 onwards.</p>
+          <p className="text-sm text-muted-foreground leading-relaxed">The section of the Income Tax Act 2025 (applicable from Tax Year 2026-27) with its official heading and chapter.</p>
         </div>
         <div className="rounded-lg border bg-card px-4 py-3">
           <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">Search & Filter</p>
-          <p className="text-sm text-muted-foreground leading-relaxed">Type any old section (e.g. &ldquo;80C&rdquo;), new section (e.g. &ldquo;123&rdquo;), or keyword (e.g. &ldquo;HRA&rdquo;).</p>
+          <p className="text-sm text-muted-foreground leading-relaxed">Type any old section (e.g. &ldquo;80C&rdquo;), new section (e.g. &ldquo;123&rdquo;), or keyword (e.g. &ldquo;depreciation&rdquo;).</p>
         </div>
       </div>
 
@@ -101,10 +105,11 @@ export default function SectionMappingPage() {
       </div>
 
       <p className="mt-6 text-xs text-muted-foreground text-center leading-relaxed">
-        Mappings compiled from the Income Tax Act 2025 (536 sections) and official cross-reference
-        resources. Some provisions were consolidated, split, or restructured — the mapping reflects
-        the closest equivalent. Verify with the official utility or a Chartered Accountant for
-        legal accuracy.
+        Sections and headings: Income-tax Act, 2025 (No. 30 of 2025), {MAPPINGS.length} sections.
+        Corresponding 1961 provisions: ICAI&rsquo;s tabular mapping. Many provisions were consolidated,
+        split or restructured; where ICAI maps a group of sections together (marked &ldquo;group&rdquo;),
+        the reference applies to the group as a whole. Verify with the official utility or a Chartered
+        Accountant for legal accuracy.
       </p>
     </main>
   );
