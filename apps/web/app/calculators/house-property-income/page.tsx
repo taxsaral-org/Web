@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { AlertTriangle, Globe } from "lucide-react";
+import { Globe } from "lucide-react";
 import { HpClient } from "./_components/hp-client";
 
 const BASE = "https://taxsaral.org";
@@ -85,7 +85,7 @@ export default function HousePropertyPage() {
       {/* Page header */}
       <div className="mb-8">
         <div className="mb-2 flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
-          <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+          <span className="text-foreground">
             Tax Year 2026-27
           </span>
           <span>·</span>
@@ -93,19 +93,16 @@ export default function HousePropertyPage() {
           <span>·</span>
           <span>Sections 20–25</span>
         </div>
-        <h1 className="text-3xl font-bold tracking-tight">House Property Income Calculator</h1>
+        <h1 className="text-3xl font-semibold sm:text-4xl">House Property Income Calculator</h1>
         <p className="mt-2 text-muted-foreground">
           Compute income or loss from house property under the entire Chapter IV-C (Sections 20–25).
           Supports multiple properties, co-ownership, and arrears of rent.
         </p>
-        <div className="mt-4 flex items-start gap-2 rounded-lg border border-amber-300 bg-amber-50 px-4 py-3 text-sm dark:border-amber-700 dark:bg-amber-950">
-          <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-amber-600 dark:text-amber-400" />
-          <p className="text-amber-800 dark:text-amber-200">
-            <span className="font-semibold">For guidance only.</span> Calculations are estimates
+        <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
+            <span className="font-medium text-foreground">For guidance only.</span> Calculations are estimates
             based on published IT Act 2025 rates. Verify with a CA before filing your return.
             Foreign property income is noted but DTAA relief is not computed here.
           </p>
-        </div>
       </div>
 
       {/* Interactive calculator */}
@@ -120,19 +117,19 @@ export default function HousePropertyPage() {
           <p className="mb-6 text-sm text-muted-foreground">
             Chapter IV-C of the Income Tax Act 2025 taxes you on the annual value of property you own — whether you live in it, rent it out, or leave it vacant.
           </p>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+          <dl className="divide-y border-y">
             {KEY_POINTS.map(({ label, desc }) => (
-              <div key={label} className="rounded-lg border bg-card p-4">
-                <p className="mb-1 text-sm font-semibold">{label}</p>
-                <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
+              <div key={label} className="grid gap-1 py-3 sm:grid-cols-[12rem_1fr] sm:gap-6">
+                <dt className="font-medium">{label}</dt>
+                <dd className="text-[15px] text-muted-foreground leading-relaxed">{desc}</dd>
               </div>
             ))}
-          </div>
+          </dl>
         </div>
 
         {/* GAV computation */}
         <div>
-          <h2 className="mb-4 text-lg font-semibold">How Annual Value is Computed (Section 21)</h2>
+          <h2 className="mb-4 text-xl font-semibold">How Annual Value is Computed (Section 21)</h2>
           <div className="rounded-lg border bg-muted/30 p-5 text-sm space-y-2">
             <div className="flex gap-3 items-start">
               <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-xs font-bold text-primary">1</span>
@@ -159,7 +156,7 @@ export default function HousePropertyPage() {
 
         {/* Property types summary */}
         <div>
-          <h2 className="mb-4 text-lg font-semibold">Property Types at a Glance</h2>
+          <h2 className="mb-4 text-xl font-semibold">Property Types at a Glance</h2>
           <div className="overflow-x-auto rounded-lg border">
             <table className="w-full text-sm">
               <thead className="bg-muted/50">
@@ -211,21 +208,21 @@ export default function HousePropertyPage() {
 
         {/* FAQ */}
         <div>
-          <h2 className="mb-4 text-lg font-semibold">Common questions</h2>
-          <div className="space-y-2">
+          <h2 className="mb-4 text-xl font-semibold">Common questions</h2>
+          <div className="divide-y border-y">
             {HP_FAQS.map(({ q, a }) => (
-              <details key={q} className="group rounded-lg border bg-card">
-                <summary className="flex cursor-pointer select-none list-none items-center justify-between px-5 py-4 text-sm font-medium [&::-webkit-details-marker]:hidden">
+              <details key={q} className="group">
+                <summary className="flex cursor-pointer select-none list-none items-baseline justify-between gap-6 py-4 font-medium [&::-webkit-details-marker]:hidden">
                   {q}
-                  <span className="ml-4 shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-45 text-lg leading-none">+</span>
+                  <span aria-hidden className="shrink-0 text-sm font-normal text-muted-foreground group-open:hidden">Show</span><span aria-hidden className="hidden shrink-0 text-sm font-normal text-muted-foreground group-open:inline">Hide</span>
                 </summary>
-                <div className="border-t px-5 py-4 text-sm text-muted-foreground leading-relaxed">{a}</div>
+                <div className="pb-5 pr-10 text-[15px] text-muted-foreground leading-relaxed">{a}</div>
               </details>
             ))}
           </div>
         </div>
 
-        <div className="rounded-lg border bg-muted/30 p-4 text-xs text-muted-foreground">
+        <div className="border-t pt-4 text-xs text-muted-foreground">
           <span className="font-semibold text-foreground">Legal reference: </span>
           Sections 20–25, Income Tax Act 2025 (Chapter IV-C). S.20 — Charging section; S.21 — Annual value computation;
           S.22 — Deductions (30% + interest); S.23 — Arrears; S.24 — Co-ownership; S.25 — Deemed ownership.

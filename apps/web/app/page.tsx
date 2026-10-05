@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import {
-  Calculator, ShieldCheck, Database, Zap, Lock, BookOpen, ArrowRight,
-} from "lucide-react";
 import { CASE_LAWS } from "./case-law/_components/case-law-data";
 import { SECTIONS } from "./section-explainer/_components/sections-data";
 import { DETAILED_ENTRIES } from "./detailed-explainer/_components/detailed-data";
-import { SECTIONS_IN_FORCE } from "./section-mapping/_components/mapping-data";
+import { MAPPINGS, SECTIONS_IN_FORCE, oldRefs } from "./section-mapping/_components/mapping-data";
 
 export const metadata: Metadata = {
   title:
@@ -24,168 +21,115 @@ export const metadata: Metadata = {
   },
 };
 
-const CALCULATORS = [
-  {
-    href: "/calculators/regime-optimizer",
-    title: "Regime Optimizer",
-    description:
-      "Compare default vs optional regime in real-time. Includes Section 156 rebate, marginal relief, and deduction breakeven.",
-    badge: "Section 202",
-    tip: "Most useful calculator to start with",
-    accent: "border-l-4 border-l-blue-400",
-    badgeColor: "bg-blue-50 text-blue-700",
-  },
-  {
-    href: "/calculators/hra",
-    title: "HRA Exemption",
-    description:
-      "Calculate your House Rent Allowance exemption using the three-condition minimum formula for metro and non-metro cities.",
-    badge: "Schedule III",
-    tip: null,
-    accent: "border-l-4 border-l-emerald-400",
-    badgeColor: "bg-emerald-50 text-emerald-700",
-  },
-  {
-    href: "/calculators/house-property-income",
-    title: "House Property Income",
-    description:
-      "Compute income or loss from self-occupied, let-out, and deemed let-out properties. Covers co-ownership, arrears, and regime-specific loss set-off.",
-    badge: "Sections 20–25",
-    tip: null,
-    accent: "border-l-4 border-l-amber-400",
-    badgeColor: "bg-amber-50 text-amber-700",
-  },
-  {
-    href: "/calculators/multiple-employer",
-    title: "Multiple Employer",
-    description:
-      "Switched jobs this year? Aggregate salary and TDS from all employers to find your true tax position and any shortfall.",
-    badge: "Section 392",
-    tip: null,
-    accent: "border-l-4 border-l-violet-400",
-    badgeColor: "bg-violet-50 text-violet-700",
-  },
-  {
-    href: "/calculators/advance-tax",
-    title: "Advance Tax",
-    description:
-      "Calculate quarterly instalment amounts (Q1–Q4) and check if your net liability crosses the ₹10,000 threshold.",
-    badge: "Sections 403–408",
-    tip: null,
-    accent: "border-l-4 border-l-rose-400",
-    badgeColor: "bg-rose-50 text-rose-700",
-  },
-  {
-    href: "/calculators/residential-status",
-    title: "Residential Status",
-    description:
-      "Determine whether you are ROR, RNOR, or Non-Resident under Section 6. Step-by-step wizard covering all exceptions for Indian citizens, PIOs, and foreign nationals.",
-    badge: "Section 6",
-    tip: "Essential for NRIs and returning Indians",
-    accent: "border-l-4 border-l-cyan-500",
-    badgeColor: "bg-cyan-50 text-cyan-700",
-  },
+// Old sections people search for most. The new number is looked up from the
+// mapping data, so this list can never disagree with the mapping page.
+const FAMILIAR: { old: string; label: string }[] = [
+  { old: "80C",    label: "PF, life insurance and similar savings" },
+  { old: "87A",    label: "Rebate for resident individuals" },
+  { old: "115BAC", label: "New tax regime" },
+  { old: "24",     label: "Home loan interest and house property deductions" },
+  { old: "44AD",   label: "Presumptive taxation" },
+  { old: "45",     label: "Capital gains" },
+  { old: "139",    label: "Return of income" },
+  { old: "148",    label: "Notice for escaped income" },
+  { old: "192",    label: "TDS on salary" },
 ];
 
-const TRUST_BADGES = [
-  { icon: Lock,     label: "No login required" },
-  { icon: Database, label: "No data stored" },
-  { icon: Zap,      label: "Instant calculations" },
-  { icon: BookOpen, label: "Cites IT Act 2025 sections" },
-];
+const FAMILIAR_ROWS = FAMILIAR.flatMap(({ old, label }) => {
+  const row = MAPPINGS.find((m) => !m.groupRef && oldRefs(m.old).includes(old));
+  return row ? [{ old, label, now: row.new }] : [];
+});
 
 // Counts are derived from the data at build time rather than hardcoded, so
 // they cannot drift as content is added.
-const HERO_STATS = [
-  { value: `${CASE_LAWS.length}`,        label: "Landmark judgments" },
-  { value: `${SECTIONS.length}`,         label: "Sections explained" },
-  { value: `${SECTIONS_IN_FORCE}`,       label: "1961 → 2025 mappings" },
-  { value: `${DETAILED_ENTRIES.length}`, label: "Detailed explainers" },
+const STATS = [
+  { value: CASE_LAWS.length,        label: "judgments, each mapped to its new section" },
+  { value: SECTIONS_IN_FORCE,       label: "sections traced back to the 1961 Act" },
+  { value: SECTIONS.length,         label: "sections explained in plain language" },
+  { value: DETAILED_ENTRIES.length, label: "worked, in-depth explainers" },
 ];
 
-// The main reference sections of the site. Calculators are listed separately
-// below; these are the parts that make the site worth returning to.
 const RESOURCES = [
   {
     href: "/case-law",
     title: "Case Law",
+    meta: `${CASE_LAWS.length} judgments`,
     description:
-      "Landmark Supreme Court and High Court judgments — facts, arguments, reasoning and principles — each mapped from the 1961 provision to its IT Act 2025 counterpart.",
-    cta: "Browse judgments",
-    accent: "border-l-4 border-l-blue-500",
-    badge: "112 judgments",
-    badgeColor: "bg-blue-50 text-blue-700",
-  },
-  {
-    href: "/section-explainer",
-    title: "Section Explainer",
-    description:
-      "The sections that matter most in practice, explained in plain language — what each one says, what changed from the 1961 Act, and how it applies.",
-    cta: "Explore sections",
-    accent: "border-l-4 border-l-emerald-500",
-    badge: `${SECTIONS.length} sections`,
-    badgeColor: "bg-emerald-50 text-emerald-700",
-  },
-  {
-    href: "/detailed-explainer",
-    title: "Detailed Explainer",
-    description:
-      "Deep-dive analyses of the provisions that cause the most difficulty — slump sale, buyback, deemed dividend, grandfathering — with worked computations.",
-    cta: "Read the analyses",
-    accent: "border-l-4 border-l-violet-500",
-    badge: "Worked examples",
-    badgeColor: "bg-violet-50 text-violet-700",
+      "Supreme Court and High Court judgments set out as facts, arguments, reasoning and principle, with a note on whether the principle survives the new Act.",
   },
   {
     href: "/section-mapping",
     title: "1961 → 2025 Mapping",
+    meta: `${SECTIONS_IN_FORCE} sections`,
     description:
-      "Know the old section but not the new one? Search any provision of the 1961 Act and find its equivalent under the Income Tax Act 2025.",
-    cta: "Find a section",
-    accent: "border-l-4 border-l-amber-500",
-    badge: `${SECTIONS_IN_FORCE} mappings`,
-    badgeColor: "bg-amber-50 text-amber-700",
+      "Every section of the new Act against its 1961 counterpart. Search by either number, or by topic.",
+  },
+  {
+    href: "/section-explainer",
+    title: "Section Explainer",
+    meta: `${SECTIONS.length} sections`,
+    description:
+      "The provisions that come up most in practice: what each says, what changed from 1961, and how it applies.",
+  },
+  {
+    href: "/detailed-explainer",
+    title: "Detailed Explainer",
+    meta: `${DETAILED_ENTRIES.length} analyses`,
+    description:
+      "Slump sale, buyback, deemed dividend, grandfathering and the other provisions that need a worked computation to make sense.",
   },
   {
     href: "/quiz",
-    title: "Practice Quiz",
+    title: "Quiz",
+    meta: "Chapter-wise",
     description:
-      "Drill the new section numbers chapter by chapter, check your grasp of each explainer, or take on harder ICAI case studies. Every answer is explained.",
-    cta: "Test yourself",
-    accent: "border-l-4 border-l-rose-500",
-    badge: "Explained answers",
-    badgeColor: "bg-rose-50 text-rose-700",
+      "Practise the new section numbers chapter by chapter, test yourself on the explainers, or work through ICAI case studies.",
   },
   {
     href: "/guide",
     title: "Beginner's Guide",
+    meta: "Start here",
     description:
-      "New to the Act? Start here — the two regimes, deductions, TDS and advance tax explained from scratch, without assuming prior knowledge.",
-    cta: "Start reading",
-    accent: "border-l-4 border-l-teal-500",
-    badge: "Start here",
-    badgeColor: "bg-teal-50 text-teal-700",
+      "The two regimes, deductions, TDS and advance tax, explained from the beginning.",
   },
 ];
 
-const HOW_IT_WORKS = [
+const CALCULATORS = [
   {
-    step: "1",
-    title: "Enter your income details",
-    body: "Type your salary, deductions, rent paid, or any other input the calculator needs. All fields are optional — you only fill what applies to you.",
-    color: "bg-blue-600",
+    href: "/calculators/regime-optimizer",
+    title: "Regime Optimizer",
+    section: "s. 202",
+    description: "Default or optional regime: which costs you less, including the s. 156 rebate and marginal relief.",
   },
   {
-    step: "2",
-    title: "See a live breakdown",
-    body: "Results update as you type. Every figure is accompanied by the relevant Act section so you know exactly where the number comes from.",
-    color: "bg-emerald-600",
+    href: "/calculators/hra",
+    title: "HRA Exemption",
+    section: "Sch. III",
+    description: "The least of the three limits, for metro and non-metro cities.",
   },
   {
-    step: "3",
-    title: "Know your exact position",
-    body: "Understand your tax liability, the better regime for your situation, and whether you need to pay advance tax — before you talk to your CA.",
-    color: "bg-violet-600",
+    href: "/calculators/house-property-income",
+    title: "House Property Income",
+    section: "ss. 20–25",
+    description: "Self-occupied, let-out and deemed let-out property, co-ownership, arrears and loss set-off.",
+  },
+  {
+    href: "/calculators/multiple-employer",
+    title: "Multiple Employer",
+    section: "s. 392",
+    description: "Changed jobs this year? Combine salary and TDS from each employer and see what is still owed.",
+  },
+  {
+    href: "/calculators/advance-tax",
+    title: "Advance Tax",
+    section: "ss. 403–408",
+    description: "Quarterly instalments, and whether you cross the ₹10,000 threshold at all.",
+  },
+  {
+    href: "/calculators/residential-status",
+    title: "Residential Status",
+    section: "s. 6",
+    description: "Resident, RNOR or non-resident, worked through question by question with the exceptions.",
   },
 ];
 
@@ -238,229 +182,198 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
       />
-      {/* ── Hero ─────────────────────────────────────────────────────── */}
-      <section className="border-b bg-gradient-to-br from-indigo-100/70 via-blue-50/50 to-teal-50/20">
-        <div className="container mx-auto max-w-4xl px-4 py-16 text-center">
-          {/* Status pill */}
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-            Tax Year 2026-27 · Income Tax Act 2025
-          </div>
 
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-            The Income Tax Act 2025,{" "}
-            <span className="text-primary">Made Usable</span>
-          </h1>
-          <p className="mt-4 text-lg text-muted-foreground">
-            Landmark case law mapped to the new sections, a section-by-section
-            guide, in-depth explainers and free calculators.
-            <br className="hidden sm:block" />
-            No ads. No login. No guesswork — every answer cites its section.
-          </p>
+      {/* ── Opening ──────────────────────────────────────────────────── */}
+      <section className="border-b">
+        <div className="container mx-auto grid max-w-5xl gap-12 py-14 md:grid-cols-[1.25fr_1fr] md:py-20">
+          <div>
+            <p className="text-sm text-muted-foreground">
+              Income Tax Act, 2025 &middot; Tax Year 2026-27
+            </p>
+            <h1 className="mt-4 text-4xl font-semibold leading-[1.1] sm:text-5xl">
+              The section numbers you know changed on 1&nbsp;April 2026.
+            </h1>
+            <p className="mt-5 max-w-xl text-[17px] leading-relaxed text-muted-foreground">
+              TaxSaral keeps the old Act and the new one side by side. The
+              judgments you rely on, mapped to their new sections. Plain
+              explanations of the provisions that matter. Calculators for this
+              tax year. Free to use, nothing to sign up for.
+            </p>
 
-          {/* Headline numbers */}
-          <div className="mt-7 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
-            {HERO_STATS.map(({ value, label }) => (
-              <div key={label} className="flex flex-col">
-                <span className="text-2xl font-bold text-primary">{value}</span>
-                <span className="text-xs text-muted-foreground">{label}</span>
+            <form action="/section-mapping" method="get" className="mt-8 max-w-md">
+              <input type="hidden" name="by" value="old" />
+              <label htmlFor="old-section" className="text-sm font-medium">
+                Know the old section? Find the new one.
+              </label>
+              <div className="mt-2 flex">
+                <input
+                  id="old-section"
+                  name="q"
+                  type="text"
+                  inputMode="text"
+                  autoComplete="off"
+                  placeholder="80C, 54, 143(3)…"
+                  className="min-w-0 flex-1 rounded-l-md border border-r-0 border-input bg-card px-3 py-2.5 font-mono text-sm placeholder:font-sans placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30"
+                />
+                <button
+                  type="submit"
+                  className="rounded-r-md bg-primary px-4 text-sm font-medium text-primary-foreground hover:bg-primary/90"
+                >
+                  Look up
+                </button>
               </div>
-            ))}
+            </form>
+            <p className="mt-4 text-sm text-muted-foreground">
+              Or go straight to the{" "}
+              <Link href="/case-law" className="text-foreground underline decoration-border underline-offset-4 hover:decoration-primary">
+                case law
+              </Link>{" "}
+              or the{" "}
+              <Link href="/calculators/regime-optimizer" className="text-foreground underline decoration-border underline-offset-4 hover:decoration-primary">
+                regime calculator
+              </Link>
+              .
+            </p>
           </div>
 
-          {/* Trust badges */}
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
-            {TRUST_BADGES.map(({ icon: Icon, label }) => (
-              <span
-                key={label}
-                className="flex items-center gap-1.5 rounded-full border border-blue-100 bg-white px-3 py-1 text-xs font-medium text-blue-700 shadow-sm"
-              >
-                <Icon className="h-3.5 w-3.5 text-blue-500" />
-                {label}
-              </span>
-            ))}
+          <div className="self-start md:pt-9">
+            <p className="mb-3 text-sm font-medium">Ones you&apos;ll need often</p>
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b text-left text-xs text-muted-foreground">
+                  <th className="pb-2 pr-3 font-normal">1961</th>
+                  <th className="pb-2 pr-3 font-normal">2025</th>
+                  <th className="pb-2 font-normal">What it covers</th>
+                </tr>
+              </thead>
+              <tbody>
+                {FAMILIAR_ROWS.map(({ old, now, label }) => (
+                  <tr key={old} className="border-b border-border/60 last:border-0">
+                    <td className="py-2 pr-3 font-mono text-muted-foreground">{old}</td>
+                    <td className="py-2 pr-3 font-mono font-medium text-primary">
+                      <Link href={`/section-mapping?q=${encodeURIComponent(old)}&by=old`} className="hover:underline underline-offset-4">
+                        {now}
+                      </Link>
+                    </td>
+                    <td className="py-2 text-muted-foreground">{label}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
-
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <Link
-              href="/case-law"
-              className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-md hover:bg-primary/90 hover:shadow-lg transition-all"
-            >
-              <BookOpen className="h-4 w-4" />
-              Browse Case Law
-            </Link>
-            <Link
-              href="/calculators/regime-optimizer"
-              className="inline-flex items-center gap-2 rounded-lg border border-primary/40 bg-white px-6 py-3 text-sm font-semibold text-primary shadow-sm hover:bg-primary/5 transition-all"
-            >
-              <Calculator className="h-4 w-4" />
-              Regime Optimizer
-            </Link>
-          </div>
-          <p className="mt-2.5 text-xs text-muted-foreground">
-            Every judgment mapped to its Income Tax Act 2025 section.
-          </p>
         </div>
       </section>
 
-      {/* ── Explore ──────────────────────────────────────────────────── */}
-      <section className="container mx-auto max-w-4xl px-4 py-12">
-        <h2 className="mb-1 text-xl font-semibold">Explore the Act</h2>
-        <p className="mb-6 text-sm text-muted-foreground">
-          Six ways into the Income Tax Act 2025, depending on what you need —
-          a judgment, a section, a worked example, or the new number for an
-          old provision.
-        </p>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {RESOURCES.map(({ href, title, description, cta, accent, badge, badgeColor }) => (
-            <Link
-              key={href}
-              href={href}
-              className={`group rounded-xl border bg-card p-5 transition-all hover:shadow-md hover:bg-muted/10 ${accent}`}
+      {/* ── Numbers ──────────────────────────────────────────────────── */}
+      <section className="border-b bg-secondary/40">
+        <dl className="container mx-auto grid max-w-5xl grid-cols-2 md:grid-cols-4">
+          {STATS.map(({ value, label }, i) => (
+            <div
+              key={label}
+              className={`py-6 pr-4 ${i % 2 === 1 ? "pl-4 border-l md:pl-6" : ""} ${i === 2 ? "md:border-l md:pl-6" : ""} ${i >= 2 ? "border-t md:border-t-0" : ""}`}
             >
-              <div className="mb-2 flex items-center justify-between gap-2">
-                <h3 className="font-semibold transition-colors group-hover:text-primary">
-                  {title}
-                </h3>
-                <span className={`shrink-0 rounded-full px-2 py-0.5 text-xs font-medium ${badgeColor}`}>
-                  {badge}
-                </span>
-              </div>
-              <p className="text-sm leading-relaxed text-muted-foreground">
-                {description}
-              </p>
-              <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-primary opacity-80 transition-opacity group-hover:opacity-100">
-                {cta}
-                <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
-              </span>
-            </Link>
+              <dt className="sr-only">{label}</dt>
+              <dd className="font-serif text-3xl font-semibold">{value}</dd>
+              <dd className="mt-1 text-sm leading-snug text-muted-foreground">{label}</dd>
+            </div>
           ))}
-        </div>
+        </dl>
+      </section>
+
+      {/* ── Contents ─────────────────────────────────────────────────── */}
+      <section className="container mx-auto max-w-5xl py-14">
+        <h2 className="text-2xl font-semibold">What&apos;s on the site</h2>
+        <ul className="mt-6 grid gap-x-12 md:grid-cols-2">
+          {RESOURCES.map(({ href, title, meta, description }) => (
+            <li key={href} className="border-t">
+              <Link href={href} className="group block py-5">
+                <div className="flex items-baseline justify-between gap-4">
+                  <h3 className="text-lg font-semibold group-hover:text-primary group-hover:underline underline-offset-4 decoration-1">
+                    {title}
+                  </h3>
+                  <span className="shrink-0 text-xs text-muted-foreground">{meta}</span>
+                </div>
+                <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{description}</p>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </section>
 
       {/* ── Calculators ──────────────────────────────────────────────── */}
-      <section className="container mx-auto max-w-4xl px-4 py-12">
-        <h2 className="mb-1 text-xl font-semibold">Free Calculators</h2>
-        <p className="mb-6 text-sm text-muted-foreground">
-          Work out the number, not just the rule. Each calculator covers one
-          aspect of your income tax and cites the section behind every figure.
-          Use them independently or link them together.
-        </p>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {CALCULATORS.map(({ href, title, description, badge, tip, accent, badgeColor }) => (
-            <Link
-              key={href}
-              href={href}
-              className={`group relative rounded-xl border bg-card p-6 transition-all hover:shadow-md hover:bg-muted/20 ${accent}`}
-            >
-              {tip && (
-                <span className="absolute right-4 top-4 rounded-full bg-emerald-50 px-2 py-0.5 text-xs font-medium text-emerald-700 border border-emerald-200">
-                  {tip}
-                </span>
-              )}
-              <div className="mb-3 flex items-start justify-between gap-3 pr-2">
-                <h3 className="text-base font-semibold group-hover:text-primary transition-colors">{title}</h3>
-                <span className={`shrink-0 rounded-full px-2 py-0.5 text-xs font-mono font-medium ${badgeColor}`}>
-                  {badge}
-                </span>
-              </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
-              <p className="mt-4 text-xs font-semibold text-primary opacity-0 transition-opacity group-hover:opacity-100">
-                Open calculator →
-              </p>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* ── How it works ─────────────────────────────────────────────── */}
-      <section className="border-t bg-gradient-to-b from-blue-50/30 to-background">
-        <div className="container mx-auto max-w-4xl px-4 py-12">
-          <h2 className="mb-1 text-xl font-semibold">How it works</h2>
-          <p className="mb-8 text-sm text-muted-foreground">
-            TaxSaral is designed to help you understand your tax position before you sit down with your CA.
-          </p>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
-            {HOW_IT_WORKS.map(({ step, title, body, color }) => (
-              <div key={step} className="flex gap-4">
-                <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full ${color} text-sm font-bold text-white shadow-sm`}>
-                  {step}
-                </div>
-                <div>
-                  <p className="font-semibold text-sm">{title}</p>
-                  <p className="mt-1 text-sm text-muted-foreground leading-relaxed">{body}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Why trust us ─────────────────────────────────────────────── */}
       <section className="border-t">
-        <div className="container mx-auto max-w-4xl px-4 py-12">
-          <h2 className="mb-1 text-xl font-semibold">Why TaxSaral?</h2>
-          <p className="mb-8 text-sm text-muted-foreground">
-            Most tax calculators in India still use the 1961 Act. TaxSaral was built from scratch for 2025.
-          </p>
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
-            <div className="rounded-xl border border-t-4 border-t-emerald-400 bg-card p-5 hover:shadow-sm transition-all">
-              <div className="mb-3 inline-flex items-center justify-center h-10 w-10 rounded-xl bg-emerald-100 border border-emerald-200">
-                <ShieldCheck className="h-5 w-5 text-emerald-600" />
-              </div>
-              <p className="font-semibold text-sm">Built on the actual law</p>
-              <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">
-                Every rate, slab, deduction limit, and section number is sourced directly from the Income Tax Act 2025 — not from a summary or circular. Section numbers are displayed on-screen so you can verify.
-              </p>
-            </div>
-            <div className="rounded-xl border border-t-4 border-t-blue-400 bg-card p-5 hover:shadow-sm transition-all">
-              <div className="mb-3 inline-flex items-center justify-center h-10 w-10 rounded-xl bg-blue-100 border border-blue-200">
-                <Lock className="h-5 w-5 text-blue-600" />
-              </div>
-              <p className="font-semibold text-sm">Completely private</p>
-              <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">
-                Your income details never leave your device. Calculations run entirely in your browser with zero server calls for your data. No account, no email, no tracking of your inputs.
-              </p>
-            </div>
-            <div className="rounded-xl border border-t-4 border-t-violet-400 bg-card p-5 hover:shadow-sm transition-all">
-              <div className="mb-3 inline-flex items-center justify-center h-10 w-10 rounded-xl bg-violet-100 border border-violet-200">
-                <Zap className="h-5 w-5 text-violet-600" />
-              </div>
-              <p className="font-semibold text-sm">Live, linked calculators</p>
-              <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">
-                Results from the HRA calculator feed directly into the Regime Optimizer. House property income/losses carry across too. One set of inputs, complete picture.
-              </p>
-            </div>
+        <div className="container mx-auto max-w-5xl py-14">
+          <div className="max-w-2xl">
+            <h2 className="text-2xl font-semibold">Calculators</h2>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              Each one works out a single part of your tax and shows the section
+              behind every figure. Results from the HRA and house property
+              calculators carry over into the regime comparison.
+            </p>
+          </div>
+          <ul className="mt-6 divide-y border-y">
+            {CALCULATORS.map(({ href, title, section, description }) => (
+              <li key={href}>
+                <Link
+                  href={href}
+                  className="group grid gap-1 py-4 sm:grid-cols-[13rem_6.5rem_1fr] sm:items-baseline sm:gap-4"
+                >
+                  <span className="font-medium group-hover:text-primary group-hover:underline underline-offset-4">
+                    {title}
+                  </span>
+                  <span className="font-mono text-xs text-muted-foreground">{section}</span>
+                  <span className="text-sm text-muted-foreground">{description}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* ── How it's made ────────────────────────────────────────────── */}
+      <section className="border-t bg-secondary/40">
+        <div className="container mx-auto grid max-w-5xl gap-10 py-14 md:grid-cols-[1fr_2fr]">
+          <h2 className="text-2xl font-semibold">How the site is put together</h2>
+          <div className="space-y-4 text-[15px] leading-relaxed text-muted-foreground">
+            <p>
+              Rates, slabs, limits and section numbers come from the text of the
+              Income Tax Act, 2025 itself, not from summaries or articles. The
+              section is printed next to every figure, so you can check it
+              yourself.
+            </p>
+            <p>
+              The calculators run entirely in your browser. What you type is
+              never sent anywhere or stored, and there is no account to create.
+            </p>
+            <p>
+              It is a reference and a way to understand your own position. It
+              is not a substitute for a Chartered Accountant who knows your full
+              circumstances, especially before you file.
+            </p>
           </div>
         </div>
       </section>
 
       {/* ── FAQ ──────────────────────────────────────────────────────── */}
-      <section className="border-t bg-muted/30">
-        <div className="container mx-auto max-w-4xl px-4 py-12">
-          <h2 className="mb-8 text-xl font-semibold">Frequently asked questions</h2>
-          <div className="space-y-2">
+      <section className="border-t">
+        <div className="container mx-auto max-w-3xl py-14">
+          <h2 className="text-2xl font-semibold">Questions people ask</h2>
+          <div className="mt-6 divide-y border-y">
             {FAQS.map(({ q, a }) => (
-              <details key={q} className="group rounded-xl border bg-card hover:border-primary/20 transition-colors">
-                <summary className="flex cursor-pointer select-none list-none items-center justify-between px-5 py-4 font-medium text-sm [&::-webkit-details-marker]:hidden">
+              <details key={q} className="group">
+                <summary className="flex cursor-pointer select-none list-none items-baseline justify-between gap-6 py-4 font-medium [&::-webkit-details-marker]:hidden">
                   {q}
-                  <span className="ml-4 shrink-0 text-primary/60 transition-transform duration-200 group-open:rotate-45 text-xl leading-none font-light">
-                    +
-                  </span>
+                  <span aria-hidden className="shrink-0 text-sm text-muted-foreground group-open:hidden">Show</span>
+                  <span aria-hidden className="hidden shrink-0 text-sm text-muted-foreground group-open:inline">Hide</span>
                 </summary>
-                <div className="border-t border-primary/10 px-5 py-4 text-sm text-muted-foreground leading-relaxed">
-                  {a}
-                </div>
+                <p className="pb-5 pr-10 text-[15px] leading-relaxed text-muted-foreground">{a}</p>
               </details>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ── Bottom disclaimer ─────────────────────────────────────────── */}
-      <section className="border-t">
-        <div className="container mx-auto max-w-4xl px-4 py-6 text-center text-xs text-muted-foreground">
-          For guidance only — verify with a CA before filing. All calculators use Income Tax Act 2025 rates only (Tax Year 2026-27 / AY 2027-28).
+          <p className="mt-10 text-sm text-muted-foreground">
+            For guidance only. Verify with a CA before filing. All calculators use
+            Income Tax Act 2025 rates for Tax Year 2026-27 (AY 2027-28).
+          </p>
         </div>
       </section>
     </main>

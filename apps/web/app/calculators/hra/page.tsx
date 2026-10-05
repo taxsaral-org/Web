@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { AlertTriangle } from "lucide-react";
 import { HraClient } from "./_components/hra-client";
 
 const BASE = "https://taxsaral.org";
@@ -85,7 +84,7 @@ export default function HraPage() {
       {/* Page header */}
       <div className="mb-8">
         <div className="mb-2 flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
-          <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+          <span className="text-foreground">
             Tax Year 2026-27
           </span>
           <span>·</span>
@@ -93,17 +92,14 @@ export default function HraPage() {
           <span>·</span>
           <span>Schedule III</span>
         </div>
-        <h1 className="text-3xl font-bold tracking-tight">HRA Exemption Calculator</h1>
+        <h1 className="text-3xl font-semibold sm:text-4xl">HRA Exemption Calculator</h1>
         <p className="mt-2 text-muted-foreground">
           Find how much of your House Rent Allowance is exempt from tax under the optional regime.
         </p>
-        <div className="mt-4 flex items-start gap-2 rounded-lg border border-amber-300 bg-amber-50 px-4 py-3 text-sm dark:border-amber-700 dark:bg-amber-950">
-          <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-amber-600 dark:text-amber-400" />
-          <p className="text-amber-800 dark:text-amber-200">
-            <span className="font-semibold">For guidance only.</span> HRA exemption applies only
+        <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
+            <span className="font-medium text-foreground">For guidance only.</span> HRA exemption applies only
             under the optional (old) regime. Verify with a CA before filing.
           </p>
-        </div>
       </div>
 
       {/* Interactive calculator */}
@@ -118,19 +114,19 @@ export default function HraPage() {
           <p className="mb-6 text-sm text-muted-foreground">
             HRA is part of your salary package meant to cover rent costs. The law provides a partial tax exemption — but only under the optional regime and only if you actually pay rent.
           </p>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+          <dl className="divide-y border-y">
             {KEY_POINTS.map(({ label, desc }) => (
-              <div key={label} className="rounded-lg border bg-card p-4">
-                <p className="mb-1 text-sm font-semibold">{label}</p>
-                <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
+              <div key={label} className="grid gap-1 py-3 sm:grid-cols-[12rem_1fr] sm:gap-6">
+                <dt className="font-medium">{label}</dt>
+                <dd className="text-[15px] text-muted-foreground leading-relaxed">{desc}</dd>
               </div>
             ))}
-          </div>
+          </dl>
         </div>
 
         {/* Formula breakdown */}
         <div>
-          <h2 className="mb-4 text-lg font-semibold">The HRA Exemption Formula</h2>
+          <h2 className="mb-4 text-xl font-semibold">The HRA Exemption Formula</h2>
           <div className="rounded-lg border bg-muted/30 p-5 space-y-3 text-sm">
             <p className="font-medium">Exempt HRA = Minimum of:</p>
             <ol className="ml-4 space-y-2 list-decimal marker:text-muted-foreground">
@@ -158,7 +154,7 @@ export default function HraPage() {
 
         {/* Example */}
         <div>
-          <h2 className="mb-4 text-lg font-semibold">Worked example (Bangalore)</h2>
+          <h2 className="mb-4 text-xl font-semibold">Worked example (Bangalore)</h2>
           <div className="overflow-x-auto rounded-lg border">
             <table className="w-full text-sm">
               <thead className="bg-muted/50">
@@ -189,21 +185,21 @@ export default function HraPage() {
 
         {/* FAQ */}
         <div>
-          <h2 className="mb-4 text-lg font-semibold">Common questions</h2>
-          <div className="space-y-2">
+          <h2 className="mb-4 text-xl font-semibold">Common questions</h2>
+          <div className="divide-y border-y">
             {HRA_FAQS.map(({ q, a }) => (
-              <details key={q} className="group rounded-lg border bg-card">
-                <summary className="flex cursor-pointer select-none list-none items-center justify-between px-5 py-4 text-sm font-medium [&::-webkit-details-marker]:hidden">
+              <details key={q} className="group">
+                <summary className="flex cursor-pointer select-none list-none items-baseline justify-between gap-6 py-4 font-medium [&::-webkit-details-marker]:hidden">
                   {q}
-                  <span className="ml-4 shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-45 text-lg leading-none">+</span>
+                  <span aria-hidden className="shrink-0 text-sm font-normal text-muted-foreground group-open:hidden">Show</span><span aria-hidden className="hidden shrink-0 text-sm font-normal text-muted-foreground group-open:inline">Hide</span>
                 </summary>
-                <div className="border-t px-5 py-4 text-sm text-muted-foreground leading-relaxed">{a}</div>
+                <div className="pb-5 pr-10 text-[15px] text-muted-foreground leading-relaxed">{a}</div>
               </details>
             ))}
           </div>
         </div>
 
-        <div className="rounded-lg border bg-muted/30 p-4 text-xs text-muted-foreground">
+        <div className="border-t pt-4 text-xs text-muted-foreground">
           <span className="font-semibold text-foreground">Legal reference: </span>
           Schedule III, Rule 3 — HRA exemption formula · Income Tax Act 2025, Tax Year 2026-27.
           Metro city classification follows Central Government notifications as adopted by the 2025 Act.

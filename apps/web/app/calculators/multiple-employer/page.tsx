@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { AlertTriangle } from "lucide-react";
 import { MultipleEmployerClient } from "./_components/me-client";
 
 const BASE = "https://taxsaral.org";
@@ -85,7 +84,7 @@ export default function MultipleEmployerPage() {
       {/* Page header */}
       <div className="mb-8">
         <div className="mb-2 flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
-          <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+          <span className="text-foreground">
             Tax Year 2026-27
           </span>
           <span>·</span>
@@ -93,19 +92,16 @@ export default function MultipleEmployerPage() {
           <span>·</span>
           <span>Section 392 (TDS)</span>
         </div>
-        <h1 className="text-3xl font-bold tracking-tight">Multiple Employer Calculator</h1>
+        <h1 className="text-3xl font-semibold sm:text-4xl">Multiple Employer Calculator</h1>
         <p className="mt-2 text-muted-foreground">
           Switched jobs this year? Aggregate your salary income and TDS from all employers to
           find your net tax position.
         </p>
-        <div className="mt-4 flex items-start gap-2 rounded-lg border border-amber-300 bg-amber-50 px-4 py-3 text-sm dark:border-amber-700 dark:bg-amber-950">
-          <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-amber-600 dark:text-amber-400" />
-          <p className="text-amber-800 dark:text-amber-200">
-            <span className="font-semibold">For guidance only.</span> Computed under the default
+        <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
+            <span className="font-medium text-foreground">For guidance only.</span> Computed under the default
             regime with standard deduction only. Include Form 130 (earlier Form 16) from each employer. Verify with a
             CA before filing.
           </p>
-        </div>
       </div>
 
       {/* Interactive calculator */}
@@ -120,19 +116,19 @@ export default function MultipleEmployerPage() {
           <p className="mb-6 text-sm text-muted-foreground">
             Job changes within a financial year are increasingly common. The TDS system was not designed for multiple employers — each employer acts independently, which almost always results in under-deduction.
           </p>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+          <dl className="divide-y border-y">
             {KEY_POINTS.map(({ label, desc }) => (
-              <div key={label} className="rounded-lg border bg-card p-4">
-                <p className="mb-1 text-sm font-semibold">{label}</p>
-                <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
+              <div key={label} className="grid gap-1 py-3 sm:grid-cols-[12rem_1fr] sm:gap-6">
+                <dt className="font-medium">{label}</dt>
+                <dd className="text-[15px] text-muted-foreground leading-relaxed">{desc}</dd>
               </div>
             ))}
-          </div>
+          </dl>
         </div>
 
         {/* What happens */}
         <div>
-          <h2 className="mb-4 text-lg font-semibold">What Actually Happens</h2>
+          <h2 className="mb-4 text-xl font-semibold">What Actually Happens</h2>
           <div className="space-y-3">
             {[
               {
@@ -178,21 +174,21 @@ export default function MultipleEmployerPage() {
 
         {/* FAQ */}
         <div>
-          <h2 className="mb-4 text-lg font-semibold">Common questions</h2>
-          <div className="space-y-2">
+          <h2 className="mb-4 text-xl font-semibold">Common questions</h2>
+          <div className="divide-y border-y">
             {ME_FAQS.map(({ q, a }) => (
-              <details key={q} className="group rounded-lg border bg-card">
-                <summary className="flex cursor-pointer select-none list-none items-center justify-between px-5 py-4 text-sm font-medium [&::-webkit-details-marker]:hidden">
+              <details key={q} className="group">
+                <summary className="flex cursor-pointer select-none list-none items-baseline justify-between gap-6 py-4 font-medium [&::-webkit-details-marker]:hidden">
                   {q}
-                  <span className="ml-4 shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-45 text-lg leading-none">+</span>
+                  <span aria-hidden className="shrink-0 text-sm font-normal text-muted-foreground group-open:hidden">Show</span><span aria-hidden className="hidden shrink-0 text-sm font-normal text-muted-foreground group-open:inline">Hide</span>
                 </summary>
-                <div className="border-t px-5 py-4 text-sm text-muted-foreground leading-relaxed">{a}</div>
+                <div className="pb-5 pr-10 text-[15px] text-muted-foreground leading-relaxed">{a}</div>
               </details>
             ))}
           </div>
         </div>
 
-        <div className="rounded-lg border bg-muted/30 p-4 text-xs text-muted-foreground">
+        <div className="border-t pt-4 text-xs text-muted-foreground">
           <span className="font-semibold text-foreground">Legal reference: </span>
           Section 392 (TDS on salary) · Section 392(4) (Form 122, earlier 12B — salary from previous employers) · Section 424 (interest for default in advance tax) · Section 425 (interest for deferment of instalments) — Income Tax Act 2025, Tax Year 2026-27.
         </div>

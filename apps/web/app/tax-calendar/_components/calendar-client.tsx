@@ -1,15 +1,23 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Calendar, AlertCircle, Clock, CheckCircle2 } from "lucide-react";
+import { Calendar, Clock } from "lucide-react";
 import {
   EVENTS,
-  CATEGORY_COLORS,
   CATEGORY_ACCENT,
   type CalendarEvent,
   type EventCategory,
 } from "./calendar-data";
 import { cn } from "@/lib/utils";
+
+// Same colours as the legend in the page header.
+const CATEGORY_DOT: Record<EventCategory, string> = {
+  "Advance Tax": "bg-blue-500",
+  "TDS / TCS": "bg-amber-500",
+  "ITR Filing": "bg-green-500",
+  "Tax Audit": "bg-purple-500",
+  "Other": "bg-gray-400",
+};
 
 const CATEGORIES: EventCategory[] = [
   "Advance Tax",
@@ -94,13 +102,10 @@ export function CalendarClient() {
     <div>
       {/* Upcoming alert */}
       {upcomingCount > 0 && today && (
-        <div className="mb-6 flex items-start gap-3 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3">
-          <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-amber-600" />
-          <p className="text-sm text-amber-800">
-            <span className="font-semibold">{upcomingCount} deadline{upcomingCount !== 1 ? "s" : ""}</span>{" "}
-            due in the next 30 days. Check dates marked in orange.
-          </p>
-        </div>
+        <p className="mb-6 border-l-2 border-amber-500 pl-4 text-[15px] text-foreground/85">
+          <span className="font-semibold">{upcomingCount} deadline{upcomingCount !== 1 ? "s" : ""}</span>{" "}
+          due in the next 30 days. Each one shows how many days are left.
+        </p>
       )}
 
       {/* Controls */}
@@ -179,16 +184,14 @@ export function CalendarClient() {
               <div className="mb-4 flex items-center gap-3">
                 <h2
                   className={cn(
-                    "text-base font-semibold",
+                    "text-lg font-semibold",
                     isCurrent ? "text-primary" : "text-foreground"
                   )}
                 >
                   {formatMonth(key)}
                 </h2>
                 {isCurrent && (
-                  <span className="rounded-full bg-primary/10 px-2 py-0.5 text-xs font-semibold text-primary">
-                    This month
-                  </span>
+                  <span className="text-xs font-medium text-primary">This month</span>
                 )}
                 <div className="h-px flex-1 bg-border" />
                 <span className="text-xs text-muted-foreground">
@@ -208,8 +211,8 @@ export function CalendarClient() {
                     <div
                       key={event.id}
                       className={cn(
-                        "flex gap-4 rounded-xl border bg-card p-4 transition-colors",
-                        "hover:border-primary/20 hover:bg-muted/20",
+                        "flex gap-4 rounded-md border bg-card p-4 transition-colors",
+                        "hover:border-foreground/20",
                         event.important && !past && "border-l-4",
                         event.important && !past && CATEGORY_ACCENT[event.category],
                         urgent && "border-red-200 bg-red-50/40"
@@ -219,7 +222,7 @@ export function CalendarClient() {
                       <div className="w-9 shrink-0 text-center">
                         <div
                           className={cn(
-                            "text-2xl font-bold leading-none tabular-nums",
+                            "font-serif text-2xl font-semibold leading-none tabular-nums",
                             urgent
                               ? "text-red-600"
                               : past
@@ -246,51 +249,45 @@ export function CalendarClient() {
                       <div className="min-w-0 flex-1">
                         <div className="mb-1 flex flex-wrap items-center gap-1.5">
                           {/* Category */}
-                          <span
-                            className={cn(
-                              "rounded-full border px-2 py-0.5 text-xs font-medium",
-                              CATEGORY_COLORS[event.category]
-                            )}
-                          >
+                          <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                            <span className={cn("h-2 w-2 rounded-full", CATEGORY_DOT[event.category])} />
                             {event.category}
                           </span>
 
                           {/* Section */}
                           {event.section && (
-                            <span className="rounded bg-muted px-1.5 py-0.5 font-mono text-xs text-muted-foreground">
-                              {event.section}
+                            <span className="font-mono text-xs text-muted-foreground">
+                              · {event.section}
                             </span>
                           )}
 
                           {/* Status badge */}
                           {urgent && diff !== null && (
-                            <span className="flex items-center gap-1 rounded-full bg-red-100 px-2 py-0.5 text-xs font-semibold text-red-700">
-                              <AlertCircle className="h-3 w-3" />
-                              {diff === 0 ? "Due today" : `${diff} day${diff !== 1 ? "s" : ""} left`}
+                            <span className="text-xs font-semibold text-red-700 dark:text-red-400">
+                              · {diff === 0 ? "Due today" : `${diff} day${diff !== 1 ? "s" : ""} left`}
                             </span>
                           )}
                           {soon && diff !== null && (
-                            <span className="rounded-full bg-amber-50 px-2 py-0.5 text-xs font-semibold text-amber-700">
-                              {diff} days left
+                            <span className="text-xs font-medium text-amber-700 dark:text-amber-400">
+                              · {diff} days left
                             </span>
                           )}
                           {past && diff !== null && (
-                            <span className="flex items-center gap-1 text-xs text-muted-foreground">
-                              <CheckCircle2 className="h-3 w-3" />
-                              {Math.abs(diff)} days ago
+                            <span className="text-xs text-muted-foreground">
+                              · {Math.abs(diff)} days ago
                             </span>
                           )}
                         </div>
 
                         <p
                           className={cn(
-                            "text-sm font-semibold leading-snug",
+                            "text-[15px] font-semibold leading-snug",
                             past ? "text-muted-foreground" : "text-foreground"
                           )}
                         >
                           {event.title}
                         </p>
-                        <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">
+                        <p className="mt-0.5 text-sm leading-relaxed text-muted-foreground">
                           {event.description}
                         </p>
                       </div>
@@ -304,7 +301,7 @@ export function CalendarClient() {
       </div>
 
       {/* Footer note */}
-      <div className="mt-10 rounded-xl border bg-muted/20 px-5 py-4 text-xs text-muted-foreground leading-relaxed">
+      <div className="mt-10 rounded-md border bg-muted/20 px-5 py-4 text-xs text-muted-foreground leading-relaxed">
         <span className="font-medium text-foreground">Note: </span>
         Dates are based on IT Act 2025 and standard CBDT practice. CBDT may extend certain deadlines via circular
         — always verify on the official income tax portal before relying on a deadline. Consult a CA for

@@ -22,7 +22,7 @@ export function AuthorCredit({ author, authorLinkedIn, authorNote }: Props) {
     `Thank you to ${firstName} for contributing this analysis to TaxSaral and helping make the Income Tax Act 2025 easier to navigate.`;
 
   return (
-    <div className="mt-10 rounded-2xl border bg-gradient-to-br from-muted/40 to-muted/10 px-6 py-5">
+    <div className="mt-10 border-t pt-6">
       <div className="flex items-start gap-4">
         <div
           aria-hidden
@@ -32,10 +32,10 @@ export function AuthorCredit({ author, authorLinkedIn, authorNote }: Props) {
         </div>
 
         <div className="min-w-0 flex-1">
-          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+          <p className="text-sm text-muted-foreground">
             Written by
           </p>
-          <p className="mt-0.5 text-base font-semibold leading-snug text-foreground">
+          <p className="mt-0.5 font-serif text-lg font-semibold leading-snug text-foreground">
             {author}
           </p>
 

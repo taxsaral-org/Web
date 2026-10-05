@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { AlertTriangle } from "lucide-react";
 import { ResidentialStatusClient } from "./_components/rs-client";
 
 const BASE = "https://taxsaral.org";
@@ -75,7 +74,7 @@ export default function ResidentialStatusPage() {
       {/* Page header */}
       <div className="mb-8">
         <div className="mb-2 flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
-          <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+          <span className="text-foreground">
             Tax Year 2026-27
           </span>
           <span>·</span>
@@ -83,16 +82,13 @@ export default function ResidentialStatusPage() {
           <span>·</span>
           <span>Section 6(1)–6(14)</span>
         </div>
-        <h1 className="text-3xl font-bold tracking-tight">Residential Status Calculator</h1>
+        <h1 className="text-3xl font-semibold sm:text-4xl">Residential Status Calculator</h1>
         <p className="mt-2 text-muted-foreground">
           Determine whether you are Resident and Ordinarily Resident (ROR), Resident but Not Ordinarily Resident (RNOR), or Non-Resident under the Income Tax Act 2025. Answer one question at a time.
         </p>
-        <div className="mt-4 flex items-start gap-2 rounded-lg border border-amber-300 bg-amber-50 px-4 py-3 text-sm dark:border-amber-700 dark:bg-amber-950">
-          <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-amber-600 dark:text-amber-400" />
-          <p className="text-amber-800 dark:text-amber-200">
-            <span className="font-semibold">For individuals only.</span> HUF, companies, and other entities (Sections 6(9)–6(11)) are out of scope. Verify with a CA before filing, especially for complex cross-border situations.
+        <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
+            <span className="font-medium text-foreground">For individuals only.</span> HUF, companies, and other entities (Sections 6(9)–6(11)) are out of scope. Verify with a CA before filing, especially for complex cross-border situations.
           </p>
-        </div>
       </div>
 
       {/* Interactive wizard */}
@@ -108,19 +104,19 @@ export default function ResidentialStatusPage() {
             Section 6 of the Income Tax Act 2025 is identical in structure to Section 6 of the 1961 Act — the section numbers referenced in legal documents, court orders, and professional advice remain Section 6.
             The critical concept is that your residential status determines the <em>scope</em> of what India can tax, not just the rate.
           </p>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+          <dl className="divide-y border-y">
             {KEY_POINTS.map(({ label, desc }) => (
-              <div key={label} className="rounded-lg border bg-card p-4">
-                <p className="mb-1 text-sm font-semibold">{label}</p>
-                <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
+              <div key={label} className="grid gap-1 py-3 sm:grid-cols-[12rem_1fr] sm:gap-6">
+                <dt className="font-medium">{label}</dt>
+                <dd className="text-[15px] text-muted-foreground leading-relaxed">{desc}</dd>
               </div>
             ))}
-          </div>
+          </dl>
         </div>
 
         {/* Status comparison table */}
         <div>
-          <h2 className="mb-4 text-lg font-semibold">What income is taxable under each status?</h2>
+          <h2 className="mb-4 text-xl font-semibold">What income is taxable under each status?</h2>
           <div className="overflow-x-auto rounded-lg border">
             <table className="w-full text-sm">
               <thead className="bg-muted/50">
@@ -159,7 +155,7 @@ export default function ResidentialStatusPage() {
 
         {/* Determination flowchart in text */}
         <div>
-          <h2 className="mb-4 text-lg font-semibold">How status is determined — computation order (Section 6)</h2>
+          <h2 className="mb-4 text-xl font-semibold">How status is determined — computation order (Section 6)</h2>
           <div className="space-y-3">
             {[
               {
@@ -198,21 +194,21 @@ export default function ResidentialStatusPage() {
 
         {/* FAQ */}
         <div>
-          <h2 className="mb-4 text-lg font-semibold">Common questions</h2>
-          <div className="space-y-2">
+          <h2 className="mb-4 text-xl font-semibold">Common questions</h2>
+          <div className="divide-y border-y">
             {FAQS.map(({ q, a }) => (
-              <details key={q} className="group rounded-lg border bg-card">
-                <summary className="flex cursor-pointer select-none list-none items-center justify-between px-5 py-4 text-sm font-medium [&::-webkit-details-marker]:hidden">
+              <details key={q} className="group">
+                <summary className="flex cursor-pointer select-none list-none items-baseline justify-between gap-6 py-4 font-medium [&::-webkit-details-marker]:hidden">
                   {q}
-                  <span className="ml-4 shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-45 text-lg leading-none">+</span>
+                  <span aria-hidden className="shrink-0 text-sm font-normal text-muted-foreground group-open:hidden">Show</span><span aria-hidden className="hidden shrink-0 text-sm font-normal text-muted-foreground group-open:inline">Hide</span>
                 </summary>
-                <div className="border-t px-5 py-4 text-sm text-muted-foreground leading-relaxed">{a}</div>
+                <div className="pb-5 pr-10 text-[15px] text-muted-foreground leading-relaxed">{a}</div>
               </details>
             ))}
           </div>
         </div>
 
-        <div className="rounded-lg border bg-muted/30 p-4 text-xs text-muted-foreground">
+        <div className="border-t pt-4 text-xs text-muted-foreground">
           <span className="font-semibold text-foreground">Legal reference: </span>
           Section 6 (Residential Status), Income Tax Act 2025 (equivalent to Section 6, IT Act 1961).
           Sub-sections 6(1)–6(14) verified verbatim against official gazette text.

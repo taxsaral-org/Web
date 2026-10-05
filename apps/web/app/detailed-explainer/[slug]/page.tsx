@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, Info, AlertTriangle, Lightbulb, Brain, ChevronRight } from "lucide-react";
 import { DETAILED_ENTRIES } from "../_components/detailed-data";
 import type { ContentBlock } from "../_components/detailed-data";
 import { getDiagram } from "../_components/diagrams";
@@ -11,18 +10,6 @@ import { ReadingProgress } from "../_components/reading-progress";
 import { AuthorCredit } from "../_components/author-credit";
 import { QUIZ_CHAPTERS } from "@/app/quiz/_components/quiz-data";
 import { cn } from "@/lib/utils";
-
-const CATEGORY_COLORS: Record<string, string> = {
-  "Capital Gains":          "bg-yellow-100 text-yellow-800",
-  "Corporate Tax":          "bg-violet-100 text-violet-800",
-  "TDS & TCS":              "bg-pink-100 text-pink-800",
-  "Business & Profession":  "bg-amber-100 text-amber-800",
-  "Deductions":             "bg-green-100 text-green-800",
-  "International Tax":      "bg-sky-100 text-sky-800",
-  "Special Income":         "bg-cyan-100 text-cyan-800",
-  "Charitable Trusts & NPOs": "bg-teal-100 text-teal-800",
-  "Agricultural Income":      "bg-lime-100 text-lime-800",
-};
 
 export function generateStaticParams() {
   return DETAILED_ENTRIES.map((e) => ({ slug: e.slug }));
@@ -69,53 +56,42 @@ function RenderBlock({ block }: { block: ContentBlock }) {
 
     case "heading":
       return (
-        <div className="mt-8 mb-3 first:mt-0">
-          <h2 className="text-lg font-semibold text-foreground">{block.text}</h2>
-          <div className="mt-1.5 h-px bg-border" />
-        </div>
+        <h2 className="!mt-10 text-xl font-semibold text-foreground first:!mt-0">{block.text}</h2>
       );
 
     case "subheading":
       return (
-        <h3 className="mt-5 mb-2 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+        <h3 className="!mt-7 text-lg font-semibold text-foreground">
           {block.text}
         </h3>
       );
 
     case "paragraph":
       return (
-        <p className="text-sm leading-relaxed text-foreground/90">{block.text}</p>
+        <p className="text-[15px] leading-relaxed text-foreground/85">{block.text}</p>
       );
 
     case "bullets":
       return (
-        <ul className="space-y-1.5">
+        <ul className="list-disc space-y-1.5 pl-5 text-[15px] leading-relaxed text-foreground/85 marker:text-muted-foreground">
           {block.items.map((item, i) => (
-            <li key={i} className="flex gap-2.5 text-sm leading-relaxed text-foreground/90">
-              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/60" />
-              <span>{item}</span>
-            </li>
+            <li key={i} className="pl-1">{item}</li>
           ))}
         </ul>
       );
 
     case "numbered":
       return (
-        <ol className="space-y-1.5">
+        <ol className="list-decimal space-y-1.5 pl-5 text-[15px] leading-relaxed text-foreground/85 marker:text-muted-foreground">
           {block.items.map((item, i) => (
-            <li key={i} className="flex gap-2.5 text-sm leading-relaxed text-foreground/90">
-              <span className="shrink-0 font-mono text-xs font-semibold text-primary mt-0.5">
-                {i + 1}.
-              </span>
-              <span>{item}</span>
-            </li>
+            <li key={i} className="pl-1">{item}</li>
           ))}
         </ol>
       );
 
     case "table":
       return (
-        <div className="overflow-x-auto rounded-xl border">
+        <div className="overflow-x-auto rounded-md border bg-card">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b bg-muted/40">
@@ -123,7 +99,7 @@ function RenderBlock({ block }: { block: ContentBlock }) {
                   <th
                     key={i}
                     className={cn(
-                      "px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground",
+                      "px-4 py-2.5 text-sm font-semibold text-muted-foreground",
                       i === 0 ? "text-left" : "text-center"
                     )}
                   >
@@ -156,7 +132,7 @@ function RenderBlock({ block }: { block: ContentBlock }) {
 
     case "calculation":
       return (
-        <div className="overflow-x-auto rounded-xl border bg-muted/10">
+        <div className="overflow-x-auto rounded-md border bg-card">
           <table className="w-full text-sm">
             <tbody className="divide-y divide-border/60">
               {block.rows.map((row, i) => (
@@ -193,28 +169,16 @@ function RenderBlock({ block }: { block: ContentBlock }) {
 
     case "callout": {
       const variants = {
-        info: {
-          bg: "bg-blue-50 border-blue-200 dark:bg-blue-950/30 dark:border-blue-800",
-          text: "text-blue-800 dark:text-blue-200",
-          icon: <Info className="h-4 w-4 shrink-0 mt-0.5 text-blue-500" />,
-        },
-        warning: {
-          bg: "bg-amber-50 border-amber-200 dark:bg-amber-950/30 dark:border-amber-800",
-          text: "text-amber-800 dark:text-amber-200",
-          icon: <AlertTriangle className="h-4 w-4 shrink-0 mt-0.5 text-amber-500" />,
-        },
-        tip: {
-          bg: "bg-emerald-50 border-emerald-200 dark:bg-emerald-950/30 dark:border-emerald-800",
-          text: "text-emerald-800 dark:text-emerald-200",
-          icon: <Lightbulb className="h-4 w-4 shrink-0 mt-0.5 text-emerald-500" />,
-        },
+        info:    { label: "Note",      rule: "border-sky-600",     text: "text-sky-800 dark:text-sky-300" },
+        warning: { label: "Watch out", rule: "border-amber-500",   text: "text-amber-800 dark:text-amber-300" },
+        tip:     { label: "Tip",       rule: "border-emerald-600", text: "text-emerald-800 dark:text-emerald-300" },
       };
       const v = variants[block.variant];
       return (
-        <div className={cn("flex gap-2.5 rounded-lg border px-4 py-3", v.bg)}>
-          {v.icon}
-          <p className={cn("text-sm leading-relaxed", v.text)}>{block.text}</p>
-        </div>
+        <p className={cn("border-l-2 pl-4 text-[15px] leading-relaxed text-foreground/85", v.rule)}>
+          <span className={cn("font-semibold", v.text)}>{v.label}. </span>
+          {block.text}
+        </p>
       );
     }
 
@@ -261,18 +225,13 @@ export default async function DetailedEntryPage({
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
-      {/* Breadcrumb + actions row */}
       <div className="mb-6 flex items-center justify-between gap-4">
-        <nav className="flex items-center gap-2 text-xs text-muted-foreground min-w-0">
-          <Link
-            href="/detailed-explainer"
-            className="hover:text-foreground transition-colors flex items-center gap-1 shrink-0"
-          >
-            <ArrowLeft className="h-3 w-3" />
+        <nav className="min-w-0 truncate text-sm text-muted-foreground">
+          <Link href="/detailed-explainer" className="underline-offset-4 hover:text-foreground hover:underline">
             Detailed Explainer
           </Link>
-          <span>/</span>
-          <span className="truncate font-medium text-foreground">{entry.section2025}</span>
+          {" / "}
+          <span>{entry.category}</span>
         </nav>
         <DetailPageActions
           slug={entry.slug}
@@ -282,42 +241,28 @@ export default async function DetailedEntryPage({
         />
       </div>
 
-      {/* Header */}
-      <div className="mb-8">
-        <div className="mb-3 flex flex-wrap items-center gap-2">
-          <span className="rounded-md bg-primary/10 px-2.5 py-1 font-mono text-sm font-semibold text-primary">
-            {entry.section2025}
-          </span>
-          <span
-            className={cn(
-              "rounded-full px-2.5 py-0.5 text-xs font-medium",
-              CATEGORY_COLORS[entry.category] ?? "bg-muted text-muted-foreground"
-            )}
-          >
-            {entry.category}
-          </span>
+      <header className="mb-10">
+        <p className="text-sm text-muted-foreground">
+          <span className="font-medium text-primary">{entry.section2025}</span>
           {entry.section1961 && (
-            <span className="text-xs text-muted-foreground">
-              was{" "}
-              <span className="font-medium text-foreground">{entry.section1961}</span> in IT Act 1961
-            </span>
+            <> · was <span className="font-medium text-foreground">{entry.section1961}</span> in the 1961 Act</>
           )}
-        </div>
-        <h1 className="text-2xl font-bold leading-snug tracking-tight sm:text-3xl">
+        </p>
+        <h1 className="mt-2 text-3xl font-semibold leading-tight sm:text-4xl">
           {entry.title}
         </h1>
-        <p className="mt-3 text-sm leading-relaxed text-muted-foreground max-w-2xl">
+        <p className="mt-4 text-[17px] leading-relaxed text-foreground/85">
           {entry.summary}
         </p>
-        <p className="mt-2 text-xs text-muted-foreground">
-          Last updated:{" "}
+        <p className="mt-3 text-xs text-muted-foreground">
+          Last updated{" "}
           {new Date(entry.lastUpdated).toLocaleDateString("en-IN", {
             day: "numeric",
             month: "long",
             year: "numeric",
           })}
         </p>
-      </div>
+      </header>
 
       {/* Content blocks */}
       <div className="space-y-4">
@@ -331,17 +276,14 @@ export default async function DetailedEntryPage({
         <div className="mt-10">
           <Link
             href={`/quiz/${entry.slug}`}
-            className="group flex items-center justify-between gap-4 rounded-2xl border border-violet-200 bg-gradient-to-r from-violet-50 to-indigo-50 px-6 py-5 transition-colors hover:border-violet-400 hover:from-violet-100 hover:to-indigo-100 dark:border-violet-800 dark:from-violet-950/30 dark:to-indigo-950/30 dark:hover:border-violet-600"
+            className="group flex items-center justify-between gap-4 border-y py-5"
           >
             <div className="flex items-center gap-4 min-w-0">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-violet-100 dark:bg-violet-900/40">
-                <Brain className="h-6 w-6 text-violet-600 dark:text-violet-400" />
-              </div>
               <div className="min-w-0">
-                <p className="text-xs font-semibold uppercase tracking-wider text-violet-500 dark:text-violet-400">
-                  Test Yourself
+                <p className="text-sm text-muted-foreground">
+                  Test yourself
                 </p>
-                <p className="mt-0.5 text-sm font-semibold text-foreground leading-snug">
+                <p className="mt-0.5 font-serif text-lg font-semibold text-foreground leading-snug group-hover:text-primary group-hover:underline underline-offset-4 decoration-1">
                   {QUIZ_CHAPTERS.find((c) => c.slug === entry.slug)?.title}
                 </p>
                 <p className="mt-0.5 text-xs text-muted-foreground">
@@ -349,7 +291,7 @@ export default async function DetailedEntryPage({
                 </p>
               </div>
             </div>
-            <ChevronRight className="h-5 w-5 shrink-0 text-violet-400 transition-transform group-hover:translate-x-0.5 dark:text-violet-500" />
+            <span className="shrink-0 text-sm font-medium text-primary">Take the quiz →</span>
           </Link>
         </div>
       )}
@@ -367,22 +309,21 @@ export default async function DetailedEntryPage({
       )}
 
       {/* Footer */}
-      <div className="mt-6 rounded-xl border bg-muted/20 px-5 py-4 text-xs text-muted-foreground leading-relaxed">
+      <div className="mt-8 border-t pt-5 text-xs text-muted-foreground leading-relaxed">
         <span className="font-medium text-foreground">Disclaimer: </span>
         This analysis is based on the Income Tax Act 2025 (Tax Year 2026-27) and is for educational
         purposes only. Tax laws are subject to change. Always verify with a Chartered Accountant or
         tax advisor before making decisions.
       </div>
 
-      <div className="mt-4 flex justify-start">
+      <p className="mt-6 text-sm">
         <Link
           href="/detailed-explainer"
-          className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors"
+          className="text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
         >
-          <ArrowLeft className="h-3 w-3" />
-          Back to all analyses
+          &larr; All analyses
         </Link>
-      </div>
+      </p>
     </div>
   );
 }

@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import {
-  BookOpen, ArrowRight, AlertTriangle, CheckCircle2,
-  FileText, Lightbulb, RefreshCw, IndianRupee, Building2,
-} from "lucide-react";
+
 
 export const metadata: Metadata = {
   title: "Income Tax Act 2025 — Complete Beginner's Guide | TaxSaral",
@@ -36,44 +33,33 @@ function SectionAnchor({ id }: { id: string }) {
 
 function SectionHeading({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="mt-10 mb-3 text-xl font-bold tracking-tight first:mt-0">{children}</h2>
+    <h2 className="mt-10 mb-3 text-2xl font-semibold first:mt-0">{children}</h2>
   );
 }
 
 function SubHeading({ children }: { children: React.ReactNode }) {
-  return <h3 className="mt-6 mb-2 text-base font-semibold">{children}</h3>;
+  return <h3 className="mt-6 mb-2 text-lg font-semibold">{children}</h3>;
 }
 
 function Callout({
-  icon: Icon,
   variant = "info",
   title,
   children,
 }: {
-  icon?: React.ElementType;
   variant?: "info" | "tip" | "warn" | "success";
   title?: string;
   children: React.ReactNode;
 }) {
-  const styles = {
-    info: "border-blue-200 bg-blue-50 text-blue-900",
-    tip: "border-emerald-200 bg-emerald-50 text-emerald-900",
-    warn: "border-amber-200 bg-amber-50 text-amber-900",
-    success: "border-emerald-300 bg-emerald-50 text-emerald-800",
-  };
-  const iconStyles = {
-    info: "text-blue-500",
-    tip: "text-emerald-600",
-    warn: "text-amber-600",
-    success: "text-emerald-600",
+  const rule = {
+    info: "border-sky-600",
+    tip: "border-primary",
+    warn: "border-amber-500",
+    success: "border-emerald-600",
   };
   return (
-    <div className={`flex gap-3 rounded-lg border p-4 my-4 text-sm leading-relaxed ${styles[variant]}`}>
-      {Icon && <Icon className={`mt-0.5 h-4 w-4 shrink-0 ${iconStyles[variant]}`} />}
-      <div>
-        {title && <p className="font-semibold mb-0.5">{title}</p>}
-        {children}
-      </div>
+    <div className={`my-5 border-l-2 pl-4 leading-relaxed text-foreground/85 ${rule[variant]}`}>
+      {title && <p className="font-semibold text-foreground">{title}</p>}
+      {children}
     </div>
   );
 }
@@ -81,7 +67,7 @@ function Callout({
 function Tr({ cells, header }: { cells: string[]; header?: boolean }) {
   const Tag = header ? "th" : "td";
   return (
-    <tr className={header ? "bg-muted/50" : "border-t"}>
+    <tr className={header ? "bg-secondary/60" : "border-t"}>
       {cells.map((c, i) => (
         <Tag key={i} className="px-4 py-2.5 text-left text-sm font-normal align-top">
           {c}
@@ -93,7 +79,7 @@ function Tr({ cells, header }: { cells: string[]; header?: boolean }) {
 
 function Table({ headers, rows }: { headers: string[]; rows: string[][] }) {
   return (
-    <div className="my-4 overflow-x-auto rounded-lg border">
+    <div className="my-4 overflow-x-auto rounded-md border bg-card">
       <table className="w-full">
         <thead><Tr cells={headers} header /></thead>
         <tbody>{rows.map((r, i) => <Tr key={i} cells={r} />)}</tbody>
@@ -106,11 +92,11 @@ function Table({ headers, rows }: { headers: string[]; rows: string[][] }) {
 
 export default function GuidePage() {
   return (
-    <div className="container mx-auto max-w-6xl px-4 py-10">
+    <div className="container mx-auto max-w-6xl py-10 sm:py-12">
       {/* Hero */}
       <div className="mb-10 max-w-3xl">
         <div className="mb-3 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
-          <span className="rounded-full bg-primary/10 px-2.5 py-0.5 font-medium text-primary">
+          <span className="text-foreground">
             IT Act 2025
           </span>
           <span>·</span>
@@ -118,14 +104,14 @@ export default function GuidePage() {
           <span>·</span>
           <span>For individual taxpayers</span>
         </div>
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+        <h1 className="text-3xl font-semibold sm:text-4xl">
           Understanding the Income Tax Act 2025
         </h1>
-        <p className="mt-3 text-lg text-muted-foreground leading-relaxed">
+        <p className="mt-4 text-[17px] text-muted-foreground leading-relaxed">
           India replaced its 60-year-old tax law with a completely restructured Act effective from Tax Year 2026-27.
           This guide explains what changed, what stayed the same, and what you need to know before talking to your CA.
         </p>
-        <Callout icon={AlertTriangle} variant="warn" title="For reference only">
+        <Callout variant="warn" title="For reference only">
           This is an educational guide — not tax advice. Every taxpayer&apos;s situation is different.
           Verify with a Chartered Accountant before filing your return.
         </Callout>
@@ -136,16 +122,16 @@ export default function GuidePage() {
 
         {/* ── Sticky TOC (desktop only) ── */}
         <aside className="hidden lg:block">
-          <div className="sticky top-20 rounded-xl border bg-muted/30 p-4">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+          <div className="sticky top-20 border-l pl-4">
+            <p className="mb-2 text-sm font-medium">
               On this page
             </p>
-            <nav className="space-y-1">
+            <nav className="space-y-0.5">
               {TOC.map(({ id, label }) => (
                 <a
                   key={id}
                   href={`#${id}`}
-                  className="block rounded-md px-2 py-1.5 text-xs text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                  className="block py-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
                   {label}
                 </a>
@@ -155,7 +141,7 @@ export default function GuidePage() {
         </aside>
 
         {/* ── Main content ── */}
-        <article className="min-w-0 space-y-2 text-sm leading-relaxed">
+        <article className="min-w-0 space-y-2 text-[15px] leading-relaxed">
 
           {/* ── 1. What is IT Act 2025 ── */}
           <SectionAnchor id="what-is-it-act-2025" />
@@ -166,21 +152,20 @@ export default function GuidePage() {
             The 2025 Act is a <strong>clean rewrite</strong> — same core principles, reorganized structure, simplified language, and new section numbers throughout.
           </p>
 
-          <div className="my-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
+          <dl className="my-5 divide-y border-y">
             {[
-              { icon: RefreshCw, label: "Same principles", body: "Tax on income, TDS, advance tax, deductions — all the core concepts are unchanged." },
-              { icon: BookOpen, label: "New structure", body: "Provisions are reorganized into logical chapters. Section numbers changed significantly." },
-              { icon: FileText, label: "Effective from", body: "Tax Year 2026-27 (April 1, 2026 onwards). The 1961 Act governs prior years." },
-            ].map(({ icon: Icon, label, body }) => (
-              <div key={label} className="rounded-lg border bg-card p-4">
-                <Icon className="mb-2 h-4 w-4 text-primary" />
-                <p className="font-semibold text-sm mb-1">{label}</p>
-                <p className="text-xs text-muted-foreground leading-relaxed">{body}</p>
+              { label: "Same principles", body: "Tax on income, TDS, advance tax, deductions — all the core concepts are unchanged." },
+              { label: "New structure", body: "Provisions are reorganized into logical chapters. Section numbers changed significantly." },
+              { label: "Effective from", body: "Tax Year 2026-27 (April 1, 2026 onwards). The 1961 Act governs prior years." },
+            ].map(({ label, body }) => (
+              <div key={label} className="grid gap-1 py-3 sm:grid-cols-[10rem_1fr] sm:gap-4">
+                <dt className="font-medium">{label}</dt>
+                <dd className="text-muted-foreground">{body}</dd>
               </div>
             ))}
-          </div>
+          </dl>
 
-          <Callout icon={Lightbulb} variant="tip" title="Why this matters to you">
+          <Callout variant="tip" title="Why this matters to you">
             If you search for tax help online and find references to Section 80C, Section 24, Section 87A, or Section 234B — those are
             the <em>old</em> 1961 Act section numbers. The 2025 Act has different numbers for the same provisions.
             TaxSaral always cites the new 2025 Act sections so you can verify with the actual law.
@@ -194,15 +179,15 @@ export default function GuidePage() {
           </p>
 
           <div className="my-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <div className="rounded-lg border-2 border-dashed border-muted-foreground/30 bg-muted/20 p-4">
-              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">Old IT Act 1961</p>
+            <div className="rounded-md border bg-card p-4">
+              <p className="text-sm font-semibold text-muted-foreground mb-2">Old IT Act 1961</p>
               <p className="font-medium mb-1">Two separate years</p>
               <p className="text-xs text-muted-foreground mb-2">April 2025 – March 2026 = <strong>Previous Year</strong> (when income is earned)</p>
               <p className="text-xs text-muted-foreground">April 2026 – March 2027 = <strong>Assessment Year</strong> (when you file ITR and pay tax)</p>
               <p className="text-xs text-muted-foreground mt-2 italic">Confusing: income of PY 2025-26 is filed in AY 2026-27</p>
             </div>
-            <div className="rounded-lg border-2 border-primary/30 bg-primary/5 p-4">
-              <p className="text-xs font-semibold uppercase tracking-wider text-primary mb-2">New IT Act 2025</p>
+            <div className="rounded-md border border-primary/40 bg-card p-4">
+              <p className="text-sm font-semibold text-primary mb-2">New IT Act 2025</p>
               <p className="font-medium mb-1">One unified term: <span className="text-primary">Tax Year</span></p>
               <p className="text-xs text-muted-foreground mb-2">April 2026 – March 2027 = <strong>Tax Year 2026-27</strong></p>
               <p className="text-xs text-muted-foreground">You earn income in TY 2026-27 and file your return for TY 2026-27 after March 31, 2027</p>
@@ -210,7 +195,7 @@ export default function GuidePage() {
             </div>
           </div>
 
-          <Callout icon={Lightbulb} variant="tip">
+          <Callout variant="tip">
             <strong>Practical rule:</strong> When someone says &ldquo;Tax Year 2026-27,&rdquo; they mean income earned between April 1, 2026 and March 31, 2027.
             Your ITR for this period will be filed after March 31, 2027 (typically by July 31, 2027 for non-audit cases).
             Some government forms and challans still use &ldquo;Assessment Year 2027-28&rdquo; — that refers to the same period.
@@ -233,22 +218,20 @@ export default function GuidePage() {
             The 2025 Act retains the same five heads of income. Your total income is the sum of income under each head (after set-offs) and determines your tax liability.
           </p>
 
-          <div className="my-4 space-y-2">
+          <div className="my-5 divide-y border-y">
             {[
-              { icon: IndianRupee, head: "Salaries", who: "Employees and pensioners", note: "Includes basic pay, allowances, perquisites, and retirement benefits. Standard deduction of ₹75,000 (default) or ₹50,000 (optional) is deducted." },
-              { icon: Building2, head: "Income from House Property", who: "Property owners", note: "Self-occupied: nil annual value (up to 2 properties). Let-out: taxed on Net Annual Value after 30% standard deduction and home loan interest." },
-              { icon: RefreshCw, head: "Profits & Gains of Business or Profession (PGBP)", who: "Business owners, freelancers, professionals", note: "Income from running a business or practising a profession. Complex head with many allowable expenses. Typically requires a CA." },
-              { icon: FileText, head: "Capital Gains", who: "Anyone who sells property, shares, MFs, gold, etc.", note: "Short-term and long-term gains taxed at different rates. Listed equity LTCG above ₹1.25L taxed at 12.5% (Section 198). Listed equity STCG at 20% (Section 196)." },
-              { icon: BookOpen, head: "Income from Other Sources", who: "Everyone — catch-all head", note: "Bank interest (FD, savings), dividend income, gifts above ₹50,000, online gaming winnings, and income not covered by other heads." },
-            ].map(({ icon: Icon, head, who, note }) => (
-              <div key={head} className="flex gap-4 rounded-lg border bg-card p-4">
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10">
-                  <Icon className="h-4 w-4 text-primary" />
-                </div>
+              { head: "Salaries", who: "Employees and pensioners", note: "Includes basic pay, allowances, perquisites, and retirement benefits. Standard deduction of ₹75,000 (default) or ₹50,000 (optional) is deducted." },
+              { head: "Income from House Property", who: "Property owners", note: "Self-occupied: nil annual value (up to 2 properties). Let-out: taxed on Net Annual Value after 30% standard deduction and home loan interest." },
+              { head: "Profits & Gains of Business or Profession (PGBP)", who: "Business owners, freelancers, professionals", note: "Income from running a business or practising a profession. Complex head with many allowable expenses. Typically requires a CA." },
+              { head: "Capital Gains", who: "Anyone who sells property, shares, MFs, gold, etc.", note: "Short-term and long-term gains taxed at different rates. Listed equity LTCG above ₹1.25L taxed at 12.5% (Section 198). Listed equity STCG at 20% (Section 196)." },
+              { head: "Income from Other Sources", who: "Everyone — catch-all head", note: "Bank interest (FD, savings), dividend income, gifts above ₹50,000, online gaming winnings, and income not covered by other heads." },
+            ].map(({ head, who, note }, i) => (
+              <div key={head} className="flex gap-4 py-4">
+                <span className="w-5 shrink-0 font-serif text-lg text-muted-foreground">{i + 1}</span>
                 <div>
-                  <p className="font-semibold text-sm">{head}</p>
-                  <p className="text-xs text-muted-foreground">{who}</p>
-                  <p className="mt-1 text-xs text-muted-foreground leading-relaxed">{note}</p>
+                  <p className="font-semibold">{head}</p>
+                  <p className="text-sm text-muted-foreground">{who}</p>
+                  <p className="mt-1 text-sm text-muted-foreground leading-relaxed">{note}</p>
                 </div>
               </div>
             ))}
@@ -263,10 +246,10 @@ export default function GuidePage() {
 
           <div className="my-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
             {/* Default regime */}
-            <div className="rounded-xl border-2 border-primary/30 p-5">
+            <div className="rounded-md border border-primary/40 bg-card p-5">
               <div className="mb-3 flex items-center justify-between">
-                <p className="font-bold">Default Regime</p>
-                <span className="rounded-full bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary">Section 202</span>
+                <p className="font-serif text-lg font-semibold">Default regime</p>
+                <span className="font-mono text-xs text-primary">s. 202</span>
               </div>
               <p className="text-xs text-muted-foreground mb-3">New slabs, fewer deductions, powerful ₹12L rebate</p>
               <Table
@@ -288,10 +271,10 @@ export default function GuidePage() {
             </div>
 
             {/* Optional regime */}
-            <div className="rounded-xl border p-5">
+            <div className="rounded-md border bg-card p-5">
               <div className="mb-3 flex items-center justify-between">
-                <p className="font-bold">Optional Regime</p>
-                <span className="rounded-full bg-muted px-2 py-0.5 text-xs font-medium text-muted-foreground">Old slabs</span>
+                <p className="font-serif text-lg font-semibold">Optional regime</p>
+                <span className="text-xs text-muted-foreground">Old slabs</span>
               </div>
               <p className="text-xs text-muted-foreground mb-3">Fewer slabs, but most deductions available</p>
               <Table
@@ -310,7 +293,7 @@ export default function GuidePage() {
             </div>
           </div>
 
-          <Callout icon={Lightbulb} variant="tip" title="Which regime should you choose?">
+          <Callout variant="tip" title="Which regime should you choose?">
             If your total eligible deductions (Sec 123/80C, HRA, home loan interest, health insurance) are small — the default regime often wins, especially with the zero-tax rebate up to ₹12 lakh.
             If you have significant deductions, the optional regime may save more. Use the{" "}
             <Link href="/calculators/regime-optimizer" className="font-medium underline underline-offset-4 hover:text-primary">
@@ -345,7 +328,7 @@ export default function GuidePage() {
             ]}
           />
 
-          <Callout icon={AlertTriangle} variant="warn">
+          <Callout variant="warn">
             Deductions require <strong>proper documentation</strong>: investment receipts, premium payment proofs, loan certificates, and rent receipts. Your CA will ask for these. Keep documents from April 1, 2026 to March 31, 2027 for TY 2026-27 claims.
           </Callout>
 
@@ -357,7 +340,7 @@ export default function GuidePage() {
           </p>
 
           <SubHeading>How your employer calculates TDS</SubHeading>
-          <div className="my-3 space-y-2">
+          <ol className="my-3 list-decimal space-y-2 pl-5 text-muted-foreground marker:text-foreground">
             {[
               "At the start of the year, you declare your estimated income, regime choice, and deductions (HRA, investments, loans) to your employer.",
               "Your employer annualises your salary, applies the regime you chose, deducts eligible claims, and computes estimated annual tax.",
@@ -365,12 +348,9 @@ export default function GuidePage() {
               "If you don't declare anything, your employer defaults to the default regime — only ₹75,000 standard deduction applied.",
               "At year-end, your employer issues Form 130 (earlier Form 16) — a TDS certificate showing total salary paid and TDS deducted.",
             ].map((step, i) => (
-              <div key={i} className="flex gap-3 items-start">
-                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-xs font-bold text-primary">{i + 1}</span>
-                <p className="text-muted-foreground">{step}</p>
-              </div>
+              <li key={i} className="pl-1">{step}</li>
             ))}
-          </div>
+          </ol>
 
           <SubHeading>TDS on other income</SubHeading>
           <Table
@@ -384,7 +364,7 @@ export default function GuidePage() {
             ]}
           />
 
-          <Callout icon={Lightbulb} variant="tip" title="Check your Annual Information Statement (Form 168)">
+          <Callout variant="tip" title="Check your Annual Information Statement (Form 168)">
             The Annual Information Statement — Form 168 from Tax Year 2026-27, replacing Form 26AS — on the income tax portal (incometax.gov.in) shows all income and TDS reported against your PAN by banks, employers, brokers, and others. Review it before filing — it&apos;s what the tax department sees.
           </Callout>
 
@@ -398,7 +378,7 @@ export default function GuidePage() {
           <div className="my-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
             <div>
               <SubHeading>Who typically needs to pay advance tax</SubHeading>
-              <ul className="space-y-1.5 text-muted-foreground">
+              <ul className="list-disc space-y-1.5 pl-5 text-muted-foreground">
                 {[
                   "Freelancers, consultants, and professionals with no TDS",
                   "Salaried employees who switched jobs mid-year (TDS may fall short)",
@@ -406,25 +386,19 @@ export default function GuidePage() {
                   "Individuals who sold property, shares, or made capital gains",
                   "Rental income earners with insufficient TDS deduction",
                 ].map((item) => (
-                  <li key={item} className="flex gap-2 items-start">
-                    <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/60 mt-1.5" />
-                    <span>{item}</span>
-                  </li>
+                  <li key={item} className="pl-1">{item}</li>
                 ))}
               </ul>
             </div>
             <div>
               <SubHeading>Who is exempt</SubHeading>
-              <ul className="space-y-1.5 text-muted-foreground">
+              <ul className="list-disc space-y-1.5 pl-5 text-muted-foreground">
                 {[
                   "Salaried employees whose employer deducts correct TDS (net liability ≤ ₹10,000)",
                   "Senior citizens (age 60+) with no business or professional income — Section 403",
                   "Taxpayers under the presumptive taxation scheme (Section 58) who pay entire liability by March 15",
                 ].map((item) => (
-                  <li key={item} className="flex gap-2 items-start">
-                    <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500 mt-1.5" />
-                    <span>{item}</span>
-                  </li>
+                  <li key={item} className="pl-1">{item}</li>
                 ))}
               </ul>
             </div>
@@ -440,7 +414,7 @@ export default function GuidePage() {
             ]}
           />
 
-          <Callout icon={AlertTriangle} variant="warn">
+          <Callout variant="warn">
             If you miss advance tax instalments or pay too little, interest accrues at 1% per month under
             Sections 424 and 425 of the IT Act 2025. Use the{" "}
             <Link href="/calculators/advance-tax" className="font-medium underline underline-offset-4 hover:text-primary">
@@ -490,7 +464,7 @@ export default function GuidePage() {
             ]}
           />
 
-          <Callout icon={Lightbulb} variant="tip">
+          <Callout variant="tip">
             The 2025 Act is available on the official Income Tax India website at incometaxindia.gov.in. When verifying a provision, always search by the new section number if using the 2025 Act text.
           </Callout>
 
@@ -505,7 +479,6 @@ export default function GuidePage() {
             {[
               {
                 heading: "Documents to collect",
-                icon: FileText,
                 items: [
                   "Form 130 (earlier Form 16) from every employer you worked for in TY 2026-27",
                   "Bank statements showing FD interest credited (or Form 131, earlier Form 16A, from the bank)",
@@ -522,7 +495,6 @@ export default function GuidePage() {
               },
               {
                 heading: "Questions to answer / know in advance",
-                icon: Lightbulb,
                 items: [
                   "Do you want to file under the default regime or optional regime for TY 2026-27?",
                   "How many properties do you own? Which are self-occupied, let-out, or vacant?",
@@ -536,7 +508,6 @@ export default function GuidePage() {
               },
               {
                 heading: "Common mistakes to avoid",
-                icon: AlertTriangle,
                 items: [
                   "Assuming your TDS covers all your tax — it may not if you have additional income",
                   "Missing advance tax instalments because you thought only businesses need to pay",
@@ -547,60 +518,32 @@ export default function GuidePage() {
                   "Missing the ITR filing deadline (typically July 31) — attracts late filing fees and interest",
                 ],
               },
-            ].map(({ heading, icon: Icon, items }) => (
-              <div key={heading} className="rounded-lg border bg-card p-5">
-                <div className="flex items-center gap-2 mb-3">
-                  <Icon className="h-4 w-4 text-primary" />
-                  <p className="font-semibold text-sm">{heading}</p>
-                </div>
-                <ul className="space-y-1.5">
+            ].map(({ heading, items }) => (
+              <div key={heading}>
+                <SubHeading>{heading}</SubHeading>
+                <ul className="list-disc space-y-1.5 pl-5 text-muted-foreground">
                   {items.map((item) => (
-                    <li key={item} className="flex gap-2 items-start text-xs text-muted-foreground">
-                      <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-500" />
-                      <span>{item}</span>
-                    </li>
+                    <li key={item} className="pl-1">{item}</li>
                   ))}
                 </ul>
               </div>
             ))}
           </div>
 
-          {/* CTA to calculators */}
-          <div className="mt-10 rounded-xl border bg-muted/30 p-6 text-center">
-            <p className="font-semibold text-base mb-1">Ready to calculate your tax?</p>
-            <p className="text-sm text-muted-foreground mb-4">
-              Use our free calculators — built on the IT Act 2025 — to get your numbers before meeting your CA.
-            </p>
-            <div className="flex flex-wrap justify-center gap-3">
-              <Link
-                href="/calculators/regime-optimizer"
-                className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
-              >
-                Regime Optimizer <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
-              <Link
-                href="/calculators/advance-tax"
-                className="inline-flex items-center gap-1.5 rounded-lg border px-4 py-2 text-sm font-medium hover:bg-muted transition-colors"
-              >
-                Advance Tax <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
-              <Link
-                href="/calculators/house-property-income"
-                className="inline-flex items-center gap-1.5 rounded-lg border px-4 py-2 text-sm font-medium hover:bg-muted transition-colors"
-              >
-                House Property <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
-            </div>
-          </div>
+          <p className="!mt-10 border-t pt-6 text-muted-foreground">
+            Ready to work out your own numbers? Start with the{" "}
+            <Link href="/calculators/regime-optimizer" className="text-primary underline underline-offset-4">Regime Optimizer</Link>, then the{" "}
+            <Link href="/calculators/advance-tax" className="text-primary underline underline-offset-4">Advance Tax</Link> and{" "}
+            <Link href="/calculators/house-property-income" className="text-primary underline underline-offset-4">House Property</Link> calculators.
+          </p>
 
-          {/* Disclaimer */}
-          <div className="mt-6 rounded-lg border bg-muted/20 p-4 text-xs text-muted-foreground">
-            <span className="font-semibold text-foreground">Disclaimer: </span>
+          <p className="!mt-6 text-xs leading-relaxed text-muted-foreground">
+            <span className="font-medium text-foreground">Disclaimer: </span>
             This guide is for educational purposes only and does not constitute legal or tax advice.
             The Income Tax Act 2025 is a complex legislation and individual circumstances vary significantly.
             Always consult a qualified Chartered Accountant before filing your return or making financial decisions based on tax considerations.
             Section numbers and provisions are cited as per the Income Tax Act 2025 applicable to Tax Year 2026-27 (AY 2027-28).
-          </div>
+          </p>
 
         </article>
       </div>

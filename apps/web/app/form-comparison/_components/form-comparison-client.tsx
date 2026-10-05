@@ -144,17 +144,17 @@ export function FormComparisonClient() {
 
       {/* ── Tables grouped by category ───────────────────────────────── */}
       {filtered.length === 0 ? (
-        <div className="rounded-xl border border-dashed p-10 text-center text-sm text-muted-foreground">
+        <div className="rounded-md border border-dashed p-10 text-center text-sm text-muted-foreground">
           No forms match your filters. Try adjusting your search or category.
         </div>
       ) : (
         <div className="space-y-10">
           {FORM_CATEGORIES.filter((cat) => grouped.has(cat)).map((cat) => (
             <section key={cat}>
-              <h2 className="mb-3 text-base font-bold">{cat}</h2>
+              <h2 className="mb-3 text-xl font-semibold">{cat}</h2>
 
               {/* Desktop table */}
-              <div className="hidden overflow-hidden rounded-xl border sm:block">
+              <div className="hidden overflow-hidden rounded-md border sm:block">
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
                     <thead>
@@ -198,7 +198,7 @@ export function FormComparisonClient() {
               {/* Mobile cards */}
               <div className="space-y-3 sm:hidden">
                 {grouped.get(cat)!.map((f, i) => (
-                  <div key={i} className="rounded-xl border bg-card p-4">
+                  <div key={i} className="rounded-md border bg-card p-4">
                     <div className="flex items-start justify-between gap-2 mb-2">
                       <div>
                         <p className="text-xs text-muted-foreground mb-0.5">Old: <span className="font-semibold text-foreground">{f.oldForm}</span></p>

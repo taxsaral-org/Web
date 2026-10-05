@@ -2,8 +2,8 @@
 
 import { useState, useRef, useEffect } from "react";
 import {
-  Send, Lock, Clock, ShieldCheck, CheckCircle2,
-  ArrowRight, MailOpen, RefreshCw,
+  Send, Lock, CheckCircle2,
+  ArrowRight, RefreshCw,
 } from "lucide-react";
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
@@ -39,7 +39,7 @@ function Bubble({ msg }: { msg: ChatMessage }) {
       {isTeam && <TeamAvatar />}
       <div
         className={cn(
-          "max-w-[80%] rounded-2xl px-4 py-3 text-sm leading-relaxed whitespace-pre-line",
+          "max-w-[80%] rounded-lg px-4 py-3 text-sm leading-relaxed whitespace-pre-line",
           isTeam
             ? "rounded-tl-none bg-muted text-foreground"
             : "rounded-tr-none bg-primary text-primary-foreground"
@@ -57,7 +57,7 @@ function TypingDots() {
   return (
     <div className="flex items-start gap-2.5">
       <TeamAvatar />
-      <div className="flex items-center gap-1 rounded-2xl rounded-tl-none bg-muted px-4 py-3">
+      <div className="flex items-center gap-1 rounded-lg rounded-tl-none bg-muted px-4 py-3">
         {[0, 150, 300].map(delay => (
           <span
             key={delay}
@@ -87,20 +87,12 @@ function EmailPhase({ onSubmit }: { onSubmit: (email: string) => void }) {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center py-8 px-4">
+    <div className="flex flex-col justify-center px-6 py-10 sm:px-10">
       <div className="w-full max-w-sm space-y-6">
-        {/* Icon */}
-        <div className="flex justify-center">
-          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
-            <MailOpen className="h-8 w-8 text-primary" />
-          </div>
-        </div>
-
-        {/* Heading */}
-        <div className="text-center">
-          <h2 className="text-xl font-bold">Enter your email to get started</h2>
+        <div>
+          <h2 className="text-xl font-semibold">First, where should the reply go?</h2>
           <p className="mt-1.5 text-sm text-muted-foreground">
-            We&apos;ll send our reply directly to your inbox. No account needed.
+            The answer is sent to this address. There is no account to create.
           </p>
         </div>
 
@@ -122,26 +114,15 @@ function EmailPhase({ onSubmit }: { onSubmit: (email: string) => void }) {
           </div>
           <button
             type="submit"
-            className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors"
+            className="flex w-full items-center justify-center gap-2 rounded-md bg-primary py-2.5 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
           >
             Continue
-            <ArrowRight className="h-4 w-4" />
           </button>
         </form>
 
-        {/* Trust micro-copy */}
-        <div className="space-y-2 rounded-lg border bg-muted/30 p-3">
-          {[
-            { icon: Lock, text: "Your email is only used to reply to your query" },
-            { icon: ShieldCheck, text: "We never share your details with third parties" },
-            { icon: Clock, text: "Typical response time: 2–3 business days" },
-          ].map(({ icon: Icon, text }) => (
-            <div key={text} className="flex items-center gap-2 text-xs text-muted-foreground">
-              <Icon className="h-3.5 w-3.5 shrink-0 text-emerald-600" />
-              <span>{text}</span>
-            </div>
-          ))}
-        </div>
+        <p className="text-xs leading-relaxed text-muted-foreground">
+          Your email is used only to reply to your question and is never shared.
+        </p>
       </div>
     </div>
   );
@@ -310,7 +291,7 @@ export function AskClient() {
               onKeyDown={handleKeyDown}
               placeholder="Type your tax question here... (Shift+Enter for new line)"
               disabled={submitting}
-              className="flex-1 resize-none rounded-xl border bg-muted/30 px-4 py-3 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 disabled:opacity-50 transition-all"
+              className="flex-1 resize-none rounded-md border bg-muted/30 px-4 py-3 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 disabled:opacity-50 transition-all"
               style={{ minHeight: "52px", maxHeight: "160px" }}
             />
             <button
@@ -318,7 +299,7 @@ export function AskClient() {
               onClick={handleSend}
               disabled={!draft.trim() || submitting}
               className={cn(
-                "flex h-12 w-12 shrink-0 items-center justify-center rounded-xl transition-colors",
+                "flex h-12 w-12 shrink-0 items-center justify-center rounded-md transition-colors",
                 draft.trim() && !submitting
                   ? "bg-primary text-primary-foreground hover:bg-primary/90"
                   : "bg-muted text-muted-foreground cursor-not-allowed"

@@ -154,11 +154,11 @@ export function GlobalSearch() {
       {/* Desktop trigger */}
       <button
         onClick={() => setOpen(true)}
-        className="hidden sm:flex items-center gap-2 rounded-lg border border-border bg-muted px-3 py-1.5 text-sm text-muted-foreground shadow-sm hover:bg-muted/80 hover:border-primary/30 hover:text-foreground transition-colors"
+        className="hidden sm:flex items-center gap-2 rounded-md border bg-card px-3 py-1.5 text-sm text-muted-foreground hover:border-foreground/30 hover:text-foreground transition-colors"
         aria-label="Open search"
       >
         <Search className="h-3.5 w-3.5 shrink-0" />
-        <span className="text-xs">Search...</span>
+        <span className="text-sm">Search</span>
         <kbd className="hidden lg:inline rounded border bg-background px-1.5 py-0.5 font-mono text-xs leading-none">⌘K</kbd>
       </button>
 
@@ -176,12 +176,12 @@ export function GlobalSearch() {
         <div className="fixed inset-0 z-50 flex items-start justify-center px-4 pt-[8vh]">
           {/* Backdrop */}
           <div
-            className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+            className="absolute inset-0 bg-black/40"
             onClick={close}
           />
 
           {/* Panel */}
-          <div className="relative z-10 w-full max-w-xl overflow-hidden rounded-2xl border bg-background shadow-2xl">
+          <div className="relative z-10 w-full max-w-xl overflow-hidden rounded-lg border bg-background shadow-xl">
 
             {/* Input */}
             <div className="flex items-center gap-3 border-b px-4 py-3.5">
@@ -242,7 +242,7 @@ export function GlobalSearch() {
                   <div key={type} className="py-1">
                     <div className="flex items-center gap-2 px-4 pb-1 pt-2">
                       <Icon className={cn("h-3.5 w-3.5", color)} />
-                      <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                      <span className="text-sm font-semibold text-muted-foreground">
                         {label}
                       </span>
                     </div>

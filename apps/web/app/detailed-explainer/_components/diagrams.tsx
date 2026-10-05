@@ -2,8 +2,8 @@ import type { ReactNode } from "react";
 
 function DeemedDividendFlow() {
   return (
-    <div className="overflow-x-auto rounded-xl border bg-white p-4">
-      <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-400">
+    <div className="overflow-x-auto rounded-md border bg-white p-4">
+      <p className="mb-3 text-sm font-semibold text-gray-400">
         How Section 2(40)(e) Works
       </p>
       <svg
@@ -123,8 +123,8 @@ function DeemedDividendFlow() {
 
 function SVPvtLtdSetoff() {
   return (
-    <div className="overflow-x-auto rounded-xl border bg-white p-4">
-      <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-400">
+    <div className="overflow-x-auto rounded-md border bg-white p-4">
+      <p className="mb-3 text-sm font-semibold text-gray-400">
         Set-off Example — SV Pvt. Ltd.
       </p>
       <svg
@@ -268,8 +268,8 @@ function SVPvtLtdSetoff() {
 
 function SugarcaneRulesSplit() {
   return (
-    <div className="overflow-x-auto rounded-xl border bg-white p-4">
-      <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-400">
+    <div className="overflow-x-auto rounded-md border bg-white p-4">
+      <p className="mb-3 text-sm font-semibold text-gray-400">
         Rule 270 — Mr. Amar&apos;s Sugarcane (Field to Factory Bifurcation)
       </p>
       <svg
@@ -361,8 +361,8 @@ function SugarcaneRulesSplit() {
 
 function AgriculturalDecisionTree() {
   return (
-    <div className="overflow-x-auto rounded-xl border bg-white p-4">
-      <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-400">
+    <div className="overflow-x-auto rounded-md border bg-white p-4">
+      <p className="mb-3 text-sm font-semibold text-gray-400">
         Decision Tree — How to Tax Agricultural Income
       </p>
       <svg
@@ -479,8 +479,8 @@ function AgriculturalDecisionTree() {
 
 function COAGrandfatheringFormula() {
   return (
-    <div className="overflow-x-auto rounded-xl border bg-white p-4">
-      <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-400">
+    <div className="overflow-x-auto rounded-md border bg-white p-4">
+      <p className="mb-3 text-sm font-semibold text-gray-400">
         Section 90(7) — The COA Formula (Grandfathering)
       </p>
       <svg

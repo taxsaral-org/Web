@@ -2,58 +2,10 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
-import { Search, X, Scale, ArrowRight } from "lucide-react";
+import { Search, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { CASE_CATEGORIES } from "./case-law-data";
 import type { CaseCategory, CaseIndexEntry } from "./case-law-data";
-
-const CATEGORY_BADGE: Record<CaseCategory, string> = {
-  "Capital Gains": "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300",
-  "Charitable Trusts & NPOs": "bg-teal-100 text-teal-800 dark:bg-teal-900/30 dark:text-teal-300",
-  "Transfer Pricing": "bg-violet-100 text-violet-800 dark:bg-violet-900/30 dark:text-violet-300",
-  "International Tax": "bg-sky-100 text-sky-800 dark:bg-sky-900/30 dark:text-sky-300",
-  "Business & Profession": "bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300",
-  "Assessment & Reassessment": "bg-rose-100 text-rose-800 dark:bg-rose-900/30 dark:text-rose-300",
-  "TDS & TCS": "bg-pink-100 text-pink-800 dark:bg-pink-900/30 dark:text-pink-300",
-  "Penalties": "bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300",
-  "Cash Credits & Unexplained Income":
-    "bg-lime-100 text-lime-800 dark:bg-lime-900/30 dark:text-lime-300",
-  "General Principles": "bg-slate-200 text-slate-800 dark:bg-slate-700/40 dark:text-slate-200",
-  "Trusts, Funds & Pass-Through Vehicles":
-    "bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300",
-  "GAAR & Anti-Avoidance":
-    "bg-fuchsia-100 text-fuchsia-800 dark:bg-fuchsia-900/30 dark:text-fuchsia-300",
-};
-
-const CATEGORY_ACCENT: Record<CaseCategory, string> = {
-  "Capital Gains": "border-l-yellow-400",
-  "Charitable Trusts & NPOs": "border-l-teal-400",
-  "Transfer Pricing": "border-l-violet-400",
-  "International Tax": "border-l-sky-400",
-  "Business & Profession": "border-l-amber-400",
-  "Assessment & Reassessment": "border-l-rose-400",
-  "TDS & TCS": "border-l-pink-400",
-  "Penalties": "border-l-orange-400",
-  "Cash Credits & Unexplained Income": "border-l-lime-400",
-  "General Principles": "border-l-slate-400",
-  "Trusts, Funds & Pass-Through Vehicles": "border-l-cyan-400",
-  "GAAR & Anti-Avoidance": "border-l-fuchsia-400",
-};
-
-const CATEGORY_FILTER_ACTIVE: Record<CaseCategory, string> = {
-  "Capital Gains": "bg-yellow-100 text-yellow-800 border-yellow-300",
-  "Charitable Trusts & NPOs": "bg-teal-100 text-teal-800 border-teal-300",
-  "Transfer Pricing": "bg-violet-100 text-violet-800 border-violet-300",
-  "International Tax": "bg-sky-100 text-sky-800 border-sky-300",
-  "Business & Profession": "bg-amber-100 text-amber-800 border-amber-300",
-  "Assessment & Reassessment": "bg-rose-100 text-rose-800 border-rose-300",
-  "TDS & TCS": "bg-pink-100 text-pink-800 border-pink-300",
-  "Penalties": "bg-orange-100 text-orange-800 border-orange-300",
-  "Cash Credits & Unexplained Income": "bg-lime-100 text-lime-800 border-lime-300",
-  "General Principles": "bg-slate-200 text-slate-800 border-slate-400",
-  "Trusts, Funds & Pass-Through Vehicles": "bg-cyan-100 text-cyan-800 border-cyan-300",
-  "GAAR & Anti-Avoidance": "bg-fuchsia-100 text-fuchsia-800 border-fuchsia-300",
-};
 
 export function CaseLawClient({ index }: { index: CaseIndexEntry[] }) {
   const [query, setQuery] = useState("");
@@ -93,7 +45,7 @@ export function CaseLawClient({ index }: { index: CaseIndexEntry[] }) {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder='Search case name, section, or issue… e.g. "goodwill", "Section 346", "permanent establishment"'
-          className="w-full rounded-xl border bg-background py-3 pl-10 pr-10 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30"
+          className="w-full rounded-md border bg-background py-3 pl-10 pr-10 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30"
         />
         {query && (
           <button
@@ -108,12 +60,12 @@ export function CaseLawClient({ index }: { index: CaseIndexEntry[] }) {
       </div>
 
       {/* Category filters */}
-      <div className="flex flex-wrap gap-2">
+      <div className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0">
         <button
           type="button"
           onClick={() => setActiveCategory(null)}
           className={cn(
-            "rounded-full border px-3 py-1 text-xs font-medium transition-colors",
+            "shrink-0 whitespace-nowrap rounded-full border px-3 py-1 text-xs font-medium transition-colors",
             !activeCategory
               ? "border-primary bg-primary text-primary-foreground"
               : "border-border text-muted-foreground hover:bg-muted hover:text-foreground"
@@ -130,9 +82,9 @@ export function CaseLawClient({ index }: { index: CaseIndexEntry[] }) {
               type="button"
               onClick={() => setActiveCategory(isActive ? null : cat)}
               className={cn(
-                "rounded-full border px-3 py-1 text-xs font-medium transition-colors",
+                "shrink-0 whitespace-nowrap rounded-full border px-3 py-1 text-xs font-medium transition-colors",
                 isActive
-                  ? CATEGORY_FILTER_ACTIVE[cat]
+                  ? "border-primary bg-primary text-primary-foreground"
                   : "border-border text-muted-foreground hover:bg-muted hover:text-foreground"
               )}
             >
@@ -144,8 +96,7 @@ export function CaseLawClient({ index }: { index: CaseIndexEntry[] }) {
 
       {/* Results */}
       {filtered.length === 0 ? (
-        <div className="rounded-xl border bg-muted/20 py-14 text-center">
-          <Scale className="mx-auto mb-3 h-8 w-8 text-muted-foreground/40" />
+        <div className="border-y py-14 text-center">
           <p className="text-sm text-muted-foreground">
             No judgments match{" "}
             <span className="font-medium text-foreground">&ldquo;{query}&rdquo;</span>.
@@ -159,68 +110,36 @@ export function CaseLawClient({ index }: { index: CaseIndexEntry[] }) {
           </button>
         </div>
       ) : (
-        <div className="space-y-3">
-          <p className="text-xs text-muted-foreground">
+        <div>
+          <p className="mb-3 text-xs text-muted-foreground">
             Showing <span className="font-semibold text-foreground">{filtered.length}</span> of{" "}
             {index.length} judgments
           </p>
 
-          {filtered.map((c) => (
-            <Link
-              key={c.slug}
-              href={`/case-law/${c.slug}`}
-              className={cn(
-                "group block rounded-xl border border-l-4 bg-card p-5 transition-all hover:shadow-md hover:bg-muted/10",
-                CATEGORY_ACCENT[c.category]
-              )}
-            >
-              {/* Badges */}
-              <div className="mb-3 flex flex-wrap items-center gap-2">
-                <span
-                  className={cn(
-                    "rounded-full px-2.5 py-0.5 text-xs font-medium",
-                    CATEGORY_BADGE[c.category]
-                  )}
-                >
-                  {c.category}
-                </span>
-                <span className="rounded-md border px-2 py-0.5 text-xs text-muted-foreground">
-                  {c.court}
-                </span>
-                <span className="text-xs font-medium text-muted-foreground">{c.year}</span>
-              </div>
+          <div className="divide-y border-y">
+            {filtered.map((c) => (
+              <Link key={c.slug} href={`/case-law/${c.slug}`} className="group block py-6">
+                <p className="text-xs text-muted-foreground">
+                  {c.category} · {c.court} · {c.year}
+                </p>
+                <h2 className="mt-1.5 text-lg font-semibold leading-snug text-foreground group-hover:text-primary group-hover:underline underline-offset-4 decoration-1">
+                  {c.caseName}
+                </h2>
+                <p className="mt-0.5 font-mono text-xs text-muted-foreground">{c.citation}</p>
 
-              {/* Case name + citation */}
-              <h2 className="text-base font-semibold leading-snug text-foreground transition-colors group-hover:text-primary">
-                {c.caseName}
-              </h2>
-              <p className="mt-0.5 font-mono text-xs text-muted-foreground">{c.citation}</p>
+                <p className="mt-3 text-sm text-muted-foreground">
+                  Decided under <span className="font-medium text-foreground">{c.section1961}</span>
+                  {" "}&rarr; now{" "}
+                  <span className="font-medium text-primary">{c.section2025}</span>
+                </p>
 
-              {/* Section mapping */}
-              <div className="mt-3 flex flex-wrap items-center gap-2 rounded-lg bg-muted/40 px-3 py-2">
-                <span className="text-xs text-muted-foreground">Decided under</span>
-                <span className="font-mono text-xs font-semibold text-foreground">
-                  {c.section1961}
-                </span>
-                <ArrowRight className="h-3 w-3 shrink-0 text-muted-foreground" />
-                <span className="text-xs text-muted-foreground">now</span>
-                <span className="rounded-md bg-primary/10 px-2 py-0.5 font-mono text-xs font-semibold text-primary">
-                  {c.section2025}
-                </span>
-              </div>
-
-              {/* Held */}
-              <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-foreground/90">
-                <span className="font-semibold">Held: </span>
-                {c.held}
-              </p>
-
-              <div className="mt-3 flex items-center gap-1 text-xs font-semibold text-primary opacity-80 transition-opacity group-hover:opacity-100">
-                Read the full case
-                <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
-              </div>
-            </Link>
-          ))}
+                <p className="mt-2 line-clamp-3 max-w-3xl text-[15px] leading-relaxed text-foreground/85">
+                  <span className="font-semibold">Held: </span>
+                  {c.held}
+                </p>
+              </Link>
+            ))}
+          </div>
         </div>
       )}
     </div>

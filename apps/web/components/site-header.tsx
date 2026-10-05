@@ -8,7 +8,19 @@ import { cn } from "@/lib/utils";
 import { GlobalSearch } from "./global-search";
 import { ThemeToggle } from "./theme-toggle";
 
-const CALCULATORS = [
+interface NavItem {
+  href: string;
+  label: string;
+  desc?: string;
+}
+
+const EXPLAINERS: NavItem[] = [
+  { href: "/section-explainer", label: "Section Explainer", desc: "Key sections in plain language" },
+  { href: "/detailed-explainer", label: "Detailed Explainer", desc: "Worked analyses of the hard provisions" },
+  { href: "/guide", label: "Beginner's Guide", desc: "Regimes, deductions and TDS from scratch" },
+];
+
+const CALCULATORS: NavItem[] = [
   { href: "/calculators/regime-optimizer", label: "Regime Optimizer", desc: "Find your best tax regime" },
   { href: "/calculators/hra", label: "HRA Exemption", desc: "Calculate HRA tax exemption" },
   { href: "/calculators/house-property-income", label: "House Property", desc: "Rental income & loan interest" },
@@ -17,197 +29,148 @@ const CALCULATORS = [
   { href: "/calculators/residential-status", label: "Residential Status", desc: "ROR, RNOR or Non-Resident" },
 ];
 
+const LINKS_BEFORE: NavItem[] = [
+  { href: "/case-law", label: "Case Law" },
+  { href: "/section-mapping", label: "Mapping" },
+];
+
+const LINKS_AFTER: NavItem[] = [
+  { href: "/form-comparison", label: "Forms" },
+  { href: "/tax-calendar", label: "Calendar" },
+  { href: "/quiz", label: "Quiz" },
+];
+
+const MOBILE_LINKS: NavItem[] = [
+  { href: "/case-law", label: "Case Law" },
+  { href: "/section-mapping", label: "1961 → 2025 Mapping" },
+  ...EXPLAINERS,
+  { href: "/form-comparison", label: "Form Comparison" },
+  { href: "/tax-calendar", label: "Tax Calendar" },
+  { href: "/quiz", label: "Quiz" },
+];
+
+function isActive(pathname: string | null, href: string) {
+  return pathname === href || !!pathname?.startsWith(href + "/");
+}
+
+const linkClass = (active: boolean) =>
+  cn(
+    "relative px-2.5 py-1.5 text-sm transition-colors",
+    active
+      ? "text-foreground after:absolute after:inset-x-2.5 after:-bottom-[13px] after:h-0.5 after:bg-primary"
+      : "text-muted-foreground hover:text-foreground"
+  );
+
+function Dropdown({
+  label,
+  items,
+  pathname,
+  open,
+  onToggle,
+}: {
+  label: string;
+  items: NavItem[];
+  pathname: string | null;
+  open: boolean;
+  onToggle: () => void;
+}) {
+  const active = items.some((i) => isActive(pathname, i.href));
+  return (
+    <div className="relative">
+      <button
+        type="button"
+        aria-expanded={open}
+        onClick={onToggle}
+        className={cn(linkClass(active), "flex items-center gap-1")}
+      >
+        {label}
+        <ChevronDown className={cn("h-3.5 w-3.5 transition-transform", open && "rotate-180")} />
+      </button>
+      {open && (
+        <div className="absolute left-0 top-full mt-2 w-72 rounded-md border bg-popover p-1 shadow-md">
+          {items.map(({ href, label, desc }) => (
+            <Link
+              key={href}
+              href={href}
+              className={cn(
+                "block rounded px-3 py-2 hover:bg-muted",
+                pathname === href && "bg-muted"
+              )}
+            >
+              <span className={cn("block text-sm", pathname === href ? "font-medium text-primary" : "text-foreground")}>
+                {label}
+              </span>
+              {desc && <span className="block text-xs text-muted-foreground">{desc}</span>}
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export function SiteHeader() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const navRef = useRef<HTMLElement>(null);
 
-  // Close dropdown on outside click
+  // Close menus on outside click
   useEffect(() => {
     function handleClick(e: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setDropdownOpen(false);
+      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+        setOpenMenu(null);
       }
     }
     document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
-  // Close dropdown on route change
+  // Close menus on route change
   useEffect(() => {
-    setDropdownOpen(false);
+    setOpenMenu(null);
     setMobileOpen(false);
   }, [pathname]);
 
-  const isCalculatorActive = CALCULATORS.some(c => pathname === c.href);
+  const toggle = (name: string) => setOpenMenu((m) => (m === name ? null : name));
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-primary/10 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm">
-      <div className="container mx-auto flex h-14 max-w-6xl items-center justify-between px-4">
-
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 shrink-0">
-          <span className="text-lg font-bold tracking-tight bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">TaxSaral</span>
-          <span className="hidden rounded-full bg-blue-50 border border-blue-200 px-2 py-0.5 text-xs font-semibold text-blue-700 sm:inline">
-            IT Act 2025
-          </span>
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+      <div className="container mx-auto flex h-14 max-w-6xl items-center justify-between gap-4">
+        <Link href="/" className="shrink-0 font-serif text-xl font-semibold tracking-tight">
+          TaxSaral
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden sm:flex items-center gap-0.5">
-
-          {/* Guide link */}
-          <Link
-            href="/guide"
-            className={cn(
-              "rounded-md px-3 py-1.5 text-sm transition-colors",
-              pathname === "/guide"
-                ? "bg-primary/10 text-primary font-medium"
-                : "text-muted-foreground hover:bg-muted hover:text-foreground"
-            )}
-          >
-            Guide
-          </Link>
-
-          {/* Section Explainer link */}
-          <Link
-            href="/section-explainer"
-            className={cn(
-              "rounded-md px-3 py-1.5 text-sm transition-colors",
-              pathname === "/section-explainer" || pathname?.startsWith("/section-explainer/")
-                ? "bg-primary/10 text-primary font-medium"
-                : "text-muted-foreground hover:bg-muted hover:text-foreground"
-            )}
-          >
-            Section Explainer
-          </Link>
-
-          {/* Detailed Explainer link */}
-          <Link
-            href="/detailed-explainer"
-            className={cn(
-              "rounded-md px-3 py-1.5 text-sm transition-colors",
-              pathname === "/detailed-explainer" || pathname?.startsWith("/detailed-explainer/")
-                ? "bg-primary/10 text-primary font-medium"
-                : "text-muted-foreground hover:bg-muted hover:text-foreground"
-            )}
-          >
-            Detailed Explainer
-          </Link>
-
-          {/* Section Mapping link */}
-          <Link
-            href="/section-mapping"
-            className={cn(
-              "rounded-md px-3 py-1.5 text-sm transition-colors",
-              pathname === "/section-mapping"
-                ? "bg-primary/10 text-primary font-medium"
-                : "text-muted-foreground hover:bg-muted hover:text-foreground"
-            )}
-          >
-            Mapping
-          </Link>
-
-          {/* Tax Calendar link */}
-          <Link
-            href="/tax-calendar"
-            className={cn(
-              "rounded-md px-3 py-1.5 text-sm transition-colors",
-              pathname === "/tax-calendar"
-                ? "bg-primary/10 text-primary font-medium"
-                : "text-muted-foreground hover:bg-muted hover:text-foreground"
-            )}
-          >
-            Calendar
-          </Link>
-
-          {/* Form Comparison link */}
-          <Link
-            href="/form-comparison"
-            className={cn(
-              "rounded-md px-3 py-1.5 text-sm transition-colors",
-              pathname === "/form-comparison"
-                ? "bg-primary/10 text-primary font-medium"
-                : "text-muted-foreground hover:bg-muted hover:text-foreground"
-            )}
-          >
-            Forms
-          </Link>
-
-          {/* Case Law link */}
-          <Link
-            href="/case-law"
-            className={cn(
-              "rounded-md px-3 py-1.5 text-sm transition-colors",
-              pathname === "/case-law" || pathname?.startsWith("/case-law/")
-                ? "bg-primary/10 text-primary font-medium"
-                : "text-muted-foreground hover:bg-muted hover:text-foreground"
-            )}
-          >
-            Case Law
-          </Link>
-
-          {/* Quiz link */}
-          <Link
-            href="/quiz"
-            className={cn(
-              "rounded-md px-3 py-1.5 text-sm transition-colors",
-              pathname === "/quiz" || pathname?.startsWith("/quiz/")
-                ? "bg-primary/10 text-primary font-medium"
-                : "text-muted-foreground hover:bg-muted hover:text-foreground"
-            )}
-          >
-            Quiz
-          </Link>
-
-          {/* Calculators dropdown */}
-          <div ref={dropdownRef} className="relative">
-            <button
-              type="button"
-              onClick={() => setDropdownOpen(v => !v)}
-              className={cn(
-                "flex items-center gap-1 rounded-md px-3 py-1.5 text-sm transition-colors",
-                isCalculatorActive
-                  ? "bg-primary/10 text-primary font-medium"
-                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
-              )}
-            >
-              Calculators
-              <ChevronDown className={cn("h-3.5 w-3.5 transition-transform duration-200", dropdownOpen && "rotate-180")} />
-            </button>
-
-            {dropdownOpen && (
-              <div className="absolute left-0 top-full mt-1 w-72 rounded-xl border bg-background shadow-lg ring-1 ring-black/5">
-                <div className="p-1.5">
-                  {CALCULATORS.map(({ href, label, desc }) => (
-                    <Link
-                      key={href}
-                      href={href}
-                      className={cn(
-                        "flex flex-col gap-0.5 rounded-lg px-3 py-2.5 transition-colors",
-                        pathname === href
-                          ? "bg-primary/10"
-                          : "hover:bg-muted"
-                      )}
-                    >
-                      <span className={cn(
-                        "text-sm font-medium",
-                        pathname === href ? "text-primary" : "text-foreground"
-                      )}>
-                        {label}
-                      </span>
-                      <span className="text-xs text-muted-foreground">{desc}</span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
+        <nav ref={navRef} className="hidden lg:flex items-center">
+          {LINKS_BEFORE.map(({ href, label }) => (
+            <Link key={href} href={href} className={linkClass(isActive(pathname, href))}>
+              {label}
+            </Link>
+          ))}
+          <Dropdown
+            label="Explainers"
+            items={EXPLAINERS}
+            pathname={pathname}
+            open={openMenu === "explainers"}
+            onToggle={() => toggle("explainers")}
+          />
+          <Dropdown
+            label="Calculators"
+            items={CALCULATORS}
+            pathname={pathname}
+            open={openMenu === "calculators"}
+            onToggle={() => toggle("calculators")}
+          />
+          {LINKS_AFTER.map(({ href, label }) => (
+            <Link key={href} href={href} className={linkClass(isActive(pathname, href))}>
+              {label}
+            </Link>
+          ))}
         </nav>
 
-        {/* Right side — search + CTA (desktop) / search + hamburger (mobile) */}
-        <div className="flex items-center gap-1.5 shrink-0">
+        {/* Right side — search, theme, bookmarks, ask (desktop) / hamburger (mobile) */}
+        <div className="flex items-center gap-1 shrink-0">
           <GlobalSearch />
           <ThemeToggle />
           <Link
@@ -217,7 +180,7 @@ export function SiteHeader() {
             className={cn(
               "hidden sm:flex h-8 w-8 items-center justify-center rounded-md transition-colors",
               pathname === "/bookmarks"
-                ? "bg-primary/10 text-primary"
+                ? "text-primary"
                 : "text-muted-foreground hover:bg-muted hover:text-foreground"
             )}
           >
@@ -225,16 +188,16 @@ export function SiteHeader() {
           </Link>
           <Link
             href="/ask"
-            className="hidden sm:inline-flex items-center gap-1.5 rounded-lg border border-primary/40 bg-primary/5 px-3 py-1.5 text-xs font-medium text-primary hover:bg-primary/10 transition-colors"
+            className="hidden lg:inline-flex ml-1 rounded-md border px-3 py-1.5 text-sm text-foreground hover:border-foreground/30 hover:bg-muted transition-colors"
           >
-            Ask a Question
+            Ask a question
           </Link>
           <button
             type="button"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
-            onClick={() => setMobileOpen(v => !v)}
-            className="sm:hidden rounded-md p-2 text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+            onClick={() => setMobileOpen((v) => !v)}
+            className="lg:hidden rounded-md p-2 text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -243,150 +206,47 @@ export function SiteHeader() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="sm:hidden border-t bg-background px-4 pb-4 pt-2">
-          <nav className="flex flex-col gap-0.5">
-            <Link
-              href="/guide"
-              onClick={() => setMobileOpen(false)}
-              className={cn(
-                "rounded-md px-3 py-2.5 text-sm font-medium transition-colors",
-                pathname === "/guide"
-                  ? "bg-primary/10 text-primary"
-                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
-              )}
-            >
-              Guide
-            </Link>
-            <Link
-              href="/section-explainer"
-              onClick={() => setMobileOpen(false)}
-              className={cn(
-                "rounded-md px-3 py-2.5 text-sm font-medium transition-colors",
-                pathname === "/section-explainer" || pathname?.startsWith("/section-explainer/")
-                  ? "bg-primary/10 text-primary"
-                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
-              )}
-            >
-              Section Explainer
-            </Link>
-            <Link
-              href="/detailed-explainer"
-              onClick={() => setMobileOpen(false)}
-              className={cn(
-                "rounded-md px-3 py-2.5 text-sm font-medium transition-colors",
-                pathname === "/detailed-explainer" || pathname?.startsWith("/detailed-explainer/")
-                  ? "bg-primary/10 text-primary"
-                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
-              )}
-            >
-              Detailed Explainer
-            </Link>
-            <Link
-              href="/section-mapping"
-              onClick={() => setMobileOpen(false)}
-              className={cn(
-                "rounded-md px-3 py-2.5 text-sm font-medium transition-colors",
-                pathname === "/section-mapping"
-                  ? "bg-primary/10 text-primary"
-                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
-              )}
-            >
-              1961 → 2025 Mapping
-            </Link>
-            <Link
-              href="/tax-calendar"
-              onClick={() => setMobileOpen(false)}
-              className={cn(
-                "rounded-md px-3 py-2.5 text-sm font-medium transition-colors",
-                pathname === "/tax-calendar"
-                  ? "bg-primary/10 text-primary"
-                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
-              )}
-            >
-              Tax Calendar
-            </Link>
-            <Link
-              href="/form-comparison"
-              onClick={() => setMobileOpen(false)}
-              className={cn(
-                "rounded-md px-3 py-2.5 text-sm font-medium transition-colors",
-                pathname === "/form-comparison"
-                  ? "bg-primary/10 text-primary"
-                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
-              )}
-            >
-              Form Comparison
-            </Link>
-            <Link
-              href="/case-law"
-              onClick={() => setMobileOpen(false)}
-              className={cn(
-                "rounded-md px-3 py-2.5 text-sm font-medium transition-colors",
-                pathname === "/case-law" || pathname?.startsWith("/case-law/")
-                  ? "bg-primary/10 text-primary"
-                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
-              )}
-            >
-              Case Law
-            </Link>
-            <Link
-              href="/quiz"
-              onClick={() => setMobileOpen(false)}
-              className={cn(
-                "rounded-md px-3 py-2.5 text-sm font-medium transition-colors",
-                pathname === "/quiz" || pathname?.startsWith("/quiz/")
-                  ? "bg-primary/10 text-primary"
-                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
-              )}
-            >
-              Quiz
-            </Link>
-
-            {/* Calculators section */}
-            <p className="mt-2 px-3 pb-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-              Calculators
-            </p>
-            {CALCULATORS.map(({ href, label }) => (
-              <Link
-                key={href}
-                href={href}
-                onClick={() => setMobileOpen(false)}
-                className={cn(
-                  "rounded-md px-3 py-2 text-sm transition-colors",
-                  pathname === href
-                    ? "bg-primary/10 text-primary font-medium"
-                    : "text-muted-foreground hover:bg-muted hover:text-foreground"
-                )}
-              >
-                {label}
-              </Link>
-            ))}
-
-            <Link
-              href="/bookmarks"
-              onClick={() => setMobileOpen(false)}
-              className={cn(
-                "mt-2 rounded-md px-3 py-2.5 text-sm font-medium transition-colors flex items-center gap-2",
-                pathname === "/bookmarks"
-                  ? "bg-primary/10 text-primary"
-                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
-              )}
-            >
-              <Bookmark className="h-4 w-4" />
-              My Bookmarks
-            </Link>
-            <Link
-              href="/ask"
-              onClick={() => setMobileOpen(false)}
-              className={cn(
-                "rounded-md px-3 py-2.5 text-sm font-medium transition-colors",
-                pathname === "/ask"
-                  ? "bg-primary/10 text-primary"
-                  : "text-primary hover:bg-primary/10"
-              )}
-            >
-              Ask a Question
-            </Link>
+        <div className="lg:hidden border-t bg-background">
+          <nav className="container mx-auto grid max-w-6xl gap-x-8 py-4 sm:grid-cols-2">
+            <div className="flex flex-col">
+              {MOBILE_LINKS.map(({ href, label }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  onClick={() => setMobileOpen(false)}
+                  className={cn(
+                    "border-b border-border/60 py-2.5 text-[15px]",
+                    isActive(pathname, href) ? "font-medium text-primary" : "text-foreground"
+                  )}
+                >
+                  {label}
+                </Link>
+              ))}
+            </div>
+            <div className="mt-5 flex flex-col sm:mt-0">
+              <p className="pb-1 text-sm text-muted-foreground">Calculators</p>
+              {CALCULATORS.map(({ href, label }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  onClick={() => setMobileOpen(false)}
+                  className={cn(
+                    "border-b border-border/60 py-2.5 text-[15px]",
+                    pathname === href ? "font-medium text-primary" : "text-foreground"
+                  )}
+                >
+                  {label}
+                </Link>
+              ))}
+              <div className="mt-4 flex gap-4 text-[15px]">
+                <Link href="/bookmarks" onClick={() => setMobileOpen(false)} className="text-muted-foreground hover:text-foreground">
+                  My bookmarks
+                </Link>
+                <Link href="/ask" onClick={() => setMobileOpen(false)} className="text-primary">
+                  Ask a question
+                </Link>
+              </div>
+            </div>
           </nav>
         </div>
       )}

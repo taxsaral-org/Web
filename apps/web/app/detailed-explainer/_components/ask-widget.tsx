@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { MessageCircle, X, ArrowRight } from "lucide-react";
+import { MessageCircle, X } from "lucide-react";
 import { AskClient } from "@/app/ask/_components/ask-client";
 
 export function DetailedAskWidget({ section2025 }: { section2025: string }) {
@@ -10,12 +10,9 @@ export function DetailedAskWidget({ section2025 }: { section2025: string }) {
   return (
     <>
       {/* Inline CTA */}
-      <div className="mt-10 rounded-xl border-2 border-dashed border-primary/25 bg-gradient-to-br from-primary/5 to-blue-50/50 px-5 py-5">
+      <div className="mt-10 rounded-md border bg-secondary/50 px-5 py-5">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-start gap-3">
-            <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/15">
-              <MessageCircle className="h-5 w-5 text-primary" />
-            </div>
             <div>
               <p className="text-sm font-semibold text-foreground">
                 Have a question about {section2025}?
@@ -27,10 +24,9 @@ export function DetailedAskWidget({ section2025 }: { section2025: string }) {
           </div>
           <button
             onClick={() => setOpen(true)}
-            className="flex shrink-0 items-center gap-1.5 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors"
+            className="flex shrink-0 items-center gap-1.5 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
           >
-            Ask a Question
-            <ArrowRight className="h-3.5 w-3.5" />
+            Ask a question
           </button>
         </div>
       </div>
@@ -40,13 +36,13 @@ export function DetailedAskWidget({ section2025 }: { section2025: string }) {
         <div className="fixed inset-0 z-50 flex items-end justify-end p-3 sm:p-6">
           {/* Backdrop */}
           <div
-            className="absolute inset-0 bg-black/30 backdrop-blur-sm"
+            className="absolute inset-0 bg-black/30"
             onClick={() => setOpen(false)}
           />
 
           {/* Panel */}
           <div
-            className="relative z-10 flex w-full max-w-md flex-col overflow-hidden rounded-2xl border bg-background shadow-2xl"
+            className="relative z-10 flex w-full max-w-md flex-col overflow-hidden rounded-lg border bg-background shadow-xl"
             style={{ height: "560px" }}
           >
             {/* Panel header */}

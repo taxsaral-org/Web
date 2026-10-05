@@ -235,7 +235,7 @@ function ResultPanel({ result, allDone }: { result: ResidentialStatusResult; all
           )}
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div>
-              <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-1">
+              <p className="text-sm font-medium text-muted-foreground mb-1">
                 Residential Status — Tax Year 2026-27
               </p>
               <StatusBadge status={result.status} large />
@@ -440,7 +440,7 @@ export function ResidentialStatusClient() {
       {/* Real-time result (always shown once citizenship is selected) */}
       {result && (
         <div className="space-y-2">
-          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+          <p className="text-sm font-semibold text-muted-foreground">
             {allDone ? "Your Residential Status" : "Preliminary result"}
           </p>
           <ResultPanel result={result} allDone={allDone} />

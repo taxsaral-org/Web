@@ -12,14 +12,14 @@ export default function PrivacyPage() {
   return (
     <div className="container mx-auto max-w-3xl px-4 py-12">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold tracking-tight">Privacy Policy</h1>
+        <h1 className="text-3xl font-semibold">Privacy Policy</h1>
         <p className="mt-2 text-sm text-muted-foreground">Effective date: {EFFECTIVE_DATE}</p>
       </div>
 
       <div className="prose prose-sm max-w-none space-y-8 text-muted-foreground">
 
         <section>
-          <h2 className="text-lg font-bold text-foreground mb-2">1. Overview</h2>
+          <h2 className="text-xl font-semibold text-foreground mb-2">1. Overview</h2>
           <p>
             TaxSaral (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) operates the website at{" "}
             <strong className="text-foreground">taxsaral.org</strong>. This Privacy Policy explains what
@@ -33,7 +33,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-lg font-bold text-foreground mb-2">2. Information we collect</h2>
+          <h2 className="text-xl font-semibold text-foreground mb-2">2. Information we collect</h2>
 
           <h3 className="font-semibold text-foreground mt-4 mb-1">2a. Calculator inputs (not collected)</h3>
           <p>
@@ -84,7 +84,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-lg font-bold text-foreground mb-2">3. Cookies</h2>
+          <h2 className="text-xl font-semibold text-foreground mb-2">3. Cookies</h2>
           <p>
             TaxSaral does not set any first-party cookies. Google Analytics sets the following cookies:
           </p>
@@ -118,7 +118,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-lg font-bold text-foreground mb-2">4. How we use information</h2>
+          <h2 className="text-xl font-semibold text-foreground mb-2">4. How we use information</h2>
           <ul className="list-disc pl-5 space-y-1">
             <li>To understand which calculators and guide sections are most useful (GA4 data)</li>
             <li>To improve site content and fix errors</li>
@@ -130,7 +130,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-lg font-bold text-foreground mb-2">5. Third-party services</h2>
+          <h2 className="text-xl font-semibold text-foreground mb-2">5. Third-party services</h2>
           <p>We use the following third-party services:</p>
           <ul className="list-disc pl-5 mt-2 space-y-1">
             <li><strong className="text-foreground">Google Analytics 4</strong> — usage analytics (Google LLC)</li>
@@ -144,7 +144,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-lg font-bold text-foreground mb-2">6. Data retention</h2>
+          <h2 className="text-xl font-semibold text-foreground mb-2">6. Data retention</h2>
           <p>
             GA4 analytics data is retained for 14 months by default as per Google&apos;s settings.
             Emails received through the Ask a Question form are retained in our inbox for as long as
@@ -153,7 +153,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-lg font-bold text-foreground mb-2">7. Your rights</h2>
+          <h2 className="text-xl font-semibold text-foreground mb-2">7. Your rights</h2>
           <p>You have the right to:</p>
           <ul className="list-disc pl-5 mt-2 space-y-1">
             <li>Request deletion of any email and query you have submitted to us</li>
@@ -163,7 +163,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-lg font-bold text-foreground mb-2">8. Children&apos;s privacy</h2>
+          <h2 className="text-xl font-semibold text-foreground mb-2">8. Children&apos;s privacy</h2>
           <p>
             TaxSaral is not directed at children under 13. We do not knowingly collect personal information
             from children.
@@ -171,7 +171,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-lg font-bold text-foreground mb-2">9. Changes to this policy</h2>
+          <h2 className="text-xl font-semibold text-foreground mb-2">9. Changes to this policy</h2>
           <p>
             We may update this Privacy Policy from time to time. When we do, we will update the effective
             date at the top of this page. Continued use of the site after changes constitutes acceptance
@@ -180,7 +180,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-lg font-bold text-foreground mb-2">10. Contact</h2>
+          <h2 className="text-xl font-semibold text-foreground mb-2">10. Contact</h2>
           <p>
             For privacy-related questions or requests, contact us at:{" "}
             <a href="mailto:vsriram1008@gmail.com" className="text-primary underline underline-offset-4">

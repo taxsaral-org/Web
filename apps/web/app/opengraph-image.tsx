@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { SECTIONS_IN_FORCE } from "./section-mapping/_components/mapping-data";
+import { MAPPINGS, SECTIONS_IN_FORCE, oldRefs } from "./section-mapping/_components/mapping-data";
 
 // Social share card, generated at build time. Without this every link
 // shared to LinkedIn, X or WhatsApp renders as a blank card.
@@ -15,6 +15,21 @@ export const contentType = "image/png";
 // generated once and cached at the edge.
 export const dynamic = "force-dynamic";
 
+// Same palette as globals.css: paper, ink, one deep green.
+const PAPER = "#fbf9f6";
+const INK = "#1f1b17";
+const MUTED = "#6f665d";
+const RULE = "#ddd5ca";
+const GREEN = "#1b5545";
+
+// A few familiar sections, with the new number read from the mapping data.
+const PAIRS = ["80C", "87A", "24", "45", "192"].flatMap((old) => {
+  const row = MAPPINGS.find((m) => !m.groupRef && oldRefs(m.old).includes(old));
+  return row ? [{ old, now: row.new }] : [];
+});
+
+const cell = { display: "flex", width: 120, justifyContent: "flex-start" } as const;
+
 export default function OpengraphImage() {
   return new ImageResponse(
     (
@@ -24,89 +39,40 @@ export default function OpengraphImage() {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "center",
-          background: "linear-gradient(135deg, #1e3a8a 0%, #3730a3 55%, #0f766e 100%)",
-          color: "white",
-          padding: "70px 80px",
+          justifyContent: "space-between",
+          background: PAPER,
+          color: INK,
+          borderTop: `14px solid ${GREEN}`,
+          padding: "64px 80px 60px",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            fontSize: 26,
-            letterSpacing: 3,
-            textTransform: "uppercase",
-            color: "#a5b4fc",
-            marginBottom: 26,
-          }}
-        >
-          Tax Year 2026-27 · Income Tax Act 2025
-        </div>
-
-        <div
-          style={{
-            display: "flex",
-            fontSize: 82,
-            fontWeight: 700,
-            lineHeight: 1.05,
-            marginBottom: 26,
-          }}
-        >
-          TaxSaral
-        </div>
-
-        <div
-          style={{
-            display: "flex",
-            fontSize: 38,
-            lineHeight: 1.3,
-            color: "#e0e7ff",
-            maxWidth: 940,
-          }}
-        >
-          Landmark case law mapped to the new sections, a full 1961-to-2025
-          section mapping, explainers and free calculators.
-        </div>
-
-        <div
-          style={{
-            display: "flex",
-            gap: 16,
-            marginTop: 46,
-            fontSize: 26,
-            color: "#c7d2fe",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              border: "2px solid #6366f1",
-              borderRadius: 999,
-              padding: "8px 24px",
-            }}
-          >
-            112 judgments
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <div style={{ display: "flex", fontSize: 26, color: MUTED }}>
+            Income Tax Act, 2025 · Tax Year 2026-27
           </div>
-          <div
-            style={{
-              display: "flex",
-              border: "2px solid #6366f1",
-              borderRadius: 999,
-              padding: "8px 24px",
-            }}
-          >
-            {SECTIONS_IN_FORCE} sections mapped
+          <div style={{ display: "flex", fontSize: 88, fontWeight: 700, letterSpacing: -2, marginTop: 14 }}>
+            TaxSaral
           </div>
-          <div
-            style={{
-              display: "flex",
-              border: "2px solid #6366f1",
-              borderRadius: 999,
-              padding: "8px 24px",
-            }}
-          >
-            No login · No ads
+          <div style={{ display: "flex", fontSize: 38, lineHeight: 1.3, color: "#3b342e", maxWidth: 980, marginTop: 10 }}>
+            The section numbers you know changed on 1 April 2026. The old Act and the new one, side by side.
+          </div>
+        </div>
+
+        <div style={{ display: "flex", flexDirection: "column", borderTop: `2px solid ${RULE}`, paddingTop: 22 }}>
+          <div style={{ display: "flex", fontSize: 28, color: MUTED }}>
+            <div style={{ ...cell, width: 110 }}>1961</div>
+            {PAIRS.map(({ old }) => (
+              <div key={old} style={cell}>{old}</div>
+            ))}
+          </div>
+          <div style={{ display: "flex", fontSize: 28, marginTop: 8 }}>
+            <div style={{ ...cell, width: 110, color: MUTED }}>2025</div>
+            {PAIRS.map(({ old, now }) => (
+              <div key={old} style={{ ...cell, color: GREEN, fontWeight: 700 }}>{now}</div>
+            ))}
+            <div style={{ display: "flex", marginLeft: "auto", color: MUTED }}>
+              {SECTIONS_IN_FORCE} sections mapped
+            </div>
           </div>
         </div>
       </div>

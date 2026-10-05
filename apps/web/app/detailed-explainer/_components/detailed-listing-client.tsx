@@ -1,52 +1,13 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Search, X, ArrowRight, BookOpen } from "lucide-react";
+import { Search, X } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { DETAILED_ENTRIES, DETAILED_CATEGORIES } from "./detailed-data";
 import type { DetailedCategory } from "./detailed-data";
 import { BookmarkButton } from "@/components/bookmark-button";
 import { RecentHistory } from "./recent-history";
-
-// Pill badge on the card
-const CATEGORY_BADGE: Record<DetailedCategory, string> = {
-  "Capital Gains":            "bg-yellow-100 text-yellow-800",
-  "Corporate Tax":            "bg-violet-100 text-violet-800",
-  "TDS & TCS":                "bg-pink-100 text-pink-800",
-  "Business & Profession":    "bg-amber-100 text-amber-800",
-  "Deductions":               "bg-green-100 text-green-800",
-  "International Tax":        "bg-sky-100 text-sky-800",
-  "Special Income":           "bg-cyan-100 text-cyan-800",
-  "Charitable Trusts & NPOs": "bg-teal-100 text-teal-800",
-  "Agricultural Income":      "bg-lime-100 text-lime-800",
-};
-
-// Left border accent on each card
-const CATEGORY_ACCENT: Record<DetailedCategory, string> = {
-  "Capital Gains":            "border-l-yellow-400",
-  "Corporate Tax":            "border-l-violet-400",
-  "TDS & TCS":                "border-l-pink-400",
-  "Business & Profession":    "border-l-amber-400",
-  "Deductions":               "border-l-green-400",
-  "International Tax":        "border-l-sky-400",
-  "Special Income":           "border-l-cyan-400",
-  "Charitable Trusts & NPOs": "border-l-teal-400",
-  "Agricultural Income":      "border-l-lime-400",
-};
-
-// Active filter pill colour (category-matched, not generic primary)
-const CATEGORY_FILTER_ACTIVE: Record<DetailedCategory, string> = {
-  "Capital Gains":            "bg-yellow-100 text-yellow-800 border-yellow-300",
-  "Corporate Tax":            "bg-violet-100 text-violet-800 border-violet-300",
-  "TDS & TCS":                "bg-pink-100 text-pink-800 border-pink-300",
-  "Business & Profession":    "bg-amber-100 text-amber-800 border-amber-300",
-  "Deductions":               "bg-green-100 text-green-800 border-green-300",
-  "International Tax":        "bg-sky-100 text-sky-800 border-sky-300",
-  "Special Income":           "bg-cyan-100 text-cyan-800 border-cyan-300",
-  "Charitable Trusts & NPOs": "bg-teal-100 text-teal-800 border-teal-300",
-  "Agricultural Income":      "bg-lime-100 text-lime-800 border-lime-300",
-};
 
 export function DetailedListingClient() {
   const [query, setQuery] = useState("");
@@ -85,7 +46,7 @@ export function DetailedListingClient() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder='Search by topic, section number, or keyword… e.g. "slump sale", "buyback", "agricultural"'
-          className="w-full rounded-xl border bg-background py-3 pl-10 pr-10 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30"
+          className="w-full rounded-md border bg-card py-3 pl-10 pr-10 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30"
         />
         {query && (
           <button
@@ -98,13 +59,13 @@ export function DetailedListingClient() {
         )}
       </div>
 
-      {/* Category filter pills */}
-      <div className="flex flex-wrap gap-2">
+      {/* Category filters */}
+      <div className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0">
         <button
           type="button"
           onClick={() => setActiveCategory(null)}
           className={cn(
-            "rounded-full border px-3 py-1 text-xs font-medium transition-colors",
+            "shrink-0 whitespace-nowrap rounded-full border px-3 py-1 text-xs font-medium transition-colors",
             !activeCategory
               ? "border-primary bg-primary text-primary-foreground"
               : "border-border text-muted-foreground hover:bg-muted hover:text-foreground"
@@ -121,9 +82,9 @@ export function DetailedListingClient() {
               type="button"
               onClick={() => setActiveCategory(isActive ? null : cat)}
               className={cn(
-                "rounded-full border px-3 py-1 text-xs font-medium transition-colors",
+                "shrink-0 whitespace-nowrap rounded-full border px-3 py-1 text-xs font-medium transition-colors",
                 isActive
-                  ? CATEGORY_FILTER_ACTIVE[cat]
+                  ? "border-primary bg-primary text-primary-foreground"
                   : "border-border text-muted-foreground hover:bg-muted hover:text-foreground"
               )}
             >
@@ -135,8 +96,7 @@ export function DetailedListingClient() {
 
       {/* Results */}
       {filtered.length === 0 ? (
-        <div className="rounded-xl border bg-muted/20 py-14 text-center">
-          <BookOpen className="mx-auto mb-3 h-8 w-8 text-muted-foreground/40" />
+        <div className="border-y py-14 text-center">
           <p className="text-sm text-muted-foreground">
             No entries match{" "}
             <span className="font-medium text-foreground">&ldquo;{query}&rdquo;</span>.
@@ -150,80 +110,48 @@ export function DetailedListingClient() {
           </button>
         </div>
       ) : (
-        <div className="space-y-3">
-          <p className="text-xs text-muted-foreground">
+        <div>
+          <p className="mb-3 text-xs text-muted-foreground">
             Showing{" "}
             <span className="font-semibold text-foreground">{filtered.length}</span> of{" "}
             {DETAILED_ENTRIES.length} analyses
           </p>
 
-          {filtered.map((entry) => (
-            <div
-              key={entry.slug}
-              className={cn(
-                "group relative rounded-xl border border-l-4 bg-card transition-all",
-                "hover:shadow-md hover:bg-muted/10",
-                CATEGORY_ACCENT[entry.category]
-              )}
-            >
-              {/* Bookmark button — top right, always visible */}
-              <div className="absolute right-3 top-3 z-10">
-                <BookmarkButton
-                  item={{
-                    slug: entry.slug,
-                    type: "detailed",
-                    title: entry.title,
-                    section: entry.section2025,
-                    category: entry.category,
-                  }}
-                />
-              </div>
+          <div className="divide-y border-y">
+            {filtered.map((entry) => (
+              <div key={entry.slug} className="group relative">
+                <div className="absolute right-0 top-5 z-10">
+                  <BookmarkButton
+                    item={{
+                      slug: entry.slug,
+                      type: "detailed",
+                      title: entry.title,
+                      section: entry.section2025,
+                      category: entry.category,
+                    }}
+                  />
+                </div>
 
-              {/* Clickable card area */}
-              <Link
-                href={`/detailed-explainer/${entry.slug}`}
-                className="block p-5 pr-14"
-              >
-                {/* Top row: section + category + old section */}
-                <div className="mb-3 flex flex-wrap items-center gap-2">
-                  <span className="rounded-md bg-primary/10 px-2.5 py-0.5 font-mono text-xs font-semibold text-primary">
-                    {entry.section2025}
-                  </span>
-                  <span
-                    className={cn(
-                      "rounded-full px-2.5 py-0.5 text-xs font-medium",
-                      CATEGORY_BADGE[entry.category]
+                <Link href={`/detailed-explainer/${entry.slug}`} className="block py-6 pr-14">
+                  <p className="text-xs text-muted-foreground">
+                    <span className="font-medium text-primary">{entry.section2025}</span>
+                    {entry.section1961 && (
+                      <>
+                        {" "}· was <span className="font-medium text-foreground">{entry.section1961}</span> in the 1961 Act
+                      </>
                     )}
-                  >
-                    {entry.category}
-                  </span>
-                  {entry.section1961 && (
-                    <span className="text-xs text-muted-foreground">
-                      was{" "}
-                      <span className="font-medium text-foreground">{entry.section1961}</span>{" "}
-                      in IT Act 1961
-                    </span>
-                  )}
-                </div>
-
-                {/* Title */}
-                <h2 className="mb-1.5 text-base font-semibold leading-snug transition-colors group-hover:text-primary">
-                  {entry.title}
-                </h2>
-
-                {/* Summary */}
-                <p className="line-clamp-2 text-sm leading-relaxed text-muted-foreground">
-                  {entry.summary}
-                </p>
-
-                {/* CTA */}
-                <div className="mt-3 flex items-center gap-1 text-xs font-semibold text-primary opacity-70 transition-all group-hover:opacity-100">
-                  Read full analysis
-                  <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
-                </div>
-              </Link>
-            </div>
-          ))}
+                    {" "}· {entry.category}
+                  </p>
+                  <h2 className="mt-1.5 text-lg font-semibold leading-snug group-hover:text-primary group-hover:underline underline-offset-4 decoration-1">
+                    {entry.title}
+                  </h2>
+                  <p className="mt-1.5 line-clamp-2 max-w-3xl text-[15px] leading-relaxed text-muted-foreground">
+                    {entry.summary}
+                  </p>
+                </Link>
+              </div>
+            ))}
+          </div>
         </div>
       )}
     </div>

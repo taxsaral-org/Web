@@ -12,14 +12,14 @@ export default function TermsPage() {
   return (
     <div className="container mx-auto max-w-3xl px-4 py-12">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold tracking-tight">Terms of Use</h1>
+        <h1 className="text-3xl font-semibold">Terms of Use</h1>
         <p className="mt-2 text-sm text-muted-foreground">Effective date: {EFFECTIVE_DATE}</p>
       </div>
 
       <div className="prose prose-sm max-w-none space-y-8 text-muted-foreground">
 
         <section>
-          <h2 className="text-lg font-bold text-foreground mb-2">1. Acceptance of terms</h2>
+          <h2 className="text-xl font-semibold text-foreground mb-2">1. Acceptance of terms</h2>
           <p>
             By accessing or using <strong className="text-foreground">taxsaral.org</strong> (&quot;the Site&quot;),
             you agree to be bound by these Terms of Use. If you do not agree, please do not use the Site.
@@ -27,7 +27,7 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-lg font-bold text-foreground mb-2">2. Nature of the service</h2>
+          <h2 className="text-xl font-semibold text-foreground mb-2">2. Nature of the service</h2>
           <p>
             TaxSaral provides free income tax calculators, educational guides, and a question-and-answer
             service based on the <strong className="text-foreground">Income Tax Act 2025</strong> as
@@ -40,7 +40,7 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-lg font-bold text-foreground mb-2">3. No tax or legal advice</h2>
+          <h2 className="text-xl font-semibold text-foreground mb-2">3. No tax or legal advice</h2>
           <div className="rounded-lg border border-amber-200 bg-amber-50 p-4 text-amber-900">
             <p className="font-semibold mb-1">Important — please read carefully</p>
             <p className="text-sm leading-relaxed">
@@ -64,7 +64,7 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-lg font-bold text-foreground mb-2">4. Accuracy and updates</h2>
+          <h2 className="text-xl font-semibold text-foreground mb-2">4. Accuracy and updates</h2>
           <p>
             We make reasonable efforts to ensure all content reflects the Income Tax Act 2025 accurately.
             However, tax law is complex and subject to change through Finance Acts, notifications, circulars,
@@ -78,7 +78,7 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-lg font-bold text-foreground mb-2">5. Limitation of liability</h2>
+          <h2 className="text-xl font-semibold text-foreground mb-2">5. Limitation of liability</h2>
           <p>
             To the fullest extent permitted by applicable law, TaxSaral and its operators shall not be
             liable for any direct, indirect, incidental, consequential, or special damages arising out of:
@@ -92,7 +92,7 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-lg font-bold text-foreground mb-2">6. Ask a Question service</h2>
+          <h2 className="text-xl font-semibold text-foreground mb-2">6. Ask a Question service</h2>
           <p>
             Responses provided through the &quot;Ask a Question&quot; feature are offered as general educational
             guidance only. They are not personalised tax advice and do not create a professional relationship
@@ -106,7 +106,7 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-lg font-bold text-foreground mb-2">7. Intellectual property</h2>
+          <h2 className="text-xl font-semibold text-foreground mb-2">7. Intellectual property</h2>
           <p>
             All content on TaxSaral — including text, calculator logic, design, and code — is the property
             of TaxSaral and is protected under applicable intellectual property laws.
@@ -123,7 +123,7 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-lg font-bold text-foreground mb-2">8. Third-party links</h2>
+          <h2 className="text-xl font-semibold text-foreground mb-2">8. Third-party links</h2>
           <p>
             The Site may contain links to third-party websites (such as the Income Tax Department portal
             or other resources). These links are provided for convenience only. We have no control over,
@@ -132,7 +132,7 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-lg font-bold text-foreground mb-2">9. Acceptable use</h2>
+          <h2 className="text-xl font-semibold text-foreground mb-2">9. Acceptable use</h2>
           <p>You agree not to:</p>
           <ul className="list-disc pl-5 mt-2 space-y-1">
             <li>Use the Site for any unlawful purpose</li>
@@ -143,7 +143,7 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-lg font-bold text-foreground mb-2">10. Governing law</h2>
+          <h2 className="text-xl font-semibold text-foreground mb-2">10. Governing law</h2>
           <p>
             These Terms are governed by the laws of India. Any disputes arising from use of this Site
             shall be subject to the jurisdiction of courts in India.
@@ -151,7 +151,7 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-lg font-bold text-foreground mb-2">11. Changes to these terms</h2>
+          <h2 className="text-xl font-semibold text-foreground mb-2">11. Changes to these terms</h2>
           <p>
             We may update these Terms from time to time. The effective date at the top of this page will
             be updated accordingly. Your continued use of the Site after any changes constitutes acceptance
@@ -160,7 +160,7 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-lg font-bold text-foreground mb-2">12. Contact</h2>
+          <h2 className="text-xl font-semibold text-foreground mb-2">12. Contact</h2>
           <p>
             Questions about these Terms may be directed to:{" "}
             <a href="mailto:vsriram1008@gmail.com" className="text-primary underline underline-offset-4">

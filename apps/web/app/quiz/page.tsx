@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Brain, BookOpen, GraduationCap, ArrowRight, CheckCircle2, Hash } from "lucide-react";
+import { PageHeader } from "@/components/page-header";
 import { QUIZ_CHAPTERS } from "./_components/quiz-data";
 
 const BASE     = "https://taxsaral.org";
@@ -36,178 +36,76 @@ const explainerChapters = QUIZ_CHAPTERS.filter((c) => c.source === "detailed-exp
 const icaiChapters      = QUIZ_CHAPTERS.filter((c) => c.source === "icai");
 const sectionChapters   = QUIZ_CHAPTERS.filter((c) => c.source === "section-identifier");
 
-export default function QuizPage() {
-  const totalQuestions = QUIZ_CHAPTERS.reduce((s, c) => s + c.questions.length, 0);
+const count = (chapters: typeof QUIZ_CHAPTERS) => chapters.reduce((s, c) => s + c.questions.length, 0);
 
+const TRACKS = [
+  {
+    href: "/quiz/section-identifier",
+    title: "Section Identifier",
+    level: "For CA Final",
+    meta: `${sectionChapters.length} quizzes · ${count(sectionChapters)} sections`,
+    description:
+      "See a section number, pick what it deals with, chapter by chapter through the whole Act. Built for getting to grips with the new numbering. Every answer shows the old 1961 section too.",
+    cta: "Start drilling",
+  },
+  {
+    href: "/quiz/detailed-explainer",
+    title: "Detailed Explainer",
+    level: "Medium",
+    meta: `${explainerChapters.length} quiz sets · ${count(explainerChapters)} questions`,
+    description:
+      "Concept-check questions paired with each Detailed Explainer. Take one right after reading a topic to confirm the key rules have stuck.",
+    cta: "Browse quizzes",
+  },
+  {
+    href: "/quiz/icai",
+    title: "ICAI Study Material",
+    level: "Hard",
+    meta: `${icaiChapters.length} quiz set${icaiChapters.length !== 1 ? "s" : ""} · ${count(icaiChapters)} questions`,
+    description:
+      "Harder, scenario-based questions drawn from ICAI study material and past exam problems. Attempt these once the underlying concepts are comfortable.",
+    cta: "Browse quizzes",
+  },
+];
+
+export default function QuizPage() {
   return (
     <main>
-      {/* Hero */}
-      <section className="border-b bg-gradient-to-br from-violet-50/70 via-indigo-50/40 to-background dark:from-violet-950/20">
-        <div className="container mx-auto max-w-4xl px-4 py-10">
-          <div className="mb-5 flex items-center gap-3">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-violet-200 bg-violet-100 dark:border-violet-800 dark:bg-violet-900/40">
-              <Brain className="h-6 w-6 text-violet-600 dark:text-violet-400" />
-            </div>
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-widest text-violet-500">
-                IT Act 2025 · Practice Quiz
-              </p>
-              <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">
-                Test Your Knowledge
-              </h1>
-            </div>
-          </div>
+      <PageHeader
+        kicker="Income Tax Act 2025 · Practice"
+        title="Quiz"
+        stats={[
+          { value: QUIZ_CHAPTERS.length, label: "quiz sets" },
+          { value: count(QUIZ_CHAPTERS), label: "questions" },
+        ]}
+      >
+        <p>
+          Pick a track based on where you are in your preparation. Every answer comes with an
+          explanation, and questions are shuffled on each attempt so you learn the content, not
+          the order.
+        </p>
+      </PageHeader>
 
-          <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground mb-5">
-            Choose a track based on where you are in your preparation — learn the new section
-            numbers chapter by chapter, check your understanding of each Detailed Explainer, or
-            take on harder ICAI case studies for exam practice.
-          </p>
-
-          <div className="flex flex-wrap gap-3">
-            <span className="rounded-full border border-violet-200 bg-violet-50 px-3 py-1 text-xs font-semibold text-violet-700 dark:border-violet-800 dark:bg-violet-900/40 dark:text-violet-300">
-              {QUIZ_CHAPTERS.length} quiz sets
-            </span>
-            <span className="rounded-full border border-violet-200 bg-violet-50 px-3 py-1 text-xs font-semibold text-violet-700 dark:border-violet-800 dark:bg-violet-900/40 dark:text-violet-300">
-              {totalQuestions} questions total
-            </span>
-            <span className="flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 dark:border-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300">
-              <CheckCircle2 className="h-3 w-3" />
-              Explained answers
-            </span>
-          </div>
-        </div>
-      </section>
-
-      {/* Category cards */}
-      <section className="container mx-auto max-w-4xl px-4 py-10">
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-
-          {/* Detailed Explainer track */}
-          <Link
-            href="/quiz/detailed-explainer"
-            className="group flex flex-col gap-4 rounded-2xl border bg-card p-6 transition-all hover:shadow-lg hover:border-blue-300 dark:hover:border-blue-700"
-          >
-            <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-blue-200 bg-blue-50 dark:border-blue-800 dark:bg-blue-900/30 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/50 transition-colors">
-                <BookOpen className="h-5 w-5 text-blue-600 dark:text-blue-400" />
-              </div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-wider text-blue-500 dark:text-blue-400">
-                  Track 1
-                </p>
-                <h2 className="text-base font-bold leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                  Detailed Explainer
-                </h2>
-              </div>
-            </div>
-
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              Concept-check questions paired with each Detailed Explainer. Start here right after
-              reading a topic to confirm you have absorbed the key rules.
-            </p>
-
-            <div className="flex flex-wrap gap-2 text-xs">
-              <span className="rounded-full border border-blue-200 bg-blue-50 px-2.5 py-0.5 font-semibold text-blue-700 dark:border-blue-800 dark:bg-blue-900/30 dark:text-blue-300">
-                {explainerChapters.length} quiz sets
-              </span>
-              <span className="rounded-full border border-blue-200 bg-blue-50 px-2.5 py-0.5 font-semibold text-blue-700 dark:border-blue-800 dark:bg-blue-900/30 dark:text-blue-300">
-                {explainerChapters.reduce((s, c) => s + c.questions.length, 0)} questions
-              </span>
-              <span className="rounded-full border border-amber-200 bg-amber-50 px-2.5 py-0.5 font-semibold text-amber-700 dark:border-amber-800 dark:bg-amber-900/30 dark:text-amber-300">
-                Medium
-              </span>
-            </div>
-
-            <div className="mt-auto flex items-center gap-1.5 text-sm font-semibold text-blue-600 dark:text-blue-400">
-              Browse quizzes
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </div>
-          </Link>
-
-          {/* ICAI track */}
-          <Link
-            href="/quiz/icai"
-            className="group flex flex-col gap-4 rounded-2xl border bg-card p-6 transition-all hover:shadow-lg hover:border-orange-300 dark:hover:border-orange-700"
-          >
-            <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-orange-200 bg-orange-50 dark:border-orange-800 dark:bg-orange-900/30 group-hover:bg-orange-100 dark:group-hover:bg-orange-900/50 transition-colors">
-                <GraduationCap className="h-5 w-5 text-orange-600 dark:text-orange-400" />
-              </div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-wider text-orange-500 dark:text-orange-400">
-                  Track 2
-                </p>
-                <h2 className="text-base font-bold leading-tight group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
-                  ICAI Study Material
-                </h2>
-              </div>
-            </div>
-
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              Harder, scenario-based questions drawn from ICAI study material and past exam problems.
-              Attempt these once you are comfortable with the underlying concepts.
-            </p>
-
-            <div className="flex flex-wrap gap-2 text-xs">
-              <span className="rounded-full border border-orange-200 bg-orange-50 px-2.5 py-0.5 font-semibold text-orange-700 dark:border-orange-800 dark:bg-orange-900/30 dark:text-orange-300">
-                {icaiChapters.length} quiz set{icaiChapters.length !== 1 ? "s" : ""}
-              </span>
-              <span className="rounded-full border border-orange-200 bg-orange-50 px-2.5 py-0.5 font-semibold text-orange-700 dark:border-orange-800 dark:bg-orange-900/30 dark:text-orange-300">
-                {icaiChapters.reduce((s, c) => s + c.questions.length, 0)} questions
-              </span>
-              <span className="rounded-full border border-red-200 bg-red-50 px-2.5 py-0.5 font-semibold text-red-700 dark:border-red-800 dark:bg-red-900/30 dark:text-red-300">
-                Hard
-              </span>
-            </div>
-
-            <div className="mt-auto flex items-center gap-1.5 text-sm font-semibold text-orange-600 dark:text-orange-400">
-              Browse quizzes
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </div>
-          </Link>
-
-          {/* Section Identifier track */}
-          <Link
-            href="/quiz/section-identifier"
-            className="group flex flex-col gap-4 rounded-2xl border bg-card p-6 transition-all hover:shadow-lg hover:border-emerald-300 dark:hover:border-emerald-700"
-          >
-            <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-emerald-200 bg-emerald-50 dark:border-emerald-800 dark:bg-emerald-900/30 group-hover:bg-emerald-100 dark:group-hover:bg-emerald-900/50 transition-colors">
-                <Hash className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
-              </div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-wider text-emerald-500 dark:text-emerald-400">
-                  Track 3
-                </p>
-                <h2 className="text-base font-bold leading-tight group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
-                  Section Identifier
-                </h2>
-              </div>
-            </div>
-
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              See a section number, pick what it deals with — chapter by chapter through the
-              whole Act. Built for CA Final students getting to grips with the new numbering.
-              Every answer shows the old 1961 section too.
-            </p>
-
-            <div className="flex flex-wrap gap-2 text-xs">
-              <span className="rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-0.5 font-semibold text-emerald-700 dark:border-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300">
-                {sectionChapters.length} quizzes
-              </span>
-              <span className="rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-0.5 font-semibold text-emerald-700 dark:border-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300">
-                {sectionChapters.reduce((s, c) => s + c.questions.length, 0)} sections
-              </span>
-            </div>
-
-            <div className="mt-auto flex items-center gap-1.5 text-sm font-semibold text-emerald-600 dark:text-emerald-400">
-              Start drilling
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </div>
-          </Link>
-
-        </div>
+      <section className="container mx-auto max-w-4xl py-10">
+        <ol className="divide-y border-y">
+          {TRACKS.map(({ href, title, level, meta, description, cta }, i) => (
+            <li key={href}>
+              <Link href={href} className="group grid gap-x-8 gap-y-2 py-7 sm:grid-cols-[2.5rem_1fr_auto]">
+                <span className="font-serif text-2xl text-muted-foreground">{i + 1}</span>
+                <div>
+                  <h2 className="text-xl font-semibold group-hover:text-primary group-hover:underline underline-offset-4 decoration-1">
+                    {title}
+                  </h2>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    {level} · {meta}
+                  </p>
+                  <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-muted-foreground">{description}</p>
+                </div>
+                <span className="self-center text-sm font-medium text-primary">{cta} →</span>
+              </Link>
+            </li>
+          ))}
+        </ol>
       </section>
     </main>
   );

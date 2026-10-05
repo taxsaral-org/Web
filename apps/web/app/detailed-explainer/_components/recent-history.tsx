@@ -10,9 +10,9 @@ export function RecentHistory() {
   if (history.length === 0) return null;
 
   return (
-    <section className="mb-8 rounded-xl border bg-muted/30 p-4">
+    <section className="mb-8 rounded-md border bg-muted/30 p-4">
       <div className="mb-3 flex items-center justify-between">
-        <div className="flex items-center gap-1.5 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+        <div className="flex items-center gap-1.5 text-sm font-semibold text-muted-foreground">
           <Clock className="h-3.5 w-3.5" />
           Recently viewed
         </div>

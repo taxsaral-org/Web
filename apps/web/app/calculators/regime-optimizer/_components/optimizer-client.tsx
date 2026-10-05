@@ -219,16 +219,11 @@ function RegimeCard({
     <Card
       className={cn(
         "relative transition-all",
-        isRecommended ? "border-emerald-500 shadow-md" : "border-border"
+        isRecommended ? "border-primary ring-1 ring-primary" : "border-border"
       )}
     >
       {isRecommended && (
-        <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-          <Badge className="gap-1 bg-emerald-600 text-white hover:bg-emerald-600">
-            <CheckCircle2 className="h-3 w-3" />
-            Recommended
-          </Badge>
-        </div>
+        <p className="absolute right-4 top-4 text-xs font-medium text-primary">Lower tax</p>
       )}
 
       <CardHeader className="pb-3 pt-6">
@@ -557,7 +552,7 @@ export function OptimizerClient({
                 label="Other Deductions"
                 value={other}
                 onChange={setOther}
-                hint="Education loan interest (S.133), savings interest (S.149), etc."
+                hint="Education loan interest (Section 129), interest on deposits (Section 153), etc."
               />
 
               {totalItemised > 0 && (

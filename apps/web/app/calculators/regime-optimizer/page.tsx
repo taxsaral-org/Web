@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { AlertTriangle } from "lucide-react";
 import { parseParam } from "@/lib/cross-link";
 import { OptimizerClient } from "./_components/optimizer-client";
 
@@ -91,7 +90,7 @@ export default function RegimeOptimizerPage({ searchParams }: Props) {
       {/* Page header */}
       <div className="mb-8">
         <div className="mb-2 flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
-          <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+          <span className="text-foreground">
             Tax Year 2026-27
           </span>
           <span>·</span>
@@ -99,17 +98,14 @@ export default function RegimeOptimizerPage({ searchParams }: Props) {
           <span>·</span>
           <span>Section 202</span>
         </div>
-        <h1 className="text-3xl font-bold tracking-tight">Income Tax Regime Optimizer</h1>
+        <h1 className="text-3xl font-semibold sm:text-4xl">Income Tax Regime Optimizer</h1>
         <p className="mt-2 text-muted-foreground">
           Compare your tax liability under the default and optional regimes. Results update as you type.
         </p>
-        <div className="mt-4 flex items-start gap-2 rounded-lg border border-amber-300 bg-amber-50 px-4 py-3 text-sm dark:border-amber-700 dark:bg-amber-950">
-          <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-amber-600 dark:text-amber-400" />
-          <p className="text-amber-800 dark:text-amber-200">
-            <span className="font-semibold">For guidance only.</span> Tax calculations are
+        <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
+            <span className="font-medium text-foreground">For guidance only.</span> Tax calculations are
             estimates based on published IT Act 2025 rates. Verify with a CA before filing your return.
           </p>
-        </div>
       </div>
 
       {/* Interactive calculator */}
@@ -125,19 +121,19 @@ export default function RegimeOptimizerPage({ searchParams }: Props) {
           <p className="mb-6 text-sm text-muted-foreground">
             Under the Income Tax Act 2025, every individual files under one of two parallel tax systems. You compare, then choose.
           </p>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+          <dl className="divide-y border-y">
             {KEY_POINTS.map(({ label, desc }) => (
-              <div key={label} className="rounded-lg border bg-card p-4">
-                <p className="mb-1 text-sm font-semibold">{label}</p>
-                <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
+              <div key={label} className="grid gap-1 py-3 sm:grid-cols-[12rem_1fr] sm:gap-6">
+                <dt className="font-medium">{label}</dt>
+                <dd className="text-[15px] text-muted-foreground leading-relaxed">{desc}</dd>
               </div>
             ))}
-          </div>
+          </dl>
         </div>
 
         {/* Regime comparison table */}
         <div>
-          <h2 className="mb-4 text-lg font-semibold">Default vs Optional — Side by Side</h2>
+          <h2 className="mb-4 text-xl font-semibold">Default vs Optional — Side by Side</h2>
           <div className="overflow-x-auto rounded-lg border">
             <table className="w-full text-sm">
               <thead className="bg-muted/50">
@@ -195,22 +191,22 @@ export default function RegimeOptimizerPage({ searchParams }: Props) {
 
         {/* FAQ */}
         <div>
-          <h2 className="mb-4 text-lg font-semibold">Common questions</h2>
-          <div className="space-y-2">
+          <h2 className="mb-4 text-xl font-semibold">Common questions</h2>
+          <div className="divide-y border-y">
             {REGIME_FAQS.map(({ q, a }) => (
-              <details key={q} className="group rounded-lg border bg-card">
-                <summary className="flex cursor-pointer select-none list-none items-center justify-between px-5 py-4 text-sm font-medium [&::-webkit-details-marker]:hidden">
+              <details key={q} className="group">
+                <summary className="flex cursor-pointer select-none list-none items-baseline justify-between gap-6 py-4 font-medium [&::-webkit-details-marker]:hidden">
                   {q}
-                  <span className="ml-4 shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-45 text-lg leading-none">+</span>
+                  <span aria-hidden className="shrink-0 text-sm font-normal text-muted-foreground group-open:hidden">Show</span><span aria-hidden className="hidden shrink-0 text-sm font-normal text-muted-foreground group-open:inline">Hide</span>
                 </summary>
-                <div className="border-t px-5 py-4 text-sm text-muted-foreground leading-relaxed">{a}</div>
+                <div className="pb-5 pr-10 text-[15px] text-muted-foreground leading-relaxed">{a}</div>
               </details>
             ))}
           </div>
         </div>
 
         {/* Legal reference */}
-        <div className="rounded-lg border bg-muted/30 p-4 text-xs text-muted-foreground">
+        <div className="border-t pt-4 text-xs text-muted-foreground">
           <span className="font-semibold text-foreground">Legal reference: </span>
           Section 202 (tax rate slabs) · Section 156 (rebate) · Section 123/Schedule III (deductions) — Income Tax Act 2025, applicable from Tax Year 2026-27.
         </div>

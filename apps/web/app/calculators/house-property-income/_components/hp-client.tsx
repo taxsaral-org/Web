@@ -226,11 +226,11 @@ function PropertyComputation({ r }: { r: HpPropertyResult }) {
         <Hr label="Combined income" />
         <div className="grid grid-cols-2 gap-4 pt-1">
           <div>
-            <p className="text-xs font-medium text-muted-foreground mb-1 uppercase tracking-wide">Default</p>
+            <p className="text-sm font-medium text-muted-foreground mb-1">Default</p>
             <ResultRow label="Income / (Loss)" amount={r.rawIncomeDefault} isTotal />
           </div>
           <div>
-            <p className="text-xs font-medium text-muted-foreground mb-1 uppercase tracking-wide">Optional</p>
+            <p className="text-sm font-medium text-muted-foreground mb-1">Optional</p>
             <ResultRow label="Income / (Loss)" amount={r.rawIncomeOptional} isTotal />
           </div>
         </div>
@@ -577,7 +577,7 @@ function PropertyCard({
         {/* Co-ownership (Section 24) */}
         {showOwnership && (
           <div className="space-y-3 rounded-md border p-3">
-            <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            <p className="text-sm font-semibold text-muted-foreground">
               Co-Ownership — Section {rule.sections["hpCoOwnership"]}
             </p>
             <SwitchRow id={`co-${form.id}`} label="This is a co-owned property" value={form.isCoOwned} onChange={(v) => onUpdate({ isCoOwned: v })} />
@@ -601,7 +601,7 @@ function PropertyCard({
         {/* Deemed ownership (Section 25) */}
         {showOwnership && (
           <div className="space-y-3 rounded-md border p-3">
-            <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            <p className="text-sm font-semibold text-muted-foreground">
               Deemed Ownership — Section {rule.sections["hpDeemedOwnership"]}
             </p>
             <SwitchRow
@@ -729,7 +729,7 @@ export function HpClient() {
     <div className="space-y-6">
       {/* ── Properties ── */}
       {properties.length === 0 ? (
-        <div className="flex flex-col items-center justify-center gap-4 rounded-xl border border-dashed py-12 text-center">
+        <div className="flex flex-col items-center justify-center gap-4 rounded-md border border-dashed py-12 text-center">
           <p className="text-muted-foreground">No properties added yet. Add your first property to begin.</p>
           <button type="button" onClick={addProperty} className="flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90">
             <Plus className="h-4 w-4" /> Add Property
@@ -807,7 +807,7 @@ export function HpClient() {
             <CardContent>
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div className="rounded-lg border p-4">
-                  <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Default Regime</p>
+                  <p className="mb-2 text-sm font-semibold text-muted-foreground">Default Regime</p>
                   {properties.length > 0 && <ResultRow label="Net from properties" amount={summary.totalIncomeDefault} />}
                   {summary.arrearsNet > 0 && <ResultRow label={`Arrears — Sec. ${rule.sections["hpArrears"]} (non-offsettable)`} amount={summary.arrearsNet} />}
                   <ResultRow label="Total" amount={summary.hpContributionDefault} isTotal />
@@ -816,7 +816,7 @@ export function HpClient() {
                   )}
                 </div>
                 <div className="rounded-lg border p-4">
-                  <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Optional Regime</p>
+                  <p className="mb-2 text-sm font-semibold text-muted-foreground">Optional Regime</p>
                   {properties.length > 0 && (
                     <>
                       <ResultRow label="Net from properties" amount={summary.totalIncomeOptional} />

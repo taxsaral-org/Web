@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Search, ArrowRight, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
@@ -13,45 +13,6 @@ import {
   type MappingCategory,
   type SectionMap,
 } from "./mapping-data";
-
-const CATEGORY_COLORS: Record<MappingCategory, string> = {
-  "Preliminary":              "bg-slate-100 text-slate-700",
-  "Basis of Charge":          "bg-blue-100 text-blue-700",
-  "Incomes Excluded":         "bg-green-100 text-green-700",
-  "Heads of Income":          "bg-purple-100 text-purple-700",
-  "Salaries":                 "bg-indigo-100 text-indigo-700",
-  "House Property":           "bg-orange-100 text-orange-700",
-  "Business & Profession":    "bg-amber-100 text-amber-700",
-  "Capital Gains":            "bg-yellow-100 text-yellow-700",
-  "Other Sources":            "bg-cyan-100 text-cyan-700",
-  "Clubbing of Income":       "bg-fuchsia-100 text-fuchsia-700",
-  "Aggregation":              "bg-rose-100 text-rose-700",
-  "Set-off & Losses":         "bg-red-100 text-red-700",
-  "Deductions":               "bg-emerald-100 text-emerald-700",
-  "Rebates & Reliefs":        "bg-teal-100 text-teal-700",
-  "Transfer Pricing":         "bg-blue-200 text-blue-800",
-  "Anti-Avoidance":           "bg-purple-200 text-purple-800",
-  "Mode of Payment":          "bg-stone-100 text-stone-700",
-  "Special Tax Rates":        "bg-violet-100 text-violet-700",
-  "NRI Provisions":           "bg-sky-200 text-sky-800",
-  "Pass-through Entities":    "bg-teal-200 text-teal-800",
-  "Tonnage Tax":              "bg-cyan-200 text-cyan-800",
-  "Tax Authorities":          "bg-gray-100 text-gray-700",
-  "Powers, Survey & Search":  "bg-orange-200 text-orange-800",
-  "Return Filing":            "bg-sky-100 text-sky-700",
-  "Assessment":               "bg-indigo-200 text-indigo-800",
-  "Firms, AOPs & HUFs":       "bg-lime-200 text-lime-800",
-  "Non-Profit Organisations": "bg-emerald-200 text-emerald-800",
-  "Appeals, Revision & ADR":  "bg-zinc-100 text-zinc-700",
-  "Collection & Recovery":    "bg-red-200 text-red-800",
-  "TDS & TCS":                "bg-pink-100 text-pink-700",
-  "Advance Tax":              "bg-lime-100 text-lime-700",
-  "Interest & Fees":          "bg-amber-200 text-amber-800",
-  "Refunds":                  "bg-green-200 text-green-800",
-  "Penalties":                "bg-pink-200 text-pink-800",
-  "Prosecution":              "bg-rose-200 text-rose-800",
-  "Miscellaneous":            "bg-slate-200 text-slate-700",
-};
 
 /** Lower-case, without spaces or hyphens, so "80-IAC" finds "80IAC" and vice versa. */
 const squash = (s: string) => s.toLowerCase().replace(/[\s\-–—]/g, "");
@@ -125,32 +86,60 @@ export function MappingClient() {
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<MappingCategory | "All">("All");
   const [activeQuickFilter, setActiveQuickFilter] = useState<string | null>(null);
+  // Set when the visitor arrives from the homepage lookup, which asks for an
+  // old (1961) section: matches on the old number are then listed first.
+  const [preferOld, setPreferOld] = useState(false);
 
-  const filtered = useMemo(() => {
+  // The homepage lookup links here as /section-mapping?q=80C&by=old.
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const q = params.get("q");
+    if (q) setQuery(q);
+    if (params.get("by") === "old") setPreferOld(true);
+  }, []);
+
+  const { rows: filtered, fellBackTo } = useMemo(() => {
     const raw = query.trim().replace(/^(section|sec\.?|s\.)\s*/i, "");
     const q = squash(raw);
+    // Sub-sections are mapped at section level ("143(3)" is listed under 143),
+    // so a sub-section with no entry of its own falls back to its section.
+    const base = q.replace(/\(.*$/, "");
     const qfSections = activeQuickFilter && QUICK_FILTERS[activeQuickFilter]
       ? new Set(QUICK_FILTERS[activeQuickFilter]!.sections)
       : null;
-    const rows = MAPPINGS.filter((m) => {
+    const inScope = MAPPINGS.filter((m) => {
       const matchesCategory = activeCategory === "All" || m.category === activeCategory;
       if (!matchesCategory) return false;
       if (qfSections && !qfSections.has(m.new)) return false;
-      if (!q) return true;
-      return (
-        squash(m.old).includes(q) ||
-        squash(m.new).includes(q) ||
-        squash(m.topic).includes(q) ||
-        (m.asEnacted !== undefined && squash(m.asEnacted).includes(q)) ||
-        squash(m.category).includes(q)
-      );
+      return true;
     });
-    if (!q) return rows;
-    // Exact section matches (old or new) first; otherwise keep the Act's order.
-    const exact = (m: SectionMap) =>
-      squash(m.new) === q || oldRefs(m.old).some((r) => squash(r) === q);
-    return [...rows.filter(exact), ...rows.filter((m) => !exact(m))];
-  }, [query, activeCategory, activeQuickFilter]);
+    if (!q) return { rows: inScope, fellBackTo: null };
+
+    const textMatch = (m: SectionMap, s: string) =>
+      squash(m.old).includes(s) ||
+      squash(m.new).includes(s) ||
+      squash(m.topic).includes(s) ||
+      (m.asEnacted !== undefined && squash(m.asEnacted).includes(s)) ||
+      squash(m.category).includes(s);
+    let rows = inScope.filter((m) => textMatch(m, q));
+    let key = q;
+    let fell: string | null = null;
+    if (rows.length === 0 && base && base !== q) {
+      key = base;
+      fell = base.toUpperCase();
+      rows = inScope.filter((m) => squash(m.new) === base || oldRefs(m.old).some((r) => squash(r) === base));
+    }
+
+    // Exact section matches first (old-number matches first when asked for);
+    // otherwise keep the Act's order.
+    const exactOld = (m: SectionMap) => oldRefs(m.old).some((r) => squash(r) === key);
+    const exactNew = (m: SectionMap) => squash(m.new) === key;
+    const rank = (m: SectionMap) =>
+      preferOld
+        ? exactOld(m) ? 0 : exactNew(m) ? 1 : 2
+        : exactOld(m) || exactNew(m) ? 0 : 2;
+    return { rows: [...rows].sort((a, b) => rank(a) - rank(b)), fellBackTo: fell };
+  }, [query, activeCategory, activeQuickFilter, preferOld]);
 
   return (
     <div>
@@ -162,7 +151,7 @@ export function MappingClient() {
           placeholder="Search by 1961 section, 2025 section, or topic…"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="w-full rounded-lg border bg-background pl-9 pr-9 py-2.5 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
+          className="w-full rounded-md border bg-card pl-9 pr-9 py-2.5 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
         />
         {query && (
           <button
@@ -175,60 +164,41 @@ export function MappingClient() {
         )}
       </div>
 
-      {/* Quick filters */}
-      <div className="mb-4 rounded-xl border bg-muted/30 px-4 py-3">
-        <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-          Quick Filters
-        </p>
-        <div className="flex gap-1.5 flex-wrap">
+      {/* Filters */}
+      <div className="mb-4 flex flex-col gap-3 border-b pb-4 lg:flex-row lg:items-start lg:justify-between lg:gap-8">
+        <div className="flex flex-wrap items-center gap-1.5">
+          <span className="mr-1 text-sm text-muted-foreground">Situations</span>
           {Object.entries(QUICK_FILTERS).map(([key, { label, description }]) => (
             <button
               key={key}
               type="button"
               title={description}
+              aria-pressed={activeQuickFilter === key}
               onClick={() => setActiveQuickFilter(activeQuickFilter === key ? null : key)}
               className={cn(
-                "rounded-full border px-3 py-1 text-xs font-medium transition-colors",
+                "rounded-md border px-2.5 py-1 text-xs transition-colors",
                 activeQuickFilter === key
-                  ? "bg-emerald-600 text-white border-emerald-600"
-                  : "border-emerald-300 text-emerald-700 bg-emerald-50 hover:bg-emerald-100 dark:border-emerald-700 dark:text-emerald-400 dark:bg-emerald-950/40 dark:hover:bg-emerald-900/40"
+                  ? "border-primary bg-primary text-primary-foreground"
+                  : "bg-card text-foreground hover:border-foreground/30"
               )}
             >
               {label}
             </button>
           ))}
         </div>
-      </div>
-
-      {/* Category filters */}
-      <div className="mb-4 flex gap-1.5 flex-wrap">
-        <button
-          type="button"
-          onClick={() => setActiveCategory("All")}
-          className={cn(
-            "rounded-full border px-3 py-1 text-xs font-medium transition-colors",
-            activeCategory === "All"
-              ? "bg-primary text-primary-foreground border-primary"
-              : "bg-background text-muted-foreground hover:bg-muted"
-          )}
-        >
-          All
-        </button>
-        {CATEGORIES.map((cat) => (
-          <button
-            key={cat}
-            type="button"
-            onClick={() => setActiveCategory(activeCategory === cat ? "All" : cat)}
-            className={cn(
-              "rounded-full border px-3 py-1 text-xs font-medium transition-colors",
-              activeCategory === cat
-                ? "bg-primary text-primary-foreground border-primary"
-                : "bg-background text-muted-foreground hover:bg-muted"
-            )}
+        <label className="flex shrink-0 items-center gap-2 text-sm text-muted-foreground">
+          Category
+          <select
+            value={activeCategory}
+            onChange={(e) => setActiveCategory(e.target.value as MappingCategory | "All")}
+            className="rounded-md border bg-card px-2 py-1.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/30"
           >
-            {cat}
-          </button>
-        ))}
+            <option value="All">All categories</option>
+            {CATEGORIES.map((cat) => (
+              <option key={cat} value={cat}>{cat}</option>
+            ))}
+          </select>
+        </label>
       </div>
 
       {/* Results count */}
@@ -236,31 +206,35 @@ export function MappingClient() {
         Showing <span className="font-semibold text-foreground">{filtered.length}</span> of{" "}
         {MAPPINGS.length} entries
         {activeQuickFilter && QUICK_FILTERS[activeQuickFilter] && (
-          <> — <span className="font-semibold text-emerald-700 dark:text-emerald-400">{QUICK_FILTERS[activeQuickFilter]!.label}</span></>
+          <> for <span className="font-semibold text-foreground">{QUICK_FILTERS[activeQuickFilter]!.label}</span></>
         )}
         {activeCategory !== "All" && (
           <> in <span className="font-semibold text-foreground">{activeCategory}</span></>
+        )}
+        {fellBackTo && (
+          <>. Sub-sections are mapped at section level, so these are the entries for section{" "}
+            <span className="font-semibold text-foreground">{fellBackTo}</span></>
         )}
       </p>
 
       {filtered.length > 0 ? (
         <>
           {/* Desktop table */}
-          <div className="hidden sm:block overflow-x-auto rounded-xl border">
+          <div className="hidden sm:block overflow-x-auto rounded-md border bg-card">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b bg-muted/40">
-                  <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground w-48 max-w-[12rem]">
+                  <th className="px-4 py-3 text-left text-sm font-semibold text-muted-foreground w-48 max-w-[12rem]">
                     1961 Act
                   </th>
                   <th className="px-2 py-3 text-center w-8" aria-hidden />
-                  <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground w-28">
+                  <th className="px-4 py-3 text-left text-sm font-semibold text-muted-foreground w-28">
                     2025 Act
                   </th>
-                  <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                  <th className="px-4 py-3 text-left text-sm font-semibold text-muted-foreground">
                     Section heading
                   </th>
-                  <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground w-44">
+                  <th className="px-4 py-3 text-left text-sm font-semibold text-muted-foreground w-44">
                     Category
                   </th>
                 </tr>
@@ -281,9 +255,7 @@ export function MappingClient() {
                       <Topic m={m} />
                     </td>
                     <td className="px-4 py-3">
-                      <span className={cn("rounded-full px-2 py-0.5 text-xs font-medium whitespace-nowrap", CATEGORY_COLORS[m.category])}>
-                        {m.category}
-                      </span>
+                      <span className="text-xs text-foreground/80">{m.category}</span>
                       <span className="mt-1 block text-[11px] text-muted-foreground" title={chapterTitle(m)}>
                         {chapterLabel(m)}
                       </span>
@@ -295,9 +267,9 @@ export function MappingClient() {
           </div>
 
           {/* Mobile cards */}
-          <div className="sm:hidden space-y-2">
+          <div className="sm:hidden divide-y border-y">
             {filtered.map((m) => (
-              <div key={m.new} className="rounded-xl border bg-card p-4">
+              <div key={m.new} className="py-4">
                 <div className="mb-2 flex items-start gap-2">
                   <span className="min-w-0 break-words font-mono text-xs text-muted-foreground">
                     <OldSection m={m} />
@@ -307,9 +279,7 @@ export function MappingClient() {
                 </div>
                 <p className="text-sm text-foreground leading-relaxed"><Topic m={m} /></p>
                 <div className="mt-2 flex items-center gap-2">
-                  <span className={cn("rounded-full px-2 py-0.5 text-xs font-medium", CATEGORY_COLORS[m.category])}>
-                    {m.category}
-                  </span>
+                  <span className="text-xs text-muted-foreground">{m.category} ·</span>
                   <span className="text-[11px] text-muted-foreground" title={chapterTitle(m)}>
                     {chapterLabel(m)}
                   </span>
@@ -319,7 +289,7 @@ export function MappingClient() {
           </div>
         </>
       ) : (
-        <div className="rounded-xl border bg-muted/20 py-12 text-center">
+        <div className="border-y py-12 text-center">
           <p className="text-sm text-muted-foreground">
             No sections match <span className="font-medium text-foreground">&ldquo;{query}&rdquo;</span>.
           </p>
