@@ -9,7 +9,6 @@ const COLUMNS = [
       { href: "/section-explainer", label: "Section Explainer" },
       { href: "/detailed-explainer", label: "Detailed Explainer" },
       { href: "/form-comparison", label: "Form Comparison" },
-      { href: "/tax-calendar", label: "Tax Calendar" },
     ],
   },
   {

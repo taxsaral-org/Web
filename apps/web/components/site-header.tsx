@@ -36,7 +36,6 @@ const LINKS_BEFORE: NavItem[] = [
 
 const LINKS_AFTER: NavItem[] = [
   { href: "/form-comparison", label: "Forms" },
-  { href: "/tax-calendar", label: "Calendar" },
   { href: "/quiz", label: "Quiz" },
 ];
 
@@ -45,7 +44,6 @@ const MOBILE_LINKS: NavItem[] = [
   { href: "/section-mapping", label: "1961 → 2025 Mapping" },
   ...EXPLAINERS,
   { href: "/form-comparison", label: "Form Comparison" },
-  { href: "/tax-calendar", label: "Tax Calendar" },
   { href: "/quiz", label: "Quiz" },
 ];
 

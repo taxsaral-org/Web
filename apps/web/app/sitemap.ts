@@ -14,7 +14,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/section-explainer`,                 lastModified: NOW, changeFrequency: "weekly",  priority: 0.9 },
     { url: `${BASE}/detailed-explainer`,                lastModified: NOW, changeFrequency: "weekly",  priority: 0.9 },
     { url: `${BASE}/section-mapping`,                   lastModified: NOW, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE}/tax-calendar`,                      lastModified: NOW, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/calculators/regime-optimizer`,      lastModified: NOW, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/calculators/hra`,                   lastModified: NOW, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/calculators/house-property-income`, lastModified: NOW, changeFrequency: "monthly", priority: 0.8 },
