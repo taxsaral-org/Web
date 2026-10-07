@@ -83,7 +83,7 @@ export function FormComparisonClient() {
             placeholder="Search forms, sections, or purpose…"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="w-full rounded-lg border bg-background py-2 pl-9 pr-9 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
+            className="w-full rounded-md border bg-card py-2 pl-9 pr-9 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 [&::-webkit-search-cancel-button]:hidden"
           />
           {query && (
             <button

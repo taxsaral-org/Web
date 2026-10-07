@@ -43,6 +43,7 @@ export type FormCategory =
   | "Audit Reports"
   | "Salary & Employer Forms"
   | "Deductions & Claims"
+  | "Appeals"
   | "Other Procedural Forms";
 
 export interface FormEntry {
@@ -72,6 +73,7 @@ export const FORM_CATEGORIES: FormCategory[] = [
   "Audit Reports",
   "Salary & Employer Forms",
   "Deductions & Claims",
+  "Appeals",
   "Other Procedural Forms",
 ];
 
@@ -600,23 +602,24 @@ export const FORMS: FormEntry[] = [
   {
     oldForm: "Form 35",
     newForm: "Form No. 99",
-    purpose: "Appeal to the Joint Commissioner (Appeals) or Commissioner of Income-tax (Appeals)",
-    oldSection: "Sections 246A, 249",
-    newSection: "Sections 357, 358",
+    purpose: "Appeal to the Joint Commissioner (Appeals) — JCIT(A) — or the Commissioner of Income-tax (Appeals) — CIT(A)",
+    oldSection: "Sections 246, 246A, 249",
+    newSection: "Sections 356, 357, 358",
     newRule: "Rule 167",
     pdfPage: 592,
-    category: "Other Procedural Forms",
+    category: "Appeals",
     status: "Renumbered",
+    notes: "One form for both: rule 167 prescribes Form No. 99 for an appeal to the Joint Commissioner (Appeals) or the Commissioner (Appeals), filed electronically.",
   },
   {
     oldForm: "Form 36",
     newForm: "Form No. 115",
-    purpose: "Appeal to the Income-tax Appellate Tribunal",
+    purpose: "Appeal to the Income-tax Appellate Tribunal (ITAT)",
     oldSection: "Section 253",
     newSection: "Section 362",
     newRule: "Rule 193",
     pdfPage: 686,
-    category: "Other Procedural Forms",
+    category: "Appeals",
     status: "Renumbered",
   },
   {
