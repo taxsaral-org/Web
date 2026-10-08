@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   // titles, so a template would brand them twice.
   title: "TaxSaral — Income Tax Act 2025: Case Law, Guide & Calculators",
   description:
-    "Everything on the Income Tax Act 2025 in one place — 112 landmark judgments mapped to the new sections, a complete 1961-to-2025 section mapping, plain-language section explainers, in-depth analyses, practice quizzes and free calculators for Tax Year 2026-27.",
+    "Everything on the Income Tax Act 2025 in one place — 113 landmark judgments mapped to the new sections, a complete 1961-to-2025 section mapping, plain-language section explainers, in-depth analyses, practice quizzes and free calculators for Tax Year 2026-27.",
   applicationName: "TaxSaral",
   authors: [{ name: "TaxSaral" }],
   creator: "TaxSaral",
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     locale: "en_IN",
     title: "TaxSaral — Income Tax Act 2025: Case Law, Guide & Calculators",
     description:
-      "112 landmark judgments mapped to IT Act 2025 sections, a complete 1961-to-2025 section mapping, explainers, quizzes and free calculators. No login, no ads.",
+      "113 landmark judgments mapped to IT Act 2025 sections, a complete 1961-to-2025 section mapping, explainers, quizzes and free calculators. No login, no ads.",
     url: "https://taxsaral.org",
   },
   twitter: {

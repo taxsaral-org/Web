@@ -4131,6 +4131,54 @@ export const CASE_LAWS: CaseLaw[] = [
       "natural justice",
     ],
   },
+  {
+    slug: "pruthvi-brokers-fresh-claim-in-appeal",
+    caseName: "CIT v. Pruthvi Brokers & Shareholders Pvt Ltd",
+    citation: "(2012) 349 ITR 336 (Bom)",
+    court: "Bombay High Court",
+    year: 2012,
+    category: "Assessment & Reassessment",
+    section1961: "Sections 139(5), 251 & 254",
+    section2025: "Sections 263(5), 360 & 363",
+    sectionTopic:
+      "Revised return; powers of the Commissioner (Appeals) and the Appellate Tribunal",
+    issue:
+      "Can a deduction that was not claimed in the return of income, and for which no revised return was filed, be allowed by the appellate authorities, given the Supreme Court's decision in Goetze (India) Ltd v. CIT?",
+    held:
+      "Yes. Goetze restricts only the Assessing Officer's power to entertain a new claim made otherwise than by a revised return. It does not limit the jurisdiction of the Commissioner (Appeals) or the Tribunal, who may consider a claim not made in the return; whether to entertain it in a particular case is a matter for their discretion.",
+    facts:
+      "Pruthvi Brokers & Shareholders Pvt Ltd filed its return for assessment year 2004-05 on 18 October 2004, claiming a deduction of ₹20 lakh under Section 43B for fees paid to the Securities and Exchange Board of India. The return was processed under Section 143(1) and then taken up for scrutiny. During the assessment the company wrote to the Assessing Officer that the amount claimed was wrong through inadvertence: SEBI fees of ₹40 lakh had been paid on 9 May 2003, and it was entitled to a deduction of ₹40 lakh as against the ₹20 lakh claimed in the return. It did not file a revised return. The Assessing Officer refused the claim, holding that he had no authority to allow a deduction that had not been claimed in the return.",
+    proceduralHistory:
+      "The Commissioner (Appeals), by order dated 1 August 2008, found that ₹40 lakh had been paid to SEBI during 2003-04 and directed the Assessing Officer to allow the deduction under Section 43B. The Tribunal upheld that order on 24 November 2009. The Revenue appealed to the Bombay High Court (Income Tax Appeal No. 3908 of 2010). The assessee did not appear, and the Court requested senior counsel J.D. Mistri to assist it as amicus curiae.",
+    contentions: {
+      assessee:
+        "The jurisdiction of the appellate authorities is distinct from that of the Assessing Officer and is not curtailed by Goetze. Their powers are co-terminous with the Assessing Officer's and extend to claims that were never made before him. Here the omission was inadvertent, the deduction was admittedly allowable, and the claim had been put independently before the Commissioner (Appeals) and the Tribunal. Reliance was also placed on the Board's Circular No. 14 (XL-35) of 1955, which asks officers not to take advantage of an assessee's ignorance and to help assessees obtain the reliefs due to them.",
+      revenue:
+        "The Act provides one way to change a return: a revised return under Section 139(5). A claim made by letter during the assessment, without a revised return, is not admissible. Following Goetze, such a claim cannot be entertained, and the appellate authorities could not allow what the Assessing Officer had no power to grant.",
+    },
+    summary:
+      "The Court began by noting two features of the case: the assessee was entitled to the deduction, and it had made the claim not only before the Assessing Officer but independently before the Commissioner (Appeals) and the Tribunal. Even assuming that the Assessing Officer cannot grant a deduction on the strength of a letter seeking to amend the return, the appellate authorities are entitled to consider such a claim and adjudicate on it. In Jute Corporation of India Ltd v. CIT the Supreme Court had held that the appellate power is co-terminous with that of the Assessing Officer and that an additional ground may be raised in appeal; the condition that the ground could not have been raised earlier must be read liberally, to include a ground that was available but was not taken for reasons the appellate authority considers valid. A Full Bench of the Bombay High Court in Ahmedabad Electricity Co. Ltd v. CIT had likewise held that the purpose of a tax appeal is to ascertain the correct tax liability in accordance with law, so that a deduction not claimed before the Assessing Officer may be considered on appeal. In National Thermal Power Co. Ltd v. CIT the Supreme Court held that the Tribunal may examine a question of law arising on the facts on record even though it was not raised below, observing that there is no reason why an assessee should be prevented from raising for the first time that a permissible deduction has been denied. Goetze did not depart from this line of authority: the Supreme Court there stated expressly that its decision was limited to the power of the assessing authority and did not impinge on the power of the Tribunal, and the Delhi High Court in CIT v. Jai Parabolic Springs Ltd had read it the same way. The Court drew a distinction between the existence of jurisdiction and its exercise. The appellate authorities have jurisdiction to entertain a fresh claim, and whether to permit it in a particular case is a matter of discretion. Here the finding that the omission was inadvertent was a finding of fact that could not be called perverse, and both authorities had themselves examined the claim and directed the Assessing Officer to allow it rather than remitting it to him. The deduction being admittedly allowable, the assessee ought not to be prejudiced. The Court found it unnecessary to decide the other submissions and dismissed the Revenue's appeal.",
+    principles: [
+      "An assessee may raise before the appellate authorities not only new legal submissions but also new claims that were not made in the return.",
+      "Goetze (India) Ltd confines only the Assessing Officer, who cannot entertain a new claim made otherwise than by a revised return; it does not limit the Commissioner (Appeals) or the Tribunal.",
+      "The appellate authorities have jurisdiction to entertain such a claim; whether to allow it to be raised in a given case is a matter of their discretion.",
+      "Where the omission was bona fide and the facts needed to decide the claim are on record, an allowable deduction should not be denied merely because it was not claimed in the return.",
+    ],
+    relevance:
+      "The scheme carries over to the IT Act 2025. A revised return is now filed under Section 263(5), and Goetze's limit on the Assessing Officer can be expected to apply in the same way, but the appellate powers on which this decision rests are reproduced in the new Act. The Joint Commissioner (Appeals) or Commissioner (Appeals) may allow a ground not taken in the form of appeal where its omission was not wilful or unreasonable (Section 359(3)(c)) and has wide powers in disposing of an appeal (Section 360), and the Tribunal may pass such orders as it thinks fit (Section 363(1)). A deduction left out of the return, and missed until the time for a revised return has passed, can therefore still be pursued in appeal, through Form No. 99 before the Joint Commissioner (Appeals) or Commissioner (Appeals). The deduction in this case, under Section 43B, is now Section 37.",
+    keywords: [
+      "fresh claim",
+      "additional claim in appeal",
+      "revised return",
+      "Goetze",
+      "appellate powers",
+      "43B",
+      "SEBI fees",
+      "inadvertent omission",
+      "Commissioner (Appeals)",
+      "Tribunal",
+    ],
+  },
 
   // ══════════════════════════════════════════════════════════════════════════
   // CHARITABLE TRUSTS & NPOs — further judgments
