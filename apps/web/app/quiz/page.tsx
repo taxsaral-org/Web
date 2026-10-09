@@ -35,6 +35,7 @@ export const metadata: Metadata = {
 const explainerChapters = QUIZ_CHAPTERS.filter((c) => c.source === "detailed-explainer");
 const icaiChapters      = QUIZ_CHAPTERS.filter((c) => c.source === "icai");
 const sectionChapters   = QUIZ_CHAPTERS.filter((c) => c.source === "section-identifier");
+const timeLimitChapters = QUIZ_CHAPTERS.filter((c) => c.source === "time-limits");
 
 const count = (chapters: typeof QUIZ_CHAPTERS) => chapters.reduce((s, c) => s + c.questions.length, 0);
 
@@ -46,6 +47,15 @@ const TRACKS = [
     meta: `${sectionChapters.length} quizzes · ${count(sectionChapters)} sections`,
     description:
       "See a section number, pick what it deals with, chapter by chapter through the whole Act. Built for getting to grips with the new numbering. Every answer shows the old 1961 section too.",
+    cta: "Start drilling",
+  },
+  {
+    href: "/quiz/time-limits",
+    title: "Time Limits",
+    level: "For CA Final",
+    meta: `${timeLimitChapters.length} quiz sets · ${count(timeLimitChapters)} questions`,
+    description:
+      "The key time limits for assessment, reassessment, appeals, revision and the Dispute Resolution Committee, taken from the text of the Act as amended by the Finance Act, 2026. The wrong options are other real time limits, so you learn to tell them apart.",
     cta: "Start drilling",
   },
   {

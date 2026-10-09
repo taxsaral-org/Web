@@ -1,4 +1,5 @@
 import { SECTION_QUIZ_CHAPTERS } from "./section-quiz";
+import { TIME_LIMIT_CHAPTERS } from "./time-limit-quiz";
 
 export type Difficulty = "Easy" | "Medium" | "Hard";
 
@@ -11,7 +12,7 @@ export interface QuizQuestion {
   section?: string;                  // e.g. "Section 38(1)(a)"
 }
 
-export type QuizSource = "detailed-explainer" | "icai" | "section-identifier";
+export type QuizSource = "detailed-explainer" | "icai" | "section-identifier" | "time-limits";
 
 export interface QuizChapter {
   slug: string;
@@ -1264,6 +1265,7 @@ const CURATED_CHAPTERS: QuizChapter[] = [
 export const QUIZ_CHAPTERS: QuizChapter[] = [
   ...CURATED_CHAPTERS,
   ...SECTION_QUIZ_CHAPTERS,
+  ...TIME_LIMIT_CHAPTERS,
 ];
 
 export const DIFFICULTY_ORDER: Difficulty[] = ["Easy", "Medium", "Hard"];

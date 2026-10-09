@@ -26,6 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/quiz/detailed-explainer`,           lastModified: NOW, changeFrequency: "weekly",  priority: 0.7 },
     { url: `${BASE}/quiz/icai`,                         lastModified: NOW, changeFrequency: "weekly",  priority: 0.7 },
     { url: `${BASE}/quiz/section-identifier`,           lastModified: NOW, changeFrequency: "weekly",  priority: 0.8 },
+    { url: `${BASE}/quiz/time-limits`,                  lastModified: NOW, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/ask`,                               lastModified: NOW, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/about`,                             lastModified: NOW, changeFrequency: "yearly",  priority: 0.4 },
     { url: `${BASE}/privacy`,                           lastModified: NOW, changeFrequency: "yearly",  priority: 0.2 },

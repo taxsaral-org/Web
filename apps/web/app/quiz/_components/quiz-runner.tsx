@@ -11,6 +11,7 @@ const OPTION_LABELS = ["A", "B", "C", "D"] as const;
 
 const TRACKS: Record<QuizSource, { href: string; label: string }> = {
   "section-identifier": { href: "/quiz/section-identifier", label: "Section Identifier" },
+  "time-limits":        { href: "/quiz/time-limits", label: "Time Limits" },
   "detailed-explainer": { href: "/quiz/detailed-explainer", label: "Detailed Explainer" },
   icai:                 { href: "/quiz/icai", label: "ICAI Study Material" },
 };
